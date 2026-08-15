@@ -11,8 +11,9 @@ and the associated bundle paper is Pathak, Gupta, and McAuley (2017),
 Kaggle's dataset API labels mirror version 1 as `Apache 2.0`, while the upstream UCSD page states
 citation requirements but no license. The mirror uploader's authority over every upstream
 component has not been established. Raw files, user-level artifacts, reviews, identifiers, and
-fitted user parameters therefore remain untracked. Code licensing and permission to redistribute
-the tracked derived tables should be confirmed separately before public release. Raw files were
+fitted user parameters therefore remain untracked. The MIT license covers original project code
+and documentation but does not grant rights to third-party data. Permission to redistribute the
+tracked derived tables should be confirmed separately before public release. Raw files were
 downloaded and unzipped into `data/raw`. All JSON files in this dataset are line-delimited
 Python-style dicts (single quotes), so they are parsed with `ast.literal_eval`, not `json.load`.
 

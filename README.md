@@ -3,6 +3,7 @@
 [![CI](https://github.com/pranavpillaiNUS/steam-recommendation-and-bundle-optimization/actions/workflows/ci.yml/badge.svg)](https://github.com/pranavpillaiNUS/steam-recommendation-and-bundle-optimization/actions/workflows/ci.yml)
 [![Python 3.10.11](https://img.shields.io/badge/Python-3.10.11-3776AB?logo=python&logoColor=white)](requirements-frozen.txt)
 [![Stage 1 complete](https://img.shields.io/badge/Stage%201-complete-2ea44f)](notes/stage1_model_card.md)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
 Leakage-controlled implicit-feedback recommendation followed by fixed-bundle optimization on a
 historical Steam dataset.
@@ -247,11 +248,14 @@ should also cite the UCSD source and the SIGIR 2017 paper above.
 
 ## License and data rights
 
-The repository does not yet have a software license. Kaggle's API labels mirror version 1 as
-`Apache 2.0`, but the upstream UCSD page does not state a license and the mirror uploader's authority
-over every upstream component has not been established. Permission for the tracked derived tables
-and figures should therefore be confirmed before public release. Any future software license will
-apply only to original project code and will not relicense third-party Steam data.
+Original project code and documentation are available under the [MIT License](LICENSE). This grant
+does not relicense the third-party Steam data or establish permission to redistribute data-derived
+artifacts.
+
+Kaggle's API labels mirror version 1 as `Apache 2.0`, but the upstream UCSD page does not state a
+license and the mirror uploader's authority over every upstream component has not been established.
+Permission for the tracked derived tables and figures should therefore be confirmed before public
+release.
 
 ## Contact
 

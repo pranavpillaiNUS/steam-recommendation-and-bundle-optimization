@@ -21,7 +21,8 @@ reason:
 - raw archives and records are not tracked;
 - user identifiers, profile URLs, review text, protected split coordinates, per-user metrics, and
   fitted user parameters are not public artifacts;
-- the repository's future software license will not grant rights to third-party source data; and
+- the repository's MIT license covers original project software and documentation but does not
+  grant rights to third-party source data; and
 - permission to redistribute each tracked derived table and figure should be confirmed with the data
   provider and project supervisor before the repository is made public.
 

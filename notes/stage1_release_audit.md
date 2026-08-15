@@ -6,7 +6,8 @@ Audit date: 2026-08-14
 
 This repository begins from the sanitized Stage 1 snapshot prepared on 2026-08-15. The privacy,
 author-identity, tracked-file, and clean-history items recorded below were resolved when the clean
-repository was created. Dataset redistribution permission and the software license remain open.
+repository was created. Dataset redistribution permission remains open; original project code and
+documentation are now licensed under MIT.
 
 The `repository_baseline_commit` values in the frozen configurations refer to the private archival
 research history. They are retained as internal provenance identifiers and are not publicly
@@ -27,13 +28,15 @@ evidence would reopen the cycle, so I have recorded those fixes for the next cyc
   files are deliberately tracked in the clean repository.
 - The public verifier checks the publishable evidence graph without requiring ignored raw or
   protected artifacts and without claiming computational reproduction.
+- Original project code and documentation are licensed under MIT without claiming rights over the
+  third-party Steam data.
 
 ## Remaining before public release
 
 - Kaggle API metadata labels mirror version 1 as `Apache 2.0`, but the upstream page states no
   license and the mirror uploader's authority over every component has not been established.
-  Confirm permission for tracked derived data and choose a software license with the project owner
-  and supervisor before public release.
+  Confirm permission for tracked derived data with the project owner and supervisor before public
+  release.
 - Confirm that the project and supervisor attribution may be public.
 
 ## Scientific wording amendments
@@ -104,9 +107,9 @@ hash-bound files.
 
 ## Release decision
 
-The Stage 1 result, privacy review, clean history, tracked publication, and clean-clone verification
-are ready to present. Public visibility still depends on data-redistribution confirmation,
-supervisor approval, and selection of a software license. The correct status is "Stage 1 complete;
+The Stage 1 result, privacy review, clean history, tracked publication, software license, and
+clean-clone verification are ready to present. Public visibility still depends on
+data-redistribution confirmation and supervisor approval. The correct status is "Stage 1 complete;
 Stage 2 planned." The full project, economic identification problem, and clean-clone retraining
 workflow are not complete.
 
@@ -114,7 +117,7 @@ workflow are not complete.
 
 - [ ] Confirm that the repository and supervisor attribution may be public, and resolve the
   redistribution terms for every tracked derived data artifact.
-- [ ] Select a software license that covers original code only; do not imply that it relicenses the
+- [x] License original project code and documentation under MIT without implying that it relicenses
   third-party Steam data.
 - [x] Publish from a sanitized history without the removed identifiers, review text, local paths,
   or unwanted author metadata.

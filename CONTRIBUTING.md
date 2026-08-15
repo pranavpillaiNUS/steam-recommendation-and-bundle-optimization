@@ -31,3 +31,7 @@ raw/protected artifact set and must not be used as a public-clone smoke test.
 Describe the research claim or engineering contract affected, the tests run, and whether any
 manifest or artifact hash changes. Never include private records in screenshots, logs, fixtures,
 or notebook outputs.
+
+Unless explicitly agreed otherwise, contributions to original project code and documentation are
+accepted under the repository's [MIT License](LICENSE). Do not contribute material whose license is
+incompatible or whose redistribution rights are unclear.
