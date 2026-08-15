@@ -143,7 +143,7 @@ def test_staged_publication_is_manifest_last_and_refuses_overwrite(tmp_path):
     second_coverage.write_bytes(b"different\n")
     second_manifest = second_staging / "manifest.json"
     second_manifest.write_bytes(b'{"different":true}\n')
-    with pytest.raises(FileExistsError):
+    with pytest.raises(OSError):
         _publish_staged(
             staged_output=second_output,
             output_dir=output,
