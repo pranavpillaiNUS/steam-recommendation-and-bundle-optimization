@@ -8,12 +8,13 @@ The primary source is the [UCSD Steam dataset page](https://cseweb.ucsd.edu/~jmc
 and the associated bundle paper is Pathak, Gupta, and McAuley (2017),
 ["Generating and Personalizing Bundle Recommendations on Steam"](https://doi.org/10.1145/3077136.3080724).
 
-The exact mirror does not state a clear redistribution license. Raw files, user-level artifacts,
-reviews, identifiers, and fitted user parameters therefore remain untracked. Code licensing and
-permission to redistribute the tracked derived tables must be confirmed separately before public
-release. Raw files were downloaded and unzipped into `data/raw`. All JSON files in this dataset are
-line-delimited Python-style dicts (single quotes), so they are parsed with `ast.literal_eval`, not
-`json.load`.
+Kaggle's dataset API labels mirror version 1 as `Apache 2.0`, while the upstream UCSD page states
+citation requirements but no license. The mirror uploader's authority over every upstream
+component has not been established. Raw files, user-level artifacts, reviews, identifiers, and
+fitted user parameters therefore remain untracked. Code licensing and permission to redistribute
+the tracked derived tables should be confirmed separately before public release. Raw files were
+downloaded and unzipped into `data/raw`. All JSON files in this dataset are line-delimited
+Python-style dicts (single quotes), so they are parsed with `ast.literal_eval`, not `json.load`.
 
 ## Raw files (data/raw)
 

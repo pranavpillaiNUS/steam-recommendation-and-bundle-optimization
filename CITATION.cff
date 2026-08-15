@@ -1,6 +1,6 @@
 cff-version: 1.2.0
 message: "If you use this research software, please cite the repository and the original Steam dataset paper."
-title: "Steam Bundle Recommendation and Optimization"
+title: "Steam Recommendation and Bundle Optimization"
 type: software
 authors:
   - family-names: Pillai

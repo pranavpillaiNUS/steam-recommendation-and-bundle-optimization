@@ -16,22 +16,25 @@ I ran this audit after freezing the `s1-v2-20260814` evidence package. None of t
 the reported ranking metrics or admission decision. Editing hash-recorded code, configurations, or
 evidence would reopen the cycle, so I have recorded those fixes for the next cycle.
 
-## Before public release
+## Publication-history items resolved
 
-- Notebook outputs contained one public Steam profile identifier, a username, review text, and
-  local machine paths. The current files have been sanitized. Public release should start from a
-  sanitized history (for example, a reviewed clean/squashed publication branch); rewriting the
-  existing history is destructive and requires explicit owner approval.
-- Existing commits use a machine-style author name and a personal email address. Set a professional
-  display name and a GitHub verified/noreply address for future commits; changing old author metadata
-  is a separate history rewrite and must be an explicit owner decision.
-- Dataset redistribution terms are not clearly specified by the mirror. Confirm permission for
-  tracked derived data and choose a software license with the project owner and supervisor before
-  public release.
-- The public Stage 1 files are currently untracked in the working tree and must be deliberately
-  reviewed and committed; a push of the prior `main` commit would omit the evidence.
-- The original public command required ignored protected artifacts. The new public verifier checks
-  the publishable evidence graph without claiming computational reproduction.
+- Notebook outputs in the private archival history contained one public Steam profile identifier,
+  a username, review text, and local machine paths. The clean publication history contains only the
+  sanitized files.
+- The private archival commits used a machine-style author name and a personal email address. The
+  clean publication history uses a professional display name and GitHub noreply address.
+- The complete v2 source, tests, configurations, aggregate evidence, CI, model card, and provenance
+  files are deliberately tracked in the clean repository.
+- The public verifier checks the publishable evidence graph without requiring ignored raw or
+  protected artifacts and without claiming computational reproduction.
+
+## Remaining before public release
+
+- Kaggle API metadata labels mirror version 1 as `Apache 2.0`, but the upstream page states no
+  license and the mirror uploader's authority over every component has not been established.
+  Confirm permission for tracked derived data and choose a software license with the project owner
+  and supervisor before public release.
+- Confirm that the project and supervisor attribution may be public.
 
 ## Scientific wording amendments
 
@@ -101,20 +104,22 @@ hash-bound files.
 
 ## Release decision
 
-The Stage 1 result is ready to present once the privacy, licensing, commit, and clean-clone checks
-are complete. The correct status is "Stage 1 complete; Stage 2 planned." The full project,
-economic identification problem, and clean-clone retraining workflow are not complete.
+The Stage 1 result, privacy review, clean history, tracked publication, and clean-clone verification
+are ready to present. Public visibility still depends on data-redistribution confirmation,
+supervisor approval, and selection of a software license. The correct status is "Stage 1 complete;
+Stage 2 planned." The full project, economic identification problem, and clean-clone retraining
+workflow are not complete.
 
 ## Release checklist
 
-1. Confirm with the project owner/supervisor that the repository and supervisor attribution may be
-   public, and resolve the redistribution terms for every tracked derived data artifact.
-2. Select a software license that covers original code only; do not imply that it relicenses the
-   third-party Steam data.
-3. Publish from a sanitized history so removed notebook identifiers, review text, local paths, and
-   unwanted author metadata are not exposed in earlier commits.
-4. Review and deliberately add the currently untracked v2 source, tests, configs, aggregate
-   evidence, CI, model card, and provenance files. Do not bulk-add ignored raw/protected data.
-5. Set a professional Git author identity, run the strict test suite and public verifier from the
-   exact publication candidate, and require the CI workflow to pass before changing visibility.
-6. Commit and tag the Stage 2 protocol before opening any further assessment or policy outcomes.
+- [ ] Confirm that the repository and supervisor attribution may be public, and resolve the
+  redistribution terms for every tracked derived data artifact.
+- [ ] Select a software license that covers original code only; do not imply that it relicenses the
+  third-party Steam data.
+- [x] Publish from a sanitized history without the removed identifiers, review text, local paths,
+  or unwanted author metadata.
+- [x] Deliberately track the v2 source, tests, configurations, aggregate evidence, CI, model card,
+  and provenance files without ignored raw or protected data.
+- [x] Use a professional Git identity and pass the strict tests and public verifier from the exact
+  publication candidate.
+- [ ] Commit and tag the Stage 2 protocol before opening any further assessment or policy outcomes.
