@@ -1,0 +1,332 @@
+{
+  "configs": {
+    "preference_models": {
+      "path": "configs/preference_models.json",
+      "semantic_sha256": "a16b15d052b2a075eab3776604010dd0df5b659c83f258e957ae7c27baebe8de"
+    },
+    "ranking_evaluation": {
+      "path": "configs/ranking_evaluation.json",
+      "semantic_sha256": "8265187091d61dc6e16dc06b95bc95fc60b47754ea5a33e9a66268e63928610b"
+    }
+  },
+  "cycle_id": "s1-v1-20260718",
+  "environment_at_freeze": {
+    "packages": {
+      "implicit": null,
+      "lightfm": null,
+      "numpy": "2.2.6",
+      "pandas": "2.3.3",
+      "scikit-learn": "1.7.2",
+      "scipy": "1.15.3"
+    },
+    "python": "3.10.11"
+  },
+  "first_permitted_next_action": "S1.1 sparse ID and interaction contract",
+  "frozen_at_utc": "2026-07-18T10:20:11Z",
+  "grid": {
+    "als_configurations": [
+      {
+        "alpha_o": 20.0,
+        "alpha_p": 2.0,
+        "confidence_scheme": "capped_log_playtime",
+        "configuration_id": "als__k032__reg0p05__ao20__capped_log_playtime",
+        "factors": 32,
+        "iterations": 12,
+        "regularization": 0.05,
+        "tau": 5.0
+      },
+      {
+        "alpha_o": 20.0,
+        "alpha_p": 2.0,
+        "confidence_scheme": "log_playtime",
+        "configuration_id": "als__k032__reg0p05__ao20__log_playtime",
+        "factors": 32,
+        "iterations": 12,
+        "regularization": 0.05,
+        "tau": 14.0
+      },
+      {
+        "alpha_o": 20.0,
+        "alpha_p": 0.0,
+        "confidence_scheme": "ownership_only",
+        "configuration_id": "als__k032__reg0p05__ao20__ownership_only",
+        "factors": 32,
+        "iterations": 12,
+        "regularization": 0.05,
+        "tau": 0.0
+      },
+      {
+        "alpha_o": 40.0,
+        "alpha_p": 2.0,
+        "confidence_scheme": "capped_log_playtime",
+        "configuration_id": "als__k032__reg0p05__ao40__capped_log_playtime",
+        "factors": 32,
+        "iterations": 12,
+        "regularization": 0.05,
+        "tau": 5.0
+      },
+      {
+        "alpha_o": 40.0,
+        "alpha_p": 2.0,
+        "confidence_scheme": "log_playtime",
+        "configuration_id": "als__k032__reg0p05__ao40__log_playtime",
+        "factors": 32,
+        "iterations": 12,
+        "regularization": 0.05,
+        "tau": 14.0
+      },
+      {
+        "alpha_o": 40.0,
+        "alpha_p": 0.0,
+        "confidence_scheme": "ownership_only",
+        "configuration_id": "als__k032__reg0p05__ao40__ownership_only",
+        "factors": 32,
+        "iterations": 12,
+        "regularization": 0.05,
+        "tau": 0.0
+      },
+      {
+        "alpha_o": 20.0,
+        "alpha_p": 2.0,
+        "confidence_scheme": "capped_log_playtime",
+        "configuration_id": "als__k032__reg0p2__ao20__capped_log_playtime",
+        "factors": 32,
+        "iterations": 12,
+        "regularization": 0.2,
+        "tau": 5.0
+      },
+      {
+        "alpha_o": 20.0,
+        "alpha_p": 2.0,
+        "confidence_scheme": "log_playtime",
+        "configuration_id": "als__k032__reg0p2__ao20__log_playtime",
+        "factors": 32,
+        "iterations": 12,
+        "regularization": 0.2,
+        "tau": 14.0
+      },
+      {
+        "alpha_o": 20.0,
+        "alpha_p": 0.0,
+        "confidence_scheme": "ownership_only",
+        "configuration_id": "als__k032__reg0p2__ao20__ownership_only",
+        "factors": 32,
+        "iterations": 12,
+        "regularization": 0.2,
+        "tau": 0.0
+      },
+      {
+        "alpha_o": 40.0,
+        "alpha_p": 2.0,
+        "confidence_scheme": "capped_log_playtime",
+        "configuration_id": "als__k032__reg0p2__ao40__capped_log_playtime",
+        "factors": 32,
+        "iterations": 12,
+        "regularization": 0.2,
+        "tau": 5.0
+      },
+      {
+        "alpha_o": 40.0,
+        "alpha_p": 2.0,
+        "confidence_scheme": "log_playtime",
+        "configuration_id": "als__k032__reg0p2__ao40__log_playtime",
+        "factors": 32,
+        "iterations": 12,
+        "regularization": 0.2,
+        "tau": 14.0
+      },
+      {
+        "alpha_o": 40.0,
+        "alpha_p": 0.0,
+        "confidence_scheme": "ownership_only",
+        "configuration_id": "als__k032__reg0p2__ao40__ownership_only",
+        "factors": 32,
+        "iterations": 12,
+        "regularization": 0.2,
+        "tau": 0.0
+      },
+      {
+        "alpha_o": 20.0,
+        "alpha_p": 2.0,
+        "confidence_scheme": "capped_log_playtime",
+        "configuration_id": "als__k064__reg0p05__ao20__capped_log_playtime",
+        "factors": 64,
+        "iterations": 12,
+        "regularization": 0.05,
+        "tau": 5.0
+      },
+      {
+        "alpha_o": 20.0,
+        "alpha_p": 2.0,
+        "confidence_scheme": "log_playtime",
+        "configuration_id": "als__k064__reg0p05__ao20__log_playtime",
+        "factors": 64,
+        "iterations": 12,
+        "regularization": 0.05,
+        "tau": 14.0
+      },
+      {
+        "alpha_o": 20.0,
+        "alpha_p": 0.0,
+        "confidence_scheme": "ownership_only",
+        "configuration_id": "als__k064__reg0p05__ao20__ownership_only",
+        "factors": 64,
+        "iterations": 12,
+        "regularization": 0.05,
+        "tau": 0.0
+      },
+      {
+        "alpha_o": 40.0,
+        "alpha_p": 2.0,
+        "confidence_scheme": "capped_log_playtime",
+        "configuration_id": "als__k064__reg0p05__ao40__capped_log_playtime",
+        "factors": 64,
+        "iterations": 12,
+        "regularization": 0.05,
+        "tau": 5.0
+      },
+      {
+        "alpha_o": 40.0,
+        "alpha_p": 2.0,
+        "confidence_scheme": "log_playtime",
+        "configuration_id": "als__k064__reg0p05__ao40__log_playtime",
+        "factors": 64,
+        "iterations": 12,
+        "regularization": 0.05,
+        "tau": 14.0
+      },
+      {
+        "alpha_o": 40.0,
+        "alpha_p": 0.0,
+        "confidence_scheme": "ownership_only",
+        "configuration_id": "als__k064__reg0p05__ao40__ownership_only",
+        "factors": 64,
+        "iterations": 12,
+        "regularization": 0.05,
+        "tau": 0.0
+      },
+      {
+        "alpha_o": 20.0,
+        "alpha_p": 2.0,
+        "confidence_scheme": "capped_log_playtime",
+        "configuration_id": "als__k064__reg0p2__ao20__capped_log_playtime",
+        "factors": 64,
+        "iterations": 12,
+        "regularization": 0.2,
+        "tau": 5.0
+      },
+      {
+        "alpha_o": 20.0,
+        "alpha_p": 2.0,
+        "confidence_scheme": "log_playtime",
+        "configuration_id": "als__k064__reg0p2__ao20__log_playtime",
+        "factors": 64,
+        "iterations": 12,
+        "regularization": 0.2,
+        "tau": 14.0
+      },
+      {
+        "alpha_o": 20.0,
+        "alpha_p": 0.0,
+        "confidence_scheme": "ownership_only",
+        "configuration_id": "als__k064__reg0p2__ao20__ownership_only",
+        "factors": 64,
+        "iterations": 12,
+        "regularization": 0.2,
+        "tau": 0.0
+      },
+      {
+        "alpha_o": 40.0,
+        "alpha_p": 2.0,
+        "confidence_scheme": "capped_log_playtime",
+        "configuration_id": "als__k064__reg0p2__ao40__capped_log_playtime",
+        "factors": 64,
+        "iterations": 12,
+        "regularization": 0.2,
+        "tau": 5.0
+      },
+      {
+        "alpha_o": 40.0,
+        "alpha_p": 2.0,
+        "confidence_scheme": "log_playtime",
+        "configuration_id": "als__k064__reg0p2__ao40__log_playtime",
+        "factors": 64,
+        "iterations": 12,
+        "regularization": 0.2,
+        "tau": 14.0
+      },
+      {
+        "alpha_o": 40.0,
+        "alpha_p": 0.0,
+        "confidence_scheme": "ownership_only",
+        "configuration_id": "als__k064__reg0p2__ao40__ownership_only",
+        "factors": 64,
+        "iterations": 12,
+        "regularization": 0.2,
+        "tau": 0.0
+      }
+    ],
+    "bpr_configurations": [
+      {
+        "configuration_id": "bpr__k032__reg0p0001__lr0p05",
+        "epochs": 12,
+        "factors": 32,
+        "learning_rate": 0.05,
+        "regularization": 0.0001,
+        "samples_per_epoch": 1000000
+      },
+      {
+        "configuration_id": "bpr__k032__reg0p001__lr0p05",
+        "epochs": 12,
+        "factors": 32,
+        "learning_rate": 0.05,
+        "regularization": 0.001,
+        "samples_per_epoch": 1000000
+      },
+      {
+        "configuration_id": "bpr__k064__reg0p0001__lr0p05",
+        "epochs": 12,
+        "factors": 64,
+        "learning_rate": 0.05,
+        "regularization": 0.0001,
+        "samples_per_epoch": 1000000
+      },
+      {
+        "configuration_id": "bpr__k064__reg0p001__lr0p05",
+        "epochs": 12,
+        "factors": 64,
+        "learning_rate": 0.05,
+        "regularization": 0.001,
+        "samples_per_epoch": 1000000
+      }
+    ],
+    "tags_enabled": false,
+    "training_seeds": [
+      104729,
+      130363,
+      155921
+    ]
+  },
+  "inputs": {
+    "features": {
+      "path": "outputs/tables/game_features.csv",
+      "sha256": "4ade15a293a6fa77b0b7230667d4e4c8c0ab98e571b78f64bb7a6d65cde5f7ba",
+      "size_bytes": 2049292
+    },
+    "interactions": {
+      "path": "outputs/tables/user_items_df.csv",
+      "sha256": "51872670970d9fde25d1bfdb3ce7601b640b12802768dc1a2d159b46b90a9c9e",
+      "size_bytes": 237972928
+    }
+  },
+  "protected_outcomes": {
+    "assessment_user_status": "sealed_until_production_fold_in_s1_10",
+    "bundle_outcomes_available": false,
+    "design_test_status": "sealed_until_validation_admission_manifest_is_hashed",
+    "stage2_objectives_available": false
+  },
+  "protocol_id": "00b18d784ee34196e34a90c354fb03f45fa025082039eb7a90cc662b23a22f6f",
+  "repository_baseline_commit": "74872ab1f5eb53c1f28eef4b8d70060d273dc6b9",
+  "schema_version": 1,
+  "timestamp_policy": "fixed_in_preregistered_configs"
+}

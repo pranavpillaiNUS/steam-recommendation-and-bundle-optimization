@@ -1,0 +1,18 @@
+cff-version: 1.2.0
+message: "If you use this research software, please cite the repository and the original Steam dataset paper."
+title: "Steam Bundle Recommendation and Optimization"
+type: software
+authors:
+  - family-names: Pillai
+    given-names: Pranav
+repository-code: "https://github.com/pranavpillaiNUS/steam-recommendation-and-bundle-optimization"
+version: "s1-v2-20260814"
+abstract: >-
+  Research software for implicit-feedback preference estimation and scenario-based fixed-bundle
+  optimization on a historical Steam snapshot. Stage 1 is complete and Stage 2 is planned.
+keywords:
+  - recommender systems
+  - implicit feedback
+  - matrix factorization
+  - bundling
+  - operations research

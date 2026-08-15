@@ -1,0 +1,209 @@
+{
+  "artifact": "canonical_stage1_sparse_interactions",
+  "artifacts": {
+    "item_ids": {
+      "path": "outputs/modeling/protected/s1-v2-20260814/stage1_interactions/canonical_item_ids.npy",
+      "sha256": "e193d4490c5876286933bfd3cdf844ace458bb08e568e4b5b55f97608863822b",
+      "size_bytes": 87952
+    },
+    "ownership": {
+      "path": "outputs/modeling/protected/s1-v2-20260814/stage1_interactions/canonical_ownership.npz",
+      "sha256": "fdd01027864d38fedb9f3d69c34d0639cf776e798cc2e4fa3b7e3b0cbb516e78",
+      "size_bytes": 7321676
+    },
+    "playtime_2weeks": {
+      "path": "outputs/modeling/protected/s1-v2-20260814/stage1_interactions/canonical_playtime_2weeks.npz",
+      "sha256": "5ce7745bcd67e0fc80add9b7056db9bcaeef6529d25c7f32572c3298ce93fe15",
+      "size_bytes": 7837832
+    },
+    "playtime_forever": {
+      "path": "outputs/modeling/protected/s1-v2-20260814/stage1_interactions/canonical_playtime_forever.npz",
+      "sha256": "fceda86b406f7d5a634d3414d6b1889aaa2a14879ea43e19a2632fead360497b",
+      "size_bytes": 15251031
+    },
+    "user_ids": {
+      "path": "outputs/modeling/protected/s1-v2-20260814/stage1_interactions/canonical_user_ids.npy",
+      "sha256": "62632e28b4379afa302177077aa8b9a6eafc81e32e987790c638a609658b48f0",
+      "size_bytes": 567424
+    }
+  },
+  "contract": {
+    "canonical_id_encoding": "utf8_decimal_without_padding",
+    "dense_user_item_materialization": false,
+    "duplicate_rule": "one ownership edge; maximum nonnegative playtime_forever and playtime_2weeks",
+    "hash_algorithm": "sha256",
+    "id_array_dtype": "int64",
+    "id_hash_record_encoding": "one_utf8_decimal_id_plus_lf_in_stored_order",
+    "interaction_only_item_policy": "fail",
+    "item_order": "ascending_numeric_item_id",
+    "matrix_dtype": "float32",
+    "matrix_format": "canonical_csr",
+    "metadata_only_item_policy": "retain_as_zero_support_column",
+    "missing_id_policy": "fail_at_raw_source_boundary",
+    "negative_or_nonfinite_playtime_policy": "fail",
+    "ownership_target": "binary_observed_edge",
+    "playtime_role": "observed_confidence_modifier_only",
+    "user_order": "ascending_numeric_steam_id",
+    "user_source": "steam_id"
+  },
+  "cycle_id": "s1-v2-20260814",
+  "diagnostics": {
+    "density": 0.0065436938243076245,
+    "item_support": {
+      "count": 10978,
+      "maximum": 49136,
+      "mean": 464.02641646930226,
+      "median": 43.0,
+      "minimum": 1,
+      "p25": 9.0,
+      "p75": 220.0,
+      "p90": 912.2000000000044,
+      "p95": 2071.1499999999996,
+      "p99": 8000.099999999969,
+      "sum": 5094082,
+      "zero_count": 0
+    },
+    "storage": {
+      "dense_equivalent_bytes": 9342318352,
+      "dense_equivalent_definition": "three float32 user-by-item matrices plus int64 ID maps",
+      "sparse_contract_bytes": 123764044,
+      "sparse_to_dense_ratio": 0.013247680001560281
+    },
+    "user_activity": {
+      "count": 70912,
+      "maximum": 7762,
+      "mean": 71.83667080324909,
+      "median": 40.0,
+      "minimum": 1,
+      "p25": 14.0,
+      "p75": 87.0,
+      "p90": 161.0,
+      "p95": 234.0,
+      "p99": 480.0,
+      "sum": 5094082,
+      "zero_count": 0
+    }
+  },
+  "id_maps": {
+    "items": {
+      "array_sha256": "663f35b594a6a989ea085a1a89760c415ffdc7d2004763700723e164837d5d49",
+      "count": 10978,
+      "encoding": "utf8_decimal_without_padding",
+      "order": "ascending_numeric_item_id",
+      "semantic_sha256": "b7dfcbec1d505243bfc843cf4133d6c65f374f731ab513252960e33ff64cb426"
+    },
+    "users": {
+      "array_sha256": "09de5df840e93034596e27574fbf16a30b5233fd6756465fb28ece524e15e723",
+      "count": 70912,
+      "encoding": "utf8_decimal_without_padding",
+      "order": "ascending_numeric_user_id",
+      "semantic_sha256": "0ef89ebb60754a8d51078b14b0fffee511301b7e3fe4f615423df6a793111cfd"
+    }
+  },
+  "inputs": {
+    "features": {
+      "path": "outputs/tables/game_features.csv",
+      "sha256": "4ade15a293a6fa77b0b7230667d4e4c8c0ab98e571b78f64bb7a6d65cde5f7ba",
+      "size_bytes": 2049292
+    },
+    "interactions": {
+      "path": "outputs/modeling/protected/s1-v2-20260814/source_interactions.csv",
+      "sha256": "aeaa6690786e8561c4d0a367bb7526f1203ce8eb9b16ac48636a59f4e22d75f5",
+      "size_bytes": 150711021
+    },
+    "protocol_manifest": {
+      "path": "outputs/modeling/cycles/s1-v2-20260814/stage1_protocol_manifest.json",
+      "sha256": "9927a529b679281bbd7dfb6e8ebcd5eb42b53f86e8c35165b50c228b65a1ea3d",
+      "size_bytes": 9684
+    },
+    "ranking_config": {
+      "path": "configs/cycles/s1-v2-20260814/ranking_evaluation.json",
+      "semantic_sha256": "0942c7a4112a80f81fd7a6375683004cbe6713fc631beb50716ca52cac313767",
+      "sha256": "ac3565bdc741b40847de6003176c2c8e6de9e96b0c289588de4812fd79aa6843",
+      "size_bytes": 5746
+    }
+  },
+  "interaction_set_id": "8e86e07e04c003d2fabff87432cc84ca26ee2da08e08c3e83888b094fca8e82a",
+  "item_reconciliation": {
+    "common_item_count": 10978,
+    "common_item_ids_sha256": "b7dfcbec1d505243bfc843cf4133d6c65f374f731ab513252960e33ff64cb426",
+    "feature_source_order_is_canonical": false,
+    "feature_source_rows": 10978,
+    "interaction_item_count": 10978,
+    "interaction_item_ids_sha256": "b7dfcbec1d505243bfc843cf4133d6c65f374f731ab513252960e33ff64cb426",
+    "interaction_only_item_count": 0,
+    "interaction_only_item_ids_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "metadata_item_count": 10978,
+    "metadata_item_ids_sha256": "b7dfcbec1d505243bfc843cf4133d6c65f374f731ab513252960e33ff64cb426",
+    "metadata_only_item_count": 0,
+    "metadata_only_item_ids_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "load_audit": {
+    "canonical_edge_count": 5094082,
+    "canonical_edge_sha256": "8aaa212a6f48e2bb73a9b40ff72c0666c6c9006fbbbe54b3fc67ab868c3ca0f8",
+    "chunks_read": 11,
+    "duplicate_excess_rows": 0,
+    "eligible_rows_before_duplicate_collapse": 5094082,
+    "excluded_by_primary_reason": {
+      "invalid_item_id": 0,
+      "invalid_user_id": 0,
+      "missing_item_id": 0,
+      "missing_user_id": 0
+    },
+    "excluded_rows": 0,
+    "raw_invalid_flags": {
+      "invalid_item_id": 0,
+      "invalid_user_id": 0,
+      "missing_item_id": 0,
+      "missing_user_id": 0
+    },
+    "source_rows": 5094082
+  },
+  "manifest_id": "2cd9a4f49ef9da8d09889c77eb07cc282705ab4058d950af6cf119a6958ced28",
+  "matrices": {
+    "ownership": {
+      "dtype": "float32",
+      "nnz": 5094082,
+      "semantic_sha256": "1162a0bb1363f93b3af2f9f07f3bf5da934beaccb6c48cdf7d7863c4bbdcb922",
+      "shape": [
+        70912,
+        10978
+      ]
+    },
+    "playtime_2weeks": {
+      "dtype": "float32",
+      "nnz": 5094082,
+      "semantic_sha256": "42a17093e83e0c01cfb5c4a99b02aad6aaebcb3561409cdf40536ab66eae8e39",
+      "shape": [
+        70912,
+        10978
+      ]
+    },
+    "playtime_forever": {
+      "dtype": "float32",
+      "nnz": 5094082,
+      "semantic_sha256": "6dbfdff5660e4fd53ef77accaee5981f9cb4d643bef654aeeb91c1a94848a168",
+      "shape": [
+        70912,
+        10978
+      ]
+    }
+  },
+  "protocol_id": "179e4861df905aaae8344104cb4fd598924f073ada3026b9ab22a8c739e7aafc",
+  "provenance": {
+    "command": "python -m src.stage1_interaction_artifacts",
+    "module_hash_policy": "utf8_text_with_lf_newlines",
+    "modules": {
+      "generator_text_sha256": "0e820c6f30f40d65685477cfe434a670d1ae48879ae8ba30b7b26da6427d08ac",
+      "interactions_text_sha256": "bea15a1a097b60f6acee0205699b54077488e922c62a197a6ab8aa60bb875ceb"
+    },
+    "packages": {
+      "numpy": "2.2.6",
+      "pandas": "2.3.3",
+      "scipy": "1.15.3"
+    },
+    "python": "3.10.11",
+    "repository_head_at_generation": "85503565d6d0fd8cc4c9a91d24c12deae515b52e"
+  },
+  "schema_version": 1
+}

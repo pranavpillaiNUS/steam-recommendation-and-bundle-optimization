@@ -1,0 +1,56 @@
+{
+  "schema_version": 1,
+  "cycle_id": "s1-v2-20260814",
+  "frozen_at_utc": "2026-08-14T00:00:00Z",
+  "interpretation": "Scenario outputs are nonnegative pseudo-utilities for robustness analysis, not identified willingness to pay, purchase probability, money, or interpersonally comparable welfare.",
+  "eligible_catalogue": "ordered_stage1_warm_production_item_map",
+  "global_parameter_sample": {
+    "users": "frozen_5000_design_evaluation_users",
+    "items": "complete_ordered_warm_catalogue",
+    "weighting": "one_equal_weight_per_user_item_score",
+    "score_dtype": "float64",
+    "quantile_method": "numpy_linear",
+    "parameters_fit_separately_by_model_and_training_seed": true
+  },
+  "nonfinite_input_policy": "fail",
+  "scenarios": [
+    {
+      "scenario_id": "global_shift_q90_scale",
+      "equation": "clip((s-global_min)/max(global_q95-global_q05,1e-6),0,1000000)",
+      "parameters": ["global_min", "global_q05", "global_q95"],
+      "range": [0.0, 1000000.0],
+      "order_property": "weakly_preserves_order_and_exact_ties",
+      "constant_score_fallback": "all_zero"
+    },
+    {
+      "scenario_id": "global_robust_softplus",
+      "equation": "log1p(exp(clip((s-global_median)/max(global_q75-global_q25,1e-6),-40,40)))",
+      "parameters": ["global_q25", "global_median", "global_q75"],
+      "range": [4.248354255291589e-18, 40.0],
+      "order_property": "weakly_preserves_order_and_exact_ties_due_to_clipping",
+      "constant_score_fallback": "softplus_of_clipped_score_minus_median_over_1e-6"
+    },
+    {
+      "scenario_id": "within_user_midrank_percentile",
+      "equation": "(count_strictly_lower+0.5*exact_tie_block_size)/catalogue_size",
+      "parameters": [],
+      "range": [0.0, 1.0],
+      "order_property": "strictly_preserves_distinct_score_order_and_preserves_exact_ties",
+      "constant_score_fallback": "all_0.5"
+    },
+    {
+      "scenario_id": "positive_part_user_standardization",
+      "equation": "clip(max(0,(s-user_mean)/max(user_population_sd,1e-6)),0,100)",
+      "parameters": ["user_mean", "user_population_sd"],
+      "range": [0.0, 100.0],
+      "order_property": "weakly_preserves_order_and_merges_scores_at_or_below_user_mean",
+      "constant_score_fallback": "all_zero"
+    }
+  ],
+  "materialization": {
+    "full_dense_user_catalogue_matrix_saved": false,
+    "bounded_score_and_pseudo_utility_blocks_only": true,
+    "downstream_pool_values_generated_on_demand_from_hash_bound_parameters": true
+  },
+  "stage2_objectives_or_bundle_outcomes_used_to_choose_equations": false
+}

@@ -1,0 +1,121 @@
+{
+  "schema_version": 1,
+  "cycle_id": "s1-v1-20260718",
+  "frozen_at_utc": "2026-07-18T10:20:11Z",
+  "repository_baseline_commit": "74872ab1f5eb53c1f28eef4b8d70060d273dc6b9",
+  "interpretation": "All fitted outputs are latent preference scores for held-out ownership reconstruction, not utilities, willingness to pay, purchase probabilities, or monetary quantities.",
+  "training_seeds": [104729, 130363, 155921],
+  "numerical_policy": {
+    "float_dtype": "float32",
+    "accumulator_dtype": "float64",
+    "blas_threads": 1,
+    "nonfinite_seed_policy": "invalidate_configuration",
+    "unlogged_retry_allowed": false,
+    "linear_solve_jitter": [0.0, 1e-08, 1e-06]
+  },
+  "resource_budget": {
+    "peak_memory_bytes": 8589934592,
+    "maximum_wall_seconds_per_fit": 2700,
+    "maximum_total_tuning_wall_seconds": 43200,
+    "maximum_saved_model_bytes_per_seed": 268435456
+  },
+  "model_ladder": [
+    "popularity",
+    "implicit_als",
+    "feature_sum_bpr_identity",
+    "feature_sum_bpr_identity_genre"
+  ],
+  "popularity": {
+    "configuration_id": "popularity_train_count",
+    "score": "design_training_ownership_count",
+    "parameters": 0
+  },
+  "implicit_als": {
+    "preferred_backend": "implicit",
+    "preferred_version": "0.7.2",
+    "fallback_backend": "tested_numpy_als",
+    "fallback_requires_logged_amendment": true,
+    "iterations": 12,
+    "early_stopping": "disabled_fixed_iterations",
+    "num_threads": 4,
+    "factors": [32, 64],
+    "regularization": [0.05, 0.2],
+    "alpha_o": [20.0, 40.0],
+    "confidence_schemes": [
+      {
+        "id": "ownership_only",
+        "alpha_p": 0.0,
+        "tau": 0.0
+      },
+      {
+        "id": "log_playtime",
+        "alpha_p": 2.0,
+        "tau": 14.0
+      },
+      {
+        "id": "capped_log_playtime",
+        "alpha_p": 2.0,
+        "tau": 5.0
+      }
+    ],
+    "confidence_equation": "1 + alpha_o * owned + alpha_p * min(log1p(playtime), tau)",
+    "selection_runs": "complete_cartesian_grid_for_all_training_seeds"
+  },
+  "pairwise_feature_sum": {
+    "preferred_backend": "lightfm",
+    "preferred_version": "1.17",
+    "fallback_backend": "tested_numpy_feature_sum_bpr",
+    "fallback_requires_logged_amendment": true,
+    "loss": "regularized_bpr_logistic",
+    "optimizer": "adagrad",
+    "factors": [32, 64],
+    "regularization": [0.0001, 0.001],
+    "learning_rate": [0.05],
+    "epochs": 12,
+    "early_stopping": "disabled_fixed_epochs",
+    "samples_per_epoch": 1000000,
+    "positive_sampling": "uniform_over_design_training_edges",
+    "negative_sampling": "uniform_over_warm_catalogue_reject_training_positives_only",
+    "negatives_per_positive": 1,
+    "item_bias": true,
+    "user_bias": false,
+    "num_threads": 1,
+    "controlled_ablation": {
+      "configuration_selected_on": "identity_only_validation",
+      "shared_between_identity_and_genre": [
+        "split",
+        "loss",
+        "factors",
+        "regularization",
+        "learning_rate",
+        "epochs",
+        "sample_weights",
+        "negative_stream",
+        "training_seeds",
+        "stopping_rule",
+        "tuning_budget"
+      ],
+      "only_toggle": "genre_feature_block"
+    }
+  },
+  "genre_features": {
+    "weighting": "l1_normalized_multi_hot",
+    "observed_label_weight": "1 / number_of_observed_genres",
+    "missing_token": null,
+    "missing_policy": "zero_content_row",
+    "identity_weight": 1.0,
+    "genre_block_weight": 1.0,
+    "combined_row_normalization": false,
+    "vocabulary_source": "pre_model_game_features_catalogue",
+    "tags_enabled": false
+  },
+  "fold_in": {
+    "als": "exact_ridge_solve_with_frozen_item_factors",
+    "pairwise": "user_only_convex_bpr_with_frozen_item_and_genre_parameters",
+    "pairwise_solver": "scipy_lbfgsb",
+    "pairwise_tolerance": 1e-08,
+    "pairwise_max_iterations": 250,
+    "initialization": "zero_vector",
+    "insufficient_history_policy": "zero_user_vector_and_report"
+  }
+}

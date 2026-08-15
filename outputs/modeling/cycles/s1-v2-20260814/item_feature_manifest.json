@@ -1,0 +1,222 @@
+{
+  "access_boundary": {
+    "assessment_ids_or_histories": "sealed_not_accessed",
+    "design_test_targets": "sealed_not_accessed",
+    "design_training_item_map": "permitted_and_consumed",
+    "pseudo_cold_items": "reserved_for_s1_8_not_accessed",
+    "pseudo_cold_only_genre_count": 0,
+    "pseudo_cold_only_genre_count_basis": "every_frozen_genre_occurs_on_warm_training_items",
+    "public_manifest_contains_identifiers": false,
+    "stage2_objectives_or_bundle_outcomes": "not_accessed",
+    "validation_targets": "not_accessed"
+  },
+  "artifact": "frozen_stage1_item_features",
+  "artifacts": {
+    "genre": {
+      "access": "stage1_modeling_input_permitted",
+      "path": "outputs/modeling/protected/s1-v2-20260814/stage1_features/item_features_genre.npz",
+      "sha256": "bcb697bca30852a62f4baa34e7211aa8920fa18dcc848f151b0a4947ee9e0634",
+      "size_bytes": 31399
+    },
+    "genre_feature_names": {
+      "access": "stage1_modeling_input_permitted",
+      "path": "outputs/modeling/protected/s1-v2-20260814/stage1_features/item_feature_names_genre.npy",
+      "sha256": "b9cfc35066338caeaf228903c21359e44ed285c668a36d999f5790a5164febfa",
+      "size_bytes": 2480
+    },
+    "identity": {
+      "access": "stage1_modeling_input_permitted",
+      "path": "outputs/modeling/protected/s1-v2-20260814/stage1_features/item_features_identity.npz",
+      "sha256": "73be947963b766b57d0fc7b634f32573b54a0424424ddc94b166413e57247f35",
+      "size_bytes": 31541
+    },
+    "identity_feature_names": {
+      "access": "stage1_modeling_input_permitted",
+      "path": "outputs/modeling/protected/s1-v2-20260814/stage1_features/item_feature_names_identity.npy",
+      "sha256": "8bcb75afe24e3e90e7681c37d8dc6ff2080f3e468a4dc28ac6ecf3233bd81071",
+      "size_bytes": 527072
+    },
+    "item_ids": {
+      "access": "stage1_modeling_input_permitted",
+      "path": "outputs/modeling/protected/s1-v2-20260814/stage1_features/item_ids.npy",
+      "sha256": "e193d4490c5876286933bfd3cdf844ace458bb08e568e4b5b55f97608863822b",
+      "size_bytes": 87952
+    },
+    "serialization_manifest": {
+      "access": "stage1_modeling_input_permitted",
+      "path": "outputs/modeling/protected/s1-v2-20260814/stage1_features/item_feature_manifest.json",
+      "sha256": "3143075e4fb06a9303db25a3079247f43252c634401c98ca10fc773f741be219",
+      "size_bytes": 3820
+    }
+  },
+  "blocks": {
+    "genre": {
+      "covered_items": 8658,
+      "dtype": "float32",
+      "feature_names_sha256": "097f82f8378d9d04625e75f4180dfec22c9abe3542170fb8fbf973b3cc579355",
+      "nnz": 21559,
+      "semantic_sha256": "17671d264adbb96a6a32cc79a0e5a3e8d7eceae15179de328f72eb71801f7ec2",
+      "shape": [
+        10978,
+        21
+      ],
+      "zero_content_items": 2320
+    },
+    "identity": {
+      "dtype": "float32",
+      "feature_names_sha256": "daa5f6ccb3afc68e736e5f5539376d47d9e5dd297dc967fd1db8d45f639328b4",
+      "nnz": 10978,
+      "semantic_sha256": "5d453a3aa0df8b4da118e59a4702b2161ea4574714e012741a971b89f194de2c",
+      "shape": [
+        10978,
+        10978
+      ]
+    }
+  },
+  "contract": {
+    "combined_row_normalization": false,
+    "controlled_ablation_only_toggle": "genre_feature_block",
+    "excluded_predictive_fields": [
+      "price",
+      "bundle_membership",
+      "ownership_popularity",
+      "playtime",
+      "publisher",
+      "developer",
+      "tags"
+    ],
+    "feature_columns_retained_under_warm_row_projection": true,
+    "genre_block_weight": 1.0,
+    "genre_weighting": "l1_normalized_multi_hot",
+    "identity_weight": 1.0,
+    "item_id_dtype": "int64",
+    "item_id_encoding": "utf8_decimal_without_padding",
+    "item_order": "ascending_numeric_item_id",
+    "missing_genre_policy": "zero_content_row",
+    "model_views": {
+      "identity_only": [
+        "identity"
+      ],
+      "identity_plus_genre": [
+        "identity",
+        "genre"
+      ]
+    },
+    "predictive_blocks": [
+      "identity",
+      "genre"
+    ],
+    "publisher_developer_role": "candidate_pool_feasibility_only",
+    "tags_enabled": false,
+    "token_normalization": "html_unescape_then_unicode_nfkc_then_whitespace_collapse"
+  },
+  "coverage_semantics": {
+    "columns": [
+      "row_kind",
+      "feature_block",
+      "feature_name",
+      "full_catalogue_item_count",
+      "warm_training_item_count",
+      "nonwarm_catalogue_item_count",
+      "learnable_from_warm"
+    ],
+    "row_count": 24,
+    "semantic_sha256": "8fb8da98030270f257eb648106deb443e7430b13d3178cc10f2acd7a80a6eb73"
+  },
+  "coverage_table": {
+    "columns": [
+      "row_kind",
+      "feature_block",
+      "feature_name",
+      "full_catalogue_item_count",
+      "warm_training_item_count",
+      "nonwarm_catalogue_item_count",
+      "learnable_from_warm"
+    ],
+    "path": "outputs/modeling/cycles/s1-v2-20260814/stage1_feature_coverage.csv",
+    "row_count": 24,
+    "semantic_sha256": "8fb8da98030270f257eb648106deb443e7430b13d3178cc10f2acd7a80a6eb73",
+    "sha256": "48c81b82e76bffcda2f78fcd8c844bbd9f5f01a88dbac2574f10c24649b7e8c3",
+    "size_bytes": 1346
+  },
+  "cycle_id": "s1-v2-20260814",
+  "feature_set_id": "b05bd1856a65e8e4cb10805adf2e4aa01db7fe8d6a376b36c677af6c236b4244",
+  "inputs": {
+    "game_features": {
+      "path": "outputs/tables/game_features.csv",
+      "sha256": "4ade15a293a6fa77b0b7230667d4e4c8c0ab98e571b78f64bb7a6d65cde5f7ba",
+      "size_bytes": 2049292
+    },
+    "interaction_manifest": {
+      "path": "outputs/modeling/cycles/s1-v2-20260814/stage1_interaction_manifest.json",
+      "sha256": "d7b0b4f14facab61187e86e6e061a437df6e4e507b01c00436fb59f4dcfcb7ed",
+      "size_bytes": 7757
+    },
+    "preference_models_config": {
+      "path": "configs/cycles/s1-v2-20260814/preference_models.json",
+      "sha256": "ea9f302fadcb0bcca2c78dc0c9f9d7e7dcebe8e88d5b88eea6c1911cb31df22b",
+      "size_bytes": 4885
+    },
+    "protocol_manifest": {
+      "path": "outputs/modeling/cycles/s1-v2-20260814/stage1_protocol_manifest.json",
+      "sha256": "9927a529b679281bbd7dfb6e8ebcd5eb42b53f86e8c35165b50c228b65a1ea3d",
+      "size_bytes": 9684
+    },
+    "ranking_config": {
+      "path": "configs/cycles/s1-v2-20260814/ranking_evaluation.json",
+      "sha256": "ac3565bdc741b40847de6003176c2c8e6de9e96b0c289588de4812fd79aa6843",
+      "size_bytes": 5746
+    },
+    "split_manifest": {
+      "path": "outputs/modeling/cycles/s1-v2-20260814/stage1_split_manifest.json",
+      "sha256": "8fb603b7258fee7adaa6e3fdc1ebf333a3ed4490f513d235df0a1f7dbc6b4afb",
+      "size_bytes": 32253
+    }
+  },
+  "interaction_set_id": "8e86e07e04c003d2fabff87432cc84ca26ee2da08e08c3e83888b094fca8e82a",
+  "item_map": {
+    "array_sha256": "663f35b594a6a989ea085a1a89760c415ffdc7d2004763700723e164837d5d49",
+    "count": 10978,
+    "semantic_sha256": "b7dfcbec1d505243bfc843cf4133d6c65f374f731ab513252960e33ff64cb426"
+  },
+  "manifest_id": "10e7e25e957eb4f3f512beb6a809a8d8b3cd2d95c1bc028dc90598c848dffb1e",
+  "protocol_id": "179e4861df905aaae8344104cb4fd598924f073ada3026b9ab22a8c739e7aafc",
+  "provenance": {
+    "command": "python -m src.stage1_feature_artifacts",
+    "module_hash_policy": "utf8_text_with_lf_newlines",
+    "modules": {
+      "features_text_sha256": "5f15926df4b6ea82e05d942af79a7d454917db110274b2fe950f954a3880da9d",
+      "generator_text_sha256": "922040ef4890469b9abcb0ea60e49a220eefb6bef852d77be13eacc280ca134c"
+    },
+    "packages": {
+      "numpy": "2.2.6",
+      "pandas": "2.3.3",
+      "scipy": "1.15.3"
+    },
+    "publication_policy": "cycle_scoped_staged_publish_manifest_last_refuse_nonidentical_overwrite",
+    "python": "3.10.11"
+  },
+  "schema_version": 1,
+  "split_set_id": "6e326b169b3f7499cca66a52c168d2bb5ab978331c4d925fdd22e87fc4aa047f",
+  "summary": {
+    "full_catalogue_items": 10978,
+    "full_genre_covered_items": 8658,
+    "full_zero_content_items": 2320,
+    "genre_features": 21,
+    "genre_features_absent_from_warm": 0,
+    "genre_nonzeros": 21559,
+    "identity_features": 10978,
+    "minimum_warm_items_per_genre": 9,
+    "warm_genre_covered_items": 7226,
+    "warm_training_items": 8902,
+    "warm_zero_content_items": 1676
+  },
+  "warm_projection": {
+    "array_sha256": "a450b1d627aa94e75ea6db3e76b86efb3c0489b12b3257a25f624a58651ccbec",
+    "full_feature_columns_retained": true,
+    "genre_features_absent_from_warm": 0,
+    "item_count": 8902,
+    "row_order": "ascending_numeric_item_id",
+    "semantic_sha256": "2d48a034a85ced1dfd5663c82597d22749bc1496be8f255bcf9f702f253ec3c2"
+  }
+}

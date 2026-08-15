@@ -1,0 +1,616 @@
+bundle_id,bundle_name,n_items,n_items_in_catalogue,catalogue_coverage,standalone_price_coverage,n_distinct_publishers,publisher_coherent,developer_coherent,n_missing_item_id,mechanism_class,ownership_adjusted,indivisible,confidence,evidence
+450,Dharker Studio 2015 Complete,14,10,0.714,1.0,3,False,False,0,B_SBA_like,not_observable,not_observable,medium,10/14 components individually listed in catalogue; all show a standalone price
+1473,"Naruto Shippuden Uncut Season 4, Vol. 3",13,0,0.0,1.0,0,False,False,0,E_unclear,not_observable,not_observable,low,no components found in catalogue snapshot (likely catalogue incompleteness); standalone prices still shown
+1474,"Naruto Shippuden Uncut Season 4, Vol. 4",13,0,0.0,1.0,0,False,False,0,E_unclear,not_observable,not_observable,low,no components found in catalogue snapshot (likely catalogue incompleteness); standalone prices still shown
+1437,Pixel Puzzles Ultimate: Starter Kit,10,10,1.0,1.0,1,True,True,0,B_SBA_like,not_observable,not_observable,high,10/10 components individually listed in catalogue; all show a standalone price
+1466,"Naruto Shippuden Uncut Season 4, Vol. 1",13,0,0.0,1.0,0,False,False,0,E_unclear,not_observable,not_observable,low,no components found in catalogue snapshot (likely catalogue incompleteness); standalone prices still shown
+1478,Cosmi Fun Pack,9,9,1.0,1.0,1,True,False,0,B_SBA_like,not_observable,not_observable,high,9/9 components individually listed in catalogue; all show a standalone price
+1482,Two Tribes Complete Pack!,4,4,1.0,1.0,2,False,True,0,B_SBA_like,not_observable,not_observable,high,4/4 components individually listed in catalogue; all show a standalone price
+1396,"Expendables 1, 2, & 3",3,3,1.0,1.0,0,False,False,0,B_SBA_like,not_observable,not_observable,high,3/3 components individually listed in catalogue; all show a standalone price
+1400,El Ninja - Deluxe Edition,2,0,0.0,1.0,0,False,False,0,E_unclear,not_observable,not_observable,low,no components found in catalogue snapshot (likely catalogue incompleteness); standalone prices still shown
+1471,18 Wheels of Steel Top Payload Pack 2,3,3,1.0,1.0,1,True,False,0,B_SBA_like,not_observable,not_observable,high,3/3 components individually listed in catalogue; all show a standalone price
+1472,"Naruto Shippuden Uncut Season 4, Vol. 2",13,0,0.0,1.0,0,False,False,0,E_unclear,not_observable,not_observable,low,no components found in catalogue snapshot (likely catalogue incompleteness); standalone prices still shown
+1477,Halcyon 6: Starbase Commander + Soundtrack,2,2,1.0,1.0,1,True,True,0,B_SBA_like,not_observable,not_observable,high,2/2 components individually listed in catalogue; all show a standalone price
+1284,Black Sand Drift Collector's Edition,2,2,1.0,1.0,1,True,True,0,B_SBA_like,not_observable,not_observable,high,2/2 components individually listed in catalogue; all show a standalone price
+1468,The Codemasters Complete Collection,56,52,0.929,1.0,4,False,False,0,B_SBA_like,not_observable,not_observable,high,52/56 components individually listed in catalogue; all show a standalone price
+1225,Starters + Founders Package,2,2,1.0,1.0,1,True,True,0,B_SBA_like,not_observable,not_observable,high,2/2 components individually listed in catalogue; all show a standalone price
+1455,ULTAKAAR CHRONICLES,5,5,1.0,1.0,1,True,True,0,B_SBA_like,not_observable,not_observable,high,5/5 components individually listed in catalogue; all show a standalone price
+1419,"Naruto Shippuden Uncut Season 3, Vol. 1",14,0,0.0,1.0,0,False,False,0,E_unclear,not_observable,not_observable,low,no components found in catalogue snapshot (likely catalogue incompleteness); standalone prices still shown
+1421,"Naruto Shippuden Uncut Season 3, Vol. 3",13,0,0.0,1.0,0,False,False,0,E_unclear,not_observable,not_observable,low,no components found in catalogue snapshot (likely catalogue incompleteness); standalone prices still shown
+1433,"Naruto Shippuden Uncut Season 3, Vol. 4",13,0,0.0,1.0,0,False,False,0,E_unclear,not_observable,not_observable,low,no components found in catalogue snapshot (likely catalogue incompleteness); standalone prices still shown
+1420,"Naruto Shippuden Uncut Season 3, Vol. 2",14,0,0.0,1.0,0,False,False,0,E_unclear,not_observable,not_observable,low,no components found in catalogue snapshot (likely catalogue incompleteness); standalone prices still shown
+1011,Publisher Diamond Edition Pack,12,11,0.917,1.0,1,True,False,0,B_SBA_like,not_observable,not_observable,high,11/12 components individually listed in catalogue; all show a standalone price
+419,Dinosaur Hunt Gold Edition Pack,11,10,0.909,1.0,1,True,False,0,B_SBA_like,not_observable,not_observable,high,10/11 components individually listed in catalogue; all show a standalone price
+1460,The Meridian Bundle,4,4,1.0,1.0,2,False,True,0,B_SBA_like,not_observable,not_observable,high,4/4 components individually listed in catalogue; all show a standalone price
+317,Endorlight - Deluxe Edition,2,2,1.0,1.0,1,True,True,0,B_SBA_like,not_observable,not_observable,high,2/2 components individually listed in catalogue; all show a standalone price
+1379,Revolution 60: Special Edition Bundle,2,2,1.0,1.0,1,True,True,0,B_SBA_like,not_observable,not_observable,high,2/2 components individually listed in catalogue; all show a standalone price
+1385,Happy Neighbours Set,2,2,1.0,1.0,2,False,False,0,B_SBA_like,not_observable,not_observable,high,2/2 components individually listed in catalogue; all show a standalone price
+1137,New Retro Arcade: Neon and Original Soundtrack,2,2,1.0,1.0,1,True,True,0,B_SBA_like,not_observable,not_observable,high,2/2 components individually listed in catalogue; all show a standalone price
+279,Microblast Games Bundle,6,6,1.0,1.0,1,True,True,0,B_SBA_like,not_observable,not_observable,high,6/6 components individually listed in catalogue; all show a standalone price
+1440,OtakuMaker Studio Pack - Latest Bundle #3,4,4,1.0,1.0,3,False,False,0,B_SBA_like,not_observable,not_observable,high,4/4 components individually listed in catalogue; all show a standalone price
+1441,OtakuMaker Studio Pack - Part #4,6,6,1.0,1.0,4,False,False,0,B_SBA_like,not_observable,not_observable,high,6/6 components individually listed in catalogue; all show a standalone price
+658,Infernal Dream Collection,5,0,0.0,1.0,0,False,False,0,E_unclear,not_observable,not_observable,low,no components found in catalogue snapshot (likely catalogue incompleteness); standalone prices still shown
+355,MX vs. ATV Collection,36,36,1.0,1.0,1,True,False,0,B_SBA_like,not_observable,not_observable,high,36/36 components individually listed in catalogue; all show a standalone price
+1401,Shadow Warrior 2 Deluxe,4,3,0.75,1.0,1,True,True,0,B_SBA_like,not_observable,not_observable,medium,3/4 components individually listed in catalogue; all show a standalone price
+1418,PopCap Power Pack,23,23,1.0,1.0,1,True,True,0,B_SBA_like,not_observable,not_observable,high,23/23 components individually listed in catalogue; all show a standalone price
+1282,Vanguard Princess Bundle,4,2,0.5,1.0,1,True,True,0,B_SBA_like,not_observable,not_observable,medium,2/4 components individually listed in catalogue; all show a standalone price
+1399,Dead Rising Triple Pack,3,3,1.0,1.0,1,True,False,0,B_SBA_like,not_observable,not_observable,high,3/3 components individually listed in catalogue; all show a standalone price
+1392,The Metronomicon Deluxe Edition,2,2,1.0,1.0,1,True,True,0,B_SBA_like,not_observable,not_observable,high,2/2 components individually listed in catalogue; all show a standalone price
+1404,SUPERFIGHT - The Super Bundle,9,9,1.0,1.0,1,True,True,0,B_SBA_like,not_observable,not_observable,high,9/9 components individually listed in catalogue; all show a standalone price
+1406,SUPERFIGHT - The DLC Bundle,8,8,1.0,1.0,1,True,True,0,B_SBA_like,not_observable,not_observable,high,8/8 components individually listed in catalogue; all show a standalone price
+1407,Zonitron Productions Complete Pack,15,0,0.0,1.0,0,False,False,0,E_unclear,not_observable,not_observable,low,no components found in catalogue snapshot (likely catalogue incompleteness); standalone prices still shown
+1403,Steam Link + John Wick,2,1,0.5,1.0,0,False,False,0,B_SBA_like,not_observable,not_observable,medium,1/2 components individually listed in catalogue; all show a standalone price
+1293,Triangle Service Shmups Collection,12,12,1.0,1.0,1,True,True,0,B_SBA_like,not_observable,not_observable,high,12/12 components individually listed in catalogue; all show a standalone price
+1248,Shooting Love 20XX,8,8,1.0,1.0,1,True,True,0,B_SBA_like,not_observable,not_observable,high,8/8 components individually listed in catalogue; all show a standalone price
+1409,Crimson Duck Complete Pack,2,0,0.0,1.0,0,False,False,0,E_unclear,not_observable,not_observable,low,no components found in catalogue snapshot (likely catalogue incompleteness); standalone prices still shown
+1410,Silicon Echo Complete Pack,3,0,0.0,1.0,0,False,False,0,E_unclear,not_observable,not_observable,low,no components found in catalogue snapshot (likely catalogue incompleteness); standalone prices still shown
+1382,RunGunJumpGun: Special Atomik Edition,2,2,1.0,1.0,1,True,True,0,B_SBA_like,not_observable,not_observable,high,2/2 components individually listed in catalogue; all show a standalone price
+1386,Shiny: Digital Deluxe Edition,3,3,1.0,1.0,1,True,True,0,B_SBA_like,not_observable,not_observable,high,3/3 components individually listed in catalogue; all show a standalone price
+1356,Buka Post Apocalyptic Collection,5,5,1.0,1.0,1,True,False,0,B_SBA_like,not_observable,not_observable,high,5/5 components individually listed in catalogue; all show a standalone price
+1332,"3 Outlandish games in 1 bundle: Green Moon, City of Fools and Bathory",3,3,1.0,1.0,1,True,True,0,B_SBA_like,not_observable,not_observable,high,3/3 components individually listed in catalogue; all show a standalone price
+667,Farnham Fables - Tape 1,2,2,1.0,1.0,1,True,True,0,B_SBA_like,not_observable,not_observable,high,2/2 components individually listed in catalogue; all show a standalone price
+1390,Angels Blue Games,2,2,1.0,1.0,1,True,False,0,B_SBA_like,not_observable,not_observable,high,2/2 components individually listed in catalogue; all show a standalone price
+1349,NeuroVoider - Deluxe Edition,2,2,1.0,1.0,1,True,True,0,B_SBA_like,not_observable,not_observable,high,2/2 components individually listed in catalogue; all show a standalone price
+1373,Hue Game and Soundtrack Bundle,2,2,1.0,1.0,1,True,True,0,B_SBA_like,not_observable,not_observable,high,2/2 components individually listed in catalogue; all show a standalone price
+1295,Bloxiq + Soundtrack,2,2,1.0,1.0,1,True,True,0,B_SBA_like,not_observable,not_observable,high,2/2 components individually listed in catalogue; all show a standalone price
+1387,Back To Basics Epilepsy Bundle,2,2,1.0,1.0,1,True,False,0,B_SBA_like,not_observable,not_observable,high,2/2 components individually listed in catalogue; all show a standalone price
+1222,Zombie Bundle,2,2,1.0,1.0,1,True,True,0,B_SBA_like,not_observable,not_observable,high,2/2 components individually listed in catalogue; all show a standalone price
+803,Platformer Bundle,9,8,0.889,1.0,8,False,False,0,B_SBA_like,not_observable,not_observable,high,8/9 components individually listed in catalogue; all show a standalone price
+498,Back In Time Bundle,3,3,1.0,1.0,1,True,False,0,B_SBA_like,not_observable,not_observable,high,3/3 components individually listed in catalogue; all show a standalone price
+396,The Indie Platformers Bundle,3,2,0.667,1.0,2,False,False,0,B_SBA_like,not_observable,not_observable,medium,2/3 components individually listed in catalogue; all show a standalone price
+1372,Black Hole Hazard Deluxe,2,2,1.0,1.0,1,True,True,0,B_SBA_like,not_observable,not_observable,high,2/2 components individually listed in catalogue; all show a standalone price
+972,Crush Your Enemies - Complete Plundered Edition,2,2,1.0,1.0,1,True,True,0,B_SBA_like,not_observable,not_observable,high,2/2 components individually listed in catalogue; all show a standalone price
+1378,The orb Chambers Bundle,2,2,1.0,1.0,1,True,True,0,B_SBA_like,not_observable,not_observable,high,2/2 components individually listed in catalogue; all show a standalone price
+1367,"Naruto Shippuden Uncut Season 2, Vol 1",12,0,0.0,1.0,0,False,False,0,E_unclear,not_observable,not_observable,low,no components found in catalogue snapshot (likely catalogue incompleteness); standalone prices still shown
+1369,"Naruto Shippuden Uncut Season 2, Vol 3",11,0,0.0,1.0,0,False,False,0,E_unclear,not_observable,not_observable,low,no components found in catalogue snapshot (likely catalogue incompleteness); standalone prices still shown
+1371,"Naruto Shippuden Uncut Season 2, Vol 5",12,0,0.0,1.0,0,False,False,0,E_unclear,not_observable,not_observable,low,no components found in catalogue snapshot (likely catalogue incompleteness); standalone prices still shown
+1376,Daylight's End VR - Full Movie,10,10,1.0,1.0,0,False,True,0,B_SBA_like,not_observable,not_observable,high,10/10 components individually listed in catalogue; all show a standalone price
+1337,"Naruto Shippuden Uncut Season 1, Vol. 3",13,0,0.0,1.0,0,False,False,0,E_unclear,not_observable,not_observable,low,no components found in catalogue snapshot (likely catalogue incompleteness); standalone prices still shown
+1343,"Naruto Shippuden Uncut Season 1, Vol.4",14,0,0.0,1.0,0,False,False,0,E_unclear,not_observable,not_observable,low,no components found in catalogue snapshot (likely catalogue incompleteness); standalone prices still shown
+1368,"Naruto Shippuden Uncut Season 2, Vol 2",12,0,0.0,1.0,0,False,False,0,E_unclear,not_observable,not_observable,low,no components found in catalogue snapshot (likely catalogue incompleteness); standalone prices still shown
+1370,"Naruto Shippuden Uncut Season 2, Vol 4",12,0,0.0,1.0,0,False,False,0,E_unclear,not_observable,not_observable,low,no components found in catalogue snapshot (likely catalogue incompleteness); standalone prices still shown
+1264,"Naruto Shippuden Uncut Season 1, Vol. 1",13,0,0.0,1.0,0,False,False,0,E_unclear,not_observable,not_observable,low,no components found in catalogue snapshot (likely catalogue incompleteness); standalone prices still shown
+1324,"Naruto Shippuden Uncut Season 1, Vol. 2",13,0,0.0,1.0,0,False,False,0,E_unclear,not_observable,not_observable,low,no components found in catalogue snapshot (likely catalogue incompleteness); standalone prices still shown
+1268,18 Wheels of Steel Top Payload Pack,3,3,1.0,1.0,1,True,False,0,B_SBA_like,not_observable,not_observable,high,3/3 components individually listed in catalogue; all show a standalone price
+1328,SHINRAI - Soundtrack Bundle,2,2,1.0,1.0,1,True,True,0,B_SBA_like,not_observable,not_observable,high,2/2 components individually listed in catalogue; all show a standalone price
+825,Back To Basics Mixer Bundle 2,5,5,1.0,1.0,1,True,False,0,B_SBA_like,not_observable,not_observable,high,5/5 components individually listed in catalogue; all show a standalone price
+473,Pug Life Bundle,3,3,1.0,1.0,1,True,False,0,B_SBA_like,not_observable,not_observable,high,3/3 components individually listed in catalogue; all show a standalone price
+1297,Optika + Optika Soundtrack,2,2,1.0,1.0,1,True,False,0,B_SBA_like,not_observable,not_observable,high,2/2 components individually listed in catalogue; all show a standalone price
+604,Risen Franchise Pack,9,6,0.667,1.0,1,True,True,0,B_SBA_like,not_observable,not_observable,medium,6/9 components individually listed in catalogue; all show a standalone price
+1333,Mugen Souls Z DLC Collection,12,0,0.0,1.0,0,False,False,0,E_unclear,not_observable,not_observable,low,no components found in catalogue snapshot (likely catalogue incompleteness); standalone prices still shown
+1336,Hyperdimension Neptunia Re;Birth1 Deluxe Edition Bundle / 特別限定版『デラックスエディション』,2,2,1.0,1.0,2,False,False,0,B_SBA_like,not_observable,not_observable,high,2/2 components individually listed in catalogue; all show a standalone price
+1340,Hyperdimension Neptunia Re;Birth1 Digital Complete Set / デジタルコンプリートエディション,8,8,1.0,1.0,2,False,False,0,B_SBA_like,not_observable,not_observable,high,8/8 components individually listed in catalogue; all show a standalone price
+1153,Pan-Pan: Planetary Pack,4,4,1.0,1.0,1,True,False,0,B_SBA_like,not_observable,not_observable,high,4/4 components individually listed in catalogue; all show a standalone price
+1355,Automobilista + Season Pass for All DLCs,2,2,1.0,1.0,1,True,True,0,B_SBA_like,not_observable,not_observable,high,2/2 components individually listed in catalogue; all show a standalone price
+1161,Flump Studios Complete Pack,5,5,1.0,1.0,1,True,False,0,B_SBA_like,not_observable,not_observable,high,5/5 components individually listed in catalogue; all show a standalone price
+567,Back To Basics Mixer Bundle,8,8,1.0,1.0,1,True,False,0,B_SBA_like,not_observable,not_observable,high,8/8 components individually listed in catalogue; all show a standalone price
+1361,Just Deserts Complete Costume Bundle,4,4,1.0,1.0,1,True,True,0,B_SBA_like,not_observable,not_observable,high,4/4 components individually listed in catalogue; all show a standalone price
+903,Valley + Soundtrack,2,2,1.0,1.0,1,True,True,0,B_SBA_like,not_observable,not_observable,high,2/2 components individually listed in catalogue; all show a standalone price
+1271,Malus Code Soundtrack Edition,2,2,1.0,1.0,1,True,True,0,B_SBA_like,not_observable,not_observable,high,2/2 components individually listed in catalogue; all show a standalone price
+1330,The Final Station Collector's Edition,2,2,1.0,1.0,1,True,False,0,B_SBA_like,not_observable,not_observable,high,2/2 components individually listed in catalogue; all show a standalone price
+1350,Deus Ex: Mankind Divided - Digital Deluxe Edition,2,2,1.0,1.0,1,True,True,0,B_SBA_like,not_observable,not_observable,high,2/2 components individually listed in catalogue; all show a standalone price
+1351,Deus Ex: Mankind Divided + Steam Controller Bundle,2,2,1.0,1.0,1,True,True,0,B_SBA_like,not_observable,not_observable,high,2/2 components individually listed in catalogue; all show a standalone price
+1352,Deus Ex: Mankind Divided Digital Deluxe + Steam Controller Bundle,3,3,1.0,1.0,1,True,True,0,B_SBA_like,not_observable,not_observable,high,3/3 components individually listed in catalogue; all show a standalone price
+1209,Road To Ballhalla - Roll Playing Game of the Year Edition,2,1,0.5,1.0,1,True,True,0,B_SBA_like,not_observable,not_observable,medium,1/2 components individually listed in catalogue; all show a standalone price
+982,SimplexZombiePack,2,1,0.5,1.0,1,True,True,0,B_SBA_like,not_observable,not_observable,medium,1/2 components individually listed in catalogue; all show a standalone price
+827,One Way Heroics + Plus Edition,2,2,1.0,1.0,1,True,True,0,B_SBA_like,not_observable,not_observable,high,2/2 components individually listed in catalogue; all show a standalone price
+694,Storm in a Teacup bundle,2,2,1.0,1.0,1,True,True,0,B_SBA_like,not_observable,not_observable,high,2/2 components individually listed in catalogue; all show a standalone price
+531,Classic Wargames,4,4,1.0,1.0,1,True,True,0,B_SBA_like,not_observable,not_observable,high,4/4 components individually listed in catalogue; all show a standalone price
+538,Alister Software bundle,2,2,1.0,1.0,2,False,True,0,B_SBA_like,not_observable,not_observable,high,2/2 components individually listed in catalogue; all show a standalone price
+347,Astronomic Games,5,5,1.0,1.0,1,True,True,0,B_SBA_like,not_observable,not_observable,high,5/5 components individually listed in catalogue; all show a standalone price
+1005,Moon Colonization Project: Deluxe Edition,2,2,1.0,1.0,1,True,True,0,B_SBA_like,not_observable,not_observable,high,2/2 components individually listed in catalogue; all show a standalone price
+1100,New World Collection,2,1,0.5,1.0,1,True,True,0,B_SBA_like,not_observable,not_observable,medium,1/2 components individually listed in catalogue; all show a standalone price
+1114,Okhlos: Olympus Edition,4,4,1.0,1.0,1,True,True,0,B_SBA_like,not_observable,not_observable,high,4/4 components individually listed in catalogue; all show a standalone price
+494,Endless Loop Management,2,2,1.0,1.0,1,True,True,0,B_SBA_like,not_observable,not_observable,high,2/2 components individually listed in catalogue; all show a standalone price
+357,Thomas Was Alone + Volume,2,2,1.0,1.0,1,True,True,0,B_SBA_like,not_observable,not_observable,high,2/2 components individually listed in catalogue; all show a standalone price
+363,Subterrain - OST Edition,2,2,1.0,1.0,1,True,True,0,B_SBA_like,not_observable,not_observable,high,2/2 components individually listed in catalogue; all show a standalone price
+284,The Vanishing of Ethan Carter VR Bundle,2,2,1.0,1.0,1,True,True,0,B_SBA_like,not_observable,not_observable,high,2/2 components individually listed in catalogue; all show a standalone price
+1017,Render System Games Complete,2,2,1.0,1.0,1,True,True,0,B_SBA_like,not_observable,not_observable,high,2/2 components individually listed in catalogue; all show a standalone price
+1002,The Turing Test Collector's Edition,2,2,1.0,1.0,1,True,True,0,B_SBA_like,not_observable,not_observable,high,2/2 components individually listed in catalogue; all show a standalone price
+754,Mysterious Places Bundle,4,4,1.0,1.0,1,True,False,0,B_SBA_like,not_observable,not_observable,high,4/4 components individually listed in catalogue; all show a standalone price
+536,Stronghold Complete Pack,2,1,0.5,1.0,1,True,True,0,B_SBA_like,not_observable,not_observable,medium,1/2 components individually listed in catalogue; all show a standalone price
+359,Monstrum - Deluxe Edition,2,2,1.0,1.0,1,True,True,0,B_SBA_like,not_observable,not_observable,high,2/2 components individually listed in catalogue; all show a standalone price
+416,FobTi Indie Bundle,2,2,1.0,1.0,1,True,True,0,B_SBA_like,not_observable,not_observable,high,2/2 components individually listed in catalogue; all show a standalone price
+251,Vae Victis Racing Collection,2,1,0.5,1.0,1,True,True,0,B_SBA_like,not_observable,not_observable,medium,1/2 components individually listed in catalogue; all show a standalone price
+923,The Black Watchmen - Occult Agent Edition,4,4,1.0,1.0,1,True,True,0,B_SBA_like,not_observable,not_observable,high,4/4 components individually listed in catalogue; all show a standalone price
+953,AuroraRL Special Edition,2,2,1.0,1.0,1,True,True,0,B_SBA_like,not_observable,not_observable,high,2/2 components individually listed in catalogue; all show a standalone price
+869,Ultimate Conspiracy Pack,2,2,1.0,1.0,2,False,True,0,B_SBA_like,not_observable,not_observable,high,2/2 components individually listed in catalogue; all show a standalone price
+622,Age of Fear Series Bundle,2,2,1.0,1.0,1,True,True,0,B_SBA_like,not_observable,not_observable,high,2/2 components individually listed in catalogue; all show a standalone price
+507,The Screwfly Collection,3,3,1.0,1.0,1,True,True,0,B_SBA_like,not_observable,not_observable,high,3/3 components individually listed in catalogue; all show a standalone price
+298,Out of the Park Baseball 17 + Franchise Hockey Manager 2,2,1,0.5,1.0,1,True,True,0,B_SBA_like,not_observable,not_observable,medium,1/2 components individually listed in catalogue; all show a standalone price
+304,The Next World: Deluxe Bundle,2,2,1.0,1.0,1,True,True,0,B_SBA_like,not_observable,not_observable,high,2/2 components individually listed in catalogue; all show a standalone price
+166,Grand Theft Auto V & Great White Shark Cash Card,2,1,0.5,1.0,1,True,True,1,B_SBA_like,not_observable,not_observable,medium,1/2 components individually listed in catalogue; all show a standalone price
+1191,Heart&Slash; + Soundtrack,2,2,1.0,1.0,2,False,True,0,B_SBA_like,not_observable,not_observable,high,2/2 components individually listed in catalogue; all show a standalone price
+1246,BioWare Bundle,4,4,1.0,1.0,2,False,False,0,B_SBA_like,not_observable,not_observable,high,4/4 components individually listed in catalogue; all show a standalone price
+1115,Sekwere + Soundtrack,2,0,0.0,1.0,0,False,False,0,E_unclear,not_observable,not_observable,low,no components found in catalogue snapshot (likely catalogue incompleteness); standalone prices still shown
+836,Megadimension Neptunia VII Digital Deluxe Edition,2,2,1.0,1.0,1,True,True,0,B_SBA_like,not_observable,not_observable,high,2/2 components individually listed in catalogue; all show a standalone price
+568,Windlands + Original Soundtrack,2,2,1.0,1.0,0,False,True,0,B_SBA_like,not_observable,not_observable,high,2/2 components individually listed in catalogue; all show a standalone price
+597,The Polynomial 1&2,2,2,1.0,1.0,1,True,True,0,B_SBA_like,not_observable,not_observable,high,2/2 components individually listed in catalogue; all show a standalone price
+490,Flat Kingdom Deluxe Edition,2,2,1.0,1.0,1,True,True,0,B_SBA_like,not_observable,not_observable,high,2/2 components individually listed in catalogue; all show a standalone price
+281,Enter The Gungeon Collector's Edition,4,4,1.0,1.0,1,True,True,0,B_SBA_like,not_observable,not_observable,high,4/4 components individually listed in catalogue; all show a standalone price
+341,Fossil Echo - Special Edition,2,2,1.0,1.0,1,True,True,0,B_SBA_like,not_observable,not_observable,high,2/2 components individually listed in catalogue; all show a standalone price
+1339,12 is Better Than 6 + Soundtrack + Artbook,3,3,1.0,1.0,1,True,True,0,B_SBA_like,not_observable,not_observable,high,3/3 components individually listed in catalogue; all show a standalone price
+539,Faton Bundle,4,4,1.0,1.0,1,True,True,0,B_SBA_like,not_observable,not_observable,high,4/4 components individually listed in catalogue; all show a standalone price
+850,Fasaria World DELUXE EDITION Bundle,3,3,1.0,1.0,1,True,False,0,B_SBA_like,not_observable,not_observable,high,3/3 components individually listed in catalogue; all show a standalone price
+1150,Blade Ballet Turntable Edition,2,2,1.0,1.0,1,True,True,0,B_SBA_like,not_observable,not_observable,high,2/2 components individually listed in catalogue; all show a standalone price
+585,Where Angels Cry Bundle,2,2,1.0,1.0,1,True,True,0,B_SBA_like,not_observable,not_observable,high,2/2 components individually listed in catalogue; all show a standalone price
+1226,Selma and the Wisp plus Soundtrack,2,2,1.0,1.0,1,True,True,0,B_SBA_like,not_observable,not_observable,high,2/2 components individually listed in catalogue; all show a standalone price
+916,SONAR Platinum with Lifetime Updates - New Users,2,0,0.0,1.0,0,False,False,0,E_unclear,not_observable,not_observable,low,no components found in catalogue snapshot (likely catalogue incompleteness); standalone prices still shown
+501,Puzzle Bundle,4,4,1.0,1.0,4,False,False,0,B_SBA_like,not_observable,not_observable,high,4/4 components individually listed in catalogue; all show a standalone price
+614,Doodle God & Doodle Kingdom,2,2,1.0,1.0,1,True,True,0,B_SBA_like,not_observable,not_observable,high,2/2 components individually listed in catalogue; all show a standalone price
+441,Quiet River Bundle,2,2,1.0,1.0,1,True,True,0,B_SBA_like,not_observable,not_observable,high,2/2 components individually listed in catalogue; all show a standalone price
+526,Poo Pack,2,2,1.0,1.0,1,True,True,0,B_SBA_like,not_observable,not_observable,high,2/2 components individually listed in catalogue; all show a standalone price
+262,Guns of Icarus Online + Alliance Collector's Edition Bundle,3,1,0.333,1.0,1,True,True,0,B_SBA_like,not_observable,not_observable,low,1/3 components individually listed; standalone prices shown for all
+1085,Hanako Yuri Bundle,2,2,1.0,1.0,1,True,False,0,B_SBA_like,not_observable,not_observable,high,2/2 components individually listed in catalogue; all show a standalone price
+929,Alice and Smith - Complete Library,5,5,1.0,1.0,1,True,True,0,B_SBA_like,not_observable,not_observable,high,5/5 components individually listed in catalogue; all show a standalone price
+1275,Uprising Complete,2,2,1.0,1.0,2,False,True,0,B_SBA_like,not_observable,not_observable,high,2/2 components individually listed in catalogue; all show a standalone price
+676,NEKOPARA complete edition,3,0,0.0,1.0,0,False,False,0,E_unclear,not_observable,not_observable,low,no components found in catalogue snapshot (likely catalogue incompleteness); standalone prices still shown
+406,Zeno Archives,2,2,1.0,1.0,1,True,True,0,B_SBA_like,not_observable,not_observable,high,2/2 components individually listed in catalogue; all show a standalone price
+413,M2H Bundle,3,3,1.0,1.0,2,False,False,0,B_SBA_like,not_observable,not_observable,high,3/3 components individually listed in catalogue; all show a standalone price
+305,OPUS: Soundtrack Bundle,2,2,1.0,1.0,1,True,False,0,B_SBA_like,not_observable,not_observable,high,2/2 components individually listed in catalogue; all show a standalone price
+215,"That Dragon, Cancer + Thank You For Playing",2,2,1.0,1.0,1,True,True,0,B_SBA_like,not_observable,not_observable,high,2/2 components individually listed in catalogue; all show a standalone price
+974,The Secret Monster Society - Chapter One + Soundtrack,2,2,1.0,1.0,1,True,True,0,B_SBA_like,not_observable,not_observable,high,2/2 components individually listed in catalogue; all show a standalone price
+653,The Real Texas - Dusty Skies Edition,2,2,1.0,1.0,1,True,True,0,B_SBA_like,not_observable,not_observable,high,2/2 components individually listed in catalogue; all show a standalone price
+533,Spakoyno GOTY Edition,2,2,1.0,1.0,1,True,False,0,B_SBA_like,not_observable,not_observable,high,2/2 components individually listed in catalogue; all show a standalone price
+346,"Linea, the Game - Complete Edition",2,2,1.0,1.0,1,True,True,0,B_SBA_like,not_observable,not_observable,high,2/2 components individually listed in catalogue; all show a standalone price
+1307,Now You See Me Double Feature,2,2,1.0,1.0,0,False,False,0,B_SBA_like,not_observable,not_observable,high,2/2 components individually listed in catalogue; all show a standalone price
+1303,Spiderweb Software Super-Gigantic Bundle,9,8,0.889,1.0,1,True,True,0,B_SBA_like,not_observable,not_observable,high,8/9 components individually listed in catalogue; all show a standalone price
+1156,F1 2016 - Steam Controller Bundle,2,2,1.0,1.0,1,True,True,0,B_SBA_like,not_observable,not_observable,high,2/2 components individually listed in catalogue; all show a standalone price
+1259,Gone In November Collector's Edition,2,0,0.0,1.0,0,False,False,0,E_unclear,not_observable,not_observable,low,no components found in catalogue snapshot (likely catalogue incompleteness); standalone prices still shown
+1265,Mystery Case Files Bundle,7,4,0.571,1.0,1,True,False,0,B_SBA_like,not_observable,not_observable,medium,4/7 components individually listed in catalogue; all show a standalone price
+1266,SPACE PACK,2,2,1.0,1.0,1,True,True,0,B_SBA_like,not_observable,not_observable,high,2/2 components individually listed in catalogue; all show a standalone price
+1188,DMC4SE Demon Hunter Bundle + DmC Complete Pack,10,10,1.0,1.0,2,False,False,0,B_SBA_like,not_observable,not_observable,high,10/10 components individually listed in catalogue; all show a standalone price
+1190,2016 Capcom Collector's Bundle,37,34,0.919,1.0,3,False,False,0,B_SBA_like,not_observable,not_observable,high,34/37 components individually listed in catalogue; all show a standalone price
+1196,Blasting Agent: Ultimate Edition + Original Soundtrack,2,2,1.0,1.0,1,True,True,0,B_SBA_like,not_observable,not_observable,high,2/2 components individually listed in catalogue; all show a standalone price
+1232,Resident Evil 4/5/6,3,3,1.0,1.0,1,True,True,0,B_SBA_like,not_observable,not_observable,high,3/3 components individually listed in catalogue; all show a standalone price
+1144,Dead Rising Collector's Pack,12,12,1.0,1.0,1,True,False,0,B_SBA_like,not_observable,not_observable,high,12/12 components individually listed in catalogue; all show a standalone price
+809,Devil May Cry 4: Special Edition Demon Hunter Bundle,6,6,1.0,1.0,1,True,True,0,B_SBA_like,not_observable,not_observable,high,6/6 components individually listed in catalogue; all show a standalone price
+1290,BITRAYS,2,2,1.0,1.0,1,True,True,0,B_SBA_like,not_observable,not_observable,high,2/2 components individually listed in catalogue; all show a standalone price
+1291,Talisman - 3 Game Bundle,3,3,1.0,1.0,2,False,True,0,B_SBA_like,not_observable,not_observable,high,3/3 components individually listed in catalogue; all show a standalone price
+1068,The Girl and the Robot - Game + Soundtrack + Art Book,2,2,1.0,1.0,1,True,True,0,B_SBA_like,not_observable,not_observable,high,2/2 components individually listed in catalogue; all show a standalone price
+548,Talisman: The Horus Heresy - Game + Soundtrack,2,2,1.0,1.0,1,True,True,0,B_SBA_like,not_observable,not_observable,high,2/2 components individually listed in catalogue; all show a standalone price
+1289,Rock 'N' Roll Defense - Complete Bundle,2,2,1.0,1.0,1,True,True,0,B_SBA_like,not_observable,not_observable,high,2/2 components individually listed in catalogue; all show a standalone price
+1288,Complex Edition,5,4,0.8,1.0,1,True,True,0,B_SBA_like,not_observable,not_observable,high,4/5 components individually listed in catalogue; all show a standalone price
+1105,Royal Defense Complete Edition,2,0,0.0,1.0,0,False,False,0,E_unclear,not_observable,not_observable,low,no components found in catalogue snapshot (likely catalogue incompleteness); standalone prices still shown
+917,SONAR Platinum with Lifetime Updates - Upgrade,2,0,0.0,1.0,0,False,False,0,E_unclear,not_observable,not_observable,low,no components found in catalogue snapshot (likely catalogue incompleteness); standalone prices still shown
+1274,Tiger & Bunny Movies Bundle,2,2,1.0,1.0,0,False,False,0,B_SBA_like,not_observable,not_observable,high,2/2 components individually listed in catalogue; all show a standalone price
+1267,Doomster Bundle,3,3,1.0,1.0,1,True,True,0,B_SBA_like,not_observable,not_observable,high,3/3 components individually listed in catalogue; all show a standalone price
+1047,Sins of a Solar Empire Gold,6,4,0.667,1.0,1,True,True,0,B_SBA_like,not_observable,not_observable,medium,4/6 components individually listed in catalogue; all show a standalone price
+1252,Energy Bundle,5,5,1.0,1.0,1,True,True,0,B_SBA_like,not_observable,not_observable,high,5/5 components individually listed in catalogue; all show a standalone price
+1219,Through Abandoned 1 and 2,2,2,1.0,1.0,2,False,False,0,B_SBA_like,not_observable,not_observable,high,2/2 components individually listed in catalogue; all show a standalone price
+1204,4 Arcade Games Bundle + Soundtrack,4,4,1.0,1.0,1,True,False,0,B_SBA_like,not_observable,not_observable,high,4/4 components individually listed in catalogue; all show a standalone price
+1207,3 Arcade Games in 1 Bundle: Run Rabbit Run + Sky to Fly,3,3,1.0,1.0,1,True,False,0,B_SBA_like,not_observable,not_observable,high,3/3 components individually listed in catalogue; all show a standalone price
+936,Alawar Adventure Collection,5,5,1.0,1.0,1,True,False,0,B_SBA_like,not_observable,not_observable,high,5/5 components individually listed in catalogue; all show a standalone price
+763,Kevin Gold Bundle,2,2,1.0,1.0,1,True,True,0,B_SBA_like,not_observable,not_observable,high,2/2 components individually listed in catalogue; all show a standalone price
+801,Space Bundle,3,3,1.0,1.0,3,False,False,0,B_SBA_like,not_observable,not_observable,high,3/3 components individually listed in catalogue; all show a standalone price
+461,Daedalic Adventure Bundle II,5,5,1.0,1.0,1,True,False,0,B_SBA_like,not_observable,not_observable,high,5/5 components individually listed in catalogue; all show a standalone price
+1258,Notch - The Innocent LunA Collection,4,4,1.0,1.0,1,True,True,0,B_SBA_like,not_observable,not_observable,high,4/4 components individually listed in catalogue; all show a standalone price
+1029,The Magnificent Fragments,2,0,0.0,1.0,0,False,False,0,E_unclear,not_observable,not_observable,low,no components found in catalogue snapshot (likely catalogue incompleteness); standalone prices still shown
+813,The Big One,24,23,0.958,1.0,19,False,False,0,B_SBA_like,not_observable,not_observable,high,23/24 components individually listed in catalogue; all show a standalone price
+693,Adam's Venture bundle,3,3,1.0,1.0,1,True,True,0,B_SBA_like,not_observable,not_observable,high,3/3 components individually listed in catalogue; all show a standalone price
+275,The Last Door Collector's Edition Bundle,2,2,1.0,1.0,1,True,True,0,B_SBA_like,not_observable,not_observable,high,2/2 components individually listed in catalogue; all show a standalone price
+365,The Deed Collection,2,2,1.0,1.0,2,False,False,0,B_SBA_like,not_observable,not_observable,high,2/2 components individually listed in catalogue; all show a standalone price
+169,The Jackbox Bundle,2,2,1.0,1.0,1,True,True,0,B_SBA_like,not_observable,not_observable,high,2/2 components individually listed in catalogue; all show a standalone price
+259,FORCED SHOWDOWN Deluxe,4,4,1.0,1.0,1,True,True,0,B_SBA_like,not_observable,not_observable,high,4/4 components individually listed in catalogue; all show a standalone price
+1213,Red vs. Blue Seasons 11-13,3,3,1.0,1.0,0,False,False,0,B_SBA_like,not_observable,not_observable,high,3/3 components individually listed in catalogue; all show a standalone price
+1231,The Healthy Profits Bundle,2,2,1.0,1.0,1,True,True,0,B_SBA_like,not_observable,not_observable,high,2/2 components individually listed in catalogue; all show a standalone price
+879,Furi + OST Combo Pack,2,2,1.0,1.0,2,False,True,0,B_SBA_like,not_observable,not_observable,high,2/2 components individually listed in catalogue; all show a standalone price
+977,Puzzle Box - Game + DLC Pack #2,2,2,1.0,1.0,1,True,True,0,B_SBA_like,not_observable,not_observable,high,2/2 components individually listed in catalogue; all show a standalone price
+611,1917 - The Alien Invasion - Game + OST Pack #1,2,2,1.0,1.0,1,True,True,0,B_SBA_like,not_observable,not_observable,high,2/2 components individually listed in catalogue; all show a standalone price
+297,XiNFiNiTY Games Studio Pack #1,2,2,1.0,1.0,1,True,True,0,B_SBA_like,not_observable,not_observable,high,2/2 components individually listed in catalogue; all show a standalone price
+93,Mad Max: Game + Fury Road,2,2,1.0,1.0,1,True,True,0,B_SBA_like,not_observable,not_observable,high,2/2 components individually listed in catalogue; all show a standalone price
+1233,Hexoscope Collector's Edition,3,3,1.0,1.0,1,True,True,0,B_SBA_like,not_observable,not_observable,high,3/3 components individually listed in catalogue; all show a standalone price
+995,8DAYS + OST,2,2,1.0,1.0,1,True,True,0,B_SBA_like,not_observable,not_observable,high,2/2 components individually listed in catalogue; all show a standalone price
+421,Herrero Games,3,3,1.0,1.0,1,True,True,0,B_SBA_like,not_observable,not_observable,high,3/3 components individually listed in catalogue; all show a standalone price
+337,Retool Special Edition,2,2,1.0,1.0,1,True,True,0,B_SBA_like,not_observable,not_observable,high,2/2 components individually listed in catalogue; all show a standalone price
+353,Civilization VI + Steam Controller Bundle,2,2,1.0,1.0,1,True,True,0,B_SBA_like,not_observable,not_observable,high,2/2 components individually listed in catalogue; all show a standalone price
+1007,Search & Kill + GabeN Simulator,2,2,1.0,1.0,1,True,True,0,B_SBA_like,not_observable,not_observable,high,2/2 components individually listed in catalogue; all show a standalone price
+1071,Tom Clancy's The Division - Streets of New York Outfit Bundle,4,4,1.0,1.0,0,False,True,0,B_SBA_like,not_observable,not_observable,high,4/4 components individually listed in catalogue; all show a standalone price
+893,2 Best Quest Games Bundle,2,2,1.0,1.0,1,True,True,0,B_SBA_like,not_observable,not_observable,high,2/2 components individually listed in catalogue; all show a standalone price
+913,Mind Spheres Deluxe Edition,2,2,1.0,1.0,1,True,True,0,B_SBA_like,not_observable,not_observable,high,2/2 components individually listed in catalogue; all show a standalone price
+651,The Samurai Jazz Series,2,2,1.0,1.0,1,True,True,0,B_SBA_like,not_observable,not_observable,high,2/2 components individually listed in catalogue; all show a standalone price
+479,Elements 'Souls & Hearts' Bundle,3,3,1.0,1.0,1,True,True,0,B_SBA_like,not_observable,not_observable,high,3/3 components individually listed in catalogue; all show a standalone price
+1247,The Sims 3 Bundle,4,4,1.0,1.0,1,True,True,0,B_SBA_like,not_observable,not_observable,high,4/4 components individually listed in catalogue; all show a standalone price
+505,16Bit Nights Bundle,3,3,1.0,1.0,2,False,False,0,B_SBA_like,not_observable,not_observable,high,3/3 components individually listed in catalogue; all show a standalone price
+1250,Karma Miwa + Genius Greedy Mouse Studio Pack #1,2,2,1.0,1.0,1,True,False,0,B_SBA_like,not_observable,not_observable,high,2/2 components individually listed in catalogue; all show a standalone price
+1146,8-Bit Armies & Hordes,5,5,1.0,1.0,1,True,True,0,B_SBA_like,not_observable,not_observable,high,5/5 components individually listed in catalogue; all show a standalone price
+1147,8-Bit Hordes Complete Edition,2,2,1.0,1.0,1,True,True,0,B_SBA_like,not_observable,not_observable,high,2/2 components individually listed in catalogue; all show a standalone price
+1021,Back To Basics Sci Fi Bundle,7,7,1.0,1.0,2,False,False,0,B_SBA_like,not_observable,not_observable,high,7/7 components individually listed in catalogue; all show a standalone price
+560,Devolver Digital + XSplit Streamer Pack,3,3,1.0,1.0,1,True,False,0,B_SBA_like,not_observable,not_observable,high,3/3 components individually listed in catalogue; all show a standalone price
+1243,Bad Company 2 Bundle,3,3,1.0,1.0,1,True,True,0,B_SBA_like,not_observable,not_observable,high,3/3 components individually listed in catalogue; all show a standalone price
+1245,More Spore,3,3,1.0,1.0,1,True,False,0,B_SBA_like,not_observable,not_observable,high,3/3 components individually listed in catalogue; all show a standalone price
+951,Command & Conquer Pack,5,5,1.0,1.0,1,True,True,0,B_SBA_like,not_observable,not_observable,high,5/5 components individually listed in catalogue; all show a standalone price
+1241,Keep Talking and Nobody Explodes + Soundtrack,2,2,1.0,1.0,0,False,True,0,B_SBA_like,not_observable,not_observable,high,2/2 components individually listed in catalogue; all show a standalone price
+1215,Enigmatis Collection,3,3,1.0,1.0,1,True,True,0,B_SBA_like,not_observable,not_observable,high,3/3 components individually listed in catalogue; all show a standalone price
+1217,Reigns: Collector's Edition,4,4,1.0,1.0,1,True,True,0,B_SBA_like,not_observable,not_observable,high,4/4 components individually listed in catalogue; all show a standalone price
+1228,Space Ribbon Soundtrack Bundle,2,2,1.0,1.0,0,False,False,0,B_SBA_like,not_observable,not_observable,high,2/2 components individually listed in catalogue; all show a standalone price
+1009,EA Racing Pack,5,5,1.0,1.0,1,True,False,0,B_SBA_like,not_observable,not_observable,high,5/5 components individually listed in catalogue; all show a standalone price
+1206,Fatshark Bundle,10,9,0.9,1.0,1,True,False,0,B_SBA_like,not_observable,not_observable,high,9/10 components individually listed in catalogue; all show a standalone price
+1229,Overlord: Ultimate Evil Collection,4,4,1.0,1.0,1,True,False,0,B_SBA_like,not_observable,not_observable,high,4/4 components individually listed in catalogue; all show a standalone price
+1046,Ashes of the Singularity Gold,7,0,0.0,1.0,0,False,False,0,E_unclear,not_observable,not_observable,low,no components found in catalogue snapshot (likely catalogue incompleteness); standalone prices still shown
+456,The Ultimate Driving Test Success Bundle,4,4,1.0,1.0,1,True,False,0,B_SBA_like,not_observable,not_observable,high,4/4 components individually listed in catalogue; all show a standalone price
+1208,Dark Parables Pack,7,7,1.0,1.0,1,True,False,0,B_SBA_like,not_observable,not_observable,high,7/7 components individually listed in catalogue; all show a standalone price
+704,Special Bundle,3,3,1.0,1.0,1,True,True,0,B_SBA_like,not_observable,not_observable,high,3/3 components individually listed in catalogue; all show a standalone price
+1216,Alawar games pack!,15,15,1.0,1.0,2,False,False,0,B_SBA_like,not_observable,not_observable,high,15/15 components individually listed in catalogue; all show a standalone price
+1183,Classic Collection,5,4,0.8,1.0,2,False,False,0,B_SBA_like,not_observable,not_observable,high,4/5 components individually listed in catalogue; all show a standalone price
+799,Lucius Complete Set,3,2,0.667,1.0,1,True,True,0,B_SBA_like,not_observable,not_observable,medium,2/3 components individually listed in catalogue; all show a standalone price
+1211,"Red vs. Blue (Blood Gulch Chronicles, Vol. 1-5)",5,5,1.0,1.0,0,False,False,0,B_SBA_like,not_observable,not_observable,high,5/5 components individually listed in catalogue; all show a standalone price
+1212,Red vs. Blue Volumes 6-10,5,5,1.0,1.0,0,False,False,0,B_SBA_like,not_observable,not_observable,high,5/5 components individually listed in catalogue; all show a standalone price
+1189,Handsome Mr. Frog - Game and Soundtrack,2,2,1.0,1.0,1,True,True,0,B_SBA_like,not_observable,not_observable,high,2/2 components individually listed in catalogue; all show a standalone price
+650,The Next World: Exploration Bundle,3,3,1.0,1.0,1,True,True,0,B_SBA_like,not_observable,not_observable,high,3/3 components individually listed in catalogue; all show a standalone price
+1194,Sky To Fly: 2 in 1  Steampunk Games Bundle,2,2,1.0,1.0,1,True,True,0,B_SBA_like,not_observable,not_observable,high,2/2 components individually listed in catalogue; all show a standalone price
+1182,Doorways: All Chapters Collection,3,3,1.0,1.0,1,True,True,0,B_SBA_like,not_observable,not_observable,high,3/3 components individually listed in catalogue; all show a standalone price
+1151,Run Rabbit Run Super Game Bundle + Soundtrack,2,2,1.0,1.0,1,True,True,0,B_SBA_like,not_observable,not_observable,high,2/2 components individually listed in catalogue; all show a standalone price
+552,Disorder + Soundtrack,2,2,1.0,1.0,1,True,True,0,B_SBA_like,not_observable,not_observable,high,2/2 components individually listed in catalogue; all show a standalone price
+434,OtakuMaker Studio Pack - Adventure #1,4,4,1.0,1.0,3,False,False,0,B_SBA_like,not_observable,not_observable,high,4/4 components individually listed in catalogue; all show a standalone price
+516,Survivor Squad Complete,2,2,1.0,1.0,1,True,True,0,B_SBA_like,not_observable,not_observable,high,2/2 components individually listed in catalogue; all show a standalone price
+1052,Ghost Sweeper + Dyna Bomb Studio Pack #1,2,2,1.0,1.0,1,True,True,0,B_SBA_like,not_observable,not_observable,high,2/2 components individually listed in catalogue; all show a standalone price
+384,The Solus Project + The Ball,2,2,1.0,1.0,1,True,True,0,B_SBA_like,not_observable,not_observable,high,2/2 components individually listed in catalogue; all show a standalone price
+1028,The Pixeljam Collection,9,9,1.0,1.0,2,False,True,0,B_SBA_like,not_observable,not_observable,high,9/9 components individually listed in catalogue; all show a standalone price
+1158,DOOM + Steam Controller Bundle,2,2,1.0,1.0,1,True,True,0,B_SBA_like,not_observable,not_observable,high,2/2 components individually listed in catalogue; all show a standalone price
+1084,Near Death Soundtrack Edition,2,2,1.0,1.0,1,True,True,0,B_SBA_like,not_observable,not_observable,high,2/2 components individually listed in catalogue; all show a standalone price
+941,Rising Islands Collector's Edition,3,3,1.0,1.0,2,False,True,0,B_SBA_like,not_observable,not_observable,high,3/3 components individually listed in catalogue; all show a standalone price
+1104,Dungeon Escape - Soundtrack Edition,2,2,1.0,1.0,1,True,False,0,B_SBA_like,not_observable,not_observable,high,2/2 components individually listed in catalogue; all show a standalone price
+1143,Depth Hunter - GAME AND 3 DLC,4,4,1.0,1.0,1,True,True,0,B_SBA_like,not_observable,not_observable,high,4/4 components individually listed in catalogue; all show a standalone price
+872,System Crash Deluxe Edition,2,0,0.0,1.0,0,False,False,0,E_unclear,not_observable,not_observable,low,no components found in catalogue snapshot (likely catalogue incompleteness); standalone prices still shown
+344,SAMOLIOTIK DELUXE EDITION,2,2,1.0,1.0,0,False,True,0,B_SBA_like,not_observable,not_observable,high,2/2 components individually listed in catalogue; all show a standalone price
+364,Developer Alliance Pack 2,4,3,0.75,1.0,3,False,False,0,B_SBA_like,not_observable,not_observable,medium,3/4 components individually listed in catalogue; all show a standalone price
+1138,8Floor Hidden Object Bundle,3,3,1.0,1.0,1,True,False,0,B_SBA_like,not_observable,not_observable,high,3/3 components individually listed in catalogue; all show a standalone price
+1140,Check vs Mate - Grandmaster Edition,3,3,1.0,1.0,2,False,True,0,B_SBA_like,not_observable,not_observable,high,3/3 components individually listed in catalogue; all show a standalone price
+1141,Battle vs Chess - Grandmaster Edition,2,0,0.0,1.0,0,False,False,2,E_unclear,not_observable,not_observable,low,no components found in catalogue snapshot (likely catalogue incompleteness); standalone prices still shown
+1132,Swords and Blasters bundle,4,4,1.0,1.0,2,False,False,0,B_SBA_like,not_observable,not_observable,high,4/4 components individually listed in catalogue; all show a standalone price
+1102,Kindred Spirits on the Roof Drama CD Collection,4,4,1.0,1.0,0,False,False,0,B_SBA_like,not_observable,not_observable,high,4/4 components individually listed in catalogue; all show a standalone price
+1103,Kindred Spirits Complete Collection,5,5,1.0,1.0,1,True,True,0,B_SBA_like,not_observable,not_observable,high,5/5 components individually listed in catalogue; all show a standalone price
+1130,Princess.Loot.Pixel.Again + Soundtrack!,2,2,1.0,1.0,1,True,False,0,B_SBA_like,not_observable,not_observable,high,2/2 components individually listed in catalogue; all show a standalone price
+1131,"""Bye-Bye, Wacky Planet"": Shoot and Dance Edition",2,2,1.0,1.0,1,True,True,0,B_SBA_like,not_observable,not_observable,high,2/2 components individually listed in catalogue; all show a standalone price
+709,Higurashi When They Cry Hou,3,3,1.0,1.0,1,True,True,0,B_SBA_like,not_observable,not_observable,high,3/3 components individually listed in catalogue; all show a standalone price
+1128,Airport Madness Collection,4,4,1.0,1.0,1,True,True,0,B_SBA_like,not_observable,not_observable,high,4/4 components individually listed in catalogue; all show a standalone price
+1107,HOG bundle of bundles!,5,5,1.0,1.0,1,True,False,0,B_SBA_like,not_observable,not_observable,high,5/5 components individually listed in catalogue; all show a standalone price
+1116,OtakuMaker Studio Pack - Adventure #2,4,4,1.0,1.0,4,False,False,0,B_SBA_like,not_observable,not_observable,high,4/4 components individually listed in catalogue; all show a standalone price
+1121,Pristine World: Deluxe Edition,2,2,1.0,1.0,1,True,True,0,B_SBA_like,not_observable,not_observable,high,2/2 components individually listed in catalogue; all show a standalone price
+1110,Neon Warp + Impossible Quest Studio Pack #1,2,2,1.0,1.0,1,True,True,0,B_SBA_like,not_observable,not_observable,high,2/2 components individually listed in catalogue; all show a standalone price
+437,Fort Defense Complete Edition,3,3,1.0,1.0,1,True,True,0,B_SBA_like,not_observable,not_observable,high,3/3 components individually listed in catalogue; all show a standalone price
+914,Small World 2 - Complete Bundle,4,4,1.0,1.0,1,True,True,0,B_SBA_like,not_observable,not_observable,high,4/4 components individually listed in catalogue; all show a standalone price
+990,EVIL MAZE RAINBOW BUNDLE,2,2,1.0,1.0,1,True,True,0,B_SBA_like,not_observable,not_observable,high,2/2 components individually listed in catalogue; all show a standalone price
+549,Angry Video Game Nerd Adventures + Soundtrack,2,2,1.0,1.0,1,True,True,0,B_SBA_like,not_observable,not_observable,high,2/2 components individually listed in catalogue; all show a standalone price
+946,Quadrilateral Cowboy Deluxe Edition,2,2,1.0,1.0,1,True,True,0,B_SBA_like,not_observable,not_observable,high,2/2 components individually listed in catalogue; all show a standalone price
+984,Epic Manager - Deluxe Edition,2,2,1.0,1.0,1,True,True,0,B_SBA_like,not_observable,not_observable,high,2/2 components individually listed in catalogue; all show a standalone price
+399,Interstellar Bundle,4,4,1.0,1.0,4,False,False,0,B_SBA_like,not_observable,not_observable,high,4/4 components individually listed in catalogue; all show a standalone price
+1056,OtakuMaker Studio Pack - Latest Bundle #2,4,4,1.0,1.0,4,False,False,0,B_SBA_like,not_observable,not_observable,high,4/4 components individually listed in catalogue; all show a standalone price
+1053,OtakuMaker Studio Pack - Part #3,6,6,1.0,1.0,4,False,False,0,B_SBA_like,not_observable,not_observable,high,6/6 components individually listed in catalogue; all show a standalone price
+1054,OtakuMaker Studio Pack - Shoot'Em Up #1,4,4,1.0,1.0,3,False,False,0,B_SBA_like,not_observable,not_observable,high,4/4 components individually listed in catalogue; all show a standalone price
+1055,OtakuMaker Studio Pack - Latest Bundle #1,4,4,1.0,1.0,3,False,False,0,B_SBA_like,not_observable,not_observable,high,4/4 components individually listed in catalogue; all show a standalone price
+1033,Extravaganza Rising Bundle,2,2,1.0,1.0,1,True,True,0,B_SBA_like,not_observable,not_observable,high,2/2 components individually listed in catalogue; all show a standalone price
+1040,Alber's - Studio Pack #2,3,3,1.0,1.0,1,True,True,0,B_SBA_like,not_observable,not_observable,high,3/3 components individually listed in catalogue; all show a standalone price
+1041,DreamBreak- Soviet Bloc Edition,2,2,1.0,1.0,2,False,True,0,B_SBA_like,not_observable,not_observable,high,2/2 components individually listed in catalogue; all show a standalone price
+1034,Triangle Studios Bundle,3,3,1.0,1.0,2,False,False,0,B_SBA_like,not_observable,not_observable,high,3/3 components individually listed in catalogue; all show a standalone price
+962,I am Setsuna Collector's Edition,2,2,1.0,1.0,2,False,True,0,B_SBA_like,not_observable,not_observable,high,2/2 components individually listed in catalogue; all show a standalone price
+963,DnS Complete Bundle,4,4,1.0,1.0,2,False,True,0,B_SBA_like,not_observable,not_observable,high,4/4 components individually listed in catalogue; all show a standalone price
+865,The Assembly Complete (VR+Non-VR),2,1,0.5,1.0,0,False,False,0,B_SBA_like,not_observable,not_observable,medium,1/2 components individually listed in catalogue; all show a standalone price
+1013,Press X to Not Die: Special Edition,2,2,1.0,1.0,1,True,True,0,B_SBA_like,not_observable,not_observable,high,2/2 components individually listed in catalogue; all show a standalone price
+1024,Ocean Word Blast Bundle,2,2,1.0,1.0,1,True,True,0,B_SBA_like,not_observable,not_observable,high,2/2 components individually listed in catalogue; all show a standalone price
+853,Bulb Boy + Soundtrack Bundle,2,2,1.0,1.0,1,True,True,0,B_SBA_like,not_observable,not_observable,high,2/2 components individually listed in catalogue; all show a standalone price
+949,Talentplace bundle,3,3,1.0,1.0,1,True,True,0,B_SBA_like,not_observable,not_observable,high,3/3 components individually listed in catalogue; all show a standalone price
+1008,Search & Kill + GabeN Simulator + Portal Mode,3,3,1.0,1.0,1,True,True,0,B_SBA_like,not_observable,not_observable,high,3/3 components individually listed in catalogue; all show a standalone price
+580,FE Ultimate Bundle,10,9,0.9,1.0,1,True,True,0,B_SBA_like,not_observable,not_observable,high,9/10 components individually listed in catalogue; all show a standalone price
+1003,3DMark + PCMark 8,2,1,0.5,1.0,1,True,True,0,B_SBA_like,not_observable,not_observable,medium,1/2 components individually listed in catalogue; all show a standalone price
+509,Push Me Pull You + Soundtrack,2,2,1.0,1.0,1,True,True,0,B_SBA_like,not_observable,not_observable,high,2/2 components individually listed in catalogue; all show a standalone price
+362,Eidos Anthology,89,88,0.989,1.0,7,False,False,1,B_SBA_like,not_observable,not_observable,high,88/89 components individually listed in catalogue; all show a standalone price
+808,Digital Homicide Super Bundle,21,0,0.0,1.0,0,False,False,0,E_unclear,not_observable,not_observable,low,no components found in catalogue snapshot (likely catalogue incompleteness); standalone prices still shown
+983,Supergiant Collection,4,4,1.0,1.0,2,False,True,0,B_SBA_like,not_observable,not_observable,high,4/4 components individually listed in catalogue; all show a standalone price
+833,RPG Heroes Summer Bundle,11,9,0.818,1.0,1,True,False,0,B_SBA_like,not_observable,not_observable,high,9/11 components individually listed in catalogue; all show a standalone price
+480,Platformer Bundle by New Reality Games,5,5,1.0,1.0,1,True,False,0,B_SBA_like,not_observable,not_observable,high,5/5 components individually listed in catalogue; all show a standalone price
+482,Super Mega Bundle by New Reality Games,9,8,0.889,1.0,1,True,False,0,B_SBA_like,not_observable,not_observable,high,8/9 components individually listed in catalogue; all show a standalone price
+897,Leviathan: Behemoth Pack,4,1,0.25,1.0,0,False,True,0,B_SBA_like,not_observable,not_observable,low,1/4 components individually listed; standalone prices shown for all
+575,Sid Meier's Civilization V: Complete,16,16,1.0,1.0,3,False,False,0,B_SBA_like,not_observable,not_observable,high,16/16 components individually listed in catalogue; all show a standalone price
+961,Digital Melody Bundle,4,4,1.0,1.0,1,True,True,0,B_SBA_like,not_observable,not_observable,high,4/4 components individually listed in catalogue; all show a standalone price
+668,Hiiro Collector's Edition,2,2,1.0,1.0,1,True,True,0,B_SBA_like,not_observable,not_observable,high,2/2 components individually listed in catalogue; all show a standalone price
+884,Anarcute - Soundtrack Edition,2,2,1.0,1.0,2,False,True,0,B_SBA_like,not_observable,not_observable,high,2/2 components individually listed in catalogue; all show a standalone price
+926,Leviathan: The Last Day of the Decade - Game + Soundtrack,2,1,0.5,1.0,0,False,True,0,B_SBA_like,not_observable,not_observable,medium,1/2 components individually listed in catalogue; all show a standalone price
+948,Siberian Digital Complete Pack,8,8,1.0,1.0,1,True,False,0,B_SBA_like,not_observable,not_observable,high,8/8 components individually listed in catalogue; all show a standalone price
+543,"Warhammer 40,000: Armageddon - Imperium Complete",7,7,1.0,1.0,1,True,True,0,B_SBA_like,not_observable,not_observable,high,7/7 components individually listed in catalogue; all show a standalone price
+925,Leviathan: The Cargo - Game + Soundtrack,2,0,0.0,1.0,0,False,False,0,E_unclear,not_observable,not_observable,low,no components found in catalogue snapshot (likely catalogue incompleteness); standalone prices still shown
+823,Devolver Digital First-Person Shooter Bundle,3,2,0.667,1.0,2,False,True,0,B_SBA_like,not_observable,not_observable,medium,2/3 components individually listed in catalogue; all show a standalone price
+330,TransOcean Games Bundle,2,2,1.0,1.0,1,True,True,0,B_SBA_like,not_observable,not_observable,high,2/2 components individually listed in catalogue; all show a standalone price
+955,Casual Games Bundle,9,9,1.0,1.0,1,True,False,0,B_SBA_like,not_observable,not_observable,high,9/9 components individually listed in catalogue; all show a standalone price
+957,Double Fine Bundle,17,17,1.0,1.0,1,True,True,0,B_SBA_like,not_observable,not_observable,high,17/17 components individually listed in catalogue; all show a standalone price
+802,God Bundle,5,5,1.0,1.0,4,False,False,0,B_SBA_like,not_observable,not_observable,high,5/5 components individually listed in catalogue; all show a standalone price
+954,Horror Games Bundle,3,3,1.0,1.0,1,True,False,0,B_SBA_like,not_observable,not_observable,high,3/3 components individually listed in catalogue; all show a standalone price
+956,Big Adventure Games Pack,11,10,0.909,1.0,1,True,False,0,B_SBA_like,not_observable,not_observable,high,10/11 components individually listed in catalogue; all show a standalone price
+804,SHMUPers Bundle,3,3,1.0,1.0,2,False,False,0,B_SBA_like,not_observable,not_observable,high,3/3 components individually listed in catalogue; all show a standalone price
+398,JRPG Love Happiness Bundle,6,6,1.0,1.0,4,False,False,0,B_SBA_like,not_observable,not_observable,high,6/6 components individually listed in catalogue; all show a standalone price
+403,Monster Mayhem Bundle,9,9,1.0,1.0,6,False,False,0,B_SBA_like,not_observable,not_observable,high,9/9 components individually listed in catalogue; all show a standalone price
+944,Bump in the night,3,3,1.0,1.0,3,False,False,0,B_SBA_like,not_observable,not_observable,high,3/3 components individually listed in catalogue; all show a standalone price
+871,Tetradecagon + Soundtrack,2,2,1.0,1.0,0,False,True,0,B_SBA_like,not_observable,not_observable,high,2/2 components individually listed in catalogue; all show a standalone price
+395,Fun with Physics Bundle,5,5,1.0,1.0,4,False,False,0,B_SBA_like,not_observable,not_observable,high,5/5 components individually listed in catalogue; all show a standalone price
+934,Puzzle Game - Starter Pack,2,2,1.0,1.0,1,True,True,0,B_SBA_like,not_observable,not_observable,high,2/2 components individually listed in catalogue; all show a standalone price
+920,Ninja Bundle,2,2,1.0,1.0,1,True,True,0,B_SBA_like,not_observable,not_observable,high,2/2 components individually listed in catalogue; all show a standalone price
+877,Space Pilgrim Saga,4,4,1.0,1.0,1,True,True,0,B_SBA_like,not_observable,not_observable,high,4/4 components individually listed in catalogue; all show a standalone price
+624,Axyos Games Bundle,2,2,1.0,1.0,1,True,True,0,B_SBA_like,not_observable,not_observable,high,2/2 components individually listed in catalogue; all show a standalone price
+678,The Odaiba Box,2,2,1.0,1.0,1,True,True,0,B_SBA_like,not_observable,not_observable,high,2/2 components individually listed in catalogue; all show a standalone price
+832,Dogenzaka Lab VN set,4,4,1.0,1.0,1,True,False,0,B_SBA_like,not_observable,not_observable,high,4/4 components individually listed in catalogue; all show a standalone price
+520,Awesomenauts - Announcer Pack,9,9,1.0,1.0,1,True,True,0,B_SBA_like,not_observable,not_observable,high,9/9 components individually listed in catalogue; all show a standalone price
+876,The Weird Collection,3,3,1.0,1.0,1,True,True,0,B_SBA_like,not_observable,not_observable,high,3/3 components individually listed in catalogue; all show a standalone price
+701,onechanbara Z2 :Chaos All DLC Bundle,37,37,1.0,1.0,1,True,True,0,B_SBA_like,not_observable,not_observable,high,37/37 components individually listed in catalogue; all show a standalone price
+896,RWBY Video Bundle,3,3,1.0,1.0,0,False,False,0,B_SBA_like,not_observable,not_observable,high,3/3 components individually listed in catalogue; all show a standalone price
+868,RWBY Game and Video Bundle,4,4,1.0,1.0,1,True,True,0,B_SBA_like,not_observable,not_observable,high,4/4 components individually listed in catalogue; all show a standalone price
+837,Megadimension Neptunia VII Digital Complete Set,14,14,1.0,1.0,1,True,True,0,B_SBA_like,not_observable,not_observable,high,14/14 components individually listed in catalogue; all show a standalone price
+700,Megadimension Neptunia VII DLC Collection,12,12,1.0,1.0,1,True,True,0,B_SBA_like,not_observable,not_observable,high,12/12 components individually listed in catalogue; all show a standalone price
+510,Lost Sea Game + Soundtrack,2,2,1.0,1.0,1,True,True,0,B_SBA_like,not_observable,not_observable,high,2/2 components individually listed in catalogue; all show a standalone price
+855,Meridian4 Latest Bundle,5,4,0.8,1.0,2,False,False,0,B_SBA_like,not_observable,not_observable,high,4/5 components individually listed in catalogue; all show a standalone price
+854,Meridian4 Action-Adventure Bundle,5,5,1.0,1.0,2,False,False,0,B_SBA_like,not_observable,not_observable,high,5/5 components individually listed in catalogue; all show a standalone price
+852,Grab The Games Mixed Bundle,9,7,0.778,1.0,1,True,False,0,B_SBA_like,not_observable,not_observable,medium,7/9 components individually listed in catalogue; all show a standalone price
+805,Triple Rusk,3,3,1.0,1.0,1,True,True,0,B_SBA_like,not_observable,not_observable,high,3/3 components individually listed in catalogue; all show a standalone price
+839,Inuyasha Movies Bundle,4,4,1.0,1.0,0,False,False,0,B_SBA_like,not_observable,not_observable,high,4/4 components individually listed in catalogue; all show a standalone price
+861,Grey Alien Games Collection,2,2,1.0,1.0,1,True,True,0,B_SBA_like,not_observable,not_observable,high,2/2 components individually listed in catalogue; all show a standalone price
+859,7 Mages Complete,2,1,0.5,1.0,1,True,True,0,B_SBA_like,not_observable,not_observable,medium,1/2 components individually listed in catalogue; all show a standalone price
+844,GameArt Studio Complete the Set,7,7,1.0,1.0,1,True,True,0,B_SBA_like,not_observable,not_observable,high,7/7 components individually listed in catalogue; all show a standalone price
+845,GameArt Studio All Games,7,7,1.0,1.0,1,True,True,0,B_SBA_like,not_observable,not_observable,high,7/7 components individually listed in catalogue; all show a standalone price
+846,A.I. Invasion Full Pack,2,2,1.0,1.0,1,True,True,0,B_SBA_like,not_observable,not_observable,high,2/2 components individually listed in catalogue; all show a standalone price
+843,Quantum Rush Champions Full Pack,3,3,1.0,1.0,1,True,True,0,B_SBA_like,not_observable,not_observable,high,3/3 components individually listed in catalogue; all show a standalone price
+851,Aselia the Eternal + Soundtrack,2,2,1.0,1.0,1,True,True,0,B_SBA_like,not_observable,not_observable,high,2/2 components individually listed in catalogue; all show a standalone price
+425,tinyBuild Mega 2016 Bundle,5,5,1.0,1.0,1,True,False,0,B_SBA_like,not_observable,not_observable,high,5/5 components individually listed in catalogue; all show a standalone price
+824,FFG Mega Bundle,9,9,1.0,1.0,2,False,False,0,B_SBA_like,not_observable,not_observable,high,9/9 components individually listed in catalogue; all show a standalone price
+380,The Infinity Collection,8,8,1.0,1.0,1,True,True,0,B_SBA_like,not_observable,not_observable,high,8/8 components individually listed in catalogue; all show a standalone price
+755,Rainbow Six Bundle,5,5,1.0,1.0,1,True,False,0,B_SBA_like,not_observable,not_observable,high,5/5 components individually listed in catalogue; all show a standalone price
+759,Might and Magic Heroes Bundle,4,4,1.0,1.0,2,False,False,0,B_SBA_like,not_observable,not_observable,high,4/4 components individually listed in catalogue; all show a standalone price
+810,Gabe Newell Simulator + Portal Mode,2,2,1.0,1.0,1,True,True,0,B_SBA_like,not_observable,not_observable,high,2/2 components individually listed in catalogue; all show a standalone price
+781,Studio Evil Bundle,2,2,1.0,1.0,1,True,True,0,B_SBA_like,not_observable,not_observable,high,2/2 components individually listed in catalogue; all show a standalone price
+760,Ubisoft Arcade Bundle,7,6,0.857,1.0,3,False,False,0,B_SBA_like,not_observable,not_observable,high,6/7 components individually listed in catalogue; all show a standalone price
+708,The Dope Game: Dope Fiend Edition,2,0,0.0,1.0,0,False,False,0,E_unclear,not_observable,not_observable,low,no components found in catalogue snapshot (likely catalogue incompleteness); standalone prices still shown
+730,Dead Star Bundle,4,0,0.0,1.0,0,False,False,0,E_unclear,not_observable,not_observable,low,no components found in catalogue snapshot (likely catalogue incompleteness); standalone prices still shown
+757,Assassin's Creed Bundle,4,4,1.0,1.0,1,True,False,0,B_SBA_like,not_observable,not_observable,high,4/4 components individually listed in catalogue; all show a standalone price
+697,Affairs of the Court - Deluxe Edition,4,4,1.0,1.0,1,True,True,0,B_SBA_like,not_observable,not_observable,high,4/4 components individually listed in catalogue; all show a standalone price
+747,SOEDESCO bundle,4,4,1.0,1.0,1,True,False,0,B_SBA_like,not_observable,not_observable,high,4/4 components individually listed in catalogue; all show a standalone price
+687,Ultimate Chicken Horse - Soundtrack Edition,2,2,1.0,1.0,1,True,True,0,B_SBA_like,not_observable,not_observable,high,2/2 components individually listed in catalogue; all show a standalone price
+577,Homeworld Remastered Collection and Deserts of Kharak Bundle,2,2,1.0,1.0,2,False,False,0,B_SBA_like,not_observable,not_observable,high,2/2 components individually listed in catalogue; all show a standalone price
+569,Best of HeroCraft - Developer Bundle,6,6,1.0,1.0,1,True,False,0,B_SBA_like,not_observable,not_observable,high,6/6 components individually listed in catalogue; all show a standalone price
+532,Shadowrun Complete Collection,5,4,0.8,1.0,1,True,True,0,B_SBA_like,not_observable,not_observable,high,4/5 components individually listed in catalogue; all show a standalone price
+728,Fruitbat Factory Publisher Bundle,24,24,1.0,1.0,1,True,False,0,B_SBA_like,not_observable,not_observable,high,24/24 components individually listed in catalogue; all show a standalone price
+782,Omnidream Creations Shmup Pack,2,2,1.0,1.0,1,True,True,0,B_SBA_like,not_observable,not_observable,high,2/2 components individually listed in catalogue; all show a standalone price
+798,Runestone Keeper and Soundtrack,2,2,1.0,1.0,1,True,True,0,B_SBA_like,not_observable,not_observable,high,2/2 components individually listed in catalogue; all show a standalone price
+789,Steam Controller and Link,2,2,1.0,1.0,0,False,False,0,B_SBA_like,not_observable,not_observable,high,2/2 components individually listed in catalogue; all show a standalone price
+647,Dancing Dragon RPG Complete,4,4,1.0,1.0,1,True,True,0,B_SBA_like,not_observable,not_observable,high,4/4 components individually listed in catalogue; all show a standalone price
+383,Telltale Collection,49,33,0.673,1.0,1,True,False,0,B_SBA_like,not_observable,not_observable,medium,33/49 components individually listed in catalogue; all show a standalone price
+695,Breached: Futurist edition,3,1,0.333,1.0,0,False,True,0,B_SBA_like,not_observable,not_observable,low,1/3 components individually listed; standalone prices shown for all
+464,Hidden Object Bundle,7,7,1.0,1.0,1,True,False,0,B_SBA_like,not_observable,not_observable,high,7/7 components individually listed in catalogue; all show a standalone price
+751,Fantasy Worlds Bundle,4,4,1.0,1.0,1,True,False,0,B_SBA_like,not_observable,not_observable,high,4/4 components individually listed in catalogue; all show a standalone price
+778,Townopolis Romopolis Megapolis Collection,3,3,1.0,1.0,1,True,True,0,B_SBA_like,not_observable,not_observable,high,3/3 components individually listed in catalogue; all show a standalone price
+779,Hero of the Kingdom Collection,2,2,1.0,1.0,1,True,True,0,B_SBA_like,not_observable,not_observable,high,2/2 components individually listed in catalogue; all show a standalone price
+780,Eador Series Bundle,4,4,1.0,1.0,1,True,False,0,B_SBA_like,not_observable,not_observable,high,4/4 components individually listed in catalogue; all show a standalone price
+749,Fearsome Shadows Bundle,4,4,1.0,1.0,1,True,False,0,B_SBA_like,not_observable,not_observable,high,4/4 components individually listed in catalogue; all show a standalone price
+752,Detective Stories Bundle,4,4,1.0,1.0,1,True,False,0,B_SBA_like,not_observable,not_observable,high,4/4 components individually listed in catalogue; all show a standalone price
+753,Legends & Myths Bundle,4,4,1.0,1.0,1,True,False,0,B_SBA_like,not_observable,not_observable,high,4/4 components individually listed in catalogue; all show a standalone price
+727,The Witcher Trilogy,3,2,0.667,1.0,1,True,True,0,B_SBA_like,not_observable,not_observable,medium,2/3 components individually listed in catalogue; all show a standalone price
+770,Every Game from Choice of Games,42,41,0.976,1.0,1,True,True,0,B_SBA_like,not_observable,not_observable,high,41/42 components individually listed in catalogue; all show a standalone price
+771,DreadOut Collection,3,2,0.667,1.0,1,True,True,0,B_SBA_like,not_observable,not_observable,medium,2/3 components individually listed in catalogue; all show a standalone price
+772,Every Game from Hosted Games,10,10,1.0,1.0,1,True,True,0,B_SBA_like,not_observable,not_observable,high,10/10 components individually listed in catalogue; all show a standalone price
+773,Infinity Series,2,2,1.0,1.0,1,True,True,0,B_SBA_like,not_observable,not_observable,high,2/2 components individually listed in catalogue; all show a standalone price
+774,Lost Heir Series,2,2,1.0,1.0,1,True,True,0,B_SBA_like,not_observable,not_observable,high,2/2 components individually listed in catalogue; all show a standalone price
+775,Deathless Bundle,2,2,1.0,1.0,1,True,True,0,B_SBA_like,not_observable,not_observable,high,2/2 components individually listed in catalogue; all show a standalone price
+776,Heroes Rise Trilogy,9,9,1.0,1.0,1,True,True,0,B_SBA_like,not_observable,not_observable,high,9/9 components individually listed in catalogue; all show a standalone price
+761,Choice of Games Urban Fantasy Bundle,6,6,1.0,1.0,1,True,True,0,B_SBA_like,not_observable,not_observable,high,6/6 components individually listed in catalogue; all show a standalone price
+762,Paul Gresty Bundle,2,2,1.0,1.0,1,True,True,0,B_SBA_like,not_observable,not_observable,high,2/2 components individually listed in catalogue; all show a standalone price
+764,Choice of Games Sci Fi Bundle,4,4,1.0,1.0,1,True,True,0,B_SBA_like,not_observable,not_observable,high,4/4 components individually listed in catalogue; all show a standalone price
+765,Choice of Games Sword and Sorcery Bundle,5,5,1.0,1.0,1,True,True,0,B_SBA_like,not_observable,not_observable,high,5/5 components individually listed in catalogue; all show a standalone price
+766,Choice of Games High Adventure Bundle,4,4,1.0,1.0,1,True,True,0,B_SBA_like,not_observable,not_observable,high,4/4 components individually listed in catalogue; all show a standalone price
+767,Choice of Games Superpowers Bundle,7,7,1.0,1.0,1,True,True,0,B_SBA_like,not_observable,not_observable,high,7/7 components individually listed in catalogue; all show a standalone price
+768,Choice of Games Literary Bundle,7,7,1.0,1.0,1,True,True,0,B_SBA_like,not_observable,not_observable,high,7/7 components individually listed in catalogue; all show a standalone price
+769,Paul Wang Bundle,2,2,1.0,1.0,1,True,True,0,B_SBA_like,not_observable,not_observable,high,2/2 components individually listed in catalogue; all show a standalone price
+379,Baldur's Gate: The Complete Saga,3,3,1.0,1.0,1,True,True,0,B_SBA_like,not_observable,not_observable,high,3/3 components individually listed in catalogue; all show a standalone price
+750,The Divergent Series,3,3,1.0,1.0,0,False,False,0,B_SBA_like,not_observable,not_observable,high,3/3 components individually listed in catalogue; all show a standalone price
+758,8-Bit Armies Complete Edition,3,3,1.0,1.0,1,True,True,0,B_SBA_like,not_observable,not_observable,high,3/3 components individually listed in catalogue; all show a standalone price
+646,Rebellion Anthology,35,35,1.0,1.0,1,True,False,0,B_SBA_like,not_observable,not_observable,high,35/35 components individually listed in catalogue; all show a standalone price
+746,Lonely Troops Collection,7,7,1.0,1.0,1,True,True,0,B_SBA_like,not_observable,not_observable,high,7/7 components individually listed in catalogue; all show a standalone price
+690,Frozenbyte Collection 2016,6,6,1.0,1.0,1,True,True,0,B_SBA_like,not_observable,not_observable,high,6/6 components individually listed in catalogue; all show a standalone price
+712,"Borderlands ""Take Over Your Life Bundle""",8,8,1.0,1.0,4,False,False,0,B_SBA_like,not_observable,not_observable,high,8/8 components individually listed in catalogue; all show a standalone price
+724,Puzzle Bundle,3,3,1.0,1.0,1,True,False,0,B_SBA_like,not_observable,not_observable,high,3/3 components individually listed in catalogue; all show a standalone price
+736,Pilgrim Adventures Complete,6,6,1.0,1.0,2,False,False,0,B_SBA_like,not_observable,not_observable,high,6/6 components individually listed in catalogue; all show a standalone price
+734,Goindol Bundle,2,2,1.0,1.0,0,False,False,0,B_SBA_like,not_observable,not_observable,high,2/2 components individually listed in catalogue; all show a standalone price
+664,Meridian4 Action Bundle,5,5,1.0,1.0,1,True,False,0,B_SBA_like,not_observable,not_observable,high,5/5 components individually listed in catalogue; all show a standalone price
+665,Meridian4 Arcade Bundle,5,4,0.8,1.0,1,True,False,0,B_SBA_like,not_observable,not_observable,high,4/5 components individually listed in catalogue; all show a standalone price
+682,War for the Overworld - Worker Skin Collection,3,0,0.0,1.0,0,False,False,0,E_unclear,not_observable,not_observable,low,no components found in catalogue snapshot (likely catalogue incompleteness); standalone prices still shown
+721,Trinelogy,3,3,1.0,1.0,1,True,True,0,B_SBA_like,not_observable,not_observable,high,3/3 components individually listed in catalogue; all show a standalone price
+729,Dracula - Collection,4,4,1.0,1.0,1,True,False,0,B_SBA_like,not_observable,not_observable,high,4/4 components individually listed in catalogue; all show a standalone price
+394,KNDW Deluxe Edition,4,4,1.0,1.0,1,True,True,0,B_SBA_like,not_observable,not_observable,high,4/4 components individually listed in catalogue; all show a standalone price
+725,Perfect Angle bundle,2,2,1.0,1.0,1,True,True,0,B_SBA_like,not_observable,not_observable,high,2/2 components individually listed in catalogue; all show a standalone price
+429,Awesome Games Bundle,3,2,0.667,1.0,1,True,True,0,B_SBA_like,not_observable,not_observable,medium,2/3 components individually listed in catalogue; all show a standalone price
+656,D4 Complete Edition,16,16,1.0,1.0,1,True,True,0,B_SBA_like,not_observable,not_observable,high,16/16 components individually listed in catalogue; all show a standalone price
+718,Neon Drive Game + Soundtrack,2,2,1.0,1.0,1,True,True,0,B_SBA_like,not_observable,not_observable,high,2/2 components individually listed in catalogue; all show a standalone price
+459,The Light Sword Bundle,4,4,1.0,1.0,1,True,True,0,B_SBA_like,not_observable,not_observable,high,4/4 components individually listed in catalogue; all show a standalone price
+670,Adam DeLease Bundle,2,2,1.0,1.0,1,True,True,0,B_SBA_like,not_observable,not_observable,high,2/2 components individually listed in catalogue; all show a standalone price
+572,BioShock Triple Pack,3,3,1.0,1.0,3,False,False,0,B_SBA_like,not_observable,not_observable,high,3/3 components individually listed in catalogue; all show a standalone price
+574,Sid Meier's Civilization Anthology,5,4,0.8,1.0,3,False,False,0,B_SBA_like,not_observable,not_observable,high,4/5 components individually listed in catalogue; all show a standalone price
+512,The Tambourine Bundle,2,2,1.0,1.0,1,True,True,0,B_SBA_like,not_observable,not_observable,high,2/2 components individually listed in catalogue; all show a standalone price
+710,Sakura Bundle,9,0,0.0,1.0,0,False,False,0,E_unclear,not_observable,not_observable,low,no components found in catalogue snapshot (likely catalogue incompleteness); standalone prices still shown
+683,F1 Fan Bundle,2,2,1.0,1.0,2,False,False,0,B_SBA_like,not_observable,not_observable,high,2/2 components individually listed in catalogue; all show a standalone price
+608,Lost Lands Collection,3,3,1.0,1.0,1,True,True,0,B_SBA_like,not_observable,not_observable,high,3/3 components individually listed in catalogue; all show a standalone price
+655,FATHER'S DAY GIFT BUNDLE,11,6,0.545,1.0,0,False,True,0,B_SBA_like,not_observable,not_observable,medium,6/11 components individually listed in catalogue; all show a standalone price
+631,Envoy 1-2,2,2,1.0,1.0,2,False,False,0,B_SBA_like,not_observable,not_observable,high,2/2 components individually listed in catalogue; all show a standalone price
+696,Premium Bundle Set,3,0,0.0,1.0,0,False,False,0,E_unclear,not_observable,not_observable,low,no components found in catalogue snapshot (likely catalogue incompleteness); standalone prices still shown
+570,Zaccaria Pinball - Gold Membership,37,37,1.0,1.0,1,True,True,0,B_SBA_like,not_observable,not_observable,high,37/37 components individually listed in catalogue; all show a standalone price
+649,.EXE - Game + OST,2,2,1.0,1.0,2,False,False,0,B_SBA_like,not_observable,not_observable,high,2/2 components individually listed in catalogue; all show a standalone price
+440,Zaccaria Pinball - Silver Membership,36,36,1.0,1.0,1,True,True,0,B_SBA_like,not_observable,not_observable,high,36/36 components individually listed in catalogue; all show a standalone price
+689,Sunrider Collection,3,0,0.0,1.0,0,False,False,0,E_unclear,not_observable,not_observable,low,no components found in catalogue snapshot (likely catalogue incompleteness); standalone prices still shown
+546,SONAR Steam Edition & Z3TA+ 2,2,0,0.0,1.0,0,False,False,0,E_unclear,not_observable,not_observable,low,no components found in catalogue snapshot (likely catalogue incompleteness); standalone prices still shown
+680,The Bedtime Bundle,2,2,1.0,1.0,1,True,True,0,B_SBA_like,not_observable,not_observable,high,2/2 components individually listed in catalogue; all show a standalone price
+663,Meridian4 Publisher Bundle,28,16,0.571,1.0,1,True,False,0,B_SBA_like,not_observable,not_observable,medium,16/28 components individually listed in catalogue; all show a standalone price
+662,Demetrios - Deluxe Edition,3,3,1.0,1.0,1,True,True,0,B_SBA_like,not_observable,not_observable,high,3/3 components individually listed in catalogue; all show a standalone price
+474,Cally's Caves Definitive Collection,4,4,1.0,1.0,1,True,True,0,B_SBA_like,not_observable,not_observable,high,4/4 components individually listed in catalogue; all show a standalone price
+628,GTGD Complete Pack,4,4,1.0,1.0,1,True,True,0,B_SBA_like,not_observable,not_observable,high,4/4 components individually listed in catalogue; all show a standalone price
+634,Dagestan Technology Complete Pack,17,16,0.941,1.0,1,True,False,0,B_SBA_like,not_observable,not_observable,high,16/17 components individually listed in catalogue; all show a standalone price
+496,War of the Human Tanks - Complete Collection,5,5,1.0,1.0,1,True,True,0,B_SBA_like,not_observable,not_observable,high,5/5 components individually listed in catalogue; all show a standalone price
+635,The Elder Scrolls V: Skyrim + Add-Ons,4,0,0.0,1.0,0,False,False,0,E_unclear,not_observable,not_observable,low,no components found in catalogue snapshot (likely catalogue incompleteness); standalone prices still shown
+633,Bloodbath Kavkaz GOTY Edition,3,3,1.0,1.0,1,True,True,0,B_SBA_like,not_observable,not_observable,high,3/3 components individually listed in catalogue; all show a standalone price
+534,Hipix Studio Bundle,4,4,1.0,1.0,1,True,True,0,B_SBA_like,not_observable,not_observable,high,4/4 components individually listed in catalogue; all show a standalone price
+627,fault complete edition,4,4,1.0,1.0,1,True,True,0,B_SBA_like,not_observable,not_observable,high,4/4 components individually listed in catalogue; all show a standalone price
+623,Nova Dimension Games,4,4,1.0,1.0,2,False,False,0,B_SBA_like,not_observable,not_observable,high,4/4 components individually listed in catalogue; all show a standalone price
+612,Killing Floor 1 Complete Your Set!,22,19,0.864,1.0,1,True,True,0,B_SBA_like,not_observable,not_observable,high,19/22 components individually listed in catalogue; all show a standalone price
+616,Tripwire Complete Bundle,27,24,0.889,1.0,1,True,False,0,B_SBA_like,not_observable,not_observable,high,24/27 components individually listed in catalogue; all show a standalone price
+542,Rake in Grass Bundle,5,5,1.0,1.0,1,True,True,0,B_SBA_like,not_observable,not_observable,high,5/5 components individually listed in catalogue; all show a standalone price
+610,Hotelier's Bundle,4,4,1.0,1.0,1,True,False,0,B_SBA_like,not_observable,not_observable,high,4/4 components individually listed in catalogue; all show a standalone price
+15,Member's Bundle,3,1,0.333,1.0,0,False,False,2,B_SBA_like,not_observable,not_observable,low,1/3 components individually listed; standalone prices shown for all
+17,Angry Video Game Nerd Bundle,2,2,1.0,1.0,1,True,True,0,B_SBA_like,not_observable,not_observable,high,2/2 components individually listed in catalogue; all show a standalone price
+19,Upgrade to Member's Bundle,2,0,0.0,1.0,0,False,False,2,E_unclear,not_observable,not_observable,low,no components found in catalogue snapshot (likely catalogue incompleteness); standalone prices still shown
+125,Mad Max: Game + Mad Max Anthology,5,4,0.8,1.0,1,True,True,0,B_SBA_like,not_observable,not_observable,high,4/5 components individually listed in catalogue; all show a standalone price
+137,Albino Lullaby: Season Pass,4,4,1.0,1.0,0,False,True,0,B_SBA_like,not_observable,not_observable,high,4/4 components individually listed in catalogue; all show a standalone price
+139,The Binding of Isaac : Rebirth + Afterbirth Bundle,2,2,1.0,1.0,1,True,False,0,B_SBA_like,not_observable,not_observable,high,2/2 components individually listed in catalogue; all show a standalone price
+145,Broken Age + Soundtrack + Double Fine Adventure Documentary,3,3,1.0,1.0,1,True,True,0,B_SBA_like,not_observable,not_observable,high,3/3 components individually listed in catalogue; all show a standalone price
+153,Adult Swim Games,14,14,1.0,1.0,2,False,False,0,B_SBA_like,not_observable,not_observable,high,14/14 components individually listed in catalogue; all show a standalone price
+157,JMJ Films + Games Bundle,6,5,0.833,1.0,1,True,True,0,B_SBA_like,not_observable,not_observable,high,5/6 components individually listed in catalogue; all show a standalone price
+225,Headup Games Complete,32,30,0.938,1.0,2,False,False,0,B_SBA_like,not_observable,not_observable,high,30/32 components individually listed in catalogue; all show a standalone price
+227,Professor Teaches Office 2016 Suite,6,6,1.0,1.0,1,True,True,0,B_SBA_like,not_observable,not_observable,high,6/6 components individually listed in catalogue; all show a standalone price
+228,Professor Teaches Office 2013 Suite,6,6,1.0,1.0,1,True,True,0,B_SBA_like,not_observable,not_observable,high,6/6 components individually listed in catalogue; all show a standalone price
+229,Professor Teaches Office 2016 & Windows 10 Suite,7,7,1.0,1.0,1,True,True,0,B_SBA_like,not_observable,not_observable,high,7/7 components individually listed in catalogue; all show a standalone price
+230,Professor Teaches Office 2013 & Windows 10 Suite,7,7,1.0,1.0,1,True,True,0,B_SBA_like,not_observable,not_observable,high,7/7 components individually listed in catalogue; all show a standalone price
+231,Half-Life Complete,8,6,0.75,1.0,1,True,False,0,B_SBA_like,not_observable,not_observable,medium,6/8 components individually listed in catalogue; all show a standalone price
+232,Valve Complete Pack,19,16,0.842,1.0,1,True,False,0,B_SBA_like,not_observable,not_observable,high,16/19 components individually listed in catalogue; all show a standalone price
+233,Left 4 Dead Bundle,2,2,1.0,1.0,1,True,True,0,B_SBA_like,not_observable,not_observable,high,2/2 components individually listed in catalogue; all show a standalone price
+234,Portal Bundle,2,2,1.0,1.0,1,True,True,0,B_SBA_like,not_observable,not_observable,high,2/2 components individually listed in catalogue; all show a standalone price
+235,Counter-Strike 1 Anthology,4,3,0.75,1.0,1,True,True,0,B_SBA_like,not_observable,not_observable,medium,3/4 components individually listed in catalogue; all show a standalone price
+236,Counter-Strike Complete,3,2,0.667,1.0,1,True,True,0,B_SBA_like,not_observable,not_observable,medium,2/3 components individually listed in catalogue; all show a standalone price
+237,Half-Life 1 Anthology,4,4,1.0,1.0,1,True,False,0,B_SBA_like,not_observable,not_observable,high,4/4 components individually listed in catalogue; all show a standalone price
+239,Zonitron Productions Mixed Pack,4,0,0.0,1.0,0,False,False,0,E_unclear,not_observable,not_observable,low,no components found in catalogue snapshot (likely catalogue incompleteness); standalone prices still shown
+240,Source Multiplayer Pack,3,3,1.0,1.0,1,True,True,0,B_SBA_like,not_observable,not_observable,high,3/3 components individually listed in catalogue; all show a standalone price
+241,Ultimate Action Duo Pack: Just Cause 3 + Rise of the Tomb Raider,2,2,1.0,1.0,1,True,True,0,B_SBA_like,not_observable,not_observable,high,2/2 components individually listed in catalogue; all show a standalone price
+243,Hatoful Boyfriend Complete Pack,4,3,0.75,1.0,1,True,False,0,B_SBA_like,not_observable,not_observable,medium,3/4 components individually listed in catalogue; all show a standalone price
+244,Shardlight Deluxe,2,2,1.0,1.0,1,True,True,0,B_SBA_like,not_observable,not_observable,high,2/2 components individually listed in catalogue; all show a standalone price
+245,But to Paint a Universe Deluxe,2,2,1.0,1.0,2,False,True,0,B_SBA_like,not_observable,not_observable,high,2/2 components individually listed in catalogue; all show a standalone price
+247,F1 Game Franchise Bundle,7,6,0.857,1.0,3,False,False,0,B_SBA_like,not_observable,not_observable,high,6/7 components individually listed in catalogue; all show a standalone price
+248,The Codemasters DiRT Collection,4,2,0.5,1.0,1,True,True,0,B_SBA_like,not_observable,not_observable,medium,2/4 components individually listed in catalogue; all show a standalone price
+249,The Complete GRID Bundle,23,22,0.957,1.0,3,False,False,0,B_SBA_like,not_observable,not_observable,high,22/23 components individually listed in catalogue; all show a standalone price
+250,Awesomenauts - Mega Value Pack,68,65,0.956,1.0,1,True,True,0,B_SBA_like,not_observable,not_observable,high,65/68 components individually listed in catalogue; all show a standalone price
+254,SEGA DLC Pack,3,3,1.0,1.0,1,True,True,0,B_SBA_like,not_observable,not_observable,high,3/3 components individually listed in catalogue; all show a standalone price
+255,Bacteria Complete,3,3,1.0,1.0,1,True,True,0,B_SBA_like,not_observable,not_observable,high,3/3 components individually listed in catalogue; all show a standalone price
+256,Fantasy Grounds D&D; Complete Bundle,12,12,1.0,1.0,1,True,True,0,B_SBA_like,not_observable,not_observable,high,12/12 components individually listed in catalogue; all show a standalone price
+257,Borderlands Triple Pack,7,7,1.0,1.0,3,False,False,0,B_SBA_like,not_observable,not_observable,high,7/7 components individually listed in catalogue; all show a standalone price
+258,TAITO DLC Pack,3,3,1.0,1.0,1,True,True,0,B_SBA_like,not_observable,not_observable,high,3/3 components individually listed in catalogue; all show a standalone price
+260,The Complete FORCED Collection,6,6,1.0,1.0,1,True,True,0,B_SBA_like,not_observable,not_observable,high,6/6 components individually listed in catalogue; all show a standalone price
+261,Resident Evil/Biohazard Collector's Pack,34,34,1.0,1.0,2,False,False,0,B_SBA_like,not_observable,not_observable,high,34/34 components individually listed in catalogue; all show a standalone price
+263,Broken Sword: Complete Pack,5,5,1.0,1.0,1,True,False,0,B_SBA_like,not_observable,not_observable,high,5/5 components individually listed in catalogue; all show a standalone price
+264,Grand Theft Auto V & Whale Shark Cash Card,2,1,0.5,1.0,1,True,True,1,B_SBA_like,not_observable,not_observable,medium,1/2 components individually listed in catalogue; all show a standalone price
+265,Grand Theft Auto V & Megalodon Shark Cash Card,2,1,0.5,1.0,1,True,True,1,B_SBA_like,not_observable,not_observable,medium,1/2 components individually listed in catalogue; all show a standalone price
+266,Samorost 3 Cosmic Edition,2,2,1.0,1.0,1,True,True,0,B_SBA_like,not_observable,not_observable,high,2/2 components individually listed in catalogue; all show a standalone price
+267,Binaries - Soundtrack Edition,2,2,1.0,1.0,1,True,True,0,B_SBA_like,not_observable,not_observable,high,2/2 components individually listed in catalogue; all show a standalone price
+268,Merge Games Mega Bundle,33,33,1.0,1.0,9,False,False,0,B_SBA_like,not_observable,not_observable,high,33/33 components individually listed in catalogue; all show a standalone price
+269,Homeworld: Deserts of Kharak Deluxe Edition,5,5,1.0,1.0,2,False,False,0,B_SBA_like,not_observable,not_observable,high,5/5 components individually listed in catalogue; all show a standalone price
+270,NightCry Digital Complete Pack,4,4,1.0,1.0,1,True,True,0,B_SBA_like,not_observable,not_observable,high,4/4 components individually listed in catalogue; all show a standalone price
+272,Amanita Bundle,6,5,0.833,1.0,1,True,True,0,B_SBA_like,not_observable,not_observable,high,5/6 components individually listed in catalogue; all show a standalone price
+273,Slain: Back from Hell Bundle,2,2,1.0,1.0,1,True,True,0,B_SBA_like,not_observable,not_observable,high,2/2 components individually listed in catalogue; all show a standalone price
+274,Galactic Civilizations III Gold,11,11,1.0,1.0,1,True,True,0,B_SBA_like,not_observable,not_observable,high,11/11 components individually listed in catalogue; all show a standalone price
+278,Babel OST Pack,2,2,1.0,1.0,1,True,True,0,B_SBA_like,not_observable,not_observable,high,2/2 components individually listed in catalogue; all show a standalone price
+280,Night Bundle,3,3,1.0,1.0,2,False,False,0,B_SBA_like,not_observable,not_observable,high,3/3 components individually listed in catalogue; all show a standalone price
+285,Fighting Fantasy,5,5,1.0,1.0,1,True,True,0,B_SBA_like,not_observable,not_observable,high,5/5 components individually listed in catalogue; all show a standalone price
+286,Bleach Movies,4,4,1.0,1.0,0,False,False,0,B_SBA_like,not_observable,not_observable,high,4/4 components individually listed in catalogue; all show a standalone price
+291,The Shoebox Diorama Series,2,2,1.0,1.0,0,False,False,0,B_SBA_like,not_observable,not_observable,high,2/2 components individually listed in catalogue; all show a standalone price
+292,Amplitude Endless Pack,12,10,0.833,1.0,1,True,True,0,B_SBA_like,not_observable,not_observable,high,10/12 components individually listed in catalogue; all show a standalone price
+293,MyDream Bundle,2,1,0.5,1.0,0,False,False,0,B_SBA_like,not_observable,not_observable,medium,1/2 components individually listed in catalogue; all show a standalone price
+296,The Sparkle Bundle,3,3,1.0,1.0,1,True,False,0,B_SBA_like,not_observable,not_observable,high,3/3 components individually listed in catalogue; all show a standalone price
+300,The Quest Deluxe Edition,3,3,1.0,1.0,1,True,True,0,B_SBA_like,not_observable,not_observable,high,3/3 components individually listed in catalogue; all show a standalone price
+301,Pixel Puzzles Complete Pack,7,5,0.714,1.0,1,True,True,0,B_SBA_like,not_observable,not_observable,medium,5/7 components individually listed in catalogue; all show a standalone price
+302,Pyrodactyl Complete pack,6,6,1.0,1.0,2,False,True,0,B_SBA_like,not_observable,not_observable,high,6/6 components individually listed in catalogue; all show a standalone price
+303,Sengoku Jidai: Shadow of the Shogun Deluxe Edition,7,7,1.0,1.0,1,True,True,0,B_SBA_like,not_observable,not_observable,high,7/7 components individually listed in catalogue; all show a standalone price
+306,Save the Dodos Special Edition,2,2,1.0,1.0,1,True,True,0,B_SBA_like,not_observable,not_observable,high,2/2 components individually listed in catalogue; all show a standalone price
+307,World of Magicka Bundle,28,27,0.964,1.0,1,True,False,0,B_SBA_like,not_observable,not_observable,high,27/28 components individually listed in catalogue; all show a standalone price
+308,Sword of the Stars: The Pit Bundle,6,5,0.833,1.0,1,True,False,0,B_SBA_like,not_observable,not_observable,high,5/6 components individually listed in catalogue; all show a standalone price
+309,Ticket to Ride - Complete Bundle,8,8,1.0,1.0,1,True,True,0,B_SBA_like,not_observable,not_observable,high,8/8 components individually listed in catalogue; all show a standalone price
+311,Hyperdevotion Noire DLC Collection,29,29,1.0,1.0,1,True,True,0,B_SBA_like,not_observable,not_observable,high,29/29 components individually listed in catalogue; all show a standalone price
+312,Don't Starve MEGA PACK,4,3,0.75,1.0,1,True,False,0,B_SBA_like,not_observable,not_observable,medium,3/4 components individually listed in catalogue; all show a standalone price
+313,The Detail Season One,3,3,1.0,1.0,1,True,True,0,B_SBA_like,not_observable,not_observable,high,3/3 components individually listed in catalogue; all show a standalone price
+316,Wailing Heights Deluxe Edition,2,2,1.0,1.0,1,True,True,0,B_SBA_like,not_observable,not_observable,high,2/2 components individually listed in catalogue; all show a standalone price
+318,Qubicle Indie Bundle,4,4,1.0,1.0,1,True,True,0,B_SBA_like,not_observable,not_observable,high,4/4 components individually listed in catalogue; all show a standalone price
+319,Worms Collection,20,20,1.0,1.0,1,True,True,0,B_SBA_like,not_observable,not_observable,high,20/20 components individually listed in catalogue; all show a standalone price
+320,Dead Island Definitive Collection,3,3,1.0,1.0,1,True,False,0,B_SBA_like,not_observable,not_observable,high,3/3 components individually listed in catalogue; all show a standalone price
+321,GameGuru Unlimited,8,8,1.0,1.0,1,True,True,0,B_SBA_like,not_observable,not_observable,high,8/8 components individually listed in catalogue; all show a standalone price
+322,App Game Kit Unlimited,5,5,1.0,1.0,1,True,False,0,B_SBA_like,not_observable,not_observable,high,5/5 components individually listed in catalogue; all show a standalone price
+326,Magical Ladies,3,2,0.667,1.0,1,True,True,0,B_SBA_like,not_observable,not_observable,medium,2/3 components individually listed in catalogue; all show a standalone price
+327,Light and Dark,3,3,1.0,1.0,1,True,True,0,B_SBA_like,not_observable,not_observable,high,3/3 components individually listed in catalogue; all show a standalone price
+328,From Mysterious Lands,3,3,1.0,1.0,2,False,True,0,B_SBA_like,not_observable,not_observable,high,3/3 components individually listed in catalogue; all show a standalone price
+329,The Tricksters,3,3,1.0,1.0,1,True,True,0,B_SBA_like,not_observable,not_observable,high,3/3 components individually listed in catalogue; all show a standalone price
+331,Nival Steam Bundle,7,5,0.714,1.0,1,True,True,0,B_SBA_like,not_observable,not_observable,medium,5/7 components individually listed in catalogue; all show a standalone price
+332,Zotrix Bundle,2,2,1.0,1.0,1,True,True,0,B_SBA_like,not_observable,not_observable,high,2/2 components individually listed in catalogue; all show a standalone price
+333,The Game Creators Collection,7,7,1.0,1.0,1,True,False,0,B_SBA_like,not_observable,not_observable,high,7/7 components individually listed in catalogue; all show a standalone price
+334,Sometimes You Complete Bundle,32,30,0.938,1.0,1,True,False,0,B_SBA_like,not_observable,not_observable,high,30/32 components individually listed in catalogue; all show a standalone price
+335,The Banner Saga Deluxe Pack,4,4,1.0,1.0,1,True,True,0,B_SBA_like,not_observable,not_observable,high,4/4 components individually listed in catalogue; all show a standalone price
+336,Evoland Collector Pack,3,3,1.0,1.0,1,True,True,0,B_SBA_like,not_observable,not_observable,high,3/3 components individually listed in catalogue; all show a standalone price
+338,Mimpi Bundle,2,2,1.0,1.0,1,True,True,0,B_SBA_like,not_observable,not_observable,high,2/2 components individually listed in catalogue; all show a standalone price
+339,Waste Walkers Complete Bundle,6,6,1.0,1.0,1,True,True,0,B_SBA_like,not_observable,not_observable,high,6/6 components individually listed in catalogue; all show a standalone price
+340,The Renegades of Orion 2.0 - Pack #1,3,3,1.0,1.0,2,False,False,0,B_SBA_like,not_observable,not_observable,high,3/3 components individually listed in catalogue; all show a standalone price
+342,RPG Maker VX Ace + SONAR Steam Edition Bundle,2,1,0.5,1.0,1,True,True,0,B_SBA_like,not_observable,not_observable,medium,1/2 components individually listed in catalogue; all show a standalone price
+345,Savage: Resurection - Digital Deluxe,2,1,0.5,1.0,1,True,True,0,B_SBA_like,not_observable,not_observable,medium,1/2 components individually listed in catalogue; all show a standalone price
+349,Project Cars Game of the Year Edition,12,12,1.0,1.0,2,False,True,0,B_SBA_like,not_observable,not_observable,high,12/12 components individually listed in catalogue; all show a standalone price
+350,Puzzle Box - Game + OST Pack #1,2,2,1.0,1.0,1,True,True,0,B_SBA_like,not_observable,not_observable,high,2/2 components individually listed in catalogue; all show a standalone price
+354,Civilization VI Digital Deluxe + Steam Controller Bundle,2,2,1.0,1.0,1,True,True,0,B_SBA_like,not_observable,not_observable,high,2/2 components individually listed in catalogue; all show a standalone price
+356,Playism Bundle,53,53,1.0,1.0,1,True,False,0,B_SBA_like,not_observable,not_observable,high,53/53 components individually listed in catalogue; all show a standalone price
+358,Indie VR Bundle,4,4,1.0,1.0,0,False,False,0,B_SBA_like,not_observable,not_observable,high,4/4 components individually listed in catalogue; all show a standalone price
+361,Danganronpa 1 + 2,2,2,1.0,1.0,1,True,True,0,B_SBA_like,not_observable,not_observable,high,2/2 components individually listed in catalogue; all show a standalone price
+366,Demons with Shotguns - Deluxe Edition,2,2,1.0,1.0,2,False,False,0,B_SBA_like,not_observable,not_observable,high,2/2 components individually listed in catalogue; all show a standalone price
+367,Age of Wonders Franchise,7,5,0.714,1.0,2,False,True,0,B_SBA_like,not_observable,not_observable,medium,5/7 components individually listed in catalogue; all show a standalone price
+369,"Axe, Bow & Staff Soundtrack Bundle",2,2,1.0,1.0,1,True,True,0,B_SBA_like,not_observable,not_observable,high,2/2 components individually listed in catalogue; all show a standalone price
+374,Goat Simulator: GOATY,5,5,1.0,1.0,1,True,False,0,B_SBA_like,not_observable,not_observable,high,5/5 components individually listed in catalogue; all show a standalone price
+375,NEOGEO Bundle,6,6,1.0,1.0,1,True,False,0,B_SBA_like,not_observable,not_observable,high,6/6 components individually listed in catalogue; all show a standalone price
+376,RPG Maker Millennium Collection,5,5,1.0,1.0,1,True,False,0,B_SBA_like,not_observable,not_observable,high,5/5 components individually listed in catalogue; all show a standalone price
+377,Table Top Racing: World Tour - Bundle,3,3,1.0,1.0,1,True,True,0,B_SBA_like,not_observable,not_observable,high,3/3 components individually listed in catalogue; all show a standalone price
+378,PRO ANGLER SPORT BUNDLE,6,6,1.0,1.0,0,False,True,0,B_SBA_like,not_observable,not_observable,high,6/6 components individually listed in catalogue; all show a standalone price
+381,Grim Legends Collection,3,3,1.0,1.0,1,True,True,0,B_SBA_like,not_observable,not_observable,high,3/3 components individually listed in catalogue; all show a standalone price
+382,Abbey Games Bundle,3,3,1.0,1.0,1,True,True,0,B_SBA_like,not_observable,not_observable,high,3/3 components individually listed in catalogue; all show a standalone price
+385,Stories: Collector's Edition,3,3,1.0,1.0,1,True,True,0,B_SBA_like,not_observable,not_observable,high,3/3 components individually listed in catalogue; all show a standalone price
+391,Captain Forever Remix + Original Soundtrack,2,2,1.0,1.0,1,True,False,0,B_SBA_like,not_observable,not_observable,high,2/2 components individually listed in catalogue; all show a standalone price
+408,Zenodyne R + Soundtrack,2,2,1.0,1.0,1,True,True,0,B_SBA_like,not_observable,not_observable,high,2/2 components individually listed in catalogue; all show a standalone price
+409,Funklift Deluxe Edition,2,2,1.0,1.0,1,True,True,0,B_SBA_like,not_observable,not_observable,high,2/2 components individually listed in catalogue; all show a standalone price
+414,Black Lime Studio's Collection,4,2,0.5,1.0,1,True,True,0,B_SBA_like,not_observable,not_observable,medium,2/4 components individually listed in catalogue; all show a standalone price
+417,Tokyo School Life Soundtrack Edition,2,2,1.0,1.0,1,True,True,0,B_SBA_like,not_observable,not_observable,high,2/2 components individually listed in catalogue; all show a standalone price
+420,The Caiysware Collection,3,3,1.0,1.0,1,True,True,0,B_SBA_like,not_observable,not_observable,high,3/3 components individually listed in catalogue; all show a standalone price
+424,Kabitis + Bibou Studio Pack #1,2,2,1.0,1.0,1,True,True,0,B_SBA_like,not_observable,not_observable,high,2/2 components individually listed in catalogue; all show a standalone price
+426,OtakuMaker Studio Pack - All Games,24,24,1.0,1.0,6,False,False,0,B_SBA_like,not_observable,not_observable,high,24/24 components individually listed in catalogue; all show a standalone price
+428,10tons Shooters,2,2,1.0,1.0,1,True,True,0,B_SBA_like,not_observable,not_observable,high,2/2 components individually listed in catalogue; all show a standalone price
+430,Novus Inceptio: Soundtrack Edition,2,2,1.0,1.0,1,True,True,0,B_SBA_like,not_observable,not_observable,high,2/2 components individually listed in catalogue; all show a standalone price
+432,OtakuMaker Studio Pack - Part #1,6,6,1.0,1.0,3,False,False,0,B_SBA_like,not_observable,not_observable,high,6/6 components individually listed in catalogue; all show a standalone price
+433,OtakuMaker Studio Pack - Part #2,6,6,1.0,1.0,5,False,False,0,B_SBA_like,not_observable,not_observable,high,6/6 components individually listed in catalogue; all show a standalone price
+435,SpeedRunners Deluxe Pack,3,3,1.0,1.0,1,True,True,0,B_SBA_like,not_observable,not_observable,high,3/3 components individually listed in catalogue; all show a standalone price
+436,OtakuMaker Studio Pack - Strategy #1,4,4,1.0,1.0,2,False,False,0,B_SBA_like,not_observable,not_observable,high,4/4 components individually listed in catalogue; all show a standalone price
+438,Smart Games,2,2,1.0,1.0,1,True,True,0,B_SBA_like,not_observable,not_observable,high,2/2 components individually listed in catalogue; all show a standalone price
+439,Abrix the robot - Collector's Edition,5,5,1.0,1.0,1,True,True,0,B_SBA_like,not_observable,not_observable,high,5/5 components individually listed in catalogue; all show a standalone price
+442,Lilly and Sasha Bundle,3,3,1.0,1.0,1,True,True,0,B_SBA_like,not_observable,not_observable,high,3/3 components individually listed in catalogue; all show a standalone price
+443,Life is Hard with Soundtrack,2,2,1.0,1.0,1,True,True,0,B_SBA_like,not_observable,not_observable,high,2/2 components individually listed in catalogue; all show a standalone price
+445,Roll7 RETROspective,3,2,0.667,1.0,1,True,False,0,B_SBA_like,not_observable,not_observable,medium,2/3 components individually listed in catalogue; all show a standalone price
+447,The Escapists: Complete Pack,5,5,1.0,1.0,1,True,True,0,B_SBA_like,not_observable,not_observable,high,5/5 components individually listed in catalogue; all show a standalone price
+448,Endless Legend Collection,7,6,0.857,1.0,1,True,True,0,B_SBA_like,not_observable,not_observable,high,6/7 components individually listed in catalogue; all show a standalone price
+449,Endless Legend Expansion Set,5,5,1.0,1.0,1,True,True,0,B_SBA_like,not_observable,not_observable,high,5/5 components individually listed in catalogue; all show a standalone price
+451,Homeworld Remastered Collection Deluxe Edition,3,1,0.333,1.0,1,True,True,0,B_SBA_like,not_observable,not_observable,low,1/3 components individually listed; standalone prices shown for all
+454,Winter Wolves RPGs Bundle,8,8,1.0,1.0,1,True,True,0,B_SBA_like,not_observable,not_observable,high,8/8 components individually listed in catalogue; all show a standalone price
+457,Winter Wolves Games Collection,31,27,0.871,1.0,1,True,True,0,B_SBA_like,not_observable,not_observable,high,27/31 components individually listed in catalogue; all show a standalone price
+460,Milkstone Studios Complete Collection,4,4,1.0,1.0,1,True,True,0,B_SBA_like,not_observable,not_observable,high,4/4 components individually listed in catalogue; all show a standalone price
+462,Complete Trese Brothers Pack,3,3,1.0,1.0,1,True,True,0,B_SBA_like,not_observable,not_observable,high,3/3 components individually listed in catalogue; all show a standalone price
+467,Serendipity of Aeons: Season 1 Bundle,4,4,1.0,1.0,0,False,True,0,B_SBA_like,not_observable,not_observable,high,4/4 components individually listed in catalogue; all show a standalone price
+468,BERSERK: The Golden Age Arc Movies,3,3,1.0,1.0,0,False,False,0,B_SBA_like,not_observable,not_observable,high,3/3 components individually listed in catalogue; all show a standalone price
+469,Cleverweek Games Complete,9,9,1.0,1.0,1,True,True,0,B_SBA_like,not_observable,not_observable,high,9/9 components individually listed in catalogue; all show a standalone price
+471,The Revills Games' Solitaire Collection,2,2,1.0,1.0,1,True,True,0,B_SBA_like,not_observable,not_observable,high,2/2 components individually listed in catalogue; all show a standalone price
+472,The Legend of Dark Witch Game & OST,2,2,1.0,1.0,1,True,True,0,B_SBA_like,not_observable,not_observable,high,2/2 components individually listed in catalogue; all show a standalone price
+476,Hero Siege Complete,4,4,1.0,1.0,1,True,True,0,B_SBA_like,not_observable,not_observable,high,4/4 components individually listed in catalogue; all show a standalone price
+484,Elite Games Studio Pack #1,2,2,1.0,1.0,2,False,False,0,B_SBA_like,not_observable,not_observable,high,2/2 components individually listed in catalogue; all show a standalone price
+485,Love in the Glen Deluxe Edition,2,0,0.0,1.0,0,False,False,0,E_unclear,not_observable,not_observable,low,no components found in catalogue snapshot (likely catalogue incompleteness); standalone prices still shown
+487,Mute Crimson+ Soundtrack Bundle,2,2,1.0,1.0,1,True,True,0,B_SBA_like,not_observable,not_observable,high,2/2 components individually listed in catalogue; all show a standalone price
+488,Fantasy Grounds Deadlands Reloaded Bundle,15,15,1.0,1.0,1,True,True,0,B_SBA_like,not_observable,not_observable,high,15/15 components individually listed in catalogue; all show a standalone price
+491,Season #1 Pro Bundle,12,12,1.0,1.0,0,False,True,0,B_SBA_like,not_observable,not_observable,high,12/12 components individually listed in catalogue; all show a standalone price
+492,Season #2 Pro Bundle,15,15,1.0,1.0,0,False,True,0,B_SBA_like,not_observable,not_observable,high,15/15 components individually listed in catalogue; all show a standalone price
+495,100% Orange Juice - All Stars Collection,8,8,1.0,1.0,1,True,True,0,B_SBA_like,not_observable,not_observable,high,8/8 components individually listed in catalogue; all show a standalone price
+497,Mecha Ritz: Steel Rondo Soundtrack Edition,2,2,1.0,1.0,1,True,True,0,B_SBA_like,not_observable,not_observable,high,2/2 components individually listed in catalogue; all show a standalone price
+503,The Renegade Sector Bundle,2,2,1.0,1.0,1,True,True,0,B_SBA_like,not_observable,not_observable,high,2/2 components individually listed in catalogue; all show a standalone price
+511,10tons Total,5,5,1.0,1.0,1,True,True,0,B_SBA_like,not_observable,not_observable,high,5/5 components individually listed in catalogue; all show a standalone price
+514,Storm Sharks,3,2,0.667,1.0,2,False,False,0,B_SBA_like,not_observable,not_observable,medium,2/3 components individually listed in catalogue; all show a standalone price
+519,Project Pulsation Deluxe Edition,2,2,1.0,1.0,1,True,True,0,B_SBA_like,not_observable,not_observable,high,2/2 components individually listed in catalogue; all show a standalone price
+528,Endless Loop Collection,4,4,1.0,1.0,1,True,True,0,B_SBA_like,not_observable,not_observable,high,4/4 components individually listed in catalogue; all show a standalone price
+535,Games by Tonguç Bodur,3,3,1.0,1.0,1,True,True,0,B_SBA_like,not_observable,not_observable,high,3/3 components individually listed in catalogue; all show a standalone price
+540,Best Russian Visual Novels pack,4,3,0.75,1.0,1,True,False,0,B_SBA_like,not_observable,not_observable,medium,3/4 components individually listed in catalogue; all show a standalone price
+547,Angry Video Game Nerd II: ASSimilation + Soundtrack,2,2,1.0,1.0,1,True,False,0,B_SBA_like,not_observable,not_observable,high,2/2 components individually listed in catalogue; all show a standalone price
+565,Alientrap Bundle,5,5,1.0,1.0,1,True,True,0,B_SBA_like,not_observable,not_observable,high,5/5 components individually listed in catalogue; all show a standalone price
+571,Kingdom Tales Bundle,2,2,1.0,1.0,1,True,True,0,B_SBA_like,not_observable,not_observable,high,2/2 components individually listed in catalogue; all show a standalone price
+578,The Last Dogma - Complete Experience,3,0,0.0,1.0,0,False,False,0,E_unclear,not_observable,not_observable,low,no components found in catalogue snapshot (likely catalogue incompleteness); standalone prices still shown
+579,Z.I.O.N Deluxe Edition,2,1,0.5,1.0,1,True,True,0,B_SBA_like,not_observable,not_observable,medium,1/2 components individually listed in catalogue; all show a standalone price
+581,VGstudio Games Gold Edition,4,3,0.75,1.0,1,True,True,0,B_SBA_like,not_observable,not_observable,medium,3/4 components individually listed in catalogue; all show a standalone price
+582,Magdalena Pack,2,2,1.0,1.0,1,True,False,0,B_SBA_like,not_observable,not_observable,high,2/2 components individually listed in catalogue; all show a standalone price
+584,Glitchspace - Game & Soundtrack,2,2,1.0,1.0,0,False,True,0,B_SBA_like,not_observable,not_observable,high,2/2 components individually listed in catalogue; all show a standalone price
+586,Libredia XXL Adventure Bundle,10,10,1.0,1.0,1,True,False,0,B_SBA_like,not_observable,not_observable,high,10/10 components individually listed in catalogue; all show a standalone price
+588,Dyna Bomb - Game + OST Pack #1,2,2,1.0,1.0,2,False,True,0,B_SBA_like,not_observable,not_observable,high,2/2 components individually listed in catalogue; all show a standalone price
+594,The Ninjahtic Series,3,3,1.0,1.0,1,True,True,0,B_SBA_like,not_observable,not_observable,high,3/3 components individually listed in catalogue; all show a standalone price

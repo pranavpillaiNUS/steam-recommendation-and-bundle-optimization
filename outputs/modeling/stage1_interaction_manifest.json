@@ -1,0 +1,208 @@
+{
+  "artifact": "canonical_stage1_sparse_interactions",
+  "artifacts": {
+    "item_ids": {
+      "path": "outputs/modeling/stage1_interactions/canonical_item_ids.npy",
+      "sha256": "e193d4490c5876286933bfd3cdf844ace458bb08e568e4b5b55f97608863822b",
+      "size_bytes": 87952
+    },
+    "ownership": {
+      "path": "outputs/modeling/stage1_interactions/canonical_ownership.npz",
+      "sha256": "7bdbf1691a97350f59bff85a17342f157429376bf17fd0e68abd1fdde60389ee",
+      "size_bytes": 3184117
+    },
+    "playtime_2weeks": {
+      "path": "outputs/modeling/stage1_interactions/canonical_playtime_2weeks.npz",
+      "sha256": "37b4faa6ec5c6ca7ae42aa8da2639c5cd906de16cdf10f04dfd1f30d7a6b44fa",
+      "size_bytes": 3438144
+    },
+    "playtime_forever": {
+      "path": "outputs/modeling/stage1_interactions/canonical_playtime_forever.npz",
+      "sha256": "e58e83aee20c1546a486504c0e9e8dac8a8814f3f369871cc8ae5c8a6243d277",
+      "size_bytes": 6874210
+    },
+    "user_ids": {
+      "path": "outputs/modeling/stage1_interactions/canonical_user_ids.npy",
+      "sha256": "ed2405a8ce8d9d802e94283670e3e6905337017c87a53d7fc5f4b8cfabc6ed14",
+      "size_bytes": 350544
+    }
+  },
+  "contract": {
+    "canonical_id_encoding": "utf8_decimal_without_padding",
+    "dense_user_item_materialization": false,
+    "duplicate_rule": "one ownership edge; maximum nonnegative playtime_forever and playtime_2weeks",
+    "hash_algorithm": "sha256",
+    "id_array_dtype": "int64",
+    "id_hash_record_encoding": "one_utf8_decimal_id_plus_lf_in_stored_order",
+    "interaction_only_item_policy": "fail",
+    "item_order": "ascending_numeric_item_id",
+    "matrix_dtype": "float32",
+    "matrix_format": "canonical_csr",
+    "metadata_only_item_policy": "retain_as_zero_support_column",
+    "missing_id_policy": "exclude_and_count",
+    "negative_or_nonfinite_playtime_policy": "fail",
+    "ownership_target": "binary_observed_edge",
+    "playtime_role": "observed_confidence_modifier_only",
+    "user_order": "ascending_numeric_user_id"
+  },
+  "cycle_id": "s1-v1-20260718",
+  "diagnostics": {
+    "density": 0.004620175509646337,
+    "item_support": {
+      "count": 10978,
+      "maximum": 28449,
+      "mean": 202.37292767352886,
+      "median": 12.0,
+      "minimum": 0,
+      "p25": 2.0,
+      "p75": 70.0,
+      "p90": 359.0,
+      "p95": 891.1499999999996,
+      "p99": 3850.2799999999843,
+      "sum": 2221650,
+      "zero_count": 1245
+    },
+    "storage": {
+      "dense_equivalent_bytes": 5770738512,
+      "dense_equivalent_definition": "three float32 user-by-item matrices plus int64 ID maps",
+      "sparse_contract_bytes": 54283476,
+      "sparse_to_dense_ratio": 0.00940667747934166
+    },
+    "user_activity": {
+      "count": 43802,
+      "maximum": 4456,
+      "mean": 50.72028674489749,
+      "median": 29.0,
+      "minimum": 1,
+      "p25": 9.0,
+      "p75": 66.0,
+      "p90": 120.0,
+      "p95": 167.0,
+      "p99": 319.0,
+      "sum": 2221650,
+      "zero_count": 0
+    }
+  },
+  "id_maps": {
+    "items": {
+      "array_sha256": "663f35b594a6a989ea085a1a89760c415ffdc7d2004763700723e164837d5d49",
+      "count": 10978,
+      "encoding": "utf8_decimal_without_padding",
+      "order": "ascending_numeric_item_id",
+      "semantic_sha256": "b7dfcbec1d505243bfc843cf4133d6c65f374f731ab513252960e33ff64cb426"
+    },
+    "users": {
+      "array_sha256": "4f99f7c1100cfcd930a9ce7fc2dfe2a55979db35b9248baa79aff78a7ac5abc7",
+      "count": 43802,
+      "encoding": "utf8_decimal_without_padding",
+      "order": "ascending_numeric_user_id",
+      "semantic_sha256": "df3fe1cf931c7a41de615d888062ed97e2a25c36cc6473402985163cbb827b3d"
+    }
+  },
+  "inputs": {
+    "features": {
+      "path": "outputs/tables/game_features.csv",
+      "sha256": "4ade15a293a6fa77b0b7230667d4e4c8c0ab98e571b78f64bb7a6d65cde5f7ba",
+      "size_bytes": 2049292
+    },
+    "interactions": {
+      "path": "outputs/tables/user_items_df.csv",
+      "sha256": "51872670970d9fde25d1bfdb3ce7601b640b12802768dc1a2d159b46b90a9c9e",
+      "size_bytes": 237972928
+    },
+    "protocol_manifest": {
+      "path": "outputs/modeling/stage1_protocol_manifest.json",
+      "sha256": "ff5a5306576ed54470589808274c6c3a6d8c55ab81dc638e1352938c2825a55c",
+      "size_bytes": 9607
+    },
+    "ranking_config": {
+      "path": "configs/ranking_evaluation.json",
+      "semantic_sha256": "8265187091d61dc6e16dc06b95bc95fc60b47754ea5a33e9a66268e63928610b",
+      "sha256": "673f93bfa7faa44d9b8a6519987a06f157c5f795943bb05e6bdd38131f27a435",
+      "size_bytes": 5427
+    }
+  },
+  "interaction_set_id": "58d6c59169b2bcf6b23e5ba67fc9e003da69cca2508857ac46c72f0c729ac721",
+  "item_reconciliation": {
+    "common_item_count": 9733,
+    "common_item_ids_sha256": "8560d21bd23e2a269a5568703ef3513f0c5aec60eea28ad2d9fd051c445e5c10",
+    "feature_source_order_is_canonical": false,
+    "feature_source_rows": 10978,
+    "interaction_item_count": 9733,
+    "interaction_item_ids_sha256": "8560d21bd23e2a269a5568703ef3513f0c5aec60eea28ad2d9fd051c445e5c10",
+    "interaction_only_item_count": 0,
+    "interaction_only_item_ids_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "metadata_item_count": 10978,
+    "metadata_item_ids_sha256": "b7dfcbec1d505243bfc843cf4133d6c65f374f731ab513252960e33ff64cb426",
+    "metadata_only_item_count": 1245,
+    "metadata_only_item_ids_sha256": "efa7e58a1cc42bae55d797b974fbd376c7361bd691ee3de5ef6b345046187411"
+  },
+  "load_audit": {
+    "canonical_edge_count": 2221650,
+    "canonical_edge_sha256": "86eac76f1cf7f03d16d1ab14d3b376c1b6b18e562c89d530168d0ab5955ed42c",
+    "chunks_read": 11,
+    "duplicate_excess_rows": 0,
+    "eligible_rows_before_duplicate_collapse": 2221650,
+    "excluded_by_primary_reason": {
+      "invalid_item_id": 0,
+      "invalid_user_id": 2872432,
+      "missing_item_id": 0,
+      "missing_user_id": 0
+    },
+    "excluded_rows": 2872432,
+    "raw_invalid_flags": {
+      "invalid_item_id": 0,
+      "invalid_user_id": 2872432,
+      "missing_item_id": 0,
+      "missing_user_id": 0
+    },
+    "source_rows": 5094082
+  },
+  "manifest_id": "81d165af71f41b4947812c364d4fc8a8fbd791969c7523bf7b7b8cd7d0d382f7",
+  "matrices": {
+    "ownership": {
+      "dtype": "float32",
+      "nnz": 2221650,
+      "semantic_sha256": "ca4b51e901c6f6d1894d4d7278234c68daab80473e1b88e057ab4728fd6a2ab2",
+      "shape": [
+        43802,
+        10978
+      ]
+    },
+    "playtime_2weeks": {
+      "dtype": "float32",
+      "nnz": 2221650,
+      "semantic_sha256": "ccc5f210bb460b906c4ea4d2d484da6d38ed1f54e70619332029ef0bf713eb23",
+      "shape": [
+        43802,
+        10978
+      ]
+    },
+    "playtime_forever": {
+      "dtype": "float32",
+      "nnz": 2221650,
+      "semantic_sha256": "1d85ca31681ac2eb52f0aadfea06c1b4f1473ecda4eced3704fd61422beeeca4",
+      "shape": [
+        43802,
+        10978
+      ]
+    }
+  },
+  "protocol_id": "00b18d784ee34196e34a90c354fb03f45fa025082039eb7a90cc662b23a22f6f",
+  "provenance": {
+    "command": "python -m src.stage1_interaction_artifacts",
+    "module_hash_policy": "utf8_text_with_lf_newlines",
+    "modules": {
+      "generator_text_sha256": "4b56f0419b4aec812fd6d3f4feec1ba2d7a799d4533065ee6e66cc929f1ebf22",
+      "interactions_text_sha256": "bea15a1a097b60f6acee0205699b54077488e922c62a197a6ab8aa60bb875ceb"
+    },
+    "packages": {
+      "numpy": "2.2.6",
+      "pandas": "2.3.3",
+      "scipy": "1.15.3"
+    },
+    "python": "3.10.11",
+    "repository_head_at_generation": "f9e08d54427975ade3682000dedcfdff52bff039"
+  },
+  "schema_version": 1
+}

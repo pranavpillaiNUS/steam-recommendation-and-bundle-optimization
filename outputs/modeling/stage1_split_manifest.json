@@ -1,0 +1,951 @@
+{
+  "access_boundary": {
+    "assessment_activity_count_saved_in_audit_only_split": true,
+    "assessment_ids": "sealed_until_s1_10",
+    "assessment_item_histories_saved": false,
+    "bundle_outcomes_available": false,
+    "design_test_targets": "sealed_until_validation_admission_manifest_is_hashed",
+    "evaluation_user_sample": "available_to_validation_tuning",
+    "nested_audit_loaded_by_tuning_api": false,
+    "outer_audit_loaded_by_tuning_api": false,
+    "pseudo_cold_items": "reserved_for_s1_8",
+    "public_manifest_contains_identifiers": false,
+    "stage2_objectives_available": false,
+    "validation_other_holdout_mask": "available_only_through_opaque_masking_api",
+    "validation_target_diagnostics": "reserved_for_s1_7",
+    "validation_targets": "available_to_validation_tuning"
+  },
+  "artifact": "frozen_stage1_outer_and_nested_splits",
+  "artifact_semantics": {
+    "design_test_targets": {
+      "fields": {
+        "item_ids": {
+          "dtype": "<i8",
+          "semantic_sha256": "9d77beabe7ddb889daf63e2a139dcd0f8fa016b66cf0a3c0ef43efb6252b24ac",
+          "shape": [
+            29666
+          ]
+        },
+        "playtime_2weeks": {
+          "dtype": "<f4",
+          "semantic_sha256": "2cf4c3eaddf1faa5d0a9dc2dcaf576e42af5e2f9df9e56170ba8486fd6409cd7",
+          "shape": [
+            29666
+          ]
+        },
+        "playtime_forever": {
+          "dtype": "<f4",
+          "semantic_sha256": "3e1a709bf82750c5e3b8fdb42c4475e1b4ec8b679beb257ac10f6fdcb043dfaf",
+          "shape": [
+            29666
+          ]
+        },
+        "user_ids": {
+          "dtype": "<i8",
+          "semantic_sha256": "f132593c61c586a577fb96637933354e56be12c9f88bdce590dd2f47a171434f",
+          "shape": [
+            29666
+          ]
+        }
+      },
+      "semantic_sha256": "99fc7ca89e7516287d56dbec4d7d532686bcc82e946b35fc2fcc6c6b91bc391e"
+    },
+    "evaluation_user_sample": {
+      "fields": {
+        "activity_band": {
+          "dtype": "<i2",
+          "semantic_sha256": "eeb2d646de4239e1ffc338f51f5db4ecad7bfa3df0bb3e69d5e896e62bfc5c88",
+          "shape": [
+            5000
+          ]
+        },
+        "sample_stratum_quota": {
+          "dtype": "<i4",
+          "semantic_sha256": "aeec83053ffcf67d9f9859fc90a9ebdd65451555a3125187d2c2a3a51f9dd51a",
+          "shape": [
+            5000
+          ]
+        },
+        "selection_hash": {
+          "dtype": "<u8",
+          "semantic_sha256": "ba13d0fcde9f6a6ebffd1037d19fe7e06eb35b5d1a7bc7249ff068ea31ac83cd",
+          "shape": [
+            5000
+          ]
+        },
+        "user_ids": {
+          "dtype": "<i8",
+          "semantic_sha256": "01165caed83f749463f519db5f20278672be1b30e3763de675632f191f841ffc",
+          "shape": [
+            5000
+          ]
+        }
+      },
+      "semantic_sha256": "ce3d0c74ba13991b39d93cb6f2b7efd93de85c917e39e36afbbc5b0f6fb8c9e0"
+    },
+    "nested_interaction_split": {
+      "fields": {
+        "evaluable_user": {
+          "dtype": "|b1",
+          "semantic_sha256": "9dbda005f64a06ed8296426d2e12a2bddd7980ee109dadd6dba875e815616e0a",
+          "shape": [
+            1764950
+          ]
+        },
+        "is_warm_item": {
+          "dtype": "|b1",
+          "semantic_sha256": "7bd85f945c00319b96cdae44a68f88a955bd637eaede5d6d0e971d3fa2dcc313",
+          "shape": [
+            1764950
+          ]
+        },
+        "item_ids": {
+          "dtype": "<i8",
+          "semantic_sha256": "d35c93f9868151527e97f112fe8ff2e6d3879c0f30ee333c6fba6d6c45e5cb69",
+          "shape": [
+            1764950
+          ]
+        },
+        "item_support_before": {
+          "dtype": "<i4",
+          "semantic_sha256": "c7b066229f71475892427f64f7290e617d0332bfa020f335cdd7989e4ec799d6",
+          "shape": [
+            1764950
+          ]
+        },
+        "item_training_support_after": {
+          "dtype": "<i4",
+          "semantic_sha256": "2be2a00416fa2d56182572a8fadf5f262372ee97ddd4c5fe64f11bf9104ab9dd",
+          "shape": [
+            1764950
+          ]
+        },
+        "role_code": {
+          "dtype": "|u1",
+          "semantic_sha256": "c209d28d9e9a68e2fda4027fc3f508da4615b84b5d01ff1c850974ea8353a5c7",
+          "shape": [
+            1764950
+          ]
+        },
+        "user_ids": {
+          "dtype": "<i8",
+          "semantic_sha256": "0f039bbe292068ba367bb2d5afc2042c5027d2c2db7b59cb22f8ca19ef2ff330",
+          "shape": [
+            1764950
+          ]
+        },
+        "user_status_code": {
+          "dtype": "|u1",
+          "semantic_sha256": "73ad95bf0e957fde44093103a24125d5db90c9ad10fd9a03e83eef85c5866f85",
+          "shape": [
+            1764950
+          ]
+        }
+      },
+      "semantic_sha256": "b94dd5d065dfb2cda00dbcb5a43e5ad0e17e6ca34173334d92c39d3a37281718"
+    },
+    "outer_user_split": {
+      "fields": {
+        "activity_band": {
+          "dtype": "<i2",
+          "semantic_sha256": "59652edd6c9b9945a9bbb35d3ca2010f41848ba3cb399e6d3b82e0abaddc6199",
+          "shape": [
+            43802
+          ]
+        },
+        "assignment_hash": {
+          "dtype": "<u8",
+          "semantic_sha256": "9fab3adb7b5184bef9657a4be65a32c5ddec8c5142a57f89b8f4ea5f32bf2b16",
+          "shape": [
+            43802
+          ]
+        },
+        "raw_ownership_count": {
+          "dtype": "<i4",
+          "semantic_sha256": "f9d37226afe95bd6cdf16c8f5dc6fef78323f5880aa09e0399ee379c16186e46",
+          "shape": [
+            43802
+          ]
+        },
+        "split_code": {
+          "dtype": "|u1",
+          "semantic_sha256": "5da78d74c79c1b9980314da353dd6b09d5f654851d1bcb7797449cf8297a23a0",
+          "shape": [
+            43802
+          ]
+        },
+        "user_ids": {
+          "dtype": "<i8",
+          "semantic_sha256": "4f99f7c1100cfcd930a9ce7fc2dfe2a55979db35b9248baa79aff78a7ac5abc7",
+          "shape": [
+            43802
+          ]
+        }
+      },
+      "semantic_sha256": "819845c3e6e06860e7108684bf3f35cd4332c53ad0aefa7f4912fbd43219fec2"
+    },
+    "pseudo_cold_items": {
+      "fields": {
+        "design_training_support": {
+          "dtype": "<i4",
+          "semantic_sha256": "8905fcd8c4145d1d10021ef307d11ca3b7e9edeb15caa1038da02e196659207f",
+          "shape": [
+            300
+          ]
+        },
+        "genre_stratum_quota": {
+          "dtype": "<i4",
+          "semantic_sha256": "50a597f09daea2ec7b3c400a14bba84f07636343bdf6f72853b12293c3851f10",
+          "shape": [
+            300
+          ]
+        },
+        "item_ids": {
+          "dtype": "<i8",
+          "semantic_sha256": "66793955a6c22879a97a546d0f8b8cda11e12bac66e144da0f5fd6599dabf8e5",
+          "shape": [
+            300
+          ]
+        },
+        "primary_genre": {
+          "dtype": "<U20",
+          "semantic_sha256": "f4c04901b4986f7eea14fd676aa9de8ee9d4fd7a44222fab8b67325b86f796e0",
+          "shape": [
+            300
+          ]
+        },
+        "selection_hash": {
+          "dtype": "<u8",
+          "semantic_sha256": "cd7526b6af2eaa5938cb4288b751433bb28d650e93082df306bd401466c3a691",
+          "shape": [
+            300
+          ]
+        },
+        "support_band_index": {
+          "dtype": "<i2",
+          "semantic_sha256": "5ac5ca3e1f668e99a1e716250e4f0c18c16dfe003c6f2a80bcec8f6b27e9a006",
+          "shape": [
+            300
+          ]
+        },
+        "support_band_lower": {
+          "dtype": "<i4",
+          "semantic_sha256": "917d0e4ec4b5a3196f25fa57b17836f5474d2f68e3c19b2e883ec3064a338415",
+          "shape": [
+            300
+          ]
+        },
+        "support_band_upper_exclusive": {
+          "dtype": "<i4",
+          "semantic_sha256": "0a99b941b3bf5845bbf5f32fa2180b6459bcb93b4f0f8a39816ee8bc9ecf9e6d",
+          "shape": [
+            300
+          ]
+        }
+      },
+      "semantic_sha256": "31e14b21c8d10d913a4b067a73a6f5d2b9c1f4918603ac15086cfefd08930fe2"
+    },
+    "validation_other_holdout_mask": {
+      "fields": {
+        "item_ids": {
+          "dtype": "<i8",
+          "semantic_sha256": "9d77beabe7ddb889daf63e2a139dcd0f8fa016b66cf0a3c0ef43efb6252b24ac",
+          "shape": [
+            29666
+          ]
+        },
+        "user_ids": {
+          "dtype": "<i8",
+          "semantic_sha256": "f132593c61c586a577fb96637933354e56be12c9f88bdce590dd2f47a171434f",
+          "shape": [
+            29666
+          ]
+        }
+      },
+      "semantic_sha256": "46cabcd1003f1fec22076ec97dc59df64ea4e129f98bf37e059922039ca059d9"
+    },
+    "validation_target_diagnostics": {
+      "fields": {
+        "playtime_2weeks": {
+          "dtype": "<f4",
+          "semantic_sha256": "924535f7f7d8751d3b5ae7c730bd099d33fbef736f0fee15f56824e59ce11532",
+          "shape": [
+            29666
+          ]
+        },
+        "playtime_forever": {
+          "dtype": "<f4",
+          "semantic_sha256": "802c8ba11be5d0aeffe4465652e760205a09c5e8a650b182b9e4df92fdf5a12a",
+          "shape": [
+            29666
+          ]
+        }
+      },
+      "semantic_sha256": "9bd9687de19eb115840ea215326eef994b945282b797416faeb30ed4fd7272df"
+    },
+    "validation_targets": {
+      "fields": {
+        "item_ids": {
+          "dtype": "<i8",
+          "semantic_sha256": "f6c2a3ed90b8957935c857a9d0fc0025697954e8d58f898dc3804f255cb5343c",
+          "shape": [
+            29666
+          ]
+        },
+        "user_ids": {
+          "dtype": "<i8",
+          "semantic_sha256": "f132593c61c586a577fb96637933354e56be12c9f88bdce590dd2f47a171434f",
+          "shape": [
+            29666
+          ]
+        }
+      },
+      "semantic_sha256": "d891bb736f274a9197c25992a882ebce7946c9e2ea052d05cd7d2337fa56ec87"
+    }
+  },
+  "artifacts": {
+    "design_test_targets": {
+      "access": "sealed_until_validation_admission_is_hashed",
+      "fields": {
+        "item_ids": {
+          "dtype": "<i8",
+          "semantic_sha256": "9d77beabe7ddb889daf63e2a139dcd0f8fa016b66cf0a3c0ef43efb6252b24ac",
+          "shape": [
+            29666
+          ]
+        },
+        "playtime_2weeks": {
+          "dtype": "<f4",
+          "semantic_sha256": "2cf4c3eaddf1faa5d0a9dc2dcaf576e42af5e2f9df9e56170ba8486fd6409cd7",
+          "shape": [
+            29666
+          ]
+        },
+        "playtime_forever": {
+          "dtype": "<f4",
+          "semantic_sha256": "3e1a709bf82750c5e3b8fdb42c4475e1b4ec8b679beb257ac10f6fdcb043dfaf",
+          "shape": [
+            29666
+          ]
+        },
+        "user_ids": {
+          "dtype": "<i8",
+          "semantic_sha256": "f132593c61c586a577fb96637933354e56be12c9f88bdce590dd2f47a171434f",
+          "shape": [
+            29666
+          ]
+        }
+      },
+      "path": "outputs/modeling/protected/s1-v1-20260718/stage1_splits/sealed/design_test/design_test_targets.npz",
+      "semantic_sha256": "99fc7ca89e7516287d56dbec4d7d532686bcc82e946b35fc2fcc6c6b91bc391e",
+      "sha256": "cd72fdf77c8c4cd0b9cd7a841fcc3bd062cdd80b5d6a938966f417dc8874a5e3",
+      "size_bytes": 204103
+    },
+    "design_training_item_ids": {
+      "access": "design_training_permitted",
+      "path": "outputs/modeling/protected/s1-v1-20260718/stage1_splits/permitted/design_training/design_training_item_ids.npy",
+      "sha256": "50e079a5d982488bbd8377996c21e81fa1c43c12dff781e0bba4bf1e9c8edf13",
+      "size_bytes": 53896
+    },
+    "design_training_ownership": {
+      "access": "design_training_permitted",
+      "path": "outputs/modeling/protected/s1-v1-20260718/stage1_splits/permitted/design_training/design_training_ownership.npz",
+      "sha256": "2e35433045a9e294dc579b6bc5a70164d3594e29ea4b5813fe0a991f8278f706",
+      "size_bytes": 2419389
+    },
+    "design_training_playtime_2weeks": {
+      "access": "design_training_permitted",
+      "path": "outputs/modeling/protected/s1-v1-20260718/stage1_splits/permitted/design_training/design_training_playtime_2weeks.npz",
+      "sha256": "8d57b9648dfacf2eea8939dea1c4e4df5c48c2856ccd0a2bba164e94a664b46c",
+      "size_bytes": 2612543
+    },
+    "design_training_playtime_forever": {
+      "access": "design_training_permitted",
+      "path": "outputs/modeling/protected/s1-v1-20260718/stage1_splits/permitted/design_training/design_training_playtime_forever.npz",
+      "sha256": "0f249d2260929a4cc7b4e630366c9d45790d5c3816b34b154cc8f279b3856fc0",
+      "size_bytes": 5241932
+    },
+    "design_training_user_ids": {
+      "access": "design_training_permitted",
+      "path": "outputs/modeling/protected/s1-v1-20260718/stage1_splits/permitted/design_training/design_training_user_ids.npy",
+      "sha256": "b80830ce9a1c7fe435241c3e8eb6b0032a8084578413a954fad86982aca8cefd",
+      "size_bytes": 237456
+    },
+    "evaluation_user_sample": {
+      "access": "validation_tuning_permitted",
+      "fields": {
+        "activity_band": {
+          "dtype": "<i2",
+          "semantic_sha256": "eeb2d646de4239e1ffc338f51f5db4ecad7bfa3df0bb3e69d5e896e62bfc5c88",
+          "shape": [
+            5000
+          ]
+        },
+        "sample_stratum_quota": {
+          "dtype": "<i4",
+          "semantic_sha256": "aeec83053ffcf67d9f9859fc90a9ebdd65451555a3125187d2c2a3a51f9dd51a",
+          "shape": [
+            5000
+          ]
+        },
+        "selection_hash": {
+          "dtype": "<u8",
+          "semantic_sha256": "ba13d0fcde9f6a6ebffd1037d19fe7e06eb35b5d1a7bc7249ff068ea31ac83cd",
+          "shape": [
+            5000
+          ]
+        },
+        "user_ids": {
+          "dtype": "<i8",
+          "semantic_sha256": "01165caed83f749463f519db5f20278672be1b30e3763de675632f191f841ffc",
+          "shape": [
+            5000
+          ]
+        }
+      },
+      "path": "outputs/modeling/protected/s1-v1-20260718/stage1_splits/permitted/validation/evaluation_user_sample.npz",
+      "semantic_sha256": "ce3d0c74ba13991b39d93cb6f2b7efd93de85c917e39e36afbbc5b0f6fb8c9e0",
+      "sha256": "8359a452c7682df7d140c8bc518adb61b58caf26a990dc44635b3edbc6e7a342",
+      "size_bytes": 61526
+    },
+    "nested_interaction_split": {
+      "access": "audit_only_contains_sealed_design_test_ids",
+      "fields": {
+        "evaluable_user": {
+          "dtype": "|b1",
+          "semantic_sha256": "9dbda005f64a06ed8296426d2e12a2bddd7980ee109dadd6dba875e815616e0a",
+          "shape": [
+            1764950
+          ]
+        },
+        "is_warm_item": {
+          "dtype": "|b1",
+          "semantic_sha256": "7bd85f945c00319b96cdae44a68f88a955bd637eaede5d6d0e971d3fa2dcc313",
+          "shape": [
+            1764950
+          ]
+        },
+        "item_ids": {
+          "dtype": "<i8",
+          "semantic_sha256": "d35c93f9868151527e97f112fe8ff2e6d3879c0f30ee333c6fba6d6c45e5cb69",
+          "shape": [
+            1764950
+          ]
+        },
+        "item_support_before": {
+          "dtype": "<i4",
+          "semantic_sha256": "c7b066229f71475892427f64f7290e617d0332bfa020f335cdd7989e4ec799d6",
+          "shape": [
+            1764950
+          ]
+        },
+        "item_training_support_after": {
+          "dtype": "<i4",
+          "semantic_sha256": "2be2a00416fa2d56182572a8fadf5f262372ee97ddd4c5fe64f11bf9104ab9dd",
+          "shape": [
+            1764950
+          ]
+        },
+        "role_code": {
+          "dtype": "|u1",
+          "semantic_sha256": "c209d28d9e9a68e2fda4027fc3f508da4615b84b5d01ff1c850974ea8353a5c7",
+          "shape": [
+            1764950
+          ]
+        },
+        "user_ids": {
+          "dtype": "<i8",
+          "semantic_sha256": "0f039bbe292068ba367bb2d5afc2042c5027d2c2db7b59cb22f8ca19ef2ff330",
+          "shape": [
+            1764950
+          ]
+        },
+        "user_status_code": {
+          "dtype": "|u1",
+          "semantic_sha256": "73ad95bf0e957fde44093103a24125d5db90c9ad10fd9a03e83eef85c5866f85",
+          "shape": [
+            1764950
+          ]
+        }
+      },
+      "path": "outputs/modeling/protected/s1-v1-20260718/stage1_splits/sealed/audit/nested_interaction_split.npz",
+      "semantic_sha256": "b94dd5d065dfb2cda00dbcb5a43e5ad0e17e6ca34173334d92c39d3a37281718",
+      "sha256": "a4e60db69f6a4b90d4dab86a307a3a04b2fdd1a7f176a3dc1ebcd07968482838",
+      "size_bytes": 8102585
+    },
+    "outer_user_split": {
+      "access": "audit_only_contains_sealed_assessment_ids",
+      "fields": {
+        "activity_band": {
+          "dtype": "<i2",
+          "semantic_sha256": "59652edd6c9b9945a9bbb35d3ca2010f41848ba3cb399e6d3b82e0abaddc6199",
+          "shape": [
+            43802
+          ]
+        },
+        "assignment_hash": {
+          "dtype": "<u8",
+          "semantic_sha256": "9fab3adb7b5184bef9657a4be65a32c5ddec8c5142a57f89b8f4ea5f32bf2b16",
+          "shape": [
+            43802
+          ]
+        },
+        "raw_ownership_count": {
+          "dtype": "<i4",
+          "semantic_sha256": "f9d37226afe95bd6cdf16c8f5dc6fef78323f5880aa09e0399ee379c16186e46",
+          "shape": [
+            43802
+          ]
+        },
+        "split_code": {
+          "dtype": "|u1",
+          "semantic_sha256": "5da78d74c79c1b9980314da353dd6b09d5f654851d1bcb7797449cf8297a23a0",
+          "shape": [
+            43802
+          ]
+        },
+        "user_ids": {
+          "dtype": "<i8",
+          "semantic_sha256": "4f99f7c1100cfcd930a9ce7fc2dfe2a55979db35b9248baa79aff78a7ac5abc7",
+          "shape": [
+            43802
+          ]
+        }
+      },
+      "path": "outputs/modeling/protected/s1-v1-20260718/stage1_splits/sealed/audit/outer_user_split.npz",
+      "semantic_sha256": "819845c3e6e06860e7108684bf3f35cd4332c53ad0aefa7f4912fbd43219fec2",
+      "sha256": "9cd436079db6410f76d4a24bca562abddc317ef147fa930feb5d891c5d092b16",
+      "size_bytes": 518736
+    },
+    "pseudo_cold_items": {
+      "access": "reserved_for_s1_8",
+      "fields": {
+        "design_training_support": {
+          "dtype": "<i4",
+          "semantic_sha256": "8905fcd8c4145d1d10021ef307d11ca3b7e9edeb15caa1038da02e196659207f",
+          "shape": [
+            300
+          ]
+        },
+        "genre_stratum_quota": {
+          "dtype": "<i4",
+          "semantic_sha256": "50a597f09daea2ec7b3c400a14bba84f07636343bdf6f72853b12293c3851f10",
+          "shape": [
+            300
+          ]
+        },
+        "item_ids": {
+          "dtype": "<i8",
+          "semantic_sha256": "66793955a6c22879a97a546d0f8b8cda11e12bac66e144da0f5fd6599dabf8e5",
+          "shape": [
+            300
+          ]
+        },
+        "primary_genre": {
+          "dtype": "<U20",
+          "semantic_sha256": "f4c04901b4986f7eea14fd676aa9de8ee9d4fd7a44222fab8b67325b86f796e0",
+          "shape": [
+            300
+          ]
+        },
+        "selection_hash": {
+          "dtype": "<u8",
+          "semantic_sha256": "cd7526b6af2eaa5938cb4288b751433bb28d650e93082df306bd401466c3a691",
+          "shape": [
+            300
+          ]
+        },
+        "support_band_index": {
+          "dtype": "<i2",
+          "semantic_sha256": "5ac5ca3e1f668e99a1e716250e4f0c18c16dfe003c6f2a80bcec8f6b27e9a006",
+          "shape": [
+            300
+          ]
+        },
+        "support_band_lower": {
+          "dtype": "<i4",
+          "semantic_sha256": "917d0e4ec4b5a3196f25fa57b17836f5474d2f68e3c19b2e883ec3064a338415",
+          "shape": [
+            300
+          ]
+        },
+        "support_band_upper_exclusive": {
+          "dtype": "<i4",
+          "semantic_sha256": "0a99b941b3bf5845bbf5f32fa2180b6459bcb93b4f0f8a39816ee8bc9ecf9e6d",
+          "shape": [
+            300
+          ]
+        }
+      },
+      "path": "outputs/modeling/protected/s1-v1-20260718/stage1_splits/reserved/s1_8/pseudo_cold_items.npz",
+      "semantic_sha256": "31e14b21c8d10d913a4b067a73a6f5d2b9c1f4918603ac15086cfefd08930fe2",
+      "sha256": "adac6f2d26e17fce592cdbab94712dffd648871101daba6d380360e9e7909adc",
+      "size_bytes": 6822
+    },
+    "validation_other_holdout_mask": {
+      "access": "opaque_validation_mask_only",
+      "fields": {
+        "item_ids": {
+          "dtype": "<i8",
+          "semantic_sha256": "9d77beabe7ddb889daf63e2a139dcd0f8fa016b66cf0a3c0ef43efb6252b24ac",
+          "shape": [
+            29666
+          ]
+        },
+        "user_ids": {
+          "dtype": "<i8",
+          "semantic_sha256": "f132593c61c586a577fb96637933354e56be12c9f88bdce590dd2f47a171434f",
+          "shape": [
+            29666
+          ]
+        }
+      },
+      "path": "outputs/modeling/protected/s1-v1-20260718/stage1_splits/mask_only/validation_other_holdout_mask.npz",
+      "semantic_sha256": "46cabcd1003f1fec22076ec97dc59df64ea4e129f98bf37e059922039ca059d9",
+      "sha256": "8f48f61108c7f790ea8bba2b3f75a9584c3aa9ef27f4f6a34c93df0d75598c84",
+      "size_bytes": 146640
+    },
+    "validation_target_diagnostics": {
+      "access": "reserved_for_s1_7_diagnostics",
+      "fields": {
+        "playtime_2weeks": {
+          "dtype": "<f4",
+          "semantic_sha256": "924535f7f7d8751d3b5ae7c730bd099d33fbef736f0fee15f56824e59ce11532",
+          "shape": [
+            29666
+          ]
+        },
+        "playtime_forever": {
+          "dtype": "<f4",
+          "semantic_sha256": "802c8ba11be5d0aeffe4465652e760205a09c5e8a650b182b9e4df92fdf5a12a",
+          "shape": [
+            29666
+          ]
+        }
+      },
+      "path": "outputs/modeling/protected/s1-v1-20260718/stage1_splits/reserved/s1_7/validation_target_diagnostics.npz",
+      "semantic_sha256": "9bd9687de19eb115840ea215326eef994b945282b797416faeb30ed4fd7272df",
+      "sha256": "511c92ec58e20b6edb0c2fc4a94062baca6b9a36ec6c69a7bbd0d75462fae4bb",
+      "size_bytes": 57421
+    },
+    "validation_targets": {
+      "access": "validation_tuning_permitted",
+      "fields": {
+        "item_ids": {
+          "dtype": "<i8",
+          "semantic_sha256": "f6c2a3ed90b8957935c857a9d0fc0025697954e8d58f898dc3804f255cb5343c",
+          "shape": [
+            29666
+          ]
+        },
+        "user_ids": {
+          "dtype": "<i8",
+          "semantic_sha256": "f132593c61c586a577fb96637933354e56be12c9f88bdce590dd2f47a171434f",
+          "shape": [
+            29666
+          ]
+        }
+      },
+      "path": "outputs/modeling/protected/s1-v1-20260718/stage1_splits/permitted/validation/validation_targets.npz",
+      "semantic_sha256": "d891bb736f274a9197c25992a882ebce7946c9e2ea052d05cd7d2337fa56ec87",
+      "sha256": "c8a6c51d74cf49fdc05f3cf2c467f219253181a15c933075a897686fe84d0d72",
+      "size_bytes": 146583
+    }
+  },
+  "contract": {
+    "artifact_id_dtype": "int64",
+    "artifact_schema": {
+      "nested_interaction_split": {
+        "nonwarm_training_support_int32_sentinel": -1,
+        "role_code_label_to_value": {
+          "excluded_nonwarm_item": 0,
+          "test": 3,
+          "training": 1,
+          "validation": 2
+        },
+        "user_status_code_label_to_value": {
+          "capacity_exhausted": 1,
+          "evaluable": 2,
+          "insufficient_warm_history": 0
+        }
+      },
+      "outer_user_split": {
+        "excluded_assignment_hash_uint64_sentinel": 0,
+        "split_code_label_to_value": {
+          "assessment": 2,
+          "design": 1,
+          "excluded_low_activity": 0
+        }
+      },
+      "validation_other_holdout_mask": {
+        "fields": [
+          "user_ids",
+          "item_ids"
+        ],
+        "purpose": "opaque_masking_of_each_validation_users_test_positive",
+        "raw_coordinates_returned_by_public_api": false
+      },
+      "validation_target_diagnostics": {
+        "fields": [
+          "playtime_forever",
+          "playtime_2weeks"
+        ],
+        "purpose": "diagnostic_only_not_model_selection",
+        "row_alignment": "validation_targets"
+      },
+      "validation_targets": {
+        "fields": [
+          "user_ids",
+          "item_ids"
+        ],
+        "purpose": "validation_tuning_targets"
+      }
+    },
+    "evaluation_users": {
+      "catalogue": "complete_frozen_warm_catalogue",
+      "justification": "For a bounded per-user metric, n=5000 gives a distribution-free worst-case 95 percent normal half-width below 0.014 before paired variance reduction.",
+      "namespace": "s1-v1-20260718:evaluation-users",
+      "sample_size": 5000,
+      "sampling": "hash_smallest_within_outer_activity_band_then_proportional_reconciliation"
+    },
+    "nested_interaction_split": {
+      "assignment": "deterministic_capacity_aware_edge_hash_scan",
+      "edge_role_order": [
+        "test",
+        "validation"
+      ],
+      "held_out_removed_from_playtime_confidence": true,
+      "held_out_removed_from_preference": true,
+      "namespace": "s1-v1-20260718:design-edges",
+      "required_warm_edges_per_evaluable_user": 3,
+      "test_mask": [
+        "training_positives",
+        "validation_positive"
+      ],
+      "test_positives_per_user": 1,
+      "user_processing_order": "sha256_user_hash_then_user_id",
+      "validation_mask": [
+        "training_positives",
+        "test_positive"
+      ],
+      "validation_positives_per_user": 1
+    },
+    "outer_user_split": {
+      "activity_bands": [
+        5,
+        10,
+        25,
+        50,
+        100,
+        200
+      ],
+      "assessment_fraction": 0.2,
+      "assessment_ids_available_to_tuning": false,
+      "assignment": "within_band_sort_by_sha256_then_id; first_floor_20_percent_assessment",
+      "design_fraction": 0.8,
+      "excluded_low_activity_users_are_logged": true,
+      "minimum_raw_ownership_count": 5,
+      "namespace": "s1-v1-20260718:outer-users"
+    },
+    "pair_order": "ascending_numeric_user_then_item",
+    "protected_identifiers_in_public_manifest": false,
+    "pseudo_cold": {
+      "candidate_requires_genre": true,
+      "genre_quota_reconciliation": "hamilton_largest_remainder_with_canonical_lexical_ties",
+      "identity_only_result": "unavailable",
+      "items_per_band": 100,
+      "namespace": "s1-v1-20260718:pseudo-cold-items",
+      "popularity_fallback": "design_training_support_before_cold_removal",
+      "primary_genre_rule": "lexicographically_first_unique_label_after_html_unescape_unicode_nfkc_and_whitespace_collapse",
+      "ranking_catalogue": "complete_frozen_pseudo_cold_cohort",
+      "remove_all_design_interactions": true,
+      "selection": "hash_stratified_by_primary_genre_within_support_band",
+      "support_bands": [
+        [
+          5,
+          20
+        ],
+        [
+          20,
+          100
+        ],
+        [
+          100,
+          500
+        ]
+      ],
+      "suppress_identity_bias": true,
+      "suppress_identity_embedding": true,
+      "upper_bound_is_exclusive": true
+    },
+    "publication_policy": "cycle_scoped_staged_publish_manifest_last_refuse_nonidentical_overwrite",
+    "ranking_masks": {
+      "design_test": "mask_design_training_positives_and_validation_positive",
+      "validation": "mask_design_training_positives_and_test_positive"
+    },
+    "stable_hash_projection": "first_64_bits_of_sha256_as_unsigned_integer",
+    "warm_catalogue": {
+      "catalogue_order": "ascending_numeric_item_id",
+      "metadata_only_items_in_warm_ranking": false,
+      "minimum_design_training_support_after_holdout": 3,
+      "minimum_design_user_support_before_holdout": 5
+    }
+  },
+  "cycle_id": "s1-v1-20260718",
+  "inputs": {
+    "features": {
+      "path": "outputs/tables/game_features.csv",
+      "sha256": "4ade15a293a6fa77b0b7230667d4e4c8c0ab98e571b78f64bb7a6d65cde5f7ba",
+      "size_bytes": 2049292
+    },
+    "interaction_manifest": {
+      "path": "outputs/modeling/stage1_interaction_manifest.json",
+      "sha256": "e6737c7504266911b5b8d9f0704b1623e9ba15da713130a22a3abd85a4496290",
+      "size_bytes": 7517
+    },
+    "protocol_manifest": {
+      "path": "outputs/modeling/stage1_protocol_manifest.json",
+      "sha256": "ff5a5306576ed54470589808274c6c3a6d8c55ab81dc638e1352938c2825a55c",
+      "size_bytes": 9607
+    },
+    "ranking_config": {
+      "path": "configs/ranking_evaluation.json",
+      "semantic_sha256": "8265187091d61dc6e16dc06b95bc95fc60b47754ea5a33e9a66268e63928610b",
+      "sha256": "673f93bfa7faa44d9b8a6519987a06f157c5f795943bb05e6bdd38131f27a435",
+      "size_bytes": 5427
+    }
+  },
+  "interaction_set_id": "58d6c59169b2bcf6b23e5ba67fc9e003da69cca2508857ac46c72f0c729ac721",
+  "manifest_id": "52d3d91a36c2979403b9d4b9753fd819428cf614db50dec6f44c4d126cba95b3",
+  "protocol_id": "00b18d784ee34196e34a90c354fb03f45fa025082039eb7a90cc662b23a22f6f",
+  "provenance": {
+    "command": "python -m src.stage1_split_artifacts",
+    "generated_at_utc": "2026-07-29T12:48:32Z",
+    "module_hash_policy": "utf8_text_with_lf_newlines",
+    "modules": {
+      "generator_text_sha256": "4b7457d6c92dbfc38b0d421f3af21ac490f5c0d5c003807aeaa4340c6d80dc24",
+      "interactions_text_sha256": "bea15a1a097b60f6acee0205699b54077488e922c62a197a6ab8aa60bb875ceb",
+      "splits_text_sha256": "2cac0070a565862ffea5fd02bb108e0642770341368d5eeab99cd5aabeaa7666",
+      "stage1_protocol_text_sha256": "e32a5784f963a5953b7e08a0b74eb4410be7a279065618765824ed1413aa34f4"
+    },
+    "packages": {
+      "numpy": "2.2.6",
+      "pandas": "2.3.3",
+      "scipy": "1.15.3"
+    },
+    "publication_policy": "cycle_scoped_staged_publish_manifest_last_refuse_nonidentical_overwrite",
+    "python": "3.10.11",
+    "repository_head_before_generation_commit": "d86a1378566ea54e1196ab82989548b5550ff89c"
+  },
+  "schema_version": 1,
+  "split_set_id": "0656e84b1fd9a59d51f5cf52d8001bb82b9fa50a1870115236d0b7ba50c0ec71",
+  "summary": {
+    "evaluation_users": {
+      "by_activity_band": {
+        "0": 584,
+        "1": 1202,
+        "2": 1242,
+        "3": 1145,
+        "4": 634,
+        "5": 193
+      },
+      "sample_users": 5000
+    },
+    "nested_interactions": {
+      "capacity_exhausted_users": 0,
+      "capacity_rule_claim": "deterministic greedy feasible scan; no maximum-cardinality claim",
+      "design_edges": 1764950,
+      "design_test_edges": 29666,
+      "evaluable_users": 29666,
+      "insufficient_warm_history_users": 0,
+      "minimum_warm_support_before_holdout": 5,
+      "minimum_warm_training_support_after_holdout": 4,
+      "nonwarm_excluded_edges": 6098,
+      "training_edges": 1699520,
+      "training_matrix_nnz": 1699520,
+      "validation_edges": 29666,
+      "warm_items": 6721
+    },
+    "outer_users": {
+      "assessment_edges": 442569,
+      "assessment_users": 7414,
+      "by_activity_band": {
+        "0": {
+          "assessment": 866,
+          "design": 3464,
+          "total": 4330
+        },
+        "1": {
+          "assessment": 1782,
+          "design": 7131,
+          "total": 8913
+        },
+        "2": {
+          "assessment": 1841,
+          "design": 7368,
+          "total": 9209
+        },
+        "3": {
+          "assessment": 1698,
+          "design": 6795,
+          "total": 8493
+        },
+        "4": {
+          "assessment": 941,
+          "design": 3764,
+          "total": 4705
+        },
+        "5": {
+          "assessment": 286,
+          "design": 1144,
+          "total": 1430
+        }
+      },
+      "design_edges": 1764950,
+      "design_users": 29666,
+      "eligible_edges": 2207519,
+      "eligible_users": 37080,
+      "excluded_low_activity_edges": 14131,
+      "excluded_low_activity_users": 6722,
+      "source_edges": 2221650,
+      "source_users": 43802
+    },
+    "pseudo_cold_items": {
+      "by_primary_genre": {
+        "Action": 135,
+        "Adventure": 57,
+        "Animation & Modeling": 1,
+        "Casual": 31,
+        "Early Access": 3,
+        "Free to Play": 7,
+        "Indie": 29,
+        "RPG": 9,
+        "Racing": 4,
+        "Simulation": 11,
+        "Strategy": 12,
+        "Utilities": 1
+      },
+      "by_support_band": {
+        "0": 100,
+        "1": 100,
+        "2": 100
+      },
+      "item_count": 300
+    }
+  },
+  "training_semantics": {
+    "item_count": 6721,
+    "item_ids_sha256": "6d44c131ca1eec9c00e38c21bc984acf3c3689b80c2b7c206f424fedb1999bfe",
+    "nnz": 1699520,
+    "ownership_sha256": "ff077a317b2dc0644c41c0f2948ece9ea2efd174a6c2b5a9eee531284f9512e7",
+    "playtime_2weeks_sha256": "cd10b6d2764d9069ac295f9a52e3c0570c7f474cd300c71042dacef283a0ed50",
+    "playtime_forever_sha256": "07a4a4f58ff65e18cb76d8f89774db5e0338e60d7bf693bce86728ed51c7529a",
+    "shape": [
+      29666,
+      6721
+    ],
+    "sparse_storage_bytes": 41435580,
+    "user_count": 29666,
+    "user_ids_sha256": "f132593c61c586a577fb96637933354e56be12c9f88bdce590dd2f47a171434f"
+  }
+}

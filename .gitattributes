@@ -1,0 +1,35 @@
+* text=auto
+
+# Source, configuration, documentation, and CI use stable LF endings.
+.gitattributes text eol=lf
+.gitignore text eol=lf
+*.py text eol=lf
+*.json text eol=lf
+*.md text eol=lf
+*.txt text eol=lf
+*.ipynb text eol=lf
+*.yml text eol=lf
+*.yaml text eol=lf
+*.cff text eol=lf
+
+# Binary research artifacts must never be line-ending normalized.
+*.png binary
+*.npz binary
+*.npy binary
+
+# Preserve the byte-level line endings of hash-bound CSV artifacts. Do not
+# replace these with a global CSV rule: the frozen outputs intentionally mix
+# CRLF and LF according to the writer that produced them.
+outputs/tables/game_features.csv text eol=crlf
+outputs/tables/bundle_mechanism_audit.csv text eol=crlf
+outputs/tables/stage1_feature_coverage.csv text eol=lf
+outputs/modeling/cycles/**/stage1_backend_equivalence.csv text eol=crlf
+outputs/modeling/cycles/**/stage1_design_test_leaderboard.csv text eol=crlf
+outputs/modeling/cycles/**/stage1_design_test_segments.csv text eol=crlf
+outputs/modeling/cycles/**/stage1_pseudo_cold_results.csv text eol=crlf
+outputs/modeling/cycles/**/stage1_pseudo_utility_diagnostics.csv text eol=crlf
+outputs/modeling/cycles/**/stage1_validation_leaderboard.csv text eol=crlf
+outputs/modeling/cycles/**/stage1_validation_resource_trace.csv text eol=crlf
+outputs/modeling/cycles/**/stage1_feature_coverage.csv text eol=lf
+outputs/modeling/cycles/**/stage1_runtime_memory.csv text eol=lf
+outputs/modeling/cycles/**/stage1_seed_specific_contrasts.csv text eol=lf

@@ -1,0 +1,108 @@
+{
+  "artifact": "bundle_mechanism_audit",
+  "canonical_generation": {
+    "bundle_id_order_sha256": "2ec42a997b47825360e8bb626a53bd8eda14b466094402aeb8272ebcbdaa6341",
+    "columns": [
+      "bundle_id",
+      "bundle_name",
+      "n_items",
+      "n_items_in_catalogue",
+      "catalogue_coverage",
+      "standalone_price_coverage",
+      "n_distinct_publishers",
+      "publisher_coherent",
+      "developer_coherent",
+      "n_missing_item_id",
+      "mechanism_class",
+      "ownership_adjusted",
+      "indivisible",
+      "confidence",
+      "evidence"
+    ],
+    "row_count": 615,
+    "row_order": "ascending normalized bundle_id; numeric IDs first",
+    "sha256": "668d33b11dd7b9c2b67bc6dca929a621e30636d33ec3a436c0fde743be62a7c1",
+    "size_bytes": 115288
+  },
+  "generated_at_utc": "2026-07-17T08:45:32Z",
+  "headline_counts": {
+    "affirmative_sbr_evidence_count": 0,
+    "complete_catalogue_confirmation_count": 475,
+    "full_standalone_price_coverage_count": 615,
+    "high_confidence_count": 513,
+    "high_confidence_sba_like_count": 513,
+    "mechanism_counts": {
+      "B_SBA_like": 568,
+      "E_unclear": 47
+    },
+    "row_count": 615,
+    "sba_like_count": 568,
+    "single_publisher_count": 437,
+    "unclear_count": 47
+  },
+  "identification_boundary": {
+    "component_exclusivity_identified": false,
+    "evidence_scope": "static bundle/catalogue snapshot cross-reference only",
+    "historical_mechanism_identified": false,
+    "indivisible_package_status_observable": false,
+    "ownership_adjusted_pricing_observable": false,
+    "zero_affirmative_sbr_interpretation": "absence of affirmative SBR evidence, not proven absence of SBR"
+  },
+  "inputs": {
+    "bundle_records": {
+      "order_invariant_sha256": "a6c1165701ecf7a507d2bbc41a1dd956835f19ef63ea53b2b75ef24774317a92",
+      "path": "data/raw/bundle_data.json",
+      "record_count": 615
+    },
+    "catalogue_records": {
+      "order_invariant_sha256": "b2a3b5dd4013bf6ec42e495fc414600fbd1e045080ff352eececc66f82487cf0",
+      "path": "data/raw/steam_games.json",
+      "record_count": 32135
+    }
+  },
+  "method": {
+    "confidence_rule": {
+      "high": "catalogue coverage >= 0.8",
+      "low": "catalogue coverage < 0.5",
+      "medium": "0.5 <= catalogue coverage < 0.8"
+    },
+    "duplicate_catalogue_ids": "union publisher/developer labels; never first/last-row resolution",
+    "id_match": "exact normalized string application ID",
+    "random_seeds": [],
+    "sba_like_rule": "at least one catalogue-confirmed component and standalone-price evidence for every component"
+  },
+  "output": {
+    "bundle_id_order_sha256": "328206833925b22cee0f295bbf51b782acbb08a8b21d356ee68e851ca6d55ff1",
+    "columns": [
+      "bundle_id",
+      "bundle_name",
+      "n_items",
+      "n_items_in_catalogue",
+      "catalogue_coverage",
+      "standalone_price_coverage",
+      "n_distinct_publishers",
+      "publisher_coherent",
+      "developer_coherent",
+      "n_missing_item_id",
+      "mechanism_class",
+      "ownership_adjusted",
+      "indivisible",
+      "confidence",
+      "evidence"
+    ],
+    "path": "outputs/tables/bundle_mechanism_audit.csv",
+    "preserved_existing_artifact": true,
+    "row_count": 615,
+    "row_order": "preserved existing artifact order; CSV not rewritten",
+    "sha256": "3b167eba1f450be116ca20fef2a54c48b54e1afb75cb22f4c19ba2a13750250f",
+    "size_bytes": 115288,
+    "verified_equal_by_bundle_id_and_cell": true
+  },
+  "producing_command": "python -m src.mechanism_audit --bundles data/raw/bundle_data.json --catalogue data/raw/steam_games.json --output outputs/tables/bundle_mechanism_audit.csv --manifest outputs/tables/bundle_mechanism_audit_manifest.json --generated-at-utc 2026-07-17T08:45:32Z --compare-to outputs/tables/bundle_mechanism_audit.csv --manifest-only",
+  "runtime": {
+    "module_sha256": "bc0b0a195a167d35afb197a10e104da5b4ae13bf5c8b1521521cf7d05c7c78a5",
+    "python_version": "3.10.11"
+  },
+  "schema_version": 2,
+  "timestamp_policy": "explicit CLI value"
+}

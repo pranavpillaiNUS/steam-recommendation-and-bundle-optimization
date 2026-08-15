@@ -1,0 +1,243 @@
+{
+  "access_boundary": {
+    "assessment_ids_or_histories": "sealed_not_accessed",
+    "design_test_targets": "sealed_not_accessed",
+    "pseudo_cold_items": "reserved_for_s1_8_not_accessed",
+    "real_model_fit": false,
+    "stage2_objectives_or_bundle_outcomes": "not_accessed",
+    "validation_targets_or_metrics": "not_accessed"
+  },
+  "artifact": "stage1_backend_neutral_estimator_specification",
+  "artifact_schema": {
+    "fold_in": "not_implemented_or_claimed_until_s1_5_and_s1_10",
+    "later_model_artifact": {
+      "arrays": "only_parameter_arrays_declared_by_model_family",
+      "dense_score_matrix": "prohibited",
+      "metadata": "configuration_seed_ids_map_hashes_feature_set_id_and_array_sha256_values"
+    },
+    "score_reproduction": "equation_plus_configuration_plus_hash_verified_parameter_arrays"
+  },
+  "backend_status": {
+    "fallback_activation": "requires_documented_prospective_amendment_after_s1_5_failure",
+    "implicit": {
+      "equivalence": "not_tested_until_s1_5",
+      "intended_version": "0.7.2"
+    },
+    "lightfm": {
+      "equivalence": "not_tested_until_s1_5",
+      "intended_version": "1.17"
+    }
+  },
+  "conventions": {
+    "implicit_als": {
+      "accumulator_dtype": "float64",
+      "confidence": "1 + alpha_o * owned + alpha_p * min(log1p(playtime), tau)",
+      "core_regularization": "lambda_x_equals_lambda_q",
+      "early_stopping": "disabled_fixed_iterations",
+      "iterations": 12,
+      "jitter_sequence": [
+        0.0,
+        1e-08,
+        1e-06
+      ],
+      "linear_solver": "float64_cholesky_without_explicit_inverse",
+      "normal_equations": "baseline_gram_plus_sparse_observed_c_minus_one_correction",
+      "objective": "sum_ui c_ui*(o_ui-x_u_dot_q_i)^2+lambda_x*||X||_F^2+lambda_q*||Q||_F^2",
+      "optimization_claim": "each_fixed_block_is_convex_ridge_joint_factorization_is_nonconvex_no_global_optimum_claim",
+      "owned_unplayed_confidence": "1 + alpha_o",
+      "playtime_field": "playtime_forever",
+      "playtime_field_status": "prospective_s1_4_clarification_before_any_model_fit",
+      "right_hand_side": "observed_item_factors_transpose_times_full_c",
+      "stored_factor_dtype": "float32",
+      "target": "binary_ownership",
+      "unobserved_confidence": 1.0
+    },
+    "interpretation": "All fitted outputs are latent preference scores for held-out ownership reconstruction, not utilities, willingness to pay, purchase probabilities, or monetary quantities.",
+    "pairwise_feature_sum": {
+      "early_stopping": "disabled_fixed_epochs",
+      "epochs": 12,
+      "genre_matrix_role": "genre_block_only_identity_is_eta_and_is_not_duplicated_in_F",
+      "identity_plus_genre_rho": 1.0,
+      "identity_rho": 0.0,
+      "inactive_content_regularization": "excluded",
+      "item_bias": true,
+      "loss": "sum_triples logaddexp(0,-(s_ui-s_uj))+lambda*||active_parameters||_2^2",
+      "loss_reduction": "sum",
+      "optimization_claim": "joint_training_is_nonconvex_multiple_seeds_and_heldout_ranking_support_selection_no_global_optimum_claim",
+      "optimizer": "adagrad",
+      "regularization_gradient": "2*lambda*parameter",
+      "rho_status": "fixed_block_weight_not_an_optimized_parameter",
+      "sampler": {
+        "draw_order": "scalar_positive_edge_then_scalar_negative_proposals_including_rejections",
+        "epoch_policy": "one_continuing_stream_not_reset_per_epoch",
+        "full_catalogue_user": "fail_before_sampling",
+        "negative": "uniform_warm_items_with_replacement_reject_training_positives_only",
+        "positive": "uniform_training_edges_with_replacement",
+        "rng": "numpy_generator_pcg64_seeded_by_first_eight_sha256_bytes_as_unsigned_big_endian",
+        "rng_namespace": "s1-v1-20260718:bpr:<training_seed>:triple-sampler",
+        "stream_hash_encoding": "ordered_little_endian_int64_u_i_j_rows",
+        "stream_sharing": "same_saved_or_hash_verified_triples_for_identity_and_genre",
+        "validation_and_test_positive_status": "eligible_as_unobserved_negatives_because_not_in_training"
+      },
+      "score": "b_i + x_u dot (eta_i + rho * F_i G)",
+      "user_bias": false
+    },
+    "popularity": {
+      "parameters": 0,
+      "score": "sum_of_design_training_binary_ownership_by_item",
+      "tie_source": "exact_equal_integer_counts"
+    },
+    "score_materialization": {
+      "bounded_pair_or_block_scoring": true,
+      "dense_full_user_item_matrix": false
+    }
+  },
+  "cycle_id": "s1-v1-20260718",
+  "diagnostic_schema": {
+    "common": [
+      "configuration_id",
+      "training_seed",
+      "status",
+      "runtime_seconds",
+      "nonfinite_failure",
+      "package_versions",
+      "user_item_map_hashes"
+    ],
+    "failure_policy": "invalidate_configuration_without_unlogged_retry",
+    "implicit_als": [
+      "initial_objective",
+      "post_user_block_objective_by_iteration",
+      "post_item_block_objective_by_iteration",
+      "final_objective_after_float32_cast",
+      "maximum_absolute_solve_residual",
+      "maximum_scaled_solve_residual",
+      "jitter_counts"
+    ],
+    "pairwise": [
+      "triple_stream_sha256_by_epoch",
+      "loss_trace",
+      "gradient_nonfinite_failure"
+    ]
+  },
+  "feature_set_id": "27219b9e0f61417c7dbf4530f36a34a70603ebb7db1986f44648030f75b89056",
+  "inputs": {
+    "feature_manifest": {
+      "path": "outputs/modeling/item_feature_manifest.json",
+      "sha256": "512738aba3c4c7603d913eb66ec55ca8e9fdd8d0880b42dfd3e9ac09e9a38c91",
+      "size_bytes": 8293
+    },
+    "interaction_manifest": {
+      "path": "outputs/modeling/stage1_interaction_manifest.json",
+      "sha256": "e6737c7504266911b5b8d9f0704b1623e9ba15da713130a22a3abd85a4496290",
+      "size_bytes": 7517
+    },
+    "mathematical_specification": {
+      "path": "notes/preference_model_specification.md",
+      "sha256": "34352907e27bdfb11fafc997382cf412b41680154b02dc4b4746ea63aff65f4a",
+      "size_bytes": 21551
+    },
+    "preference_models_config": {
+      "path": "configs/preference_models.json",
+      "sha256": "80a2822f8ddb010ba4f4c48e533caea47bf920e0015ce14a07a6ce571d2de301",
+      "size_bytes": 3917
+    },
+    "protocol_manifest": {
+      "path": "outputs/modeling/stage1_protocol_manifest.json",
+      "sha256": "ff5a5306576ed54470589808274c6c3a6d8c55ab81dc638e1352938c2825a55c",
+      "size_bytes": 9607
+    },
+    "ranking_config": {
+      "path": "configs/ranking_evaluation.json",
+      "sha256": "673f93bfa7faa44d9b8a6519987a06f157c5f795943bb05e6bdd38131f27a435",
+      "size_bytes": 5427
+    },
+    "reference_implementation": {
+      "path": "src/preference_model.py",
+      "sha256": "f464d57d0f7a2298e01dd2245c427f105e6ea8cdd144edb10bf85086daea4470",
+      "size_bytes": 43000
+    },
+    "split_manifest": {
+      "path": "outputs/modeling/stage1_split_manifest.json",
+      "sha256": "26ce8ee2233f057c3603837ab019c553f04175c22a1df474a91e75e20a0546c9",
+      "size_bytes": 32119
+    }
+  },
+  "interaction_set_id": "58d6c59169b2bcf6b23e5ba67fc9e003da69cca2508857ac46c72f0c729ac721",
+  "manifest_id": "df196b35a3c50e29c92a3d23340f113f163b0cdcb966f34086d173c57ee4354f",
+  "parameter_schemas": {
+    "feature_sum_bpr_identity": {
+      "identity_factors": [
+        "n_items",
+        "k",
+        "float32"
+      ],
+      "item_bias": [
+        "n_items",
+        "float32"
+      ],
+      "user_factors": [
+        "n_users",
+        "k",
+        "float32"
+      ]
+    },
+    "feature_sum_bpr_identity_genre": {
+      "feature_factors": [
+        "n_genres",
+        "k",
+        "float32"
+      ],
+      "identity_factors": [
+        "n_items",
+        "k",
+        "float32"
+      ],
+      "item_bias": [
+        "n_items",
+        "float32"
+      ],
+      "user_factors": [
+        "n_users",
+        "k",
+        "float32"
+      ]
+    },
+    "implicit_als": {
+      "item_factors": [
+        "n_items",
+        "k",
+        "float32"
+      ],
+      "user_factors": [
+        "n_users",
+        "k",
+        "float32"
+      ]
+    },
+    "popularity": {
+      "item_counts": [
+        "n_items",
+        "int64"
+      ]
+    }
+  },
+  "preference_models_semantic_sha256": "a16b15d052b2a075eab3776604010dd0df5b659c83f258e957ae7c27baebe8de",
+  "protocol_id": "00b18d784ee34196e34a90c354fb03f45fa025082039eb7a90cc662b23a22f6f",
+  "provenance": {
+    "command": "python -m src.stage1_estimator_spec",
+    "module_hash_policy": "utf8_text_with_lf_newlines",
+    "modules": {
+      "generator_text_sha256": "eda05d34114f3e90de26c268fc1527f71c2d9f6f10b05f45a2646b3cab39e11c",
+      "preference_model_text_sha256": "f464d57d0f7a2298e01dd2245c427f105e6ea8cdd144edb10bf85086daea4470",
+      "specification_note_text_sha256": "34352907e27bdfb11fafc997382cf412b41680154b02dc4b4746ea63aff65f4a"
+    },
+    "packages": {
+      "numpy": "2.2.6",
+      "scipy": "1.15.3"
+    },
+    "python": "3.10.11"
+  },
+  "schema_version": 1,
+  "specification_id": "e39a3993985a5bcf723c0ea8aa0f87e9986845b24e8492635cc570d09b69571c",
+  "split_set_id": "0656e84b1fd9a59d51f5cf52d8001bb82b9fa50a1870115236d0b7ba50c0ec71"
+}

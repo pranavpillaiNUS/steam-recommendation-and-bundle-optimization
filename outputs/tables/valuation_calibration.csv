@@ -1,0 +1,2 @@
+method,a,b,sigma,link,b_scale,a_shift,n_priced_games,frac_floored,anchor_probit_valid,anchor_probit_price_t,anchor_quantile_valid,anchor_quantile_slope_b,anchor_quantile_spearman
+normalization,7.597817050744743,620.9949698387704,13.270726221922999,probit,1.0,0.0,8550,0.058706225,False,6.37126840616832,False,-20.46101141639118,-0.24268020757692757

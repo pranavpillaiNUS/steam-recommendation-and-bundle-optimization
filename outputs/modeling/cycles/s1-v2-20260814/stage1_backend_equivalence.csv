@@ -1,0 +1,13 @@
+check_id,status,detail
+als_orientation,pass,users_by_k and items_by_k
+als_seed_repeatability,pass,byte-equal repeated synthetic fit
+als_direct_batched_scores,pass,bounded scorer agrees
+als_fold_in,pass,exact frozen-item ridge solve
+bpr_seed_repeatability,pass,byte-equal repeated fallback fit
+bpr_controlled_triple_stream,pass,identity and genre consume identical triples
+pseudo_cold_identity_suppression,pass,content block remains after explicit identity subtraction
+bpr_fold_in,pass,deterministic convex user-only solve
+fold_in_shared_parameter_immutability,pass,shared arrays unchanged
+insufficient_history_fallback,pass,reported zero vector
+clean_reload_score_reproduction,pass,serialized arrays reproduce scores exactly
+planned_dimension_smoke,pass,7622680 parameter bytes; 0.192s

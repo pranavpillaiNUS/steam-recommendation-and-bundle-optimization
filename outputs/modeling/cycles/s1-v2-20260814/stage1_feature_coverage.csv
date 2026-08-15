@@ -1,0 +1,25 @@
+row_kind,feature_block,feature_name,full_catalogue_item_count,warm_training_item_count,nonwarm_catalogue_item_count,learnable_from_warm
+coverage_summary,identity,__all_items__,10978,8902,2076,true
+coverage_summary,genre,__any_genre__,8658,7226,1432,true
+coverage_summary,genre,__zero_content__,2320,1676,644,
+feature,genre,genre::Action,3863,3251,612,true
+feature,genre,genre::Adventure,3003,2500,503,true
+feature,genre,genre::Animation & Modeling,43,28,15,true
+feature,genre,genre::Audio Production,16,11,5,true
+feature,genre,genre::Casual,2312,1860,452,true
+feature,genre,genre::Design & Illustration,55,32,23,true
+feature,genre,genre::Early Access,509,358,151,true
+feature,genre,genre::Education,31,21,10,true
+feature,genre,genre::Free to Play,474,461,13,true
+feature,genre,genre::Indie,5327,4333,994,true
+feature,genre,genre::Massively Multiplayer,249,226,23,true
+feature,genre,genre::Photo Editing,15,9,6,true
+feature,genre,genre::RPG,1568,1348,220,true
+feature,genre,genre::Racing,331,274,57,true
+feature,genre,genre::Simulation,1337,1103,234,true
+feature,genre,genre::Software Training,34,17,17,true
+feature,genre,genre::Sports,309,237,72,true
+feature,genre,genre::Strategy,1965,1673,292,true
+feature,genre,genre::Utilities,76,52,24,true
+feature,genre,genre::Video Production,24,14,10,true
+feature,genre,genre::Web Publishing,18,14,4,true
