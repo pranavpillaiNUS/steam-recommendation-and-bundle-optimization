@@ -2169,17 +2169,31 @@ If a design-selected SBA policy does not beat frozen CP on assessment users, tha
 
 ### 20.1 Current non-artifact-mutating verification commands
 
-From the repository root:
+The commands split by what state they need. From the repository root, these run in any clone,
+including a public one with no raw or protected data:
+
+```powershell
+python -m src.stage1_public_verify
+python -m src.stage1_estimator_spec --check-only
+python -m pytest -q
+```
+
+These additionally require the ignored raw archive under `data/raw` and the protected artifacts
+under `outputs/modeling/protected`, so they only run on a machine that holds the completed private
+state:
 
 ```powershell
 python -m src.stage1_protocol --check-only
 python -m src.stage1_interaction_artifacts --check-only
 python -m src.stage1_split_artifacts --check-only
 python -m src.stage1_feature_artifacts --check-only
-python -m src.stage1_estimator_spec --check-only
 python -m src.mechanism_audit --check-only --compare-to outputs/tables/bundle_mechanism_audit.csv
-python -m pytest -q
+python -m src.stage1_pipeline
 ```
+
+Without that private state they currently abort with an uncaught `FileNotFoundError` rather than a
+readable message. Giving them a clean "requires the private raw or protected artifacts" exit is a
+recorded next-cycle engineering fix, not a change to any frozen result.
 
 These verify the current frozen research artifacts without intentionally rewriting them. Normal Python or pytest cache files may still be created by the environment, so this is not a claim of literal filesystem read-only execution.
 
