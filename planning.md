@@ -177,7 +177,7 @@ Can leakage-safe collaborative filtering, with genre used as a controlled metada
 
 ### 4.2 Supporting questions
 
-1. How do training-only popularity, weighted implicit ALS, identity-only pairwise matrix factorization, and identity-plus-genre matrix factorization compare when every target is ranked against the complete 6,721-item warm catalogue?
+1. How do training-only popularity, weighted implicit ALS, identity-only pairwise matrix factorization, and identity-plus-genre matrix factorization compare when every target is ranked against the complete 8,902-item warm catalogue?
 2. Does genre help on warm items, sparse items, or pseudo-cold items when every other training choice is held fixed?
 3. How do observed bundles compare with matched catalogue-coherent alternatives in raw co-ownership, preference dependence, genre concentration, popularity balance, and reach?
 4. Is there a tension between user-facing coherence and seller-facing diversification?
@@ -346,7 +346,7 @@ Stage 2 objectives must not be used to choose a Stage 1 model or transformation.
 
 Stage 1 estimates latent preference scores from sparse implicit feedback. Its empirical target is reconstruction of held-out ownership within the retained Australian-user snapshot.
 
-The target is deliberately narrow. It asks whether a model places one held-out owned game near the top of the complete frozen 6,721-item warm catalogue after the user's training positives and other holdout are masked. It does not ask whether the user will buy the game in the future.
+The target is deliberately narrow. It asks whether a model places one held-out owned game near the top of the complete frozen 8,902-item warm catalogue after the user's training positives and other holdout are masked. It does not ask whether the user will buy the game in the future.
 
 Stage 1 must produce:
 
@@ -357,7 +357,7 @@ Stage 1 must produce:
 - weighted implicit ALS;
 - identity-only pairwise feature-sum matrix factorization;
 - the same pairwise model with genre as the only controlled change;
-- exact tie-aware metrics against the complete 6,721-item warm catalogue for all three frozen seeds of every stochastic specification, with popularity fitted once;
+- exact tie-aware metrics against the complete 8,902-item warm catalogue for all three frozen seeds of every stochastic specification, with popularity fitted once;
 - a separate pseudo-cold experiment;
 - a validation-selected and hashed Stage 2 admission set;
 - design-only production refits;
@@ -873,7 +873,7 @@ Historical execution note: these names were not yet fully specified at this poin
 the exact equations, estimators, tie convention, clipping bounds, and fallbacks in the cycle-scoped
 scenario configuration before any bundle objective was inspected.
 
-For the current warm production models, the default Stage 2 eligible universe is the frozen ordered 6,721-item warm map. The full 10,978-item metadata map is retained for alignment, but its 4,257 nonwarm rows do not automatically enter a core Stage 2 pool. The 300 pseudo-cold items are a separate evaluation cohort and also do not automatically enter Stage 2. A future genre-only nonwarm scenario needs its own prospective transformation, scoring, and eligibility contract.
+For the current warm production models, the default Stage 2 eligible universe is the frozen ordered 8,902-item warm map. The full 10,978-item metadata map is retained for alignment, but its 2,076 nonwarm rows do not automatically enter a core Stage 2 pool. The 300 pseudo-cold items are a separate evaluation cohort and also do not automatically enter Stage 2. A future genre-only nonwarm scenario needs its own prospective transformation, scoring, and eligibility contract.
 
 Every candidate pool is intersected with the scenario's eligible item map, and all exclusions are counted. Cross-model comparisons either use the same ordered item universe or are recorded as different Stage 2 instances. A user-specific rule may use that user's complete score vector over the named scenario universe. It may not use one candidate pool, an observed bundle outcome, or an assessment objective to set its transformation parameters.
 
