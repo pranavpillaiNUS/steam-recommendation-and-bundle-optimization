@@ -104,6 +104,11 @@ hash-bound files.
 - Cycle routing remains fragmented between v1 defaults and v2 orchestration. A successor cycle
   should use one explicit cycle context and add a compact synthetic end-to-end test covering stale
   cache rejection, corruption, regeneration, selection, production, and evidence assembly.
+- The `--check-only` runners for the protocol, interaction, split, feature, and mechanism-audit
+  stages, and `src.stage1_pipeline`, abort with an uncaught `FileNotFoundError` when the ignored raw
+  or protected artifacts are absent. That is the normal state of a public clone, so a successor
+  cycle should detect the missing private inputs and exit with a readable message pointing at the
+  public verifier instead of a traceback.
 
 ## Release decision
 
