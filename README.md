@@ -14,8 +14,8 @@ NUS Undergraduate Research Opportunities Programme project supervised by Dr Li X
 paused through November 2026 while I study the optimization literature and prepare its protocol.
 The Stage 1 evidence remains frozen and independently checkable during this period.
 
-[Result](#stage-1-result) · [Method](#method) · [Quick start](#quick-start) ·
-[Evidence](#evidence-and-reproducibility) · [Roadmap](#roadmap) ·
+[Result](#stage-1-result) | [Method](#method) | [Quick start](#quick-start) |
+[Evidence](#evidence-and-reproducibility) | [Roadmap](#roadmap) |
 [Limitations](#scope-and-limitations)
 
 ## About the project
@@ -259,4 +259,4 @@ release.
 
 ## Contact
 
-Pranav Pillai — [@pranavpillaiNUS](https://github.com/pranavpillaiNUS)
+Pranav Pillai, [@pranavpillaiNUS](https://github.com/pranavpillaiNUS)
