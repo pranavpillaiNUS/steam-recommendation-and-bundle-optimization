@@ -767,7 +767,7 @@ Use a 95 percent paired percentile user bootstrap with 2,000 replicates and seed
 
 Completion note: `src/ranking.py` and `tests/test_ranking.py` now provide the tested primitives, and
 the cycle-scoped runners integrate them with model, item, user, mask, and row-alignment checks. The
-v2 public files still need to be deliberately committed before repository release.
+v2 public files were committed in the sanitized publication snapshot on 2026-08-15.
 
 ### 10.4 S1.8: genre and pseudo-cold questions
 
@@ -959,8 +959,11 @@ identified WTP or money.
 
 S1.12 verifies 264 artifact references, writes the model card/evidence summary, aggregate and segment
 tables, seed contrasts, runtime/resource evidence, a ranking figure, and the mathematical appendix.
-The complete repository suite passes with 204 tests. `python -m src.stage1_pipeline` re-verifies the
-entire dependency graph idempotently and returns `status: complete`.
+The complete repository suite passed with 204 tests at the freeze; the published repository collects
+211, of which a public clone runs 208 and skips 3 that need the ignored private artifacts. The
+difference is the verifier tests added by the publication snapshot, not a change to any Stage 1
+result. `python -m src.stage1_pipeline` re-verifies the entire dependency graph idempotently and
+returns `status: complete` when the raw and protected artifacts are present.
 
 ## 11. The bridge between Stage 1 and Stage 2
 
