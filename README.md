@@ -67,7 +67,21 @@ The selected configuration uses 64 latent factors, regularization 0.05, and owne
 alpha 20. Its paired NDCG@20 improvement over popularity is 0.070739. The conditional 95% user
 bootstrap interval is [0.062947, 0.078603].
 
-![Stage 1 validation, design-test, and pseudo-cold evidence](outputs/figures/s1-v2-20260814/stage1_ranking_evidence.png)
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="outputs/figures/s1-v2-20260814/stage1_headline_dark.png">
+  <img alt="Design-test NDCG@20 by model, the admission rule with 95% bootstrap intervals, and the ALS gain over popularity by user activity band" src="outputs/figures/s1-v2-20260814/stage1_headline.png">
+</picture>
+
+The panels are, in order: the one-time design-test score for each family, the predeclared admission
+rule applied to the paired difference against popularity, and where the ALS gain actually comes
+from. The third panel is the honest one. The advantage is largest for users with small libraries and
+falls to nothing for the heaviest users, who popularity already predicts well.
+
+This image is a presentation rendering produced by `python -m src.stage1_headline_figure`, which
+reads the frozen tables at run time. It is deliberately outside the hash-bound evidence graph. The
+figure bound into the evidence manifest is
+[`stage1_ranking_evidence.png`](outputs/figures/s1-v2-20260814/stage1_ranking_evidence.png), which
+also carries the pseudo-cold panel.
 
 The BPR and genre results apply only to this implementation and evaluation protocol. They are not
 evidence that BPR or content features fail in general. The [Stage 1 model
