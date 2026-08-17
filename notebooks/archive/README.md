@@ -15,6 +15,11 @@ unchanged and only explanatory Markdown errata were added. The older tag
 pre-freeze notebook state. No new tag or commit was created during this cleanup. The legacy
 dependency path is outside the live reproducibility gate.
 
+That commit and tag belong to the private archival research history. This repository begins from the
+sanitized publication snapshot, so neither reference resolves here. They are retained as internal
+provenance identifiers only, on the same footing as the `repository_baseline_commit` fields recorded
+in `notes/stage1_release_audit.md`.
+
 Both notebooks are outside the live project DAG. CMM/BSP offers a size-price menu under which a customer may construct an arbitrary set of a chosen size. That mechanism does not represent the fixed seller-curated bundles in the Steam setting. Their code, outputs, and figures are preserved as evidence of work completed before the pivot, not as current inputs, validations, or empirical conclusions.
 
 The live primary optimization model is CP-anchored fixed-bundle $\mathrm{SBA}^{CP}$: component prices are estimated first and frozen, then one fixed bundle composition and normalized bundle price are chosen while the components remain available separately. SBR uses a different menu in which bundled components are unavailable separately and is retained only as a theoretical benchmark. CMM or SBR results and guarantees do not transfer to SBA without independent proofs.

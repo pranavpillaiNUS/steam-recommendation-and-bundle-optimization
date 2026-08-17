@@ -2571,7 +2571,7 @@ Archived files include:
 - `outputs/tables/bundle_size_pricing.csv`; and
 - the CMM appendix in `notes/optimization_models.md`.
 
-Notebook 06 and notebook 10 retain their original numbers and paths. Commit `3918b2b5afe88b88e8b8a6ce57533cc14d66d5a3` is the archive comparison baseline named in `notebooks/archive/README.md`.
+Notebook 06 and notebook 10 retain their original numbers and paths. Commit `3918b2b5afe88b88e8b8a6ce57533cc14d66d5a3` is the archive comparison baseline named in `notebooks/archive/README.md`. It belongs to the private archival history and does not resolve in the sanitized public repository.
 
 Permitted archive claims are:
 
