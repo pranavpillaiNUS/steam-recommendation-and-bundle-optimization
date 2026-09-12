@@ -30,13 +30,13 @@ What I did:
 
 5. First analytical step (notebook 05). Regressed log demand proxy on discount rate, bundle
    size, and log component price (full-coverage bundles, descriptive only). Discount rate and
-   price both positive and significant; size adds little once price is controlled. Then set up
+   price both positive and significant. Size adds little once price is controlled. Then set up
    a simple counterfactual pricing model and derived a closed-form revenue-maximising discount
    delta* = 1 - 1/b from the discount semi-elasticity b. With b around 2.1 this gives delta*
    around 0.53. Treated as a method demonstration, not a recommendation.
 
 Key findings so far:
-- No bundle purchases; ownership-based proxies are the only option.
+- No bundle purchases. Ownership-based proxies are the only option.
 - Pricing data is clean and internally consistent.
 - Panel coverage is the main data-quality constraint on the demand proxy.
 - There is a usable, if non-causal, positive relationship between discount and demand.
@@ -44,7 +44,7 @@ Key findings so far:
 Decisions:
 - Primary direction is A then C: describe observed bundle pricing, then build and optimise a
   counterfactual pricing model.
-- Keep Steam as the main dataset for now; revisit Nielsen only if access comes through.
+- Keep Steam as the main dataset for now. Revisit Nielsen only if access comes through.
 
 Next session:
 - Bring genre and playtime into the demand model.
@@ -61,7 +61,7 @@ this is widespread.
 What I did:
 
 1. Formalised the fix as minimum-cost set cover. For each user, the bundles they could have
-   bought are exactly those whose games are all in their library; attribute their ownership to
+   bought are exactly those whose games are all in their library. Attribute their ownership to
    the cheapest reconstruction (those bundles plus solo buys) at snapshot prices.
 
 2. Checked feasibility first. A user can own up to 140 candidate bundles, but the candidate
@@ -86,7 +86,7 @@ Key findings:
 
 Next session:
 - Decide how nb05 should treat zero-discount bundles (flag rather than halve).
-- Otherwise proceed to the valuation model; this attribution can later validate it.
+- Otherwise proceed to the valuation model. This attribution can later validate it.
 
 ## 2026-06-08 - Rewrote notebook 05 as a proper bridge
 
@@ -109,7 +109,7 @@ What I did:
    errors (the residuals are non-normal) and a zero-discount indicator so all 238 bundles
    stay in the fit while the four zero-discount bundles' attribution tie is controlled for
    rather than silently halved (nb04's guidance). Discount stays positive and significant
-   (coef ~2.3) and stable across all three proxies; size is now slightly negative once price
+   (coef ~2.3) and stable across all three proxies. Size is now slightly negative once price
    is controlled.
 
 3. Dropped the closed-form delta* counterfactual and its figure. Replaced them with a section
@@ -125,7 +125,7 @@ Key findings:
 - The proxy switch matters for a minority of bundles (49 of 238), and the descriptive
   discount-demand relationship is robust to which proxy is used, which is itself a reassuring
   consistency result.
-- The reduced-form regression is a descriptive endpoint, not a pricing tool; the pricing
+- The reduced-form regression is a descriptive endpoint, not a pricing tool. The pricing
   claim has to come from the structural valuation model, which is the next stage.
 
 Next session:
@@ -150,10 +150,10 @@ What I did:
    objective (uses only the moments omega, Sigma) strictly separate from the empirical objective
    (uses the full per-user valuation sample). Design points worth recording: the multi-size
    optimizer solves the concave program in the native q variables with an interior margin
-   (softmax is only a diagnostic, since it is not concave in the logits); the outer profit
-   gradient is numerical, not a mislabeled analytic one; the demand has two implementations
+   (softmax is only a diagnostic, since it is not concave in the logits). The outer profit
+   gradient is numerical, not a mislabeled analytic one. The demand has two implementations
    (the simplex program and the eq. 12 SDP) that cross-check, with solver-independent feasibility
-   diagnostics; covariance regularization is relative, not an absolute epsilon; and the
+   diagnostics. Covariance regularization is relative, not an absolute epsilon, and the
    eigenvalue policy raises on materially negative eigenvalues but clips float-error ones. 17
    unit tests pass.
 
@@ -165,7 +165,7 @@ What I did:
    1.05x at rho = +0.6), the Adams-Yellen / McAfee-McMillan-Whinston story.
 
 4. Started stage 1. src/valuation.py builds the sparse ownership matrices (binary preference, a
-   log-playtime weighted matrix, and an observed-only confidence matrix; the baseline confidence
+   log-playtime weighted matrix, and an observed-only confidence matrix. The baseline confidence
    of one is never materialized) and fits SVD/NMF, with a bounded scoring API and an optional
    genuine Hu-Koren-Volinsky implicit-ALS wrapper. 07_game_features.ipynb builds a game-level
    table anchored on the 10,978 panel games, pre-aggregating bundles to one row per game before
@@ -203,14 +203,14 @@ What I did:
 
 1. Built src/calibration.py and tests/test_calibration.py (12 tests, 29 in the suite). The
    module has three price-anchor estimators (an aggregate link regression of the
-   ownership rate on per-game mean score and price; the cleaner per-game quantile anchor,
-   where price_g should equal the (1 - r_g) quantile of the game's user-score distribution;
+   ownership rate on per-game mean score and price, the cleaner per-game quantile anchor,
+   where price_g should equal the (1 - r_g) quantile of the game's user-score distribution,
    and a nonlinear rate-matching refinement), a transparent normalize_calibration fallback,
    the per-user valuation builder with the free-disposal floor, and a valuation_moments
    wrapper onto the existing bridge in bundle_pricing.py.
 
 2. Ran the anchors on the real factors and game features. All fail the sign test: conditional
-   on preference, ownership rises with price (aggregate price-coef t = +6.4; quantile anchor
+   on preference, ownership rises with price (aggregate price-coef t = +6.4, quantile anchor
    slope b = -20.5, Spearman(price, threshold quantile) = -0.24). So the censoring logic
    (ownership reveals v >= price) does not hold across games. The cause is the quality and
    exposure confound: expensive games are higher quality and more marketed, so they are owned
@@ -220,7 +220,7 @@ What I did:
    With zero marginal cost, scaling every valuation by a constant leaves the
    BSP-vs-separate-selling and pure-bundling profit ratios exactly unchanged
    (BSP/separate = 0.7698 at lambda = 1, 10, 100 on the demo bundle). So the multiplicative
-   scale is set by a transparent normalization and swept; only the free-disposal floor
+   scale is set by a transparent normalization and swept. Only the free-disposal floor
    location and the cross-good correlation structure affect the ratios.
 
 4. Built 09_valuation_calibration.ipynb (runs clean under nbconvert): the failed anchors and
@@ -266,7 +266,7 @@ What I did:
    (-a/b) and therefore moves the ratios (pure/separate goes 0.75 / 0.77 / 0.87 across b_scale
    0.5 / 1 / 2 on the demo bundle). The correct statement: ratios depend on the normalization
    only through -a/b, and the exactly invariant transformation is the joint rescaling
-   (a, b) -> (lambda a, lambda b). Docstrings, notes, and caveat 30 updated; caveats 32 to 34
+   (a, b) -> (lambda a, lambda b). Docstrings, notes, and caveat 30 updated. Caveats 32 to 34
    added.
 
 2. Made the empirical path in src/bundle_pricing.py fast enough for the full panel: vectorized
@@ -278,7 +278,7 @@ What I did:
    on real bundles in about a minute each.
 
 3. Built and ran 10_bundle_size_pricing.ipynb: six full-coverage bundles (Half-Life Anthology,
-   BioWare, EA Racing, Command & Conquer, F1 Franchise, Sakura; sizes 4 to 9) plus the curated
+   BioWare, EA Racing, Command & Conquer, F1 Franchise, Sakura, sizes 4 to 9) plus the curated
    top-8-owned set. Policies: CMM menu (model and realized kept separate), the DE empirical
    menu (searched on 20k users seeded at the CMM prices, evaluated on all 70,912), the
    single-size fallback, separate selling, pure bundling, and the observed Steam price. Saved
@@ -294,8 +294,8 @@ Key findings:
   the stage: the CMM menu realizes only 69 to 97% of the empirical optimum (notebook 06's
   synthetics gave 97 to 99%), and the model value misjudges its own menu by -14% to +52%. The
   diagnosis pins it on distribution shape, not machinery: at the CMM prices the model expects
-  39% of users to walk away and 53% actually do; a Gaussian population with identical
-  (omega, Sigma) realizes within 5% of the model value; the real partial sums have skewness
+  39% of users to walk away and 53% actually do. A Gaussian population with identical
+  (omega, Sigma) realizes within 5% of the model value. The real partial sums have skewness
   9 to 18. Two moments cannot represent a mass of near-zero-value users plus a thin high-value
   tail. Per the fallback ladder, the economics ride on the simulation optimizer, and the CMM
   degradation is reported as a finding, not hidden.
@@ -338,12 +338,12 @@ Why the pivot, precisely:
   benchmark, and the binding problem remained the mechanism mismatch.
 - The initial replacement proposal drew on *Partition and Prosper* but conflated SBR and SBA. The
   2026-07-14 and 2026-07-17 corrections below separate them: CP-anchored SBA is the project's
-  empirical model and does not nest pure bundling; SBR is a different benchmark, and its hardness,
+  empirical model and does not nest pure bundling. SBR is a different benchmark, and its hardness,
   tractability, comparative statics, and guarantees do not transfer to SBA.
 
 The corrected architecture is two layers plus a bridge: Stage 1 compares collaborative-filtering
-and matrix-factorization models, with genre entering only as a controlled ablation; the bridge is a
-descriptive dependence analysis; and Stage 2 designs one fixed bundle from frozen pseudo-utility
+and matrix-factorization models, with genre entering only as a controlled ablation. The bridge is a
+descriptive dependence analysis, and Stage 2 designs one fixed bundle from frozen pseudo-utility
 scenarios derived from latent preference scores.
 
 What I did:
@@ -369,7 +369,7 @@ Key decisions and findings:
 - I initially recorded a "bonus" that the calibration problem stops being load-bearing because the
   bundling ratios are scale-invariant. The 2026-07-14 review corrected this (see the next entry):
   scale invariance is real but insufficient, because the data and ranking evaluation validate only
-  the ordinal ordering the scores induce, not a cardinal utility; the cardinalization T (loss- and
+  the ordinal ordering the scores induce, not a cardinal utility. The cardinalization T (loss- and
   specification-dependent) mapping scores to pseudo-utilities is itself a first-class sensitivity,
   since a monotone map preserves rankings but not sums. A later correction removed the claim that
   correlation is cardinalization-free: common positive scaling preserves Pearson correlation, but a
@@ -379,7 +379,7 @@ Key decisions and findings:
   diagonal residual would still require an explicit decomposition check rather than an assumed sign
   pattern. Therefore the theorem is not activated by recommender low rank. The planned finite-panel
   optimizer must earn exact certificates through completed exhaustive enumeration on declared small
-  instances; no such SBA certificate existed at this date.
+  instances. No such SBA certificate existed at this date.
 - Rigor note: the log already dated the meeting correctly as 2026-07-11, so there was no date error
   to fix (the "June" was only a verbal slip in discussion).
 
@@ -409,7 +409,7 @@ Corrections applied (planning.md, optimization_models.md, the caveats, this log,
    normalization-stability experiment.
 3. "Model-free ground truth" was a misnomer (the panel is a model output, greedy search is not a
    global optimum). The replacement empirical sample-average optimizer must later be benchmarked
-   against completed exact enumeration on small pools; "best solution found" is reserved for
+   against completed exact enumeration on small pools, and "best solution found" is reserved for
    uncertified results.
 4. Layer 1 no longer predetermines "popularity < CF < hybrid": the metadata lift is a hypothesis to
    be tested by an identity-only versus +genre ablation with everything else fixed, using exact
@@ -421,21 +421,21 @@ The bundle-mechanism audit (outputs/tables/bundle_mechanism_audit.csv) classifie
 cross-referencing each component against 32,135 catalogue records (32,132 distinct nonblank
 application IDs) and the per-item prices in bundle_data.json:
 - Every bundle (615/615) shows a standalone price for every component.
-- 568/615 (92%) have SBA-like static component-availability evidence; 475 have complete catalogue
+- 568/615 (92%) have SBA-like static component-availability evidence, and 475 have complete catalogue
   confirmation and 513 are high-confidence. 0/615 show affirmative evidence of SBR-style
   exclusivity. A static snapshot cannot prove SBR absent, and the 47/615 unclear rows are
   coverage-limited rather than evidence of exclusivity.
 - Ownership-adjusted ("complete the set") and indivisible-key packages are not observable in a static
-  snapshot. 77% of SBA-like bundles are single-publisher; 562/615 have <= 12 components.
+  snapshot. 77% of SBA-like bundles are single-publisher, and 562/615 have <= 12 components.
 - This documents that notebook 04's cheapest-reconstruction proxy treats displayed component prices
   as available reconstruction options. It does not identify the full historical selling mechanism.
 
 Drafted notes/mechanism_identification_memo.md for technical discussion. On 2026-07-17 it was
-superseded by the active nine-decision internal specification; supervisor feedback became
+superseded by the active nine-decision internal specification. Supervisor feedback became
 nonblocking.
 
-Conclusion: CP-anchored SBA is the project's declared primary empirical model; SBR stays as the
-theoretical benchmark; ownership-adjusted pricing cannot be identified from this data.
+Conclusion: CP-anchored SBA is the project's declared primary empirical model. SBR stays as the
+theoretical benchmark. Ownership-adjusted pricing cannot be identified from this data.
 
 Next session:
 - This historical next-step note is superseded by the 2026-07-17 internal freeze below. The next
@@ -460,31 +460,31 @@ Paper check:
 - Equations (13)--(14) give the truncated choice condition used by the finite-panel SBA model.
 - The governing theory note does not transfer SBR hardness, half-purchase, tractability,
   comparative-statics, nesting, or approximation guarantees to SBA. The primary empirical model
-  remains CP-anchored SBA; SBR remains a benchmark.
+  remains CP-anchored SBA. SBR remains a benchmark.
 
 Work queued at freeze time:
-1. finish the reproducible mechanism-audit generator and prerequisite notebook/archive corrections;
-2. verify Gate 0 internally; and
+1. finish the reproducible mechanism-audit generator and prerequisite notebook/archive corrections.
+2. verify Gate 0 internally.
 3. stop before freezing the S1.0 split, evaluation, hyperparameter, and admission protocol.
 
-Claim boundary: this governance change authorizes continuation; it does not turn latent scores into
+Claim boundary: this governance change authorizes continuation. It does not turn latent scores into
 valuations, identify actual demand or revenue, establish historical Steam mechanisms, or validate
 any bundle policy against observed purchases.
 
 Prerequisite execution:
 - Added a deterministic generator and independent reconciliation tests for the 615-row mechanism
-  audit. The existing reviewed CSV was preserved byte-for-byte; the manifest distinguishes its
+  audit. The existing reviewed CSV was preserved byte-for-byte. The manifest distinguishes its
   row-order hash from the canonical generated-order hash and records the identification boundary.
 - Added archive errata to notebooks 06 and 10 and an archive README. Their code and rendered
   outputs remain historical evidence and are not inputs to the live pipeline.
 - Corrected notebook 05's zero-discount interpretation to coefficient $1.483$, HC3 standard error
-  $1.904$, and $p=0.436$; removed the unsupported $R^2$ decomposition; added the SBA bridge; and
+  $1.904$, and $p=0.436$, removed the unsupported $R^2$ decomposition, added the SBA bridge, and
   saved the 15-row HC3 table for three specifications.
 - Updated the README, theory note, assumptions, data dictionary, module descriptions, and tests so
   the live/archived boundary is explicit. No file was staged or committed.
 
-Verification: all three touched notebooks pass `nbformat.validate`; the mechanism audit reconciles
-all 615 rows and every cell; notebook 05's saved coefficients match an independent HC3 refit; and
+Verification: all three touched notebooks pass `nbformat.validate`, the mechanism audit reconciles
+all 615 rows and every cell, notebook 05's saved coefficients match an independent HC3 refit, and
 the repository test suite passes 45/45 tests. The one SciPy optimizer warning arises in an archived
 CMM stability test and is not a failure.
 
@@ -501,7 +501,7 @@ ownership and playtime. The main limitation is that the ownership panel covers o
 the bundle items, so the clean demand signal exists for 238 bundles. On those, higher
 discounts and higher component prices are associated with more owners. I then sharpened the
 ownership proxy in notebook 04 by attributing each user's library to the cheapest
-bundle-plus-solo reconstruction, which removes the double-counting when bundles overlap; the
+bundle-plus-solo reconstruction, which removes the double-counting when bundles overlap. The
 honest result is that overlap barely changes the proxy here, so the simpler users_own_all is
 mostly fine. In notebook 05 I then ran a descriptive regression of that attributed proxy on
 discount, size, and price, which closes the descriptive stage: the discount-demand
@@ -516,10 +516,10 @@ not as Stage 1 results or live optimization inputs.
 
 As of the 2026-07-17 internal freeze, the live spine has two stages. Stage 1 must complete the full
 popularity, implicit-ALS, identity-only pairwise-MF, and controlled identity-plus-genre ladder under
-the leakage-safe, tie-aware, multi-seed protocol; metadata lift is an empirical question. Stage 2
+the leakage-safe, tie-aware, multi-seed protocol. Metadata lift is an empirical question. Stage 2
 will transform the resulting latent preference scores only through frozen pseudo-utility scenarios
 and optimize one fixed bundle under CP-anchored SBA. SBR remains a different, theory-only benchmark.
-The 568/615 SBA-like audit count describes component availability in one static snapshot; it neither
+The 568/615 SBA-like audit count describes component availability in one static snapshot. It neither
 identifies CP anchoring nor establishes Steam's historical mechanism. The immediate next step is
 S1.0, and it has deliberately not begun.
 
@@ -542,7 +542,7 @@ Frozen artifacts:
 
 Identification and access boundary: the target remains held-out ownership reconstruction. Scores
 are latent preference scores only. Design-test outcomes remain sealed until validation admission is
-hashed; assessment IDs are unavailable to tuning and their histories remain sealed until S1.10;
+hashed. Assessment IDs are unavailable to tuning and their histories remain sealed until S1.10.
 Stage 2 objectives and bundle outcomes are unavailable throughout Stage 1 selection.
 
 Verification: configuration validation, semantic hashing, namespace separation, exact
@@ -574,7 +574,7 @@ Artifacts:
 
 Input audit:
 - The frozen interaction source contains 5,094,082 rows. Exactly 2,221,650 rows satisfy the frozen
-  unpadded-decimal user and item ID rule; they form 2,221,650 unique ownership edges, so no duplicate
+  unpadded-decimal user and item ID rule. They form 2,221,650 unique ownership edges, so no duplicate
   excess rows remain after the upstream notebook's deduplication.
 - The remaining 2,872,432 rows have noncanonical user identifiers, including username-form
   identifiers. They are excluded and counted under the S1.0 `exclude_and_count` rule. There are no
@@ -594,7 +594,7 @@ float32 matrices plus the same maps.
 Verification: repeated full generation reproduced the same audit and interaction-set ID. The
 read-only `--check-only` path verifies current upstream hashes, artifact hashes, semantic CSR
 hashes, ordered-map hashes, saved-matrix counts and diagnostics, manifest identity, and the audit
-reconciliation equations; it does not rescan the raw interaction CSV. The full repository suite
+reconciliation equations. It does not rescan the raw interaction CSV. The full repository suite
 passes 115 tests. This includes interaction row-permutation invariance, duplicate-collapse,
 held-out preference and confidence removal, sparse-memory, serialization, zero-support catalogue,
 and deliberately permuted item-row alignment failures. The one warning is the previously known
@@ -614,7 +614,7 @@ publication. A game's primary genre is the lexicographically first unique label 
 unescaping, Unicode NFKC normalization, whitespace collapse, and blank removal. When proportional
 genre quotas for a pseudo-cold support band are fractional, Hamilton largest-remainder
 reconciliation is used with canonical lexical ties. These clarifications fill deterministic details
-left implicit by S1.0; they do not alter the frozen support bands, candidate requirements, cohort
+left implicit by S1.0. They do not alter the frozen support bands, candidate requirements, cohort
 sizes, or model-selection rules, and they were made without inspecting any protected outcome.
 
 Artifacts:
@@ -653,7 +653,7 @@ Leakage and access boundary: the tuning-facing validation target contains coordi
 playtime values are isolated in an S1.7 diagnostic-only artifact. Validation ranking can mask each
 user's other held-out positive only through an opaque mask operation that does not return the
 sealed test coordinates. Design-test targets remain sealed until the validation admission manifest
-is hashed; assessment IDs remain sealed until S1.10; outer and nested audit files are not loaded by
+is hashed. Assessment IDs remain sealed until S1.10. Outer and nested audit files are not loaded by
 tuning APIs. Stage 2 objectives and bundle outcomes remain unavailable. No validation metric,
 design-test result, assessment outcome, model score, or bundle outcome was generated or inspected.
 
@@ -664,7 +664,7 @@ validation masking, corruption rejection, and no-overwrite behavior. A full inde
 `--check-only` reconstruction reproduced every assignment, aggregate, semantic hash, physical hash,
 split-set ID, and manifest ID without rewriting the publication. The full repository suite passes
 133 tests. Its one warning is the previously known SciPy optimizer warning in an archived
-bundle-pricing stability test. S1.2 is complete. Work stops here; S1.3 has not begun.
+bundle-pricing stability test. S1.2 is complete. Work stops here. S1.3 has not begun.
 
 ## 2026-07-30 - S1.3 frozen identity and genre features
 
@@ -673,13 +673,13 @@ fit.
 
 Artifacts and contract:
 - `src/features.py` builds an exact float32 CSR identity block and a separate genre block aligned to
-  the S1.1 signed-int64 item map. Each observed genre receives weight $1/|G_i|$; an item without a
+  the S1.1 signed-int64 item map. Each observed genre receives weight $1/|G_i|$. An item without a
   genre has a zero-content row. Identity remains at unit weight, the two blocks are never jointly
   normalized, and a model-facing row projection retains the complete frozen feature-column map.
 - The controlled model views are identity alone and identity plus genre. The metadata flag appends
   the genre block without changing the identity rows or coefficients. Price, bundle membership,
   ownership popularity, playtime, tags, publisher, and developer are absent from predictive item
-  features; publisher and developer remain candidate-pool feasibility fields only.
+  features. Publisher and developer remain candidate-pool feasibility fields only.
 - `src/stage1_feature_artifacts.py` verifies the S1.0 protocol, S1.1 interaction set, S1.2 split set,
   catalogue hash, full item map, and permitted design-training item map. It publishes through a
   staged, manifest-last, no-overwrite path and supports exact read-only regeneration.
@@ -696,7 +696,7 @@ The identity block is $10{,}978 \times 10{,}978$ with 10,978 unit entries. The g
 $10{,}978 \times 21$ with 21,559 entries: 8,658 items are genre-covered and 2,320 use the declared
 zero-content row. The S1.2 warm projection contains 6,721 items, matches its frozen array hash, and
 has 5,567 genre-covered and 1,154 zero-content rows. Every one of the 21 genres occurs on warm
-training items; the least-supported occurs on five. It follows without opening the reserved cohort
+training items. The least-supported occurs on five. It follows without opening the reserved cohort
 that no genre can occur only in pseudo-cold items.
 
 Verification: focused tests cover canonical IDs, pure-permutation rejection, conservative token
@@ -705,14 +705,14 @@ projection, sparse format and dtype enforcement, semantic and physical tamper de
 catalogue rows, LF-stable coverage output, partial-publication cleanup, and refusal to overwrite an
 existing publication. Independent `--check-only` reconstruction reproduced the feature and
 manifest IDs and verified every public and protected hash without rewriting any file. The full
-repository suite passes 144 tests; its one warning is the previously documented SciPy optimizer
+repository suite passes 144 tests. Its one warning is the previously documented SciPy optimizer
 warning in an archived bundle-pricing stability test.
 
 Access boundary: only pre-model catalogue metadata, the S1.1 canonical item map, and the permitted
 S1.2 design-training item map were consumed. Validation targets, sealed design-test targets,
 assessment IDs and histories, the reserved pseudo-cold cohort, model scores, Stage 2 objectives,
 candidate-pool results, and bundle outcomes were not accessed. No model was fitted. S1.3 is
-complete; S1.4 is next and S1.5 dependency/backend work has not begun.
+complete. S1.4 is next and S1.5 dependency/backend work has not begun.
 
 ## 2026-07-30 - S1.4 backend-neutral estimator specification
 
@@ -728,7 +728,7 @@ Prospective implementation clarifications were recorded before any model fit or 
   $2\lambda\theta$. Inactive genre parameters are absent from the identity model and excluded from
   its penalty.
 - Identity uses fixed $\rho=0$ and identity plus genre uses fixed $\rho=1$. The genre matrix contains
-  only S1.3's genre block; identity is already represented by $\eta_i$ and is not duplicated inside
+  only S1.3's genre block. Identity is already represented by $\eta_i$ and is not duplicated inside
   the metadata matrix.
 - Pairwise positives are sampled uniformly from canonical training edges with replacement.
   Negatives are sampled uniformly from the warm catalogue, rejecting training positives only. A
@@ -741,12 +741,12 @@ Artifacts and implementation:
   fixed-block convex ALS solves from the jointly nonconvex factorization, forbids global-optimum
   claims, defines the pairwise score and summed regularized loss, and declares parameter,
   diagnostic, scorer, and later serialization schemas.
-- `src/preference_model.py` implements exact integer popularity counts; lifetime-playtime observed
-  confidence; the sparse WRMF objective; exact user and item normal equations; float64 Cholesky
-  solves with the frozen jitter sequence and residual diagnostics; fixed-iteration reference ALS
-  with float32 stored factors and post-block objectives; byte-bounded factor scoring; feature-sum
-  item vectors and scores; stable BPR loss and accumulated analytic gradients; the continuing
-  deterministic triple sampler and hash; and non-pickle float32 parameter round trips.
+- `src/preference_model.py` implements exact integer popularity counts, lifetime-playtime observed
+  confidence, the sparse WRMF objective, exact user and item normal equations, float64 Cholesky
+  solves with the frozen jitter sequence and residual diagnostics, fixed-iteration reference ALS
+  with float32 stored factors and post-block objectives, byte-bounded factor scoring, feature-sum
+  item vectors and scores, stable BPR loss and accumulated analytic gradients, the continuing
+  deterministic triple sampler and hash, and non-pickle float32 parameter round trips.
 - `src/stage1_estimator_spec.py` binds the written equations and implementation to the S1.0
   protocol, S1.1 interaction set, S1.2 split set, S1.3 feature set, frozen model configuration,
   numerical policy, source hashes, parameter names, diagnostic fields, and access boundary.
@@ -762,8 +762,8 @@ Independent verification:
   fixed-block objective on the oracle. Fixed-iteration diagnostics record initial, post-user, and
   post-item objectives, runtimes, and final float32 score semantics.
 - Central finite differences match the BPR gradients for user factors, identity factors, genre
-  factors, and item biases. Repeated users and items accumulate correctly; extreme margins remain
-  finite; dense and CSR feature paths agree.
+  factors, and item biases. Repeated users and items accumulate correctly. Extreme margins remain
+  finite. Dense and CSR feature paths agree.
 - $\rho=0$ and zero-feature paths reproduce the identity-only scores, losses, shared gradients, and
   active regularization exactly. The centered score-matrix rank obeys the declared $k$ bound.
 - Popularity uses exact `int64` training counts. Pair and block scores enforce explicit bounds.
@@ -771,12 +771,12 @@ Independent verification:
   positive, fails on a full-catalogue user, continues across calls, and has a canonical ordered hash.
 - Temporary synthetic float32 parameters save and reload without pickle and reproduce scores
   exactly. The public manifest regenerates exactly and refuses a nonidentical overwrite. The full
-  repository suite passes 187 tests; its one warning remains the documented SciPy optimizer warning
+  repository suite passes 187 tests. Its one warning remains the documented SciPy optimizer warning
   in an archived bundle-pricing stability test.
 
 Backend and access boundary: the current environment still has neither `implicit` nor `lightfm`
 installed. Neither preferred backend is claimed oriented correctly, deterministic, serializable,
-fold-in safe, or equivalent to these equations. Those are S1.5 questions; no fallback was activated
+fold-in safe, or equivalent to these equations. Those are S1.5 questions. No fallback was activated
 and requirements were unchanged. S1.4 used synthetic numerical oracles only. No real model was
 fitted, no validation target or metric was accessed, and sealed design-test, assessment, reserved
 pseudo-cold, Stage 2, candidate-pool, and bundle outcomes remained unopened. S1.4 is complete. Work
@@ -806,15 +806,15 @@ Identity audit and prospective cycle:
 
 Regenerated foundations:
 - Protocol ID: `179e4861df905aaae8344104cb4fd598924f073ada3026b9ab22a8c739e7aafc`.
-- Interaction-set ID: `8e86e07e04c003d2fabff87432cc84ca26ee2da08e08c3e83888b094fca8e82a`;
-  aligned ownership and playtime CSR matrices are 70,912 by 10,978 with 5,094,082 stored edges.
+- Interaction-set ID: `8e86e07e04c003d2fabff87432cc84ca26ee2da08e08c3e83888b094fca8e82a`.
+  The aligned ownership and playtime CSR matrices are 70,912 by 10,978 with 5,094,082 stored edges.
 - Split-set ID: `6e326b169b3f7499cca66a52c168d2bb5ab978331c4d925fdd22e87fc4aa047f`.
-  The eligible outer sample has 50,351 design and 12,585 assessment users; 7,976 low-activity users
+  The eligible outer sample has 50,351 design and 12,585 assessment users, and 7,976 low-activity users
   are excluded. The nested design split has 3,951,166 training edges, 50,351 validation positives,
   50,351 sealed design-test positives, 8,902 warm items, 5,000 fixed evaluation users, and 300
   reserved pseudo-cold items.
 - Feature-set ID: `b05bd1856a65e8e4cb10805adf2e4aa01db7fe8d6a376b36c677af6c236b4244`.
-  The full 10,978-item identity block and 21-column genre block align exactly; 8,658 catalogue items
+  The full 10,978-item identity block and 21-column genre block align exactly, and 8,658 catalogue items
   and 7,226 warm items have genre content.
 - Estimator specification ID:
   `fa3795fc5e7c549375ddd9d9258004b11af24c4e30651c87711e88a36ad627a3`.
@@ -846,7 +846,7 @@ S1.7--S1.9 one-time design test and Gate 1:
   is 0.070739 with frozen 95% bootstrap interval [0.062947, 0.078603]. The seed-specific
   improvements range from 0.069517 to 0.072019.
 - Identity BPR averages NDCG@20 0.133170 and identity-plus-genre BPR averages 0.077396. Neither is
-  admitted. The result says that this genre encoding did not improve this predictive task; it is
+  admitted. The result says that this genre encoding did not improve this predictive task. It is
   not a causal statement about genre.
 - The pseudo-cold diagnostic covers 30,077 positive edges across 300 temporarily withheld items.
   Identity-only is correctly unavailable. The genre content-only model is computable but
@@ -868,7 +868,7 @@ S1.11 pseudo-utilities and Gate 2:
   the ordered 8,902-item production catalogue: global shift/q90 scale, global robust softplus,
   within-user midrank percentile, and positive-part user standardization.
 - Parameters use the frozen 5,000 design users and full warm catalogue. Assessment score blocks were
-  used only for bounded diagnostics. Dense user-catalogue matrices are not persisted; downstream
+  used only for bounded diagnostics. Dense user-catalogue matrices are not persisted. Downstream
   pool values are generated on demand from hash-bound parameters.
 - All diagnostics are finite and nonnegative. Gate 2 passes under manifest ID
   `3c0714a65cc9807d9a6a3be5688b1f932b0dc83af3e83609536e99a95353f87b`.
@@ -886,7 +886,7 @@ S1.12 evidence and verification:
   anywhere in model selection or Gate 2.
 
 Interpretation for Dr Li: the completed predictive result is simple and defensible. On this frozen
-Steam ownership task, ownership-only ALS substantially beats popularity; the pairwise models and
+Steam ownership task, ownership-only ALS substantially beats popularity. The pairwise models and
 genre extension do not. That negative result is part of the evidence, not something tuned away.
 The downstream optimizer therefore receives three seed-specific ALS score interfaces and four
 declared normalizations. It does not receive dollar valuations.
@@ -917,7 +917,7 @@ What I changed:
 
 Checks:
 
-- 211 tests pass; the only warning is the existing SciPy warning from the archived pricing test.
+- 211 tests pass. The only warning is the existing SciPy warning from the archived pricing test.
 - The public verifier checks 12 manifests, 88 validation logs, 3 production logs, 11 top-level
   outputs, 147 public references, and 413 private references.
 - A clean public-copy run passes with the raw and protected files absent.
@@ -927,8 +927,47 @@ Checks:
 
 Before release:
 
-- confirm the redistribution terms for the derived tables and figures;
-- choose the code license with the project owner and supervisor;
-- publish from a sanitized Git history;
-- review and add the currently untracked v2 files; and
+- confirm the redistribution terms for the derived tables and figures
+- choose the code license with the project owner and supervisor
+- publish from a sanitized Git history
+- review and add the currently untracked v2 files
 - set the final Git author name and email before committing.
+
+## 2026-09-12 - Repository framing and wording pass
+
+Goal: make the tracked files match what the project actually is, a UROP carried out with Dr Li, and
+take out the wording that read like an invitation to outside contributors.
+
+What I changed:
+
+1. Removed `CONTRIBUTING.md` and `SECURITY.md`. Their working rules moved into
+   `notes/repository_conventions.md` as my own checklist, and the data-handling statement moved
+   into `DATA_PROVENANCE.md`.
+2. Replaced the README's contributing section with an authorship section. It now states that the
+   work is mine under Dr Li's supervision and that I am not taking outside contributions or pull
+   requests. The MIT license on original code and documentation stays as it is.
+3. Adjusted `CITATION.cff` so it reads as a project record rather than a released library, and
+   added the affiliation and the supervision note.
+4. Took the semicolons out of the tracked prose. Two sets remain on purpose: the bibliography
+   entries in `notes/optimization_models.md`, and mathematical notation such as `r_u(pi; v_u)` in
+   `planning.md`.
+5. Left `notes/preference_model_specification.md` and `notes/stage1_v2_mathematical_appendix.md`
+   alone. Both are hash-bound, the first into the frozen estimator specification manifest and the
+   second into the Stage 1 evidence manifest, so a wording edit would reopen the cycle. The
+   estimator specification test caught this when I first edited the file.
+6. Deleted the empty `.agents` directory from the working tree.
+
+Repository note: this pass is applied to the published repository
+`steam-recommendation-and-bundle-optimization`, which is the live one. The older
+`data-driven-bundling-optimization` repository holds the private working history and is being
+archived, so it no longer receives work.
+
+Checks:
+
+- The full suite passes, with the usual SciPy warning from the archived pricing test.
+- `python -m src.stage1_public_verify` returns `status: ok` with the unchanged evidence manifest ID
+  `9c0d5b48059cfbecad0d0c9fd2da8a025dc57942104dd181e308d338b07b6650`.
+- `git diff --check` is clean.
+
+Still open: the redistribution terms for the tracked derived tables. That one needs Dr Li's
+decision before the repository's visibility is settled.

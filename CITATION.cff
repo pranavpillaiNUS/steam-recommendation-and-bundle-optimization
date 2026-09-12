@@ -1,16 +1,19 @@
 cff-version: 1.2.0
-message: "If you use this research software, please cite the repository and the original Steam dataset paper."
+message: "If you refer to this work, please cite this repository and the original Steam dataset paper."
 title: "Steam Recommendation and Bundle Optimization"
 type: software
 license: MIT
 authors:
   - family-names: Pillai
     given-names: Pranav
+    affiliation: "National University of Singapore"
 repository-code: "https://github.com/pranavpillaiNUS/steam-recommendation-and-bundle-optimization"
 version: "s1-v2-20260814"
 abstract: >-
-  Research software for implicit-feedback preference estimation and scenario-based fixed-bundle
-  optimization on a historical Steam snapshot. Stage 1 is complete and Stage 2 is planned.
+  Undergraduate research project (UROP) supervised by Dr Li Xiaobo at the National University of
+  Singapore, covering implicit-feedback preference estimation and scenario-based fixed-bundle
+  optimization on a historical Steam snapshot. Stage 1 is complete and Stage 2 is planned. This is
+  research code kept for the project record, not a released library.
 keywords:
   - recommender systems
   - implicit feedback

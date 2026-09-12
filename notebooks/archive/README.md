@@ -5,7 +5,7 @@ Notebooks 06 and 10 are historical records of the pre-pivot CMM/BSP bundle-size-
 - `notebooks/06_bsp_synthetic_validation.ipynb`
 - `notebooks/10_bundle_size_pricing.ipynb`
 
-They intentionally remain at their original paths and notebook numbers. Moving or renumbering them would break existing links, obscure the provenance of saved tables and figures, and make the mechanism pivot harder to audit. This directory contains only the archive index; the notebooks themselves are not duplicated or moved.
+They intentionally remain at their original paths and notebook numbers. Moving or renumbering them would break existing links, obscure the provenance of saved tables and figures, and make the mechanism pivot harder to audit. This directory contains only the archive index. The notebooks themselves are not duplicated or moved.
 
 The selected archive policy is preservation in repository history rather than a live rerun
 requirement. Commit `3918b2b5afe88b88e8b8a6ce57533cc14d66d5a3` is the exact comparison

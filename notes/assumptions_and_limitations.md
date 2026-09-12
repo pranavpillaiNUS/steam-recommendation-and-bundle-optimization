@@ -59,7 +59,7 @@ Things to keep honest about when writing this up.
     curvature should vary across bundles.
 
 12. **Proxy stands in for quantity.** The revenue calculation uses a demand proxy where it
-    should use bundle sales. The level of revenue is not meaningful; only the shape of the
+    should use bundle sales. The level of revenue is not meaningful. Only the shape of the
     response to discount is being illustrated.
 
 ## Min-cost attribution (notebook 04)
@@ -87,7 +87,7 @@ Things to keep honest about when writing this up.
 18. **Zero-discount ties dominate the reassignment.** A bundle with no discount costs exactly
     the same as buying its games solo, so the cost rule is indifferent and splits the credit
     (e.g. BioShock Triple Pack, 6951 -> 3475.5). In this catalogue the genuine overlap
-    correction is small (~370 of ~3,900 reassigned units); the rest is this tie effect. It is
+    correction is small (~370 of ~3,900 reassigned units), and the rest is this tie effect. It is
     not the same as overlap and is reported separately. For downstream demand work,
     zero-discount bundles should be flagged rather than silently halved.
 
@@ -108,7 +108,7 @@ Things to keep honest about when writing this up.
 ## The 2026-07-13 pivot: CMM retired, spine moved to a latent preference model plus single-bundle design
 
 The cross-moment bundle-size pricing model (CMM) was retired as the project spine on 2026-07-13.
-CMM prices a size-based menu in which the customer freely chooses any bundle of size $s$; Steam's
+CMM prices a size-based menu in which the customer freely chooses any bundle of size $s$. Steam's
 audited snapshot instead contains fixed, curated offers, so CMM modeled a mechanism the observed
 system does not contain. Notebook 10 had already shown the two-moment approximation degrading on
 the skewed transformed score panel, but the binding problem is the mechanism, not the approximation.
@@ -127,7 +127,7 @@ with genre introduced as a controlled metadata ablation rather than a presumed i
 The caveats that follow are retained. Read them with this map:
 - Caveats 22, 25 to 28, and 31 (preference scores are not valuations, the evaluation metrics and the
   AUC trap, the concordance limits, and the failed price anchor) carry forward to the new spine.
-- Caveats 29 and 30 describe the archived CMM normalization exercise; only the common-scaling
+- Caveats 29 and 30 describe the archived CMM normalization exercise. Only the common-scaling
   lesson survives in the live project, at the narrower strength stated in caveat 35.
 - Caveats 23, 24, and 32 to 34 now describe archived work (notebooks 06 and 10, the CMM validation
   and its real-data run) and are the record of why the project pivoted, not live claims.
@@ -145,19 +145,19 @@ The caveats that follow are retained. Read them with this map:
 23. **Notebook 06 validates the optimizer, not the economics.** The synthetic experiments confirm
     the optimizer is numerically correct (it matches the brute-force oracle, the SDP form, and the
     paper's Figure 1) and they probe the bundling-vs-correlation hypothesis in a controlled
-    design. They use synthetic valuations, so they say nothing about Steam demand; their only role
+    design. They use synthetic valuations, so they say nothing about Steam demand. Their only role
     is to separate optimizer bugs from later modeling errors.
 
 24. **CMM is an approximation.** The cross-moment model keeps only the first two moments of the
     bundle-size valuations and uses the best-case distribution in that moment class. On synthetic
     data its realized objective reaches about 97 to 99% of the best empirical menu found, but that
     comparator is a numerical search result rather than a universal ground truth. CMM is an
-    approximation, not an identity; cases where it underperforms are kept, not tuned away.
+    approximation, not an identity. Cases where it underperforms are kept, not tuned away.
 
 25. **Evaluation metrics and the AUC trap.** The preference model is judged by a leakage-safe
     per-user leave-two-out split (popularity from training only, factors fit after holdout
     removal, training positives masked, separate validation and test holdouts). Top-K metrics
-    (Recall@K, NDCG@K, coverage) are primary; AUC is reported but secondary, because with one
+    (Recall@K, NDCG@K, coverage) are primary. AUC is reported but secondary, because with one
     positive among thousands of unobserved items AUC is inflated and can rank a popularity
     baseline above a model that is clearly better on top-K. Users with fewer than three owned
     games (7.2%) are excluded from ranking and that share is reported.
@@ -176,7 +176,7 @@ The caveats that follow are retained. Read them with this map:
 
 28. **The standalone price does not identify the valuation scale.** The intended Route A anchor
     was the censoring link: ownership reveals v >= price, so price should set the dollar scale.
-    On this data it fails the sign test in every form (aggregate price coefficient t = +6.4;
+    On this data it fails the sign test in every form (aggregate price coefficient t = +6.4,
     per-game quantile anchor slope negative, Spearman(price, threshold quantile) = -0.24).
     Conditional on preference, expensive games are owned more, not less, because price is
     endogenous to quality and exposure (the quantified version of caveat 10). So no positive
@@ -194,9 +194,9 @@ The caveats that follow are retained. Read them with this map:
 
 30. **The free-disposal floor location does affect the ratios and is swept.** With v = max(a + b
     s, 0) = b * max(s + a/b, 0), the ratios depend on the normalization only through the floor
-    location in score units (-a/b); the overall factor b cancels. Both sensitivity knobs move
+    location in score units (-a/b), and the overall factor b cancels. Both sensitivity knobs move
     that location: a_shift directly, and b_scale too, because the location re-anchors to the
-    price median at the new spread. So b_scale is not cosmetic for the ratios; notebook 09
+    price median at the new spread. So b_scale is not cosmetic for the ratios. Notebook 09
     sweeps the location and reports the floor fraction alongside the uplift, and notebook 10
     sweeps both knobs. The cross-good correlation structure that drives the bundling economics
     comes from the latent factors and is preserved by the affine map.
@@ -221,7 +221,7 @@ The caveats that follow are retained. Read them with this map:
 
 33. **The empirical BSP comparator is a search result, not a certificate.** The differential-
     evolution menu is searched on a fixed 20,000-user subsample (seeded at the CMM prices) and
-    evaluated on the full panel; there is no optimality proof. It is the best menu found under that
+    evaluated on the full panel. There is no optimality proof. It is the best menu found under that
     archived procedure, so no directional claim about its gap to a true optimum is justified.
 
 34. **The observed-price benchmark is scale-dependent.** Comparing the observed Steam bundle
@@ -268,20 +268,20 @@ The caveats that follow are retained. Read them with this map:
     objective is conditional on the Layer 1 model, pseudo-utility transform $T$, additive choice
     assumptions, costs, and tie convention. Under CP-anchored SBA, a user takes bundle $B$ at price
     $b$ under the primary weak-tie rule when
-    $\sum_{i\in B}\min\{v_{ui},p_i^{CP}\}\ge b$; the objective must also subtract the component
+    $\sum_{i\in B}\min\{v_{ui},p_i^{CP}\}\ge b$. The objective must also subtract the component
     margin displaced for that buyer. The raw-sum rule $\sum_{i\in B}v_{ui}\ge b$ belongs to SBR,
     not SBA. For a fixed composition, scanning complete threshold blocks gives an exact price.
     Exhaustively enumerating the entire declared finite feasible family and pricing every composition
     exactly gives a global finite-instance certificate. On larger pools, multistart add/drop/swap
     search with exact repricing is a heuristic. Locked-suite gaps measure its performance on that
-    suite but do not certify a new large-pool instance; its output is the **best solution found**
+    suite but do not certify a new large-pool instance. Its output is the **best solution found**
     unless an exact certificate or valid bound is available.
 
 39. **SBR tractability is conditional, not activated by recommender low rank.** The polynomial
     result in *Partition and Prosper* applies to the paper's normal SBR model only when, for some
     $t\ge0$, the covariance has the required positive-diagonal-minus-PSD form with the subtracted
     matrix of fixed rank (independence is a special case). A low-rank factor-score covariance does
-    not by itself establish that decomposition; a positive diagonal residual exists only if a
+    not by itself establish that decomposition. A positive diagonal residual exists only if a
     separate residual or shrinkage model is specified and estimated, and nonlinear pseudo-utility
     transforms can destroy the raw covariance structure. The theorem may be invoked only after its
     distributional and matrix conditions are verified. The general BO/conic method is an optional
@@ -295,15 +295,15 @@ The caveats that follow are retained. Read them with this map:
     complete-the-set pricing, or CP-optimal component prices. CP anchoring is therefore an explicit
     modeling convention. SBR remains a different benchmark in which bundled items are unavailable
     separately. Empty SBR reproduces CP, while grand-bundle SBR reproduces PB only when $B=N$ is
-    otherwise feasible and capacity permits it; in the capacity-only benchmark this requires
+    otherwise feasible and capacity permits it. In the capacity-only benchmark this requires
     $C\ge n$. No SBR nesting, hardness, tractability, or approximation result is transferred to SBA.
     Additive pseudo-utility remains a simplification rather than an identified fact about
     substitution or complementarity among games.
 
 41. **Candidate pools are metadata-based feasibility proxies.** The optimizer is restricted to
     frozen publisher-, developer-, franchise-, compatibility-, or co-promotion-coherent pools rather
-    than the full 10,978-game catalogue. Those restrictions reduce obviously implausible searches;
-    they do not prove common legal control, licensing authority, contractual permission, or actual
+    than the full 10,978-game catalogue. Those restrictions reduce obviously implausible searches.
+    They do not prove common legal control, licensing authority, contractual permission, or actual
     commercial implementability. Every inclusion, exclusion, normalization rule, and coverage
     limitation must remain auditable.
 
@@ -312,7 +312,7 @@ The caveats that follow are retained. Read them with this map:
     orderings systematically (Krichene and Rendle 2020), so evaluation ranks each held-out positive
     against the full eligible catalogue with explicit expected treatment of score ties. This is
     held-out ownership reconstruction in a static panel, not prediction of future purchases.
-    Separately, a model with better Recall@K need not yield more stable bundle designs; predictive
+    Separately, a model with better Recall@K need not yield more stable bundle designs. Predictive
     quality and downstream decision stability are reported as distinct objects.
 
 ## What would fix the big ones

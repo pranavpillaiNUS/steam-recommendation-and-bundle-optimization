@@ -5,7 +5,7 @@ Last revised: 2026-07-17
 Status: governing mathematical specification for the post-meeting pivot. The empirical results
 described here have not yet been run unless another project artifact explicitly says otherwise.
 Gate 0 is an internal specification freeze and is complete as of 2026-07-17. Work proceeds under
-this specification unless the project owner records a prospective, versioned amendment; supervisor
+this specification unless the project owner records a prospective, versioned amendment. Supervisor
 feedback is nonblocking.
 
 ## 1. Role of this note and result provenance
@@ -43,7 +43,7 @@ Throughout this note:
 
 | Label | Meaning |
 | --- | --- |
-| **Project result** | Derived for this UROP's finite-panel CP-anchored SBA model; a proof is given here. |
+| **Project result** | Derived for this UROP's finite-panel CP-anchored SBA model, and a proof is given here. |
 | **Paper result** | Stated or reproduced from Sun, Li, and Teo under the paper's assumptions. |
 | **Modeling assumption** | An explicit bridge needed because the data do not identify the object. |
 | **Empirical claim** | Permitted only after the corresponding saved experiment and test gate exist. |
@@ -54,7 +54,7 @@ Throughout this note:
 
 Let $o_{ui}\in\{0,1\}$ be observed ownership and $t_{ui}\ge0$ observed playtime for user $u$
 and game $i$. Ownership is implicit feedback: it is not a rating, exposure record, transaction,
-or purchase occasion. Playtime is used mainly to change confidence in an observed interaction; it
+or purchase occasion. Playtime is used mainly to change confidence in an observed interaction. It
 is not a monetary outcome.
 
 A fitted recommender produces a latent score $s_{ui}$. For scenario $m$, define
@@ -71,12 +71,12 @@ units. They are within-model counterfactual quantities, not dollars or estimates
 A common strictly increasing transformation preserves a within-user ranking but generally changes
 sums and hence bundle choices. A nondecreasing positive-part map can additionally create ties.
 A user-specific transformation also changes interpersonal comparisons against one common price.
-Accordingly, the model, seed, transformation, and decision split jointly identify a scenario; no
+Accordingly, the model, seed, transformation, and decision split jointly identify a scenario. No
 one transformation is declared true.
 
 Pearson correlation is not invariant to arbitrary monotone transformations. Rank correlations are
-invariant only under the relevant monotone transformation applied consistently to each variable;
-they are not invariant to arbitrary user-specific transformations that reorder users within an
+invariant only under the relevant monotone transformation applied consistently to each variable.
+They are not invariant to arbitrary user-specific transformations that reorder users within an
 item. Dependence findings must therefore be reported separately for raw behavior, identity-only
 scores, hybrid scores, rank-based measures, and named pseudo-utility scenarios.
 
@@ -122,23 +122,23 @@ assumed cost in pseudo-utility units, not an observed accounting cost.
 
 The core model makes the following **modeling assumptions**:
 
-- pseudo-utilities are additive across games;
-- utility is quasi-linear in the normalized price;
-- all users see the same posted menu and can acquire at most one unit of each item;
+- pseudo-utilities are additive across games
+- utility is quasi-linear in the normalized price
+- all users see the same posted menu and can acquire at most one unit of each item
 - a user may buy any subset of separately offered games and, under SBA, at most one copy of the
-  bundle;
+  bundle
 - there is no budget constraint, search cost, exposure effect, or bundle-specific interaction
-  utility; and
+  utility
 - the primary tie rules are purchase at $v_{ui}=p_i$ and bundle purchase when the bundle and
   separate-component surpluses are equal.
 
-Genre features can improve score prediction; they do not identify complementarity. Adding pairwise
+Genre features can improve score prediction. They do not identify complementarity. Adding pairwise
 interaction utility would change the choice reduction and exact price theorem and is outside the
 required core.
 
 The primary timing convention treats score vectors as synthetic pre-acquisition preference types.
 It does not ask the same observed account literally to repurchase its owned library. An
-installed-base sensitivity is outside the frozen core; if added later through a logged amendment,
+installed-base sensitivity is outside the frozen core. If added later through a logged amendment,
 it first sets
 
 $$
@@ -182,7 +182,7 @@ $$
 
 The joint problem is nonconvex. With either factor block fixed, each other block solves a convex
 weighted ridge-regression problem, so exact alternating updates do not increase the objective.
-This establishes an optimization algorithm; it does not give the scores a cardinal economic
+This establishes an optimization algorithm. It does not give the scores a cardinal economic
 interpretation.
 
 ### 3.2 Pairwise identity and metadata factorization
@@ -252,7 +252,7 @@ A zero-demand policy is represented explicitly by no sale. $\square$
 
 Thus CP is computed by sorting distinct values, grouping ties, and scanning complete tied blocks.
 A deterministic design-sample tie rule is fixed before assessment evaluation. The primary rule is
-the smallest finite CP-optimal candidate; key SBA results are repeated at the largest finite
+the smallest finite CP-optimal candidate. Key SBA results are repeated at the largest finite
 CP-optimal candidate and, when relevant, the no-sale representative. This sensitivity matters:
 different CP-optimal prices can change the truncated bundle values even when CP profit is tied.
 
@@ -275,16 +275,16 @@ $$
 $$
 
 Its exact finite-panel price likewise lies at an observed aggregate pseudo-utility threshold or the
-no-sale option. PB is a separate benchmark; its components are not offered individually.
+no-sale option. PB is a separate benchmark. Its components are not offered individually.
 
 ## 5. Mechanisms that contain one fixed bundle
 
 | Mechanism | Items in $B$ sold separately? | Component prices | Valid relationship |
 | --- | --- | --- | --- |
-| CP | Yes; there is no bundle | Optimized item by item | Baseline |
+| CP | Yes, there is no bundle | Optimized item by item | Baseline |
 | PB | No | None | All of $N$ or no purchase |
-| SBR | No | Outside-$B$ prices optimize separately to CP | Contains CP; contains PB if $N\in\mathcal F$ |
-| $\mathrm{SBA}^{CP}$ | Yes | Fixed at $p_i^{CP}$ | Contains CP; does **not** contain PB |
+| SBR | No | Outside-$B$ prices optimize separately to CP | Contains CP, and contains PB if $N\in\mathcal F$ |
+| $\mathrm{SBA}^{CP}$ | Yes | Fixed at $p_i^{CP}$ | Contains CP, but does **not** contain PB |
 | JSBC | Yes | Jointly optimized with bundle and composition | General one-bundle joint mechanism |
 | CMM | Customer constructs any set of a priced size | Size-menu prices | Different, archived mechanism |
 
@@ -316,12 +316,12 @@ $$
 
 Outside-$B$ purchases are available under either choice and therefore cancel in this comparison.
 Because $U_u^{sep}(B)\ge0$, a bundle that weakly beats the separate option also satisfies
-individual participation; no additional bundle-versus-no-purchase constraint is missing.
+individual participation. No additional bundle-versus-no-purchase constraint is missing.
 
 **Provenance.** The choice comparison is the finite-panel specialization of the SBA customer-choice
 relations in Sun, Li, and Teo, equations (13)--(14), after fixing component prices at
 $p_i^{CP}$. The pointwise truncation derivation below, the explicit weak-tie convention, and its
-finite-panel implementation tests are project-specific; this attribution does not transfer any SBR
+finite-panel implementation tests are project-specific. This attribution does not transfer any SBR
 theorem or guarantee.
 
 **Proposition P2 (adapted project result: SBA choice equivalence).** Under the primary
@@ -402,7 +402,7 @@ y_u(B,b)
 $$
 
 **Proof.** Start from CP. For a nonbuyer, nothing changes. For a bundle buyer, replace the CP
-margins $A_u(B)$ from bundled items by the bundle margin $b-c(B)$; all outside-$B$ terms
+margins $A_u(B)$ from bundled items by the bundle margin $b-c(B)$. All outside-$B$ terms
 remain unchanged. Averaging gives the formula. $\square$
 
 The term $A_u(B)$ prevents a false conclusion that every bundle sale is wholly incremental. It
@@ -433,7 +433,7 @@ $$
 \end{pmatrix}.
 $$
 
-Each item has the unique CP price $10$, earning average objective $5$; hence
+Each item has the unique CP price $10$, earning average objective $5$. Hence
 $\widehat\Pi_{CP}=10$. For $B=\{1,2\}$, both users have $w_u(B)=12$ and
 $A_u(B)=10$. At $b=12$, both choose the bundle under the weak tie rule and
 
@@ -492,14 +492,14 @@ $$
 $$
 
 Compare every $\Delta_\ell$ with zero and apply a deterministic price tie rule. The primary
-mathematical rule returns no bundle when the best gain is exactly zero; among positive equal-gain
+mathematical rule returns no bundle when the best gain is exactly zero. Among positive equal-gain
 thresholds it chooses the smallest price. Outer exact-search ties are then broken by smaller
 cardinality and lexicographic item ID. These choices are frozen before assessment because equal
 design objectives can have different assessment buyer sets. Numerical zero comparisons use a
 homogeneous, scale-aware tolerance recorded in configuration. Never evaluate a partial tied block:
 it is not a feasible buyer set under the declared weak rule.
 
-Constructing $w_u(B)$ and $A_u(B)$ costs $O(U|B|)$; sorting costs $O(U\log U)$; the grouped
+Constructing $w_u(B)$ and $A_u(B)$ costs $O(U|B|)$, sorting costs $O(U\log U)$, and the grouped
 scan costs $O(U)$. Therefore exact fixed-composition pricing costs
 
 $$
@@ -559,11 +559,11 @@ improvement. It retains $\varnothing$, so an optimizer can always return CP.
 
 For larger pools, the required scalable method is multistart add/drop/swap local search. It must:
 
-- call the same feasibility predicate as exact search;
-- reoptimize $b$ exactly after every proposed composition;
-- include the no-bundle policy explicitly;
-- use starts and stopping rules frozen on a development suite;
-- store objective-evaluation counts and complete traces; and
+- call the same feasibility predicate as exact search
+- reoptimize $b$ exactly after every proposed composition
+- include the no-bundle policy explicitly
+- use starts and stopping rules frozen on a development suite
+- store objective-evaluation counts and complete traces
 - report best solution found unless an exact certificate or valid bound exists.
 
 The absence of a generic greedy guarantee is not just a missing proof. Define the optimized
@@ -608,8 +608,8 @@ $$
 
 Thus adding an item can reduce optimized gain. $\square$
 
-Consequently, the usual monotone-submodular cardinality-greedy guarantee does not apply; greedy
-search from the empty set can see zero singleton gains even when a profitable pair exists; and an
+Consequently, the usual monotone-submodular cardinality-greedy guarantee does not apply. Greedy
+search from the empty set can see zero singleton gains even when a profitable pair exists, and an
 at-most-$C$ capacity must not be replaced by an exactly-$C$ requirement. Local search remains
 heuristic, and empirical gaps on a locked exact suite validate performance only on that suite.
 
@@ -640,7 +640,7 @@ This does not change the fact that SBR models a different menu from SBA.
    objective.
 2. Empty SBR equals CP.
 3. If $N\in\mathcal F$ (and therefore $C\ge n$ under the capacity constraint), grand-bundle SBR
-   with $B=N$ equals PB; hence optimized SBR nests CP and PB.
+   with $B=N$ equals PB. Hence optimized SBR nests CP and PB.
 4. SBA does not nest PB because its component options remain available. There is no general
    SBA-versus-PB ordering supplied by nesting.
 5. Optimized SBA and optimized SBR are not ordered in general.
@@ -650,7 +650,7 @@ substitute $B=N$ in SBR, which removes every outside component and leaves the PB
 SBA, even $B=N$ retains all component alternatives, so its menu and choice rule differ from PB.
 
 For non-dominance, take zero costs and capacity two. With three equally weighted users
-$(2,0),(0,2),(1.1,1.1)$, the unique CP prices are $(1.1,1.1)$; SBA cannot improve its CP
+$(2,0),(0,2),(1.1,1.1)$, the unique CP prices are $(1.1,1.1)$. SBA cannot improve its CP
 objective $22/15$: its only nontrivial thresholds are $1.1$, which gives negative incremental
 gain, and $2.2$, which gives zero. SBR can instead choose the grand bundle at price $2$, sell
 to all three types, and earn $2$.
@@ -658,7 +658,7 @@ Conversely, with nine equally weighted users (four of type $(4,0)$, four of type
 one of type $(3,3)$), the unique CP prices are $(4,4)$. SBA adds the grand bundle at price $6$
 and earns $38/9$: CP contributes $32/9$, and the central type contributes the incremental
 bundle payment $6/9$. SBR's empty and singleton policies earn at most $32/9$, while its grand
-bundle earns $4$ at price $4$; hence its optimum is $4$. Thus each mechanism can outperform
+bundle earns $4$ at price $4$. Hence its optimum is $4$. Thus each mechanism can outperform
 the other. $\square$
 
 ### 9.2 Results from *Partition and Prosper*: SBR only
@@ -717,19 +717,19 @@ normal quantile change of variables, and $f(x)$ structure are not SBA formulas.
 
 | Paper result | Exact scope | Permitted use here |
 | --- | --- | --- |
-| Theorem 1 | The SBR problem that takes a predetermined component-price vector as input is NP-hard even for independent normal valuations; this does not say every fixed vector, especially the CP vector, is hard. | Theory benchmark; not an SBA hardness proof. |
-| Proposition 1 and Corollary 1 | In the baseline-adjusted normal SBR reformulation with CP-optimal outside prices, incremental value $f(x)=0$ for $x<1/2$; a nondegenerate optimal SBR bundle has purchase probability at least $1/2$ and mean at least cost. | SBR only; not an SBA demand restriction. |
+| Theorem 1 | The SBR problem that takes a predetermined component-price vector as input is NP-hard even for independent normal valuations. This does not say every fixed vector, especially the CP vector, is hard. | Theory benchmark, not an SBA hardness proof. |
+| Proposition 1 and Corollary 1 | In the baseline-adjusted normal SBR reformulation with CP-optimal outside prices, incremental value $f(x)=0$ for $x<1/2$. A nondegenerate optimal SBR bundle has purchase probability at least $1/2$ and mean at least cost. | SBR only, not an SBA demand restriction. |
 | Theorem 2 | For some $t\ge0$, normal SBR is solvable using at most $O(n^{\lfloor(K+3)/2\rfloor}C^{\lceil(K+3)/2\rceil})$ univariate concave problems when $\Sigma=(1+t)\operatorname{Diag}(\sigma_i^2)-M(t)$, with $M(t)\succeq0$ of rank $K$ fixed independently of $n$. | Apply only after verifying the decomposition. |
-| Corollary 2 / Appendix C | Independence gives at most $O(C^2n)$ univariate concave maximizations by Corollary 2; Appendix C's separate line-sorting implementation runs in $O(Cn^2)$. | SBR only. |
-| Proposition 2 | With finite values, equal positive utility margins, equal positive standard deviations, and positive incremental gain, a lower-variance addition is more profitable; a positive-gain optimum minimizes variance among bundles of its size. | Conditional SBR comparative statics, not a general genre theorem. |
+| Corollary 2 / Appendix C | Independence gives at most $O(C^2n)$ univariate concave maximizations by Corollary 2. Appendix C's separate line-sorting implementation runs in $O(Cn^2)$. | SBR only. |
+| Proposition 2 | With finite values, equal positive utility margins, equal positive standard deviations, and positive incremental gain, a lower-variance addition is more profitable. A positive-gain optimum minimizes variance among bundles of its size. | Conditional SBR comparative statics, not a general genre theorem. |
 | Proposition 3 | If every marginal distribution is MHR, SBR is at least CP and CP is a $1/e$ approximation to the general optimal mechanism, with arbitrary dependence and costs as stated by the paper. | Literature statement only unless assumptions are defended. |
-| Theorem 3 | Under the base additive model and arbitrary valuation distributions and costs, $\mathrm{SBR}\le\mathrm{JSBC}\le2\,\mathrm{SBR}$. | SBR-versus-JSBC statement; not an SBA guarantee. |
+| Theorem 3 | Under the base additive model and arbitrary valuation distributions and costs, $\mathrm{SBR}\le\mathrm{JSBC}\le2\,\mathrm{SBR}$. | SBR-versus-JSBC statement, not an SBA guarantee. |
 | Section 5 / equation (17) | SBA fixes component prices at CP and adds one bundle. | This is the definition used by the main empirical model. |
 | Appendix E | Develops an SBA upper-bound model and a normal approximation solved by BO/SDP. | Optional stretch comparison, not the exact empirical evaluator. |
 
 These paper results are currently cited with proof sketches, not claimed as project derivations.
 One proof will be selected internally and reproduced in full after the required empirical and
-project-specific theory core; supervisor feedback may inform that nonblocking selection.
+project-specific theory core. Supervisor feedback may inform that nonblocking selection.
 
 - **Theorem 1.** The appendix reduces PARTITION to the predetermined-price SBR instance. It sets
   capacity $C=n$ and means equal to costs, then chooses the input component prices and independent
@@ -738,31 +738,31 @@ project-specific theory core; supervisor feedback may inform that nonblocking se
   vector.
 - **Proposition 1 and Corollary 1.** For $x<1/2$,
   $x\Phi^{-1}(1-x)>0$. A covariance bound makes the nonseparable standard-deviation term no
-  larger than a sum of item terms, each bounded by its CP monopoly profit; the empty bundle attains
+  larger than a sum of item terms, each bounded by its CP monopoly profit. The empty bundle attains
   zero, so baseline-adjusted $f(x)=0$. A nondegenerate optimum must therefore have
   $x\ge1/2$, and a mean below cost would force every non-loss price above the normal mean and
   hence demand below one half.
 - **Theorem 2 and Corollary 2.** Proposition 1 restricts the search to $x\ge1/2$. Under the
   diagonal-minus-fixed-rank decomposition, the fixed-$x$ objective is convex in a fixed number of
-  additive bundle statistics; an optimum occurs at an extreme point, and a geometric
+  additive bundle statistics. An optimum occurs at an extreme point, and a geometric
   $\le C$-set bound gives polynomially many candidates. Each candidate leaves a univariate
-  concave price problem. Independence is the $K=0$ case; Appendix C obtains a separate exact
+  concave price problem. Independence is the $K=0$ case. Appendix C obtains a separate exact
   line-sorting implementation.
 - **Proposition 2.** Under its symmetry and positive-gain conditions, same-cardinality alternatives
   have the same mean and displaced CP profit. A normal-hazard/envelope argument shows optimized
   profit decreases with bundle standard deviation once optimal demand exceeds one half, yielding
   the conditional lower-variance comparison.
 - **Proposition 3.** Empty-bundle feasibility gives SBR at least CP. For each MHR marginal, the
-  cumulative-hazard argument bounds expected item surplus by $e$ times monopoly profit; total
+  cumulative-hazard argument bounds expected item surplus by $e$ times monopoly profit. Total
   optimal profit is at most total surplus, giving
   $\mathrm{SBR}\ge\mathrm{CP}\ge\mathrm{OPT}/e$.
 - **Theorem 3.** Split JSBC profit into its bundle-plus-outside contribution and separate sales of
-  items inside the bundle. The former is bounded by an SBR policy and the latter by CP; optimized
+  items inside the bundle. The former is bounded by an SBR policy and the latter by CP. Optimized
   SBR dominates both, so $\mathrm{JSBC}\le2\,\mathrm{SBR}$, while mechanism inclusion gives the
   reverse lower bound.
 
 For normal SBR, the paper changes variables from price to purchase probability $x$ and solves
-the general correlated case by Bayesian optimization over $x\in[1/2,1]$; each evaluation is a
+the general correlated case by Bayesian optimization over $x\in[1/2,1]$. Each evaluation is a
 mixed 0-1 second-order-cone problem. That interval restriction follows from the SBR Proposition 1.
 It must not be imposed on empirical SBA. A finite BO budget returns the best evaluated solution,
 not a global certificate for the overall SBR problem.
@@ -779,7 +779,7 @@ Theorem 2 requires a **positive diagonal minus** a fixed-rank PSD matrix. A low-
 covariance, or an assumed **low-rank plus diagonal** covariance, is not automatically of that form.
 If the normal SBR stretch is attempted, the required decomposition, rank, positive-semidefiniteness,
 tail behavior, and approximation error must be checked numerically. The paper's normal theorem
-also permits negative support, whereas the project's core pseudo-utilities are nonnegative; a
+also permits negative support, whereas the project's core pseudo-utilities are nonnegative. A
 normal fit is therefore an approximation, not a consequence of nonnegativity or low rank.
 Otherwise the empirical-panel optimizer remains primary.
 
@@ -789,9 +789,9 @@ Otherwise the empirical-panel optimizer remains primary.
 scenario and let $\lambda>0$. If every pseudo-utility and pseudo-cost is scaled by $\lambda$,
 then scaling every component and bundle price by $\lambda$:
 
-- leaves every CP, PB, SBR, and SBA choice indicator unchanged;
-- scales $w_u(B)$, $A_u(B)$, and every objective by $\lambda$;
-- maps each optimal price to a scaled optimal price; and
+- leaves every CP, PB, SBR, and SBA choice indicator unchanged
+- scales $w_u(B)$, $A_u(B)$, and every objective by $\lambda$
+- maps each optimal price to a scaled optimal price
 - preserves the set of optimal compositions and dimensionless within-scenario objective ratios.
 
 **Proof.** All choice inequalities are homogeneous of degree one in utilities and prices. Every
@@ -801,7 +801,7 @@ The feasible composition family is unchanged. $\square$
 This result handles one common multiplicative unit only. It does not justify nonlinear
 cardinalization, user-specific normalization, or unscaled costs. If costs are held fixed while only
 utilities change, the proposition does not apply. A strict-tie price lattice must also be scaled by
-$\lambda$; a fixed absolute tick would break the equivariance.
+$\lambda$. A fixed absolute tick would break the equivariance.
 
 For scenario $m$, the design policy is
 
@@ -831,27 +831,27 @@ near-equivalent designs. If both are unstable, narrow the design conclusion.
 
 ## 11. Algorithms, tests, and claim discipline
 
-The reference implementation belongs in src/bundle_design.py; notebooks orchestrate it. The
+The reference implementation belongs in src/bundle_design.py. Notebooks orchestrate it. The
 minimum exact API should expose CP, PB, fixed-composition SBR, fixed-composition SBA, exact
 composition enumeration, a shared feasibility predicate, and multistart local search.
 
 The required mathematical invariants are:
 
-1. direct SBA profit equals the incremental-over-CP expression;
-2. the choice comparison equals the truncated-value rule;
-3. CP and bundle threshold scans add complete tied blocks;
-4. fixed-$B$ scans match an independent brute-force or dense-grid oracle on hand cases;
-5. exact composition search matches an independently written enumerator on small pools;
-6. empty SBA and empty SBR equal CP;
-7. grand SBR equals PB when $N\in\mathcal F$;
-8. no test asserts that SBA nests PB;
-9. scaling all utilities, costs, and prices gives Proposition P8;
-10. exact and heuristic methods return only bundles accepted by the same constraints; and
+1. direct SBA profit equals the incremental-over-CP expression
+2. the choice comparison equals the truncated-value rule
+3. CP and bundle threshold scans add complete tied blocks
+4. fixed-$B$ scans match an independent brute-force or dense-grid oracle on hand cases
+5. exact composition search matches an independently written enumerator on small pools
+6. empty SBA and empty SBR equal CP
+7. grand SBR equals PB when $N\in\mathcal F$
+8. no test asserts that SBA nests PB
+9. scaling all utilities, costs, and prices gives Proposition P8
+10. exact and heuristic methods return only bundles accepted by the same constraints
 11. assessment IDs cannot enter any fitting, price, composition, or heuristic-tuning step.
 
 A completed enumeration may be called an exact optimum over the declared finite feasible family.
 A heuristic output is a best solution found. The empirical finite-panel objective is a
-sample-average objective conditional on the recommender and pseudo-utility scenario; it is not free
+sample-average objective conditional on the recommender and pseudo-utility scenario. It is not free
 of upstream modeling assumptions and is not real revenue.
 
 ## 12. Live proof and implementation checklist
@@ -876,14 +876,14 @@ of upstream modeling assumptions and is not real revenue.
 ## 13. References for the live model
 
 - Sun H, Li X, Teo C-P. *Partition and Prosper: Design and Pricing of Single Bundle*. SBR in
-  Sections 3--4; CP-anchored SBA in Section 5 and equation (17); SBA approximation in Appendix E.
+  Sections 3--4, CP-anchored SBA in Section 5 and equation (17), and SBA approximation in Appendix E.
 - Hu Y, Koren Y, Volinsky C (2008). Collaborative filtering for implicit feedback datasets.
 - Koren Y, Bell R, Volinsky C (2009). Matrix factorization techniques for recommender systems.
 - Rendle S, Freudenthaler C, Gantner Z, Schmidt-Thieme L (2009). BPR: Bayesian personalized
   ranking from implicit feedback.
 - Kula M (2015). Metadata embeddings for user and item cold-start recommendations.
 - Krichene W, Rendle S (2020). On sampled metrics for item recommendation.
-- Adams WJ, Yellen JL (1976); Schmalensee R (1984); McAfee RP, McMillan J, Whinston MD (1989);
+- Adams WJ, Yellen JL (1976); Schmalensee R (1984); McAfee RP, McMillan J, Whinston MD (1989)
   Bakos Y, Brynjolfsson E (1999). Classic bundling economics, used as context rather than as
   identification of Steam demand.
 
@@ -894,13 +894,13 @@ CMM prices a size menu from which a customer constructs any bundle of the chosen
 the live Steam model, supplies no input to the SBA optimizer, and supports no claim about actual
 Steam prices or revenue. Its proofs remain a learning record and regression reference for the
 archived notebooks 06 and 10. CMM's valuation notation below belongs to the paper being
-reproduced; it must not be read as identifying the recommender scores as valuations.
+reproduced. It must not be read as identifying the recommender scores as valuations.
 
 ### Notation (CMM)
 
 Scalars $x$, vectors $\mathbf{x}$, matrices $\mathbf{X}$. $\mathbf{e}$ is the all-ones
 vector, $\mathbf{e}_i$ the $i$th unit vector. $\operatorname{Diag}(\mathbf{x})$ is the
-diagonal matrix with $\mathbf{x}$ on the diagonal; $\operatorname{diag}(\mathbf{X})$ is the
+diagonal matrix with $\mathbf{x}$ on the diagonal, and $\operatorname{diag}(\mathbf{X})$ is the
 vector of diagonal entries. $\operatorname{tr}(\mathbf{X})$ is the trace. For
 $\mathbf{A}\succeq 0$, $\mathbf{A}^{1/2}$ is the unique PSD square root. Random quantities
 carry a tilde, e.g. $\tilde{\mathbf{u}}$. $\mathbf{X}\succ 0$ means positive definite.
@@ -1029,7 +1029,7 @@ CMM2, the SDP of the previous section, with $\Delta_m=\{\mathbf{x}\in\mathbb{R}^
 **Lemma 3.** CMM1 and CMM2 have the same optimal value, and their optimal $\mathbf{x}$ agree.
 
 **Proof.** *(CMM1 $\Rightarrow$ CMM2.)* The CMM2 matrix is the principal submatrix of the CMM1
-matrix obtained by deleting the outside option's row and column, hence is PSD; and
+matrix obtained by deleting the outside option's row and column, hence is PSD, and
 $\operatorname{tr}(\mathbf{Y}_0)=\operatorname{tr}(\mathbf{Y})$ because the outside option
 contributes $\alpha_0=0$ to the relevant diagonal entry. So any CMM1 solution is CMM2-feasible
 with the same objective.
@@ -1116,7 +1116,7 @@ $$
   approaches the boundary of $\Delta_m$. So the optimum of Theorem 1 lies in the interior, and
   the first-order condition holds with equality.
 
-  *Proof.* The boundary has two faces, $x_i=0$ and $\mathbf{e}^\top\mathbf{x}=1$; the first is
+  *Proof.* The boundary has two faces, $x_i=0$ and $\mathbf{e}^\top\mathbf{x}=1$. The first is
   handled as in Theorem 5 of Ahipasaoglu et al. (2018), so take a sequence of interior points
   approaching $\mathbf{x}_0$ with $\mathbf{e}^\top\mathbf{x}_0=1$ along direction $\mathbf{e}_i$.
   At such $\mathbf{x}_0$, $\mathbf{T}(\mathbf{x}_0)=\boldsymbol{\Sigma}^{1/2}\mathbf{S}(\mathbf{x}_0)\boldsymbol{\Sigma}^{1/2}$
@@ -1201,8 +1201,8 @@ $$
 
 the equality by a Schur complement on the matrix-fractional term. Introducing a slack
 $\mathbf{Z}$, this epigraph is described by three constraints: (i) the linear inequality
-$t+\operatorname{tr}(\mathbf{T}(\mathbf{q})^{1/2})\ge z$; (ii) the PSD constraint
-$\bigl(\begin{smallmatrix} z & \mathbf{q}^\top\boldsymbol{\Sigma}^{1/2}\\ \boldsymbol{\Sigma}^{1/2}\mathbf{q} & \mathbf{Z}\end{smallmatrix}\bigr)\succeq0$;
+$t+\operatorname{tr}(\mathbf{T}(\mathbf{q})^{1/2})\ge z$, (ii) the PSD constraint
+$\bigl(\begin{smallmatrix} z & \mathbf{q}^\top\boldsymbol{\Sigma}^{1/2}\\ \boldsymbol{\Sigma}^{1/2}\mathbf{q} & \mathbf{Z}\end{smallmatrix}\bigr)\succeq0$,
 and (iii) $\mathbf{T}(\mathbf{q})^{1/2}\succeq\mathbf{Z}$. Constraint (ii) is affine in
 $(z,\mathbf{q},\mathbf{Z})$, hence convex. In (i), $\operatorname{tr}(\mathbf{T}(\mathbf{q})^{1/2})$
 is concave in $\mathbf{q}$ by Lemma 6, so the inequality defines a convex set. For (iii), the set
@@ -1213,15 +1213,15 @@ The intersection of three convex sets is convex, so the epigraph of $g$ is conve
 and $\pi$ is concave on $\operatorname{int}(\Delta_m)$. $\square$
 
 This is the non-obvious step: computing CMM choice probabilities was already known to be convex,
-but that alone does not make the *pricing* problem convex; Theorem 2 establishes it via the
+but that alone does not make the *pricing* problem convex. Theorem 2 establishes it via the
 operator concavity of $\mathbf{q}\mapsto\operatorname{tr}(\mathbf{T}(\mathbf{q})^{1/2})$.
 
 #### Note on assumptions
 
 $\boldsymbol{\Sigma}\succ 0$ held in all of the paper's numerical tests. If $\boldsymbol{\Sigma}$ is singular, adding $\epsilon\mathbf{I}$ produces a regularized
 positive-definite approximation. The theorem then applies to that perturbed input, not literally
-to the original singular instance; the perturbation and its sensitivity must be reported. The convexity result relies on
-homogeneous price sensitivity (normalized to one); with heterogeneous price sensitivity the
+to the original singular instance. The perturbation and its sensitivity must be reported. The convexity result relies on
+homogeneous price sensitivity (normalized to one). With heterogeneous price sensitivity the
 problem is not generally convex.
 
 ### Single-size case (Corollary 1), derived in full
@@ -1241,7 +1241,7 @@ $$p^{\mathrm{CMM}} = \omega + \sigma\,\frac{1-2x}{2\sqrt{x-x^2}}.$$
 
 For comparison, the multinomial probit (MNP) price-demand map is
 $p^{\mathrm{MNP}} = \omega + \sigma\,\Phi^{-1}(1-x)$, where $\Phi$ is the standard normal CDF.
-CMM uses $\frac{1-2x}{2\sqrt{x-x^2}}$ as a closed-form proxy for $\Phi^{-1}(1-x)$; the two
+CMM uses $\frac{1-2x}{2\sqrt{x-x^2}}$ as a closed-form proxy for $\Phi^{-1}(1-x)$. The two
 curves are very close, which is the basis of the paper's Figure 1 validation.
 
 **Profit first-order condition.** The profit is $\pi(x) = (p - c)x$. Substitute the price map:
@@ -1277,14 +1277,14 @@ full convex program.
 The archived implementation transformed an ownership-derived score panel and then applied CMM to
 its order-statistic moments. That exercise is not part of the live dependency graph. In particular:
 
-- the transformed panel was model-dependent and was not identified willingness to pay;
-- the attempted observed-price anchor failed, so no dollar calibration was established;
+- the transformed panel was model-dependent and was not identified willingness to pay
+- the attempted observed-price anchor failed, so no dollar calibration was established
 - the differential-evolution empirical menu was a best solution found, not a certified optimum or
-  assumption-free ground truth;
+  assumption-free ground truth
 - notebook 10 found that the CMM menu attained 69--97 percent of the best empirical menu found on
-  its selected item sets, while the real partial sums were highly skewed;
+  its selected item sets, while the real partial sums were highly skewed
 - the decisive reason for retirement is the selling-mechanism mismatch, not merely the observed
-  two-moment approximation error; and
+  two-moment approximation error
 - no CMM demand, moment, menu, price, or result is reused by the live CP-anchored SBA model.
 
 ### Phase-0 reproduction checklist
@@ -1293,12 +1293,12 @@ its order-statistic moments. That exercise is not part of the live dependency gr
 - [x] Reproduce Lemma 3 (the SDP reduction) and Theorem 1 from Appendix A (written out above).
 - [x] Reproduce Theorem 2 (concavity of $\pi$) from Appendix A (written out above, via Lemma 6).
 - [x] Implement the single-size root-find and check the optimal $x$, $p$, profit by hand on a
-      tiny example (`optimize_single_size`; `tests/test_bundle_pricing.py`).
+      tiny example (`optimize_single_size`, `tests/test_bundle_pricing.py`).
 - [x] Implement the convex program and confirm it matches a brute-force search on a small
       instance. The pricing problem is solved in the native $\mathbf{q}$ variables with scipy
-      (`optimize_convex`); cvxpy/SCS is used for the demand SDP (eq. 12, `cmm_demand_sdp`) as an
+      (`optimize_convex`). cvxpy/SCS is used for the demand SDP (eq. 12, `cmm_demand_sdp`) as an
       independent cross-check. Agreement is asserted in the tests and shown in notebook 06.
-- [x] Reproduce the CMM-vs-MNP single-size comparison (the paper's Figure 1; notebook 06).
+- [x] Reproduce the CMM-vs-MNP single-size comparison (the paper's Figure 1, notebook 06).
 
 ### References for Appendix A
 
@@ -1320,7 +1320,7 @@ its order-statistic moments. That exercise is not part of the live dependency gr
 - Grone R, Johnson CR, Sa EM, Wolkowicz H (1984). Positive definite completions of partial
   Hermitian matrices. Linear Algebra Appl. (chordal PSD completion, used in Lemma 3.)
 - Rose DJ (1970). Triangulated graphs and the elimination process. (Perfect elimination
-  ordering; chordality in Lemma 3.)
+  ordering, chordality in Lemma 3.)
 - Dowson D, Landau B (1982); Olkin I, Pukelsheim F (1982); Shapiro A (1985). Closed-form
   trace-maximizing coupling used for the inner SDP in the Theorem 1 proof.
 - Horn RA, Johnson CR (1990). Matrix Analysis. (Operator monotonicity / concavity of the matrix

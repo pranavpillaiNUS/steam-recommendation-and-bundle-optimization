@@ -3,7 +3,7 @@
 Last revised: 2026-08-14
 
 Current status: Gate 0 and every Stage 1 step S1.0 to S1.12 are complete under the prospective
-`s1-v2-20260814` Steam-ID cycle. Gate 1 and Gate 2 pass; only implicit ALS was admitted. Production
+`s1-v2-20260814` Steam-ID cycle. Gate 1 and Gate 2 pass. Only implicit ALS was admitted. Production
 refits and fold-in are complete for all three seeds and 12,585 assessment users. The next binding
 step is the outcome-independent candidate-pool registry and notebook 11, followed by Gate 3. No
 Stage 2 objective or bundle outcome was accessed during Stage 1 selection or scenario freezing.
@@ -18,23 +18,23 @@ controls when a historical prospective paragraph below is stale.
 
 This is my main technical reference for the rest of the project. It records:
 
-- how the project moved from the cross-moment bundle-size pricing model, CMM, to the current two-stage direction;
-- what parts of the earlier work still stand and what parts are now only archive material;
-- the exact purpose, data, models, splits, metrics, and pass conditions for Stage 1;
-- the interface that converts Stage 1 ranking scores into declared pseudo-utility scenarios;
-- the exact CP-anchored Single Bundle with All, SBA, problem used in Stage 2;
-- the proofs, algorithms, tests, certificates, experiments, and robustness checks needed to finish;
-- the order in which protected outcomes may be opened;
-- what the project can and cannot claim; and
+- how the project moved from the cross-moment bundle-size pricing model, CMM, to the current two-stage direction
+- what parts of the earlier work still stand and what parts are now only archive material
+- the exact purpose, data, models, splits, metrics, and pass conditions for Stage 1
+- the interface that converts Stage 1 ranking scores into declared pseudo-utility scenarios
+- the exact CP-anchored Single Bundle with All, SBA, problem used in Stage 2
+- the proofs, algorithms, tests, certificates, experiments, and robustness checks needed to finish
+- the order in which protected outcomes may be opened
+- what the project can and cannot claim
 - the current stopping point and next actions.
 
 This file is both a plan and a record of the research design. It should be possible to read it from the beginning to understand why the direction changed, or to jump to a numbered stage and see what has to be implemented and checked.
 
 The machine-readable configurations and frozen manifests control the current Stage 1 cycle when a prose summary disagrees with them. The main files are:
 
-- `configs/cycles/s1-v2-20260814/preference_models.json`;
-- `configs/cycles/s1-v2-20260814/ranking_evaluation.json`;
-- `configs/cycles/s1-v2-20260814/pseudo_utility_scenarios.json`; and
+- `configs/cycles/s1-v2-20260814/preference_models.json`
+- `configs/cycles/s1-v2-20260814/ranking_evaluation.json`
+- `configs/cycles/s1-v2-20260814/pseudo_utility_scenarios.json`
 - the complete public dependency graph in `outputs/modeling/cycles/s1-v2-20260814/`.
 
 `notes/research_log.md` records what was actually completed and when. `notes/preference_model_specification.md` and `notes/optimization_models.md` hold the mathematical details. Later changes to a frozen choice must be prospective, dated, versioned, and made before looking at the outcome affected by that choice.
@@ -68,11 +68,11 @@ The project started by inspecting the Steam Video Game and Bundle Data rather th
 
 The main descriptive facts were:
 
-- 615 observed bundles and 3,525 bundle-item rows;
-- 70,912 users, 10,978 games, and 5,094,082 deduplicated ownership rows in the original flattened panel;
-- no file joining a user ID directly to a bundle ID;
-- one static price snapshot rather than transaction-time prices;
-- only 238 of 615 bundles with complete coverage in the ownership panel; and
+- 615 observed bundles and 3,525 bundle-item rows
+- 70,912 users, 10,978 games, and 5,094,082 deduplicated ownership rows in the original flattened panel
+- no file joining a user ID directly to a bundle ID
+- one static price snapshot rather than transaction-time prices
+- only 238 of 615 bundles with complete coverage in the ownership panel
 - 36.3 percent of ownership rows with zero lifetime playtime.
 
 Because direct bundle purchases are absent, notebooks 03 and 04 construct ownership-based attribution proxies. `users_own_all` counts users who own all observed components. The minimum-cost reconstruction then attributes a library to the cheapest combination of bundles and solo items at snapshot prices.
@@ -95,12 +95,12 @@ The customer chooses the size that maximizes `W_us - p_s`, including the outside
 
 This was mathematically useful work. The project:
 
-- derived and documented the main CMM reductions and proofs;
-- implemented the simplex and SDP demand formulations;
-- checked gradients and eigenvalue handling;
-- matched a brute-force oracle on small cases;
-- reproduced the paper's synthetic figures;
-- compared the CMM solution with a direct sample-average price search; and
+- derived and documented the main CMM reductions and proofs
+- implemented the simplex and SDP demand formulations
+- checked gradients and eigenvalue handling
+- matched a brute-force oracle on small cases
+- reproduced the paper's synthetic figures
+- compared the CMM solution with a direct sample-average price search
 - studied how the advantage of bundling changed with dependence.
 
 That work remains in `src/bundle_pricing.py`, `tests/test_bundle_pricing.py`, notebook 06, notebook 10, and Appendix A of `notes/optimization_models.md`.
@@ -121,8 +121,8 @@ The first preference prototype produced SVD and NMF scores. Notebook 09 then tri
 
 The proposed censoring argument required higher prices, conditional on preference, to reduce ownership. The data gave the opposite sign:
 
-- aggregate price coefficient t-statistic about +6.37;
-- quantile-anchor slope about -20.46; and
+- aggregate price coefficient t-statistic about +6.37
+- quantile-anchor slope about -20.46
 - Spearman correlation between price and the ownership-threshold score quantile about -0.243.
 
 Price is confounded with quality, popularity, exposure, and release conditions. The snapshot therefore does not identify a positive conversion from a latent score to dollars. The retained affine normalization was an assumption, not a calibration.
@@ -135,11 +135,11 @@ The mechanism audit cross-referenced all 615 bundles with the individual-game ca
 
 Its findings were:
 
-- 568 bundles have SBA-like component-availability evidence;
-- 47 bundles are unclear, mainly because of catalogue coverage;
-- 0 bundles have affirmative evidence of SBR-style exclusivity;
-- all 615 display a standalone price field for every recorded component;
-- 475 have complete catalogue confirmation; and
+- 568 bundles have SBA-like component-availability evidence
+- 47 bundles are unclear, mainly because of catalogue coverage
+- 0 bundles have affirmative evidence of SBR-style exclusivity
+- all 615 display a standalone price field for every recorded component
+- 475 have complete catalogue confirmation
 - 513 of the SBA-like classifications are high-confidence under the audit rule.
 
 This supports a static description in which bundle components remain available separately. It does not identify historical menus, transaction-time availability, complete-the-set pricing, legal control, or component-pricing-optimal prices.
@@ -152,19 +152,19 @@ SBR stays as a different benchmark. Under SBR, games placed in the bundle are re
 
 The following work remains part of the live evidence base:
 
-- notebooks 00 to 05 and their cleaned tables;
-- the mechanism audit and its provenance manifest;
-- the failed price-anchor diagnostics as identification evidence;
-- the sparse interaction and feature foundations;
-- the theoretical lessons about dependence and bundling, when restated for the correct mechanism; and
+- notebooks 00 to 05 and their cleaned tables
+- the mechanism audit and its provenance manifest
+- the failed price-anchor diagnostics as identification evidence
+- the sparse interaction and feature foundations
+- the theoretical lessons about dependence and bundling, when restated for the correct mechanism
 - the numerical and research lessons from the CMM attempt.
 
 The following work is retained only as archive or prototype material:
 
-- notebook 06 and `src/bundle_pricing.py` as the CMM validation record;
-- notebook 10 and `outputs/tables/bundle_size_pricing.csv` as the real-data CMM record;
-- `src/calibration.py` and `valuation_calibration.csv` as the failed monetary-anchor record;
-- notebook 08's SVD and NMF leaderboard; and
+- notebook 06 and `src/bundle_pricing.py` as the CMM validation record
+- notebook 10 and `outputs/tables/bundle_size_pricing.csv` as the real-data CMM record
+- `src/calibration.py` and `valuation_calibration.csv` as the failed monetary-anchor record
+- notebook 08's SVD and NMF leaderboard
 - `preference_factors.npz`, which is not a frozen Stage 1 model artifact.
 
 None of those archived outputs may be used as a live Stage 1 winner or as an input to the new bundle optimizer.
@@ -201,14 +201,14 @@ The intended completed project has four contributions.
 
 The data do not support claims about:
 
-- individual willingness to pay;
-- actual Steam bundle purchases;
-- causal discount elasticity;
-- current or historical Steam demand curves;
-- dollar-optimal Steam prices;
-- actual or expected Steam revenue;
-- causal effects of genre;
-- legal authority to create a proposed bundle; or
+- individual willingness to pay
+- actual Steam bundle purchases
+- causal discount elasticity
+- current or historical Steam demand curves
+- dollar-optimal Steam prices
+- actual or expected Steam revenue
+- causal effects of genre
+- legal authority to create a proposed bundle
 - a global optimum on a large pool unless a complete certificate or valid bound exists.
 
 ## 5. Core definitions and interpretation rules
@@ -259,17 +259,17 @@ The data do not support claims about:
 
 The order of access is binding:
 
-1. freeze the protocol, data, splits, features, and estimator equations;
-2. use design-training data to fit configurations;
-3. use validation only for model selection and Stage 2 admission;
-4. hash the admission decision;
-5. open the design-test outcomes once and run the preregistered pseudo-cold evaluation, without using either result to replace the validation-selected configurations;
-6. refit permitted shared parameters on design users;
-7. fold in assessment users without changing shared parameters;
-8. freeze pseudo-utility scenarios and metadata-based candidate-pool membership before inspecting any bundle objective;
-9. complete the preregistered notebook 11 comparisons without changing pool membership to improve their results;
-10. freeze the Stage 2 instance registry, exact suites, heuristic protocol, and all tie and feasibility rules;
-11. use design users to select complete Stage 2 policies; and
+1. freeze the protocol, data, splits, features, and estimator equations
+2. use design-training data to fit configurations
+3. use validation only for model selection and Stage 2 admission
+4. hash the admission decision
+5. open the design-test outcomes once and run the preregistered pseudo-cold evaluation, without using either result to replace the validation-selected configurations
+6. refit permitted shared parameters on design users
+7. fold in assessment users without changing shared parameters
+8. freeze pseudo-utility scenarios and metadata-based candidate-pool membership before inspecting any bundle objective
+9. complete the preregistered notebook 11 comparisons without changing pool membership to improve their results
+10. freeze the Stage 2 instance registry, exact suites, heuristic protocol, and all tie and feasibility rules
+11. use design users to select complete Stage 2 policies
 12. evaluate the frozen policies on assessment users without reoptimization.
 
 If a protected result changes a rule that should have been fixed earlier, the old cycle is closed and a new prospective cycle is created. The result cannot be silently reused to tune the rule.
@@ -289,11 +289,11 @@ A common positive scaling of all pseudo-utilities, prices, and costs rescales th
 
 A nonlinear monotone mapping can preserve within-user ranking and still change:
 
-- sums across items;
-- a common price comparison across users;
-- buyer thresholds;
-- component prices;
-- the selected composition; and
+- sums across items
+- a common price comparison across users
+- buyer thresholds
+- component prices
+- the selected composition
 - the measured advantage over a benchmark.
 
 User-specific mappings also impose an interpersonal location or scale convention. Every transformation must state that convention. The final result is stability or fragility across scenarios, not discovery of the one true transformation.
@@ -350,19 +350,19 @@ The target is deliberately narrow. It asks whether a model places one held-out o
 
 Stage 1 must produce:
 
-- one canonical user, item, interaction, and feature contract;
-- a frozen outer design and assessment split;
-- nested design-user training, validation, and design-test roles;
-- a training-only popularity baseline;
-- weighted implicit ALS;
-- identity-only pairwise feature-sum matrix factorization;
-- the same pairwise model with genre as the only controlled change;
-- exact tie-aware metrics against the complete 8,902-item warm catalogue for all three frozen seeds of every stochastic specification, with popularity fitted once;
-- a separate pseudo-cold experiment;
-- a validation-selected and hashed Stage 2 admission set;
-- design-only production refits;
-- a tested assessment-user fold-in path;
-- a bounded and reproducible scorer; and
+- one canonical user, item, interaction, and feature contract
+- a frozen outer design and assessment split
+- nested design-user training, validation, and design-test roles
+- a training-only popularity baseline
+- weighted implicit ALS
+- identity-only pairwise feature-sum matrix factorization
+- the same pairwise model with genre as the only controlled change
+- exact tie-aware metrics against the complete 8,902-item warm catalogue for all three frozen seeds of every stochastic specification, with popularity fitted once
+- a separate pseudo-cold experiment
+- a validation-selected and hashed Stage 2 admission set
+- design-only production refits
+- a tested assessment-user fold-in path
+- a bounded and reproducible scorer
 - a frozen model-by-seed-by-transformation interface for Stage 2.
 
 Alignment, leakage, masking, tie, confidence, nonfinite-score, or fold-in failures block Stage 2. Genre failing to help does not block Stage 2.
@@ -386,14 +386,14 @@ The interpretation is fixed: all fitted outputs are latent preference scores for
 | Family | Frozen settings |
 | --- | --- |
 | Popularity | Exact design-training ownership count, no fitted parameters |
-| Implicit ALS | Factors 32 or 64; regularization 0.05 or 0.2; `alpha_o` 20 or 40; three confidence schemes; 12 fixed iterations |
-| Identity BPR | Factors 32 or 64; regularization 0.0001 or 0.001; learning rate 0.05; 12 fixed epochs; 1,000,000 triples per epoch |
-| Identity plus genre BPR | Same selected BPR settings, shared initialization, and complete triple stream as identity-only; genre block is the only controlled toggle |
+| Implicit ALS | Factors 32 or 64, regularization 0.05 or 0.2, `alpha_o` 20 or 40, three confidence schemes, 12 fixed iterations |
+| Identity BPR | Factors 32 or 64, regularization 0.0001 or 0.001, learning rate 0.05, 12 fixed epochs, 1,000,000 triples per epoch |
+| Identity plus genre BPR | Same selected BPR settings, shared initialization, and complete triple stream as identity-only, and the genre block is the only controlled toggle |
 
 The three ALS confidence schemes are:
 
-1. ownership only: `alpha_p = 0`, `tau = 0`;
-2. log playtime: `alpha_p = 2`, `tau = 14`; and
+1. ownership only: `alpha_p = 0`, `tau = 0`
+2. log playtime: `alpha_p = 2`, `tau = 14`
 3. capped log playtime: `alpha_p = 2`, `tau = 5`.
 
 This gives 24 ALS configurations and four BPR hyperparameter configurations before training seeds. The training seeds are:
@@ -406,9 +406,9 @@ The numerical policy uses float32 parameter storage, float64 accumulation, one B
 
 The resource limits are:
 
-- 8 GiB peak memory;
-- 2,700 seconds per fit;
-- 43,200 seconds total tuning time; and
+- 8 GiB peak memory
+- 2,700 seconds per fit
+- 43,200 seconds total tuning time
 - 256 MiB saved model size per seed.
 
 The ranking configuration fixes Recall and NDCG at 10 and 20, with mean NDCG@20 as the primary selection metric. It also fixes the exact tie rule, 64 MiB maximum score block, 5,000 evaluation users, 2,000 paired bootstrap replicates, and bootstrap seed 314159.
@@ -423,8 +423,8 @@ IDs must be exact, nonnegative, unpadded decimal values that fit in signed int64
 
 The saved contract has three aligned float32 CSR matrices:
 
-- binary ownership;
-- lifetime playtime; and
+- binary ownership
+- lifetime playtime
 - two-week playtime.
 
 All three share the same user order, item order, shape, and stored pattern. The user and item arrays are ascending numeric int64. Metadata-only catalogue items remain as explicit zero-support columns. An interaction item missing from the metadata universe is a failure.
@@ -475,8 +475,8 @@ The primary warm-ranking evaluation sample contains exactly 5,000 design users. 
 
 The pseudo-cold cohort contains 300 genre-covered items:
 
-- 100 with design support in `[5, 20)`;
-- 100 with support in `[20, 100)`; and
+- 100 with design support in `[5, 20)`
+- 100 with support in `[20, 100)`
 - 100 with support in `[100, 500)`.
 
 Pseudo-cold selection is hash-stratified by normalized primary genre inside each support band. Primary genre is the lexicographically first unique label after HTML unescaping, Unicode NFKC normalization, whitespace collapse, and blank removal. Fractional genre quotas are reconciled by Hamilton largest remainder with canonical lexical ties.
@@ -504,13 +504,13 @@ The full genre block has 21,559 nonzero values. Every genre occurs on at least f
 
 The predictive feature blocks exclude:
 
-- price;
-- bundle membership;
-- popularity;
-- playtime;
-- tags;
-- publisher;
-- developer; and
+- price
+- bundle membership
+- popularity
+- playtime
+- tags
+- publisher
+- developer
 - downstream pool membership.
 
 Playtime remains an interaction-confidence input. Publisher and developer are reserved for later feasibility-pool construction, not prediction in the core genre ablation.
@@ -537,7 +537,7 @@ It has no trainable parameters. Ties are expected and must be handled by the com
 
 #### Weighted implicit ALS
 
-The preference target is binary ownership. Here `t_ui` is `playtime_forever`; `playtime_2weeks` is outside the headline confidence grid. For an observed edge,
+The preference target is binary ownership. Here `t_ui` is `playtime_forever`, and `playtime_2weeks` is outside the headline confidence grid. For an observed edge,
 
 $$
 \gamma_{ui}
@@ -580,11 +580,11 @@ $$
 
 Here:
 
-- `x_u` is the user factor;
-- `eta_i` is the identity factor;
-- `b_i` is an item bias;
-- `F_i` is the frozen genre row;
-- `G` contains genre-factor parameters; and
+- `x_u` is the user factor
+- `eta_i` is the identity factor
+- `b_i` is an item bias
+- `F_i` is the frozen genre row
+- `G` contains genre-factor parameters
 - `rho = 0` for identity-only and `rho = 1` for identity plus genre.
 
 There is no user bias. Identity is not duplicated inside `F_i`.
@@ -610,15 +610,15 @@ When the common parameter arrays are held fixed, the identity-only and genre pat
 
 S1.4 does not provide:
 
-- a production `implicit` backend adapter;
-- a production LightFM adapter;
-- an Adagrad BPR training loop for the full data fallback;
-- real-data convergence or resource evidence;
-- popularity or ALS model serialization under a complete public model contract;
-- assessment fold-in;
-- a tuning runner;
-- a validation leaderboard;
-- an admission manifest; or
+- a production `implicit` backend adapter
+- a production LightFM adapter
+- an Adagrad BPR training loop for the full data fallback
+- real-data convergence or resource evidence
+- popularity or ALS model serialization under a complete public model contract
+- assessment fold-in
+- a tuning runner
+- a validation leaderboard
+- an admission manifest
 - a clean-process end-to-end scorer.
 
 The estimator manifest correctly records `real_model_fit: false`.
@@ -627,7 +627,7 @@ The estimator manifest correctly records `real_model_fit: false`.
 
 Sections 10.1--10.8 preserve the prospective execution specification used for the completed cycle.
 They are historical requirements, not a current to-do list. Section 10.9 records the realized v2
-completion; Stage 2 is the remaining live work.
+completion. Stage 2 is the remaining live work.
 
 ### 10.1 S1.5: backend and fold-in feasibility spike
 
@@ -635,27 +635,27 @@ At execution time, this was the next binding step.
 
 At the time of the spike, the intended packages were `implicit==0.7.2` for ALS and
 `lightfm==1.17` for the pairwise feature model, and neither was installed. Installation alone was
-not a pass; each backend had to be checked against the frozen equations and artifact rules. The v2
+not a pass. Each backend had to be checked against the frozen equations and artifact rules. The v2
 completion record below documents native `implicit` and the prospective NumPy BPR fallback.
 
 The spike must test:
 
-1. orientation of user and item matrices;
-2. exact meaning of confidence weights;
-3. agreement with a tiny explicit objective and score oracle;
-4. direct versus batched score equality;
-5. deterministic behavior under the fixed seeds and thread policy;
-6. fixed iteration or epoch counts;
-7. parameter dtype and serialization;
-8. score reproduction after a clean reload;
-9. continuation and equality of the complete BPR positive-negative triple stream;
-10. identity-only versus zero-content equivalence with common parameters held fixed;
-11. suppression of identity factors and bias for pseudo-cold items;
-12. ALS fold-in with frozen item factors;
-13. pairwise user-only fold-in with frozen item and genre parameters;
-14. deterministic construction and reproduction of the pairwise fold-in set `T_u`;
-15. proof that fold-in does not mutate shared parameters;
-16. runtime and peak memory at planned dimensions; and
+1. orientation of user and item matrices
+2. exact meaning of confidence weights
+3. agreement with a tiny explicit objective and score oracle
+4. direct versus batched score equality
+5. deterministic behavior under the fixed seeds and thread policy
+6. fixed iteration or epoch counts
+7. parameter dtype and serialization
+8. score reproduction after a clean reload
+9. continuation and equality of the complete BPR positive-negative triple stream
+10. identity-only versus zero-content equivalence with common parameters held fixed
+11. suppression of identity factors and bias for pseudo-cold items
+12. ALS fold-in with frozen item factors
+13. pairwise user-only fold-in with frozen item and genre parameters
+14. deterministic construction and reproduction of the pairwise fold-in set `T_u`
+15. proof that fold-in does not mutate shared parameters
+16. runtime and peak memory at planned dimensions
 17. clean failure for an insufficient-history user.
 
 Use synthetic users or design users treated as pseudo-new, using permitted design-training histories only. Do not open validation coordinates or diagnostics, assessment IDs or histories, sealed design-test targets, or the reserved pseudo-cold cohort during this spike.
@@ -666,10 +666,10 @@ If a preferred package cannot match the contract on Windows, time-box the enviro
 
 Planned outputs are:
 
-- `outputs/modeling/stage1_backend_spike_manifest.json`;
-- a small backend-equivalence results table;
-- serialized synthetic model fixtures;
-- runtime and memory measurements; and
+- `outputs/modeling/stage1_backend_spike_manifest.json`
+- a small backend-equivalence results table
+- serialized synthetic model fixtures
+- runtime and memory measurements
 - focused backend and fold-in tests.
 
 S1.5 passes only when the intended production training and fold-in route works on a small complete case.
@@ -684,26 +684,26 @@ Validation ranking uses the same exact complete-warm-catalogue evaluator and mas
 
 For every attempted fit, save:
 
-- configuration ID;
-- model family and seed;
-- upstream set IDs;
-- start and completion status;
-- software and backend version;
-- parameter count;
-- iteration or epoch diagnostics;
-- objective or loss trace;
-- solve jitter and residual information where relevant;
-- triple-stream hash for BPR;
-- runtime and peak memory;
-- artifact hashes; and
+- configuration ID
+- model family and seed
+- upstream set IDs
+- start and completion status
+- software and backend version
+- parameter count
+- iteration or epoch diagnostics
+- objective or loss trace
+- solve jitter and residual information where relevant
+- triple-stream hash for BPR
+- runtime and peak memory
+- artifact hashes
 - any failure or invalidation reason.
 
 The common selection order is:
 
-1. mean NDCG@20, descending;
-2. mean Recall@20, descending;
-3. trainable parameter count, ascending;
-4. latent dimension, ascending; and
+1. mean NDCG@20, descending
+2. mean Recall@20, descending
+3. trainable parameter count, ascending
+4. latent dimension, ascending
 5. configuration ID, lexicographic.
 
 Metrics are averaged arithmetically across training seeds for selection. Runtime is reported but is not a tie-break. Fixed iterations and epochs are used, so there is no model-specific early stopping advantage.
@@ -716,7 +716,7 @@ The evaluator in this section is first run on validation during S1.6. After the 
 
 For one target item, let:
 
-- `g` be the number of eligible candidates with score strictly greater than the target; and
+- `g` be the number of eligible candidates with score strictly greater than the target
 - `e` be the size of the exact score-tied block containing the target.
 
 Under uniform random ordering inside that exact tied block,
@@ -745,16 +745,16 @@ Store one row per evaluated user, model, seed, split, and metric. The row must i
 
 Report:
 
-- Recall@10 and Recall@20;
-- NDCG@10 and NDCG@20;
-- expected target rank;
-- expected catalogue coverage at 20;
-- expected top-one-percent concentration at 20;
-- user activity segment;
-- target item support segment;
-- held-out target played versus owned-but-unplayed status;
-- metadata coverage;
-- seed-wise results; and
+- Recall@10 and Recall@20
+- NDCG@10 and NDCG@20
+- expected target rank
+- expected catalogue coverage at 20
+- expected top-one-percent concentration at 20
+- user activity segment
+- target item support segment
+- held-out target played versus owned-but-unplayed status
+- metadata coverage
+- seed-wise results
 - runtime and peak memory.
 
 All segment labels must come from training-only information. User activity is the number of that user's design-training warm positives. Target support is the target item's design-training ownership count. The planned top-one-percent popularity set is the first 68 items after sorting the 6,721 warm items by descending design-training count and then ascending canonical item ID. Because the current JSON names this diagnostic but does not encode its boundary tie rule, this clarification must be copied into the versioned evaluator configuration or manifest before validation metrics are opened. These definitions and any displayed bin edges are fixed before metric comparisons.
@@ -777,14 +777,14 @@ Report the paired aggregate difference and the item-support segments even if the
 
 For the pseudo-cold experiment:
 
-1. use the already frozen 300-item cohort;
-2. remove all design interactions for those items from collaborative training;
-3. retain their genre rows;
-4. require an evaluable warm history for each user;
-5. suppress the cold item's identity embedding and item bias;
-6. derive candidate representations from content only;
-7. rank each cold positive against the complete 300-item cold catalogue;
-8. mask the user's other known cold positives; and
+1. use the already frozen 300-item cohort
+2. remove all design interactions for those items from collaborative training
+3. retain their genre rows
+4. require an evaluable warm history for each user
+5. suppress the cold item's identity embedding and item bias
+6. derive candidate representations from content only
+7. rank each cold positive against the complete 300-item cold catalogue
+8. mask the user's other known cold positives
 9. mark identity-only BPR as unavailable and use only the frozen nonpersonalized fallback, design-training item support measured before cold removal.
 
 Never leave a random or untrained identity vector in the cold comparison. The cold result must demonstrate that no collaborative identity information reaches the held-out item.
@@ -798,12 +798,12 @@ S1.9 records and audits the admission set that was already selected from validat
 
 For a personalized model to be noninferior to popularity:
 
-- the lower 95 percent paired NDCG@20 difference bound must be at least -0.005; and
+- the lower 95 percent paired NDCG@20 difference bound must be at least -0.005
 - the mean Recall@20 difference must be at least -0.01.
 
 For genre to be noninferior to identity-only:
 
-- the lower 95 percent paired NDCG@20 difference bound must be at least -0.005; and
+- the lower 95 percent paired NDCG@20 difference bound must be at least -0.005
 - the mean Recall@20 difference must be at least -0.01.
 
 At most three personalized families enter Stage 2. The admission manifest records the validation-selected set and its upstream identities before the design test is opened. The design test estimates generalization and may narrow the claim. It cannot be used to replace the winner with another configuration from the same cycle.
@@ -812,13 +812,13 @@ Hybrid victory is not required. If genre loses, report the negative result and c
 
 Gate 1 requires:
 
-- all required ladder models;
-- all three frozen seeds finite for every valid stochastic specification, with popularity evaluated once;
-- correct masks and exact-tie metrics;
-- complete validation selection logs;
-- a pre-test admission hash;
-- one-time design-test results;
-- warm and pseudo-cold conclusions at their correct strength; and
+- all required ladder models
+- all three frozen seeds finite for every valid stochastic specification, with popularity evaluated once
+- correct masks and exact-tie metrics
+- complete validation selection logs
+- a pre-test admission hash
+- one-time design-test results
+- warm and pseudo-cold conclusions at their correct strength
 - reproducible model artifacts and scorers.
 
 ### 10.6 S1.10: production refit and assessment fold-in
@@ -864,9 +864,9 @@ Notebook 09 will be rewritten around the identification failure and the new inte
 
 For every admitted model and seed, construct a small frozen set of nonnegative transformations. The current plan names four candidate families:
 
-1. a common positive shift and scale with parameters fitted globally on design users;
-2. a logistic or softplus mapping with global robust location and scale;
-3. a within-user percentile mapping over the exact ordered catalogue named in the scenario manifest; and
+1. a common positive shift and scale with parameters fitted globally on design users
+2. a logistic or softplus mapping with global robust location and scale
+3. a within-user percentile mapping over the exact ordered catalogue named in the scenario manifest
 4. positive-part user standardization.
 
 Historical execution note: these names were not yet fully specified at this point. S1.11 then froze
@@ -879,26 +879,26 @@ Every candidate pool is intersected with the scenario's eligible item map, and a
 
 For each transformation, record:
 
-- its domain and range;
-- proof or test of nonnegativity and finiteness;
-- whether it strictly preserves, weakly preserves, or changes score ties;
-- whether its parameters are global or user-specific;
-- the design data used to fit global parameters;
-- the interpersonal location and scale assumption;
-- behavior for missing or constant score vectors;
-- treatment of unseen users and items;
-- common-scaling behavior; and
+- its domain and range
+- proof or test of nonnegativity and finiteness
+- whether it strictly preserves, weakly preserves, or changes score ties
+- whether its parameters are global or user-specific
+- the design data used to fit global parameters
+- the interpersonal location and scale assumption
+- behavior for missing or constant score vectors
+- treatment of unseen users and items
+- common-scaling behavior
 - source model, seed, split, catalogue, code, and parameter hashes.
 
 Optional review-label and playtime checks are only auxiliary face validity. They cannot become a new supervised target or independent ground truth.
 
 Planned outputs are:
 
-- `src/pseudo_utility.py`;
-- `tests/test_pseudo_utility.py`;
-- `configs/cycles/s1-v2-20260814/pseudo_utility_scenarios.json`;
-- `outputs/tables/09_price_anchor_diagnostics.csv`;
-- `outputs/tables/09_pseudo_utility_diagnostics.csv`; and
+- `src/pseudo_utility.py`
+- `tests/test_pseudo_utility.py`
+- `configs/cycles/s1-v2-20260814/pseudo_utility_scenarios.json`
+- `outputs/tables/09_price_anchor_diagnostics.csv`
+- `outputs/tables/09_pseudo_utility_diagnostics.csv`
 - `outputs/modeling/cycles/s1-v2-20260814/pseudo_utility_scenarios_manifest.json`.
 
 Gate 2 passes when every admitted model-seed-transformation scenario is deterministic, finite, nonnegative, fully identified by hashes, and frozen before any bundle objective is inspected. No scenario is described as the true utility scale.
@@ -907,15 +907,15 @@ Gate 2 passes when every admitted model-seed-transformation scenario is determin
 
 The final Stage 1 package must contain:
 
-- protocol, interaction, split, feature, estimator, training, ranking, admission, production-refit, fold-in, and pseudo-utility manifests;
-- the complete model leaderboard;
-- paired validation and design-test contrasts;
-- warm support and user-activity segments;
-- pseudo-cold results;
-- runtime and memory tables;
-- per-user metric rows with verified alignment;
-- production model artifacts and a bounded scorer smoke test;
-- a mathematical appendix for ALS, BPR, low-rank scoring, and convex fold-in; and
+- protocol, interaction, split, feature, estimator, training, ranking, admission, production-refit, fold-in, and pseudo-utility manifests
+- the complete model leaderboard
+- paired validation and design-test contrasts
+- warm support and user-activity segments
+- pseudo-cold results
+- runtime and memory tables
+- per-user metric rows with verified alignment
+- production model artifacts and a bounded scorer smoke test
+- a mathematical appendix for ALS, BPR, low-rank scoring, and convex fold-in
 - a short claim ledger stating what each result can support.
 
 Once the required identity and genre comparison and pseudo-utility scenarios are complete, stop expanding the recommender. Tags, review-text NLP, LightGCN, transformers, graph recommenders, and a larger model zoo cannot delay Stage 2.
@@ -923,7 +923,7 @@ Once the required identity and genre comparison and pseudo-utility scenarios are
 ### 10.9 Stage 1 completion record: `s1-v2-20260814`
 
 The identity correction was made prospectively, before fitting. Every raw record has a valid numeric
-`steam_id`; using it retains 70,912 active users, all 5,094,082 deduplicated ownership edges, and all
+`steam_id`. Using it retains 70,912 active users, all 5,094,082 deduplicated ownership edges, and all
 10,978 games. Duplicate playtime was rebuilt from raw input with the declared fieldwise-maximum rule.
 The protected split contains 50,351 design users and 12,585 assessment users after excluding 7,976
 low-activity users. It has 3,951,166 warm training edges, 50,351 validation positives, 50,351 sealed
@@ -938,14 +938,14 @@ fits, and three identity-plus-genre BPR fits, across the frozen seeds.
 
 Validation selected one configuration per family and froze admission before the design-test was
 opened. Only `als__k064__reg0p05__ao20__ownership_only` passed admission. On the one-time design
-test, the three ALS seeds average NDCG@20 0.206089 and Recall@20 0.4196; popularity scores 0.135350
+test, the three ALS seeds average NDCG@20 0.206089 and Recall@20 0.4196, while popularity scores 0.135350
 and 0.2524. The paired ALS-minus-popularity NDCG@20 difference is 0.070739 with frozen 95% bootstrap
 interval [0.062947, 0.078603]. Identity BPR averages NDCG@20 0.133170 and is not admitted. The
 controlled genre extension averages 0.077396 and is not admitted. This is a predictive ablation,
 not evidence that genres cause ownership.
 
 The pseudo-cold diagnostic evaluates 30,077 positive edges over 300 temporarily withheld items. The
-genre content-only model is available there but underperforms popularity; identity-only prediction is
+genre content-only model is available there but underperforms popularity. Identity-only prediction is
 correctly labeled unavailable. Gate 1 nevertheless passes because genre is not required to win and
 the downstream admission set was already fixed from validation.
 
@@ -959,7 +959,7 @@ identified WTP or money.
 
 S1.12 verifies 264 artifact references, writes the model card/evidence summary, aggregate and segment
 tables, seed contrasts, runtime/resource evidence, a ranking figure, and the mathematical appendix.
-The complete repository suite passed with 204 tests at the freeze; the published repository collects
+The complete repository suite passed with 204 tests at the freeze. The published repository collects
 211, of which a public clone runs 208 and skips 3 that need the ignored private artifacts. The
 difference is the verifier tests added by the publication snapshot, not a change to any Stage 1
 result. `python -m src.stage1_pipeline` re-verifies the entire dependency graph idempotently and
@@ -973,15 +973,15 @@ Stage 1 gives a set of qualified score models. Stage 2 needs pseudo-utilities an
 
 Each downstream scenario must have an ID that binds:
 
-- the admitted model family and configuration;
-- the training seed;
-- the protocol, interaction, split, and feature set IDs;
-- the production shared-parameter artifact;
-- the fold-in rule and solver;
-- the ordered eligible user and item maps;
-- the pseudo-utility transformation and its parameters;
-- the score and pseudo-utility dtypes;
-- the score-block memory limit; and
+- the admitted model family and configuration
+- the training seed
+- the protocol, interaction, split, and feature set IDs
+- the production shared-parameter artifact
+- the fold-in rule and solver
+- the ordered eligible user and item maps
+- the pseudo-utility transformation and its parameters
+- the score and pseudo-utility dtypes
+- the score-block memory limit
 - the source and artifact hashes.
 
 Stage 2 asks for bounded user-by-pool blocks from this interface. It does not read an unversioned notebook variable or the legacy `preference_factors.npz` file.
@@ -992,36 +992,36 @@ The candidate-pool registry is shared by notebooks 11 and 12. Pool membership is
 
 Candidate pools may come from:
 
-- one publisher's catalogue;
-- one developer's catalogue when publisher data are weak;
-- one franchise or series;
-- one compatible base-game and DLC family; or
+- one publisher's catalogue
+- one developer's catalogue when publisher data are weak
+- one franchise or series
+- one compatible base-game and DLC family
 - one documented co-promoted set.
 
 The current `game_features.csv` does not contain all publisher, developer, franchise, or compatibility fields required here. `src/candidate_pools.py` must therefore extend the catalogue extraction from the raw Steam metadata and keep the relevant raw labels, normalized keys, missingness, and manual overrides auditable.
 
 The registry must record:
 
-- stable pool ID;
-- pool type and construction rule;
-- source entity or franchise key;
-- item ID and canonical item position;
-- inclusion or exclusion status;
-- inclusion or exclusion reason;
-- base-game and DLC compatibility fields;
-- metadata and score coverage;
-- observed Steam bundle links;
-- possible capacity values;
-- normalization and alias rules;
-- manual overrides with reasons; and
+- stable pool ID
+- pool type and construction rule
+- source entity or franchise key
+- item ID and canonical item position
+- inclusion or exclusion status
+- inclusion or exclusion reason
+- base-game and DLC compatibility fields
+- metadata and score coverage
+- observed Steam bundle links
+- possible capacity values
+- normalization and alias rules
+- manual overrides with reasons
 - upstream file and code hashes.
 
 Planned files are:
 
-- `src/candidate_pools.py`;
-- `tests/test_candidate_pools.py`;
-- `outputs/tables/candidate_pool_definitions.csv`;
-- `outputs/tables/candidate_pool_items.csv`; and
+- `src/candidate_pools.py`
+- `tests/test_candidate_pools.py`
+- `outputs/tables/candidate_pool_definitions.csv`
+- `outputs/tables/candidate_pool_items.csv`
 - `outputs/modeling/candidate_pool_manifest.json`.
 
 Pools may overlap. Pool membership cannot depend on which items have favorable score correlation, pseudo-utility, or optimizer results. A pool is a metadata-based feasibility proxy. It is not proof that one legal seller controls every item.
@@ -1038,15 +1038,15 @@ If a genre pattern appears only in the genre-aware score model, describe it as m
 
 For each observed or matched bundle, calculate:
 
-- size and active capacity;
-- publisher, developer, franchise, and compatibility coherence;
-- genre concentration and number of genres;
-- popularity mean, dispersion, and head-tail balance;
-- release-window dispersion;
-- pairwise raw co-ownership association;
-- pairwise score Pearson and rank dependence under named specifications;
-- aggregate pseudo-utility dispersion only under a named transformation;
-- reach, such as the share of users with a high score for at least one component; and
+- size and active capacity
+- publisher, developer, franchise, and compatibility coherence
+- genre concentration and number of genres
+- popularity mean, dispersion, and head-tail balance
+- release-window dispersion
+- pairwise raw co-ownership association
+- pairwise score Pearson and rank dependence under named specifications
+- aggregate pseudo-utility dispersion only under a named transformation
+- reach, such as the share of users with a high score for at least one component
 - metadata and ownership coverage.
 
 The descriptive question is whether there is a frontier between coherence and diversification. Similar games may be easier to market jointly and more likely to appeal to the same user. Less positively dependent preferences may allow more aggregation and price discrimination. The notebook tests this tension without assuming which side wins.
@@ -1055,21 +1055,21 @@ The descriptive question is whether there is a frontier between coherence and di
 
 Do not compare an observed bundle with arbitrary random games from the whole catalogue. Generate controls inside the same frozen pool and match or stratify on:
 
-- publisher or developer;
-- bundle size;
-- item-popularity profile;
-- release period;
-- price availability;
-- base-game and DLC compatibility; and
+- publisher or developer
+- bundle size
+- item-popularity profile
+- release period
+- price availability
+- base-game and DLC compatibility
 - metadata coverage.
 
 Use several stored seeds and multiple controls per observed bundle. Save match balance before interpreting an outcome. If adequate controls cannot be found, mark the observed bundle unmatched rather than relaxing a constraint after seeing the result.
 
 Planned notebook 11 outputs are:
 
-- `outputs/tables/11_bundle_structure.csv`;
-- `outputs/tables/11_matched_controls.csv`;
-- `outputs/tables/11_match_balance.csv`; and
+- `outputs/tables/11_bundle_structure.csv`
+- `outputs/tables/11_matched_controls.csv`
+- `outputs/tables/11_match_balance.csv`
 - `outputs/tables/11_bundle_structure_results.csv`.
 
 ### 11.5 Statistical analysis for notebook 11
@@ -1078,24 +1078,24 @@ The final comparison statistics are not frozen yet. Before opening observed-vers
 
 The analysis rules are:
 
-- report balance and the number of usable matched sets before outcome differences;
-- use a user bootstrap for quantities estimated from user score panels;
-- use a matched-set bootstrap or a declared within-set permutation interval for observed-versus-control differences;
-- do not call the permutation calculation randomization inference unless an exchangeable assignment mechanism is justified;
-- keep raw, identity-only, genre-aware, rank-based, and named pseudo-utility results in separate columns;
-- if many bundle-level hypotheses are displayed, use an explicit multiplicity adjustment or label them exploratory;
-- save all seeds and the complete resampling specification; and
+- report balance and the number of usable matched sets before outcome differences
+- use a user bootstrap for quantities estimated from user score panels
+- use a matched-set bootstrap or a declared within-set permutation interval for observed-versus-control differences
+- do not call the permutation calculation randomization inference unless an exchangeable assignment mechanism is justified
+- keep raw, identity-only, genre-aware, rank-based, and named pseudo-utility results in separate columns
+- if many bundle-level hypotheses are displayed, use an explicit multiplicity adjustment or label them exploratory
+- save all seeds and the complete resampling specification
 - describe results as associations because observed Steam bundles may have been promotional, completion, or catalogue-clearing products rather than optimized designs.
 
 ### 11.6 Gate 3
 
 Gate 3 passes when:
 
-- the candidate-pool registry is frozen without outcome-based membership;
-- matching is reproducible;
-- balance is adequate or its failure is reported;
-- any pattern that appears only in the genre-aware model is labeled model-imposed or model-amplified and is not used to alter pool membership or claimed as independent raw evidence;
-- raw, identity, genre, rank, and named pseudo-utility measures are not mixed together; and
+- the candidate-pool registry is frozen without outcome-based membership
+- matching is reproducible
+- balance is adequate or its failure is reported
+- any pattern that appears only in the genre-aware model is labeled model-imposed or model-amplified and is not used to alter pool membership or claimed as independent raw evidence
+- raw, identity, genre, rank, and named pseudo-utility measures are not mixed together
 - the language remains descriptive rather than causal or profit-optimal.
 
 After Gate 3, the data, estimation, and descriptive bridge are ready for the first full report draft. The optimizer is still required to finish the project.
@@ -1116,13 +1116,13 @@ Metadata and compatibility rules determine candidate-pool membership before scor
 
 Design users determine:
 
-- production shared preference parameters;
-- global transformation parameters;
-- preregistered experiment-eligibility checks that depend on design coverage;
-- component prices;
-- bundle composition;
-- bundle price;
-- exact-suite and heuristic settings; and
+- production shared preference parameters
+- global transformation parameters
+- preregistered experiment-eligibility checks that depend on design coverage
+- component prices
+- bundle composition
+- bundle price
+- exact-suite and heuristic settings
 - every complete benchmark policy.
 
 Assessment users are folded into frozen shared parameters from permitted histories. They evaluate complete frozen policies only.
@@ -1166,12 +1166,12 @@ $$
 
 `Hz <= h` may contain:
 
-- maximum capacity;
-- required or excluded items;
-- mutually incompatible products;
-- base-game and DLC rules;
-- minimum metadata coverage;
-- a frozen genre rule if one is included; and
+- maximum capacity
+- required or excluded items
+- mutually incompatible products
+- base-game and DLC rules
+- minimum metadata coverage
+- a frozen genre rule if one is included
 - any pool-specific feasibility condition registered before outcomes.
 
 Singletons are excluded because Proposition P5 shows that a singleton SBA offer cannot strictly improve over CP on the design sample. The same conclusion holds for SBR because a singleton SBR policy only reprices that one item while every other item stays at CP, and the original item price was already CP-optimal. The SBR corollary still needs an explicit test. The empty set remains feasible so the optimizer can correctly choose no bundle.
@@ -1207,14 +1207,14 @@ then recompute every CP price and every CP, PB, SBR, and SBA policy. This is sti
 
 The core Stage 2 model assumes:
 
-- additive pseudo-utility across games;
-- quasi-linear utility in the normalized price;
-- one common posted menu for all users;
-- at most one unit of each item;
-- no budget constraint;
-- no search or exposure effect;
-- no bundle-specific complementarity term;
-- no strategic timing; and
+- additive pseudo-utility across games
+- quasi-linear utility in the normalized price
+- one common posted menu for all users
+- at most one unit of each item
+- no budget constraint
+- no search or exposure effect
+- no bundle-specific complementarity term
+- no strategic timing
 - the declared component and bundle tie rules.
 
 Genre may help prediction or pool construction, but a genre feature does not identify complementarity. Adding pairwise bundle interaction utility would change the customer-choice reduction, price theorem, and search problem. It is outside the core.
@@ -1408,8 +1408,8 @@ The following conventions must be fixed in code and configuration before optimiz
 11. Store all tied optima even though one canonical optimum is reported.
 12. Use a homogeneous, scale-aware tolerance for objective equality and numerical zero only.
 13. Never use a tolerance to merge different price thresholds.
-14. For PB, choose no sale when maximum profit is zero; among equal positive-profit prices, choose the smallest observed total-value threshold.
-15. For SBR, choose empty SBR, which is CP, when maximum incremental gain is zero; among equal positive-increment prices, choose the smallest observed raw-sum threshold.
+14. For PB, choose no sale when maximum profit is zero. Among equal positive-profit prices, choose the smallest observed total-value threshold.
+15. For SBR, choose empty SBR, which is CP, when maximum incremental gain is zero. Among equal positive-increment prices, choose the smallest observed raw-sum threshold.
 
 A component-preferred strict bundle tie uses `w_u(B) > b`. In a continuous price domain its best value may be an unattained left limit. An executable sensitivity therefore needs a preregistered price tick and its own exact candidate and correctness statement. A theoretical supremum is not a frozen policy and cannot enter assessment evaluation.
 
@@ -1492,9 +1492,9 @@ The existing two-user counterexamples show that `G` is neither submodular nor mo
 
 Consequences:
 
-- ordinary monotone-submodular greedy guarantees do not apply;
-- a greedy search starting from the empty set can see zero singleton gain and still miss a profitable pair;
-- adding an item can reduce the optimized gain; and
+- ordinary monotone-submodular greedy guarantees do not apply
+- a greedy search starting from the empty set can see zero singleton gain and still miss a profitable pair
+- adding an item can reduce the optimized gain
 - an at-most-capacity constraint cannot be replaced by an exactly-capacity constraint.
 
 Local search remains a heuristic whose quality must be measured against exact cases.
@@ -1517,9 +1517,9 @@ If every pseudo-utility, pseudo-cost, component price, and bundle price is multi
 
 This does not apply to:
 
-- nonlinear transformations;
-- user-specific normalization;
-- utilities scaled while costs remain fixed; or
+- nonlinear transformations
+- user-specific normalization
+- utilities scaled while costs remain fixed
 - a strict-tie price lattice that is not scaled.
 
 ### 14.9 P9: exhaustive enumeration correctness, pending
@@ -1548,14 +1548,14 @@ The following rules are binding:
 
 Maintain a theorem registry with:
 
-- result ID;
-- statement;
-- mechanism;
-- assumptions;
-- provenance;
-- proof status;
-- code dependency;
-- verification test; and
+- result ID
+- statement
+- mechanism
+- assumptions
+- provenance
+- proof status
+- code dependency
+- verification test
 - permitted final claim.
 
 One selected SBR theorem from *Partition and Prosper* must be reproduced in full after the project-specific core is complete. It remains clearly labeled as a reproduced SBR result.
@@ -1600,17 +1600,17 @@ For a no-sale CP sentinel, branch to `Q_ui = v_ui` and `R_ui = 0`.
 
 Implement pure, notebook-independent functions for:
 
-1. exact empirical CP pricing;
-2. exact empirical PB pricing;
-3. a naive direct SBA menu evaluator from the original alternatives;
-4. the reduced direct SBA objective;
-5. the incremental SBA objective;
-6. exact fixed-composition SBA pricing;
-7. exact fixed-composition SBR pricing;
-8. a direct SBR objective evaluator;
-9. the shared feasibility predicate;
-10. an intentionally simple tiny-instance enumerator;
-11. full exact composition enumeration parameterized by SBA or SBR; and
+1. exact empirical CP pricing
+2. exact empirical PB pricing
+3. a naive direct SBA menu evaluator from the original alternatives
+4. the reduced direct SBA objective
+5. the incremental SBA objective
+6. exact fixed-composition SBA pricing
+7. exact fixed-composition SBR pricing
+8. a direct SBR objective evaluator
+9. the shared feasibility predicate
+10. an intentionally simple tiny-instance enumerator
+11. full exact composition enumeration parameterized by SBA or SBR
 12. mechanism-parameterized multistart local search.
 
 The naive direct menu evaluator is an independent semantic oracle. It must not simply call the same `Q` and `R` reduction as the optimized evaluator.
@@ -1619,13 +1619,13 @@ The naive direct menu evaluator is an independent semantic oracle. It must not s
 
 For a proposed `B`:
 
-1. construct `w_u(B)` and `A_u(B)`;
-2. sort users by `w_u(B)` in descending order;
-3. group exact equal thresholds;
-4. add the complete tied block;
-5. update buyer count and cumulative displaced margin;
-6. evaluate the candidate gain at that threshold;
-7. compare all thresholds with the zero-gain no-bundle option; and
+1. construct `w_u(B)` and `A_u(B)`
+2. sort users by `w_u(B)` in descending order
+3. group exact equal thresholds
+4. add the complete tied block
+5. update buyer count and cumulative displaced margin
+6. evaluate the candidate gain at that threshold
+7. compare all thresholds with the zero-gain no-bundle option
 8. apply the frozen price tie rule.
 
 Do not evaluate partial tied blocks. Store buyer count, threshold, cumulative displaced margin, gain, and chosen status for diagnostic cases.
@@ -1654,23 +1654,23 @@ The exact search must count both expected and visited feasible compositions. A t
 
 Every completed exact instance records:
 
-- instance ID;
-- mechanism ID;
-- protocol, model, seed, transformation, pool, cost, constraint, and tie IDs;
-- ordered item map and upstream hashes;
-- number of design users, pool size, and capacity;
-- expected and visited feasible-composition counts;
-- candidate prices evaluated;
-- termination status;
-- CP baseline;
-- best and runner-up objectives;
-- canonical optimum and all tied optima;
-- selected item IDs;
-- normalized price and demand;
-- displaced component margin;
-- incremental gain;
-- runtime and peak memory;
-- hardware and software versions; and
+- instance ID
+- mechanism ID
+- protocol, model, seed, transformation, pool, cost, constraint, and tie IDs
+- ordered item map and upstream hashes
+- number of design users, pool size, and capacity
+- expected and visited feasible-composition counts
+- candidate prices evaluated
+- termination status
+- CP baseline
+- best and runner-up objectives
+- canonical optimum and all tied optima
+- selected item IDs
+- normalized price and demand
+- displaced component margin
+- incremental gain
+- runtime and peak memory
+- hardware and software versions
 - numerical diagnostics.
 
 Only a completed enumeration of the declared feasible family with exact fixed-composition pricing is called a global finite-instance optimum.
@@ -1683,23 +1683,23 @@ The required scalable method is multistart add, drop, and swap local search with
 
 Required properties are:
 
-- the same feasibility predicate as exact search;
-- explicit inclusion of the no-bundle policy;
-- deterministic tie handling;
-- fixed random seeds;
-- deduplicated starts;
-- complete accepted and rejected move traces;
-- exact repricing after each move;
-- fixed objective-evaluation and runtime budgets; and
+- the same feasibility predicate as exact search
+- explicit inclusion of the no-bundle policy
+- deterministic tie handling
+- fixed random seeds
+- deduplicated starts
+- complete accepted and rejected move traces
+- exact repricing after each move
+- fixed objective-evaluation and runtime budgets
 - best-solution-found language unless a certificate or bound exists.
 
 The start library should include:
 
-- observed Steam compositions where applicable;
-- low-dependence pairs or sets;
-- genre-diverse sets;
-- popularity-balanced sets;
-- high-reach sets; and
+- observed Steam compositions where applicable
+- low-dependence pairs or sets
+- genre-diverse sets
+- popularity-balanced sets
+- high-reach sets
 - random feasible sets.
 
 Compare with equal-objective-evaluation-budget random feasible search and a simple greedy-add baseline. This shows whether multistart neighborhood search adds value.
@@ -1710,11 +1710,11 @@ If the SBR version does not have enough separately certified locked cases or fai
 
 S2.0 first freezes pilot pool IDs and an outcome-independent rule for assigning later pool IDs to the development and locked suites. Pilot pool IDs are excluded from both later suites. S2.4 uses the pilots to measure the approximate exact-search frontier, then applies that frozen rule and hashes the actual development and locked instance IDs before heuristic tuning begins. Pool IDs cannot occur in both suites.
 
-The exact engine writes locked-instance objectives, compositions, and certificates to sealed artifacts. The heuristic may know the registered inputs, but it cannot load those sealed results. A locked instance remains in the registry if exact search times out; it is not dropped because it is inconvenient.
+The exact engine writes locked-instance objectives, compositions, and certificates to sealed artifacts. The heuristic may know the registered inputs, but it cannot load those sealed results. A locked instance remains in the registry if exact search times out. It is not dropped because it is inconvenient.
 
 The two roles are:
 
-- a development exact suite; and
+- a development exact suite
 - a locked exact-validation suite.
 
 Use the development suite for neighborhood choice, starts, restart count, stopping rule, cache design, deterministic ties, and budget selection. Freeze and hash these choices, run the heuristic on the locked inputs, and hash its outputs before opening locked exact objectives, compositions, or gaps.
@@ -1723,16 +1723,16 @@ The provisional diversity target is at least 20 certified locked instances from 
 
 For every locked case report:
 
-- exact objective match;
-- canonical composition match;
-- recovery of the exact no-bundle decision;
-- absolute objective gap;
-- scale-normalized absolute gap;
-- relative incremental-gain loss when well-defined;
-- composition Jaccard overlap;
-- normalized price difference;
-- runtime;
-- peak memory; and
+- exact objective match
+- canonical composition match
+- recovery of the exact no-bundle decision
+- absolute objective gap
+- scale-normalized absolute gap
+- relative incremental-gain loss when well-defined
+- composition Jaccard overlap
+- normalized price difference
+- runtime
+- peak memory
 - objective-evaluation count.
 
 For a locked exact timeout, mark every exact-dependent comparison as unavailable and keep the runtime, search count, and termination status. Do not invent a zero gap or silently remove the row.
@@ -1749,12 +1749,12 @@ Do not hide a weak bundle search by dividing its gap by the large total SBA obje
 
 The provisional gate, to be finalized using development cases only, is:
 
-- recover every exact no-bundle decision;
-- call a gain nontrivial when `(Pi* - Pi_CP) / S* >= 0.005`;
-- on nontrivial cases, median relative incremental-gain loss at most 5 percent;
-- 95th-percentile relative incremental-gain loss at most 20 percent;
-- median absolute gap at most 0.0025 times `S*`;
-- 95th-percentile absolute gap at most 0.01 times `S*`; and
+- recover every exact no-bundle decision
+- call a gain nontrivial when `(Pi* - Pi_CP) / S* >= 0.005`
+- on nontrivial cases, median relative incremental-gain loss at most 5 percent
+- 95th-percentile relative incremental-gain loss at most 20 percent
+- median absolute gap at most 0.0025 times `S*`
+- 95th-percentile absolute gap at most 0.01 times `S*`
 - no unexplained catastrophic failures.
 
 Calculate these summaries separately for SBA and SBR. Do not pool the two mechanisms to make one of their gates pass.
@@ -1765,29 +1765,29 @@ If the locked gate fails, restrict headline claims to exact pools or label large
 
 At minimum, tests must cover:
 
-- P2 choice equivalence on hand-built and randomized panels;
-- direct versus incremental P3 equality;
-- CP threshold scans versus an independent brute-force price oracle;
-- PB and SBR price scans versus independent oracles;
-- fixed-B SBA scans versus an independent brute-force price oracle;
-- full SBR enumeration versus a separately written tiny oracle;
-- exact equal-threshold block handling;
-- no-sale and zero-demand cases;
-- displaced profitable component sales;
-- weak and strict tie variants;
-- zero and positive costs;
-- user and item reordering;
-- the P5 SBA singleton case and its SBR repricing corollary;
-- the P6 counterexamples;
-- P7 benchmark relationships and nonrelationships;
-- P8 common scaling;
-- P9 exhaustive correctness on tiny cases;
-- exact search versus a separately written enumerator;
-- accelerated versus reference enumeration;
-- exact and heuristic feasibility agreement;
-- separate SBA and SBR heuristic-gap calculations without cross-mechanism pooling;
-- correct no-bundle recovery;
-- deterministic results under fixed seeds; and
+- P2 choice equivalence on hand-built and randomized panels
+- direct versus incremental P3 equality
+- CP threshold scans versus an independent brute-force price oracle
+- PB and SBR price scans versus independent oracles
+- fixed-B SBA scans versus an independent brute-force price oracle
+- full SBR enumeration versus a separately written tiny oracle
+- exact equal-threshold block handling
+- no-sale and zero-demand cases
+- displaced profitable component sales
+- weak and strict tie variants
+- zero and positive costs
+- user and item reordering
+- the P5 SBA singleton case and its SBR repricing corollary
+- the P6 counterexamples
+- P7 benchmark relationships and nonrelationships
+- P8 common scaling
+- P9 exhaustive correctness on tiny cases
+- exact search versus a separately written enumerator
+- accelerated versus reference enumeration
+- exact and heuristic feasibility agreement
+- separate SBA and SBR heuristic-gap calculations without cross-mechanism pooling
+- correct no-bundle recovery
+- deterministic results under fixed seeds
 - a guard that assessment identifiers cannot enter fitting or policy selection.
 
 ## 16. Stage 2 execution sequence
@@ -1796,27 +1796,27 @@ At minimum, tests must cover:
 
 Before opening locked exact-suite gaps, headline bundle outcomes, or assessment objectives, freeze:
 
-- admitted Stage 1 model and seed IDs;
-- production refit and fold-in manifests;
-- pseudo-utility scenario IDs;
-- eligible users and catalogue;
-- candidate-pool registry and stable item order;
-- one shared feasibility predicate;
-- capacities and every active constraint;
-- cost scenarios;
-- CP representative rule;
-- component purchase tie;
-- bundle purchase tie;
-- the strict-tie sensitivity's price tick and exact candidate-price rule;
-- price and outer objective tie rules;
-- numerical tolerances;
-- exact pilot pool IDs and the frontier-measurement protocol;
-- the outcome-independent rule and seed for assigning pool IDs to development and locked suites;
-- sealed-output access rules for locked exact results;
-- heuristic start library;
-- heuristic tuning space;
-- development selection rule;
-- runtime and objective-evaluation budgets; and
+- admitted Stage 1 model and seed IDs
+- production refit and fold-in manifests
+- pseudo-utility scenario IDs
+- eligible users and catalogue
+- candidate-pool registry and stable item order
+- one shared feasibility predicate
+- capacities and every active constraint
+- cost scenarios
+- CP representative rule
+- component purchase tie
+- bundle purchase tie
+- the strict-tie sensitivity's price tick and exact candidate-price rule
+- price and outer objective tie rules
+- numerical tolerances
+- exact pilot pool IDs and the frontier-measurement protocol
+- the outcome-independent rule and seed for assigning pool IDs to development and locked suites
+- sealed-output access rules for locked exact results
+- heuristic start library
+- heuristic tuning space
+- development selection rule
+- runtime and objective-evaluation budgets
 - the registered headline and sensitivity grid.
 
 Create content-derived instance IDs linking all of these choices. The primary exposition scenario must be chosen for a reason independent of which scenario gives the largest objective improvement.
@@ -1825,8 +1825,8 @@ Do not create an unnecessarily large Cartesian grid. Use a declared core grid, o
 
 Planned configuration and registry files are:
 
-- `configs/layer2_evaluation.json`;
-- `configs/bundle_design.json`; and
+- `configs/layer2_evaluation.json`
+- `configs/bundle_design.json`
 - `outputs/tables/12_instance_registry.csv`.
 
 S2.0 passes when every input and experiment identity predates the protected objective it governs.
@@ -1837,7 +1837,7 @@ Write the CP, PB, SBR, and CP-anchored SBA menus in the code, theory note, noteb
 
 Implement both:
 
-- the direct customer-menu evaluator; and
+- the direct customer-menu evaluator
 - the truncated-value reduced evaluator.
 
 Confirm that they agree on hand calculations before any headline pool is solved. Include no-sale sentinels, displaced component margin, zero and positive costs, and the complete tie rules.
@@ -1848,11 +1848,11 @@ S2.1 passes when the menu definitions, assumptions, code docstrings, and tests a
 
 Tasks are:
 
-- audit P1 to P8 against their assumptions and tests;
-- write and prove P9;
-- finish the theorem registry;
-- reproduce one selected SBR proof in full;
-- check every imported paper statement against its actual mechanism; and
+- audit P1 to P8 against their assumptions and tests
+- write and prove P9
+- finish the theorem registry
+- reproduce one selected SBR proof in full
+- check every imported paper statement against its actual mechanism
 - create a claim-to-proof and claim-to-test index.
 
 S2.2 passes when the selected SBR proof is reproduced and labeled, and no theorem or complexity statement is used outside its assumptions.
@@ -1863,10 +1863,10 @@ Implement the reference API in `src/bundle_design.py` and an independent tiny or
 
 The pass condition is agreement among:
 
-- direct and reduced customer choice;
-- direct and incremental SBA objectives;
-- threshold scans and independent price enumeration;
-- exact composition search and a separately written tiny enumerator; and
+- direct and reduced customer choice
+- direct and incremental SBA objectives
+- threshold scans and independent price enumeration
+- exact composition search and a separately written tiny enumerator
 - every required invariant in Section 15.8.
 
 ### 16.5 S2.4: exact enumeration and certified region
@@ -1875,11 +1875,11 @@ Run the preregistered pilot instances from the frozen pool registry first. Enume
 
 Benchmark the effect of:
 
-- number of users `U`;
-- pool size `n`;
-- capacity `C`;
-- constraint density;
-- number of price thresholds; and
+- number of users `U`
+- pool size `n`
+- capacity `C`
+- constraint density
+- number of price thresholds
 - caching or reference implementation choice.
 
 Use pilot runtime and completion evidence, not pilot objective values or selected compositions, to map the measured exact frontier. Apply the frozen S2.0 suite-assignment rule, hash nonoverlapping development and locked instance IDs, and only then run their exact jobs. Development results may be opened for heuristic work. Locked objectives, compositions, and certificates remain sealed until the heuristic and its locked outputs are frozen. Keep all timeouts and incomplete cases in the eventual frontier report.
@@ -1894,7 +1894,7 @@ Run the frozen heuristic on the registered locked inputs without loading their s
 
 If the gate fails, either:
 
-- keep the final optimization claims inside the exact region; or
+- keep the final optimization claims inside the exact region
 - show the larger results as exploratory best solutions found.
 
 Do not retune on locked cases under the same validation version.
@@ -1903,42 +1903,42 @@ Do not retune on locked cases under the same validation version.
 
 For every registered instance, use design users to produce complete policies for:
 
-- CP;
-- PB;
-- empirical SBR, using a certified exact optimum where enumeration completes and a separately validated SBR best solution found elsewhere;
-- CP-anchored SBA, using a certified exact optimum where enumeration completes and the locked heuristic's best solution found elsewhere; and
+- CP
+- PB
+- empirical SBR, using a certified exact optimum where enumeration completes and a separately validated SBR best solution found elsewhere
+- CP-anchored SBA, using a certified exact optimum where enumeration completes and the locked heuristic's best solution found elsewhere
 - an observed Steam composition repriced under the CP-anchored SBA menu in that scenario, where coverage permits.
 
 If the SBR heuristic has not passed its separate gate, the SBR bullet applies only to exact pools. An observed composition evaluated under SBR is a different benchmark policy and must receive a separate ID rather than being mixed with the SBA repricing.
 
 Freeze:
 
-- transformation;
-- component price vector and no-sale sentinels;
-- composition;
-- bundle price;
-- costs;
-- constraints;
-- tie rules;
-- heuristic settings;
-- certificate class; and
+- transformation
+- component price vector and no-sale sentinels
+- composition
+- bundle price
+- costs
+- constraints
+- tie rules
+- heuristic settings
+- certificate class
 - policy hash.
 
 Assessment users evaluate these frozen policies without reoptimization. This applies to every benchmark, including CP, PB, SBR, and the observed composition.
 
 For each policy report:
 
-- design objective;
-- assessment objective;
-- increment over the frozen CP policy;
-- demand share;
-- displaced component margin;
-- selected items;
-- capacity use;
-- normalized price;
-- design-to-assessment gap;
-- exact or best-found status;
-- runtime; and
+- design objective
+- assessment objective
+- increment over the frozen CP policy
+- demand share
+- displaced component margin
+- selected items
+- capacity use
+- normalized price
+- design-to-assessment gap
+- exact or best-found status
+- runtime
 - objective-evaluation count.
 
 Use a paired assessment-user bootstrap for the primary SBA-minus-CP difference and other registered frozen-policy contrasts. Keep the policy fixed in every bootstrap replicate. This is conditional panel-resampling uncertainty. It does not include model estimation, transformation selection, or bundle-selection uncertainty.
@@ -1949,29 +1949,29 @@ Observed Steam dollar prices are not comparable with normalized pseudo-prices. O
 
 Keep these sources of variation separate:
 
-1. assessment-user sampling for a fixed policy;
-2. design-user selection variation from resampling and reoptimizing;
-3. model family;
-4. training seed;
-5. pseudo-utility transformation;
-6. interpersonal normalization;
-7. CP anchor tie;
-8. bundle tie;
-9. capacity;
-10. pool definition;
-11. cost scenario;
-12. optional installed-base convention; and
+1. assessment-user sampling for a fixed policy
+2. design-user selection variation from resampling and reoptimizing
+3. model family
+4. training seed
+5. pseudo-utility transformation
+6. interpersonal normalization
+7. CP anchor tie
+8. bundle tie
+9. capacity
+10. pool definition
+11. cost scenario
+12. optional installed-base convention
 13. dependence perturbation.
 
 The required Gate 5 robustness grid is:
 
-- every admitted model family;
-- all three frozen training seeds for every valid stochastic specification;
-- every declared pseudo-utility transformation;
-- every optimal CP anchor representative required by Section 13.1;
-- the primary weak bundle tie and the registered tick-based strict specification;
-- the preregistered nearby capacities;
-- every registered core pool definition; and
+- every admitted model family
+- all three frozen training seeds for every valid stochastic specification
+- every declared pseudo-utility transformation
+- every optimal CP anchor representative required by Section 13.1
+- the primary weak bundle tie and the registered tick-based strict specification
+- the preregistered nearby capacities
+- every registered core pool definition
 - every declared core cost scenario.
 
 The paired assessment-user bootstrap for each frozen policy is also required. A different outer user split is optional and, if run, is a new versioned cycle. The installed-base convention, a copula model, robust max-min design, and broader dependence variants remain post-core options. A simple marginal-preserving permutation experiment is part of the recommended full project but is cut before the required grid if time is short.
@@ -2007,13 +2007,13 @@ On assessment users, keep both policies frozen and report the signed target-scen
 
 Report:
 
-- item selection frequency;
-- bundle-size and genre mix;
-- price and demand dispersion;
-- no-bundle frequency;
-- pairwise composition Jaccard overlap;
-- tied and near-optimal sets on exact pools;
-- cross-scenario design regret; and
+- item selection frequency
+- bundle-size and genre mix
+- price and demand dispersion
+- no-bundle frequency
+- pairwise composition Jaccard overlap
+- tied and near-optimal sets on exact pools
+- cross-scenario design regret
 - frozen assessment performance.
 
 Composition instability with negligible regret means that several designs are nearly equivalent. Instability with material regret means that the recommendation is fragile.
@@ -2026,16 +2026,16 @@ For a dependence experiment, preserve empirical item marginals while independent
 
 Stage 2 stops when:
 
-- P1 to P9 are linked to proofs and tests;
-- the selected SBR proof is reproduced and labeled;
-- the direct and reduced evaluators agree;
-- the exact region is measured and certified;
-- the locked heuristic benchmark is reported as a pass or failure for every mechanism claimed at scale;
-- all headline policies are selected on design users;
-- assessment evaluation is frozen and paired;
-- required robustness axes are complete;
-- every result row carries complete identities and certificate status;
-- a clean run regenerates the headline outputs; and
+- P1 to P9 are linked to proofs and tests
+- the selected SBR proof is reproduced and labeled
+- the direct and reduced evaluators agree
+- the exact region is measured and certified
+- the locked heuristic benchmark is reported as a pass or failure for every mechanism claimed at scale
+- all headline policies are selected on design users
+- assessment evaluation is frozen and paired
+- required robustness axes are complete
+- every result row carries complete identities and certificate status
+- a clean run regenerates the headline outputs
 - the claim ledger points from every conclusion to its table, figure, proof, and test.
 
 Do not start joint component pricing, an advanced normal-model solver, robust max-min design, or another recommender while these requirements remain unfinished.
@@ -2046,57 +2046,57 @@ Use one canonical set of outputs rather than several files with overlapping mean
 
 ### 17.1 Pool and instance files
 
-- `outputs/tables/candidate_pool_definitions.csv`;
-- `outputs/tables/candidate_pool_items.csv`;
-- `outputs/modeling/candidate_pool_manifest.json`;
-- `outputs/tables/12_instance_registry.csv`; and
+- `outputs/tables/candidate_pool_definitions.csv`
+- `outputs/tables/candidate_pool_items.csv`
+- `outputs/modeling/candidate_pool_manifest.json`
+- `outputs/tables/12_instance_registry.csv`
 - `outputs/modeling/12_exact_suite_manifest.json`.
 
 ### 17.2 Optimization and certificate files
 
-- `outputs/certificates/12_exact_certificates.jsonl`;
-- `outputs/tables/12_algorithm_benchmark.csv`;
-- `outputs/tables/12_bundle_design_results.csv`;
-- `outputs/tables/12_selected_bundle_items.csv`;
-- `outputs/tables/12_observed_bundle_comparison.csv`;
-- `outputs/tables/12_frozen_policy_evaluation.csv`; and
+- `outputs/certificates/12_exact_certificates.jsonl`
+- `outputs/tables/12_algorithm_benchmark.csv`
+- `outputs/tables/12_bundle_design_results.csv`
+- `outputs/tables/12_selected_bundle_items.csv`
+- `outputs/tables/12_observed_bundle_comparison.csv`
+- `outputs/tables/12_frozen_policy_evaluation.csv`
 - `outputs/traces/bundle_search/*.jsonl`.
 
 `12_bundle_design_results.csv` contains design-selected policies by mechanism. `12_frozen_policy_evaluation.csv` contains those same policy IDs evaluated on both design and assessment users. This avoids using two files as competing sources of the selected policy.
 
 ### 17.3 Robustness files
 
-- `outputs/tables/13_assessment_bootstrap.csv`;
-- `outputs/tables/13_decision_stability.csv`;
-- `outputs/tables/13_cross_scenario_regret.csv`;
-- `outputs/tables/13_dependence_experiments.csv`;
-- optional `outputs/tables/13_near_optimal_sets.csv`; and
+- `outputs/tables/13_assessment_bootstrap.csv`
+- `outputs/tables/13_decision_stability.csv`
+- `outputs/tables/13_cross_scenario_regret.csv`
+- `outputs/tables/13_dependence_experiments.csv`
+- optional `outputs/tables/13_near_optimal_sets.csv`
 - optional `outputs/tables/13_robust_design.csv` if the single stretch is activated.
 
 `13_cross_scenario_regret.csv` records the mechanism, source and target scenario IDs, source composition, target-design reprice, target reference policy and certificate class, target scale, raw design difference, normalized exact regret or signed best-found reference gap, all-zero flag, and signed frozen assessment difference.
 
 Every result row must contain or reference:
 
-- instance ID;
-- policy ID;
-- mechanism ID;
-- user split;
-- model family and configuration;
-- training seed;
-- transformation;
-- pool;
-- constraint specification;
-- capacity;
-- cost scenario;
-- CP representative rule;
-- component-purchase tie rule;
-- bundle-choice tie rule;
-- mechanism-specific price tie rule;
-- outer composition tie rule;
-- strict-tie tick ID or `not_applicable`;
-- numerical-tolerance specification;
-- upstream hashes;
-- code version; and
+- instance ID
+- policy ID
+- mechanism ID
+- user split
+- model family and configuration
+- training seed
+- transformation
+- pool
+- constraint specification
+- capacity
+- cost scenario
+- CP representative rule
+- component-purchase tie rule
+- bundle-choice tie rule
+- mechanism-specific price tie rule
+- outer composition tie rule
+- strict-tie tick ID or `not_applicable`
+- numerical-tolerance specification
+- upstream hashes
+- code version
 - certificate class.
 
 ## 18. Notebook and source-code map
@@ -2112,9 +2112,9 @@ Notebook numbers remain stable so that the research history stays visible.
 | Notebook 04 | Minimum-cost overlap attribution | Complete, with minor rough notes to clean |
 | Notebook 05 | Descriptive regression and bridge to the live direction | Complete |
 | Notebook 06 | CMM synthetic validation | Archived in place |
-| Notebook 07 | Base game-feature table feeding S1.3 | Existing; final version must also support pool metadata extraction |
-| Notebook 08 | Legacy SVD/NMF prototype, retained separately from the source-module Stage 1 implementation | Explicitly legacy; not a live result |
-| Notebook 09 | Failed monetary anchor and historical calibration record | Explicitly archived; live pseudo-utility interface is frozen in source/config |
+| Notebook 07 | Base game-feature table feeding S1.3 | Existing, and the final version must also support pool metadata extraction |
+| Notebook 08 | Legacy SVD/NMF prototype, retained separately from the source-module Stage 1 implementation | Explicitly legacy, not a live result |
+| Notebook 09 | Failed monetary anchor and historical calibration record | Explicitly archived, and the live pseudo-utility interface is frozen in source/config |
 | Notebook 10 | CMM on Steam-derived item sets | Archived in place |
 | Notebook 11 | Candidate-pool descriptive bridge and matched controls | Planned |
 | Notebook 12 | Exact and heuristic CP, PB, SBR, and SBA design experiments | Planned |
@@ -2142,8 +2142,8 @@ The final notebooks should call tested source modules rather than reimplementing
 | Gate | Purpose | Pass condition | Status on 2026-08-14 |
 | --- | --- | --- | --- |
 | Gate 0 | Freeze mechanism, interpretation, core ladder, and claim boundaries | Mechanism memo, audit, archive map, and internal specification agree | Complete |
-| Gate 1 | Establish credible Stage 1 ranking evidence | Frozen selection, exact metrics, design test, pseudo-cold result, model artifacts, and honest claim | Pass; implicit ALS only |
-| Gate 2 | Freeze the Stage 1 to Stage 2 utility interface | Deterministic nonnegative scenarios with explicit assumptions and hashes | Pass; four scenarios, three seeds |
+| Gate 1 | Establish credible Stage 1 ranking evidence | Frozen selection, exact metrics, design test, pseudo-cold result, model artifacts, and honest claim | Pass, implicit ALS only |
+| Gate 2 | Freeze the Stage 1 to Stage 2 utility interface | Deterministic nonnegative scenarios with explicit assumptions and hashes | Pass, four scenarios and three seeds |
 | Gate 3 | Freeze candidate pools and descriptive bridge | Outcome-independent pools, reproducible matching, balanced or qualified comparisons | Pending |
 | Gate 4 | Establish optimizer correctness and computational validity | Proofs, exact oracles, certificates, measured frontier, and mechanism-specific locked heuristic results | Pending |
 | Gate 5 | Freeze empirical conclusion | Assessment and robustness support the stated conclusion or narrow it | Pending |
@@ -2201,18 +2201,18 @@ These verify the current frozen research artifacts without intentionally rewriti
 
 The raw dataset is several gigabytes and is not tracked. A clean full-data reproduction must:
 
-1. obtain the exact Kaggle archive;
-2. place the expected files under `data/raw`;
-3. record their SHA-256 hashes;
+1. obtain the exact Kaggle archive
+2. place the expected files under `data/raw`
+3. record their SHA-256 hashes
 4. run notebook 01 and either retain the explicitly labeled legacy notebook-02 descriptive path
-   or build a new versioned descriptive-v2 Steam-ID table;
-5. run notebooks 03, 04, and 05 in dependency order against the declared descriptive version;
-6. run notebook 07, or its final source-module replacement, to regenerate `game_features.csv`;
-7. regenerate the mechanism audit;
-8. regenerate the Stage 1 interaction, split, feature, and estimator artifacts;
-9. run the cycle-scoped model and ranking pipeline in a new staging/rebuild cycle;
-10. regenerate pseudo-utility and candidate-pool manifests;
-11. run Stage 2 through the registered instances; and
+   or build a new versioned descriptive-v2 Steam-ID table
+5. run notebooks 03, 04, and 05 in dependency order against the declared descriptive version
+6. run notebook 07, or its final source-module replacement, to regenerate `game_features.csv`
+7. regenerate the mechanism audit
+8. regenerate the Stage 1 interaction, split, feature, and estimator artifacts
+9. run the cycle-scoped model and ranking pipeline in a new staging/rebuild cycle
+10. regenerate pseudo-utility and candidate-pool manifests
+11. run Stage 2 through the registered instances
 12. compare all public outputs and manifests.
 
 Some old notebook cells accumulate into dictionaries when rerun in the same kernel. Final reproduction uses Restart and Run All rather than selective cell reruns.
@@ -2223,13 +2223,13 @@ Some old notebook cells accumulate into dictionaries when rerun in the same kern
 Stage 1 environment. It is not a complete transitive, OS, hardware, or BLAS lock. A new expensive
 training cycle must additionally save:
 
-- Python version;
-- operating system;
-- NumPy, SciPy, pandas, scikit-learn, and pytest versions;
-- `implicit` and LightFM versions if used;
-- BLAS library and thread settings;
-- CVXPY and solver versions for archived checks or an optional stretch;
-- CPU, RAM, and hardware identifiers; and
+- Python version
+- operating system
+- NumPy, SciPy, pandas, scikit-learn, and pytest versions
+- `implicit` and LightFM versions if used
+- BLAS library and thread settings
+- CVXPY and solver versions for archived checks or an optional stretch
+- CPU, RAM, and hardware identifiers
 - a lock file or explicit frozen environment export.
 
 The production run must not rely only on a developer machine's existing package state.
@@ -2238,13 +2238,13 @@ The production run must not rely only on a developer machine's existing package 
 
 The final repository should include one command that needs no restricted or large data and demonstrates:
 
-- a tiny interaction build;
-- one small preference-model fit or oracle;
-- bounded scoring;
-- a pseudo-utility transformation;
-- CP pricing;
-- fixed-composition SBA pricing;
-- exact enumeration; and
+- a tiny interaction build
+- one small preference-model fit or oracle
+- bounded scoring
+- a pseudo-utility transformation
+- CP pricing
+- fixed-composition SBA pricing
+- exact enumeration
 - a frozen-policy assessment calculation.
 
 This smoke test is not evidence for the Steam result. It is a quick check that the complete data-to-decision interface is wired correctly.
@@ -2253,14 +2253,14 @@ This smoke test is not evidence for the Steam result. It is a quick check that t
 
 Create a table that maps every report claim to:
 
-- source data;
-- configuration;
-- model or policy ID;
-- proof if relevant;
-- test;
-- output table;
-- figure;
-- notebook section; and
+- source data
+- configuration
+- model or policy ID
+- proof if relevant
+- test
+- output table
+- figure
+- notebook section
 - regeneration command.
 
 ## 21. Main risks and how they affect interpretation
@@ -2272,7 +2272,7 @@ Create a table that maps every report claim to:
 - Prices are a snapshot rather than the prices users faced.
 - Only 238 bundles have complete ownership-panel coverage.
 - The superseded v1 display-ID contract would have removed 56.4 percent of ownership rows. The
-  live v2 Steam-ID correction retains all 5,094,082 deduplicated ownership edges; the remaining
+  live v2 Steam-ID correction retains all 5,094,082 deduplicated ownership edges. The remaining
   risk is historical-panel representativeness, not that row loss.
 - The panel is Australian and historical.
 - Playtime is noisy and selected after ownership.
@@ -2321,9 +2321,9 @@ These are reasons to report a scenario grid and decision stability rather than o
   stack are not fully locked.
 - The ranking runner is complete, but the full v2 public evidence set remains untracked until the
   release commit is deliberately assembled.
-- Public verification is now strict; several protected-stage cached runners still need stronger
+- Public verification is now strict. Several protected-stage cached runners still need stronger
   dependency revalidation in a prospective cycle.
-- Archived and descriptive notebooks retain historical execution states; their role and known
+- Archived and descriptive notebooks retain historical execution states. Their role and known
   identity erratum must remain explicit.
 
 The answer is explicit manifests, scoped loaders, no-clobber publication for new artifacts, clean-process tests, and a final notebook cleanup after the source pipeline is stable.
@@ -2354,51 +2354,51 @@ The answer is explicit manifests, scoped loaders, no-clobber publication for new
 
 The minimum complete project includes:
 
-- the four-rung Stage 1 ladder;
-- exact full-warm-catalogue evaluation;
-- the controlled genre result;
-- assessment fold-in;
-- at least two clearly different pseudo-utility scenarios if the full four cannot be completed;
-- the frozen candidate-pool registry;
-- a focused notebook 11 bridge;
-- correct CP-anchored SBA choice and objective;
-- exact CP and fixed-composition SBA pricing;
-- exact certification on small pools;
-- one multistart heuristic checked against exact cases;
-- frozen assessment evaluation;
-- model, seed, transformation, capacity, and tie sensitivity;
+- the four-rung Stage 1 ladder
+- exact full-warm-catalogue evaluation
+- the controlled genre result
+- assessment fold-in
+- at least two clearly different pseudo-utility scenarios if the full four cannot be completed
+- the frozen candidate-pool registry
+- a focused notebook 11 bridge
+- correct CP-anchored SBA choice and objective
+- exact CP and fixed-composition SBA pricing
+- exact certification on small pools
+- one multistart heuristic checked against exact cases
+- frozen assessment evaluation
+- model, seed, transformation, capacity, and tie sensitivity
 - report, tests, manifests, and clean reproduction.
 
 ### 22.4 Cut first if time is short
 
 Cut in this order:
 
-1. full reproduction of additional paper proofs beyond one selected SBR proof;
-2. tag features and any extra recommender family;
-3. review-label auxiliary validation;
-4. broad matched-control variants;
-5. large-pool scaling beyond the required demonstration;
-6. extensive dependence or copula experiments; and
+1. full reproduction of additional paper proofs beyond one selected SBR proof
+2. tag features and any extra recommender family
+3. review-label auxiliary validation
+4. broad matched-control variants
+5. large-pool scaling beyond the required demonstration
+6. extensive dependence or copula experiments
 7. every advanced solver or robust-design stretch.
 
 Do not cut:
 
-- the correct SBA mechanism;
-- exact fixed-composition pricing;
-- an independent direct oracle;
-- small-instance certificates;
-- a locked heuristic check;
-- frozen assessment evaluation;
-- cardinalization sensitivity; or
+- the correct SBA mechanism
+- exact fixed-composition pricing
+- an independent direct oracle
+- small-instance certificates
+- a locked heuristic check
+- frozen assessment evaluation
+- cardinalization sensitivity
 - the final write-up and reproducibility package.
 
 ### 22.5 Optional work after the core
 
 After every required gate passes, choose at most one stretch:
 
-- scenario-robust max-min SBA;
-- jointly optimized SBA component prices;
-- the normal-model SBR Bayesian-optimization and conic benchmark, after verifying every assumption; or
+- scenario-robust max-min SBA
+- jointly optimized SBA component prices
+- the normal-model SBR Bayesian-optimization and conic benchmark, after verifying every assumption
 - a deeper dependence or copula experiment.
 
 Tags are disabled in the current Stage 1 cycle. Adding tags later requires a prospective cycle and must not delay Stage 2.
@@ -2497,7 +2497,7 @@ The final report appendix should contain full proofs, the theorem registry, addi
 - S1.6 full validation ledger and pre-test admission hash.
 - S1.7 exact one-time design-test evaluation.
 - S1.8 controlled genre and pseudo-cold diagnostics.
-- S1.9 Gate 1 closeout; implicit ALS only admitted.
+- S1.9 Gate 1 closeout, implicit ALS only admitted.
 - S1.10 three-seed production refits and assessment fold-in.
 - S1.11 four pseudo-utility scenarios and Gate 2.
 - S1.12 evidence package, 264-reference integrity verification, and 204-test suite.
@@ -2540,13 +2540,13 @@ These are review points, not permission gates. Technical feedback can change lat
 
 The final evidence package should include:
 
-- one technical report telling the CMM-to-SBA research story;
-- a proof appendix and theorem-provenance registry;
-- a Stage 1 model card and a Stage 2 instance and certificate ledger;
-- one main prediction table, one exact-versus-heuristic table, and one frozen assessment table;
-- measured runtime and memory evidence;
-- a synthetic end-to-end demonstration and the full-run manifest;
-- a one-page claim-to-evidence index; and
+- one technical report telling the CMM-to-SBA research story
+- a proof appendix and theorem-provenance registry
+- a Stage 1 model card and a Stage 2 instance and certificate ledger
+- one main prediction table, one exact-versus-heuristic table, and one frozen assessment table
+- measured runtime and memory evidence
+- a synthetic end-to-end demonstration and the full-run manifest
+- a one-page claim-to-evidence index
 - a short contribution note stating exactly what I derived, implemented, tested, and wrote.
 
 The remaining work follows the gates: candidate pools and notebook 11, exact Stage 2 code and proofs,
@@ -2560,34 +2560,34 @@ The CMM branch stays in the repository because it records substantial mathematic
 
 Archived files include:
 
-- `src/bundle_pricing.py`;
-- `tests/test_bundle_pricing.py`;
-- `src/calibration.py`;
-- `tests/test_calibration.py`;
-- `notebooks/06_bsp_synthetic_validation.ipynb`;
-- `notebooks/09_valuation_calibration.ipynb` in its current historical form;
-- `notebooks/10_bundle_size_pricing.ipynb`;
-- `outputs/tables/valuation_calibration.csv`;
-- `outputs/tables/bundle_size_pricing.csv`; and
+- `src/bundle_pricing.py`
+- `tests/test_bundle_pricing.py`
+- `src/calibration.py`
+- `tests/test_calibration.py`
+- `notebooks/06_bsp_synthetic_validation.ipynb`
+- `notebooks/09_valuation_calibration.ipynb` in its current historical form
+- `notebooks/10_bundle_size_pricing.ipynb`
+- `outputs/tables/valuation_calibration.csv`
+- `outputs/tables/bundle_size_pricing.csv`
 - the CMM appendix in `notes/optimization_models.md`.
 
 Notebook 06 and notebook 10 retain their original numbers and paths. Commit `3918b2b5afe88b88e8b8a6ce57533cc14d66d5a3` is the archive comparison baseline named in `notebooks/archive/README.md`. It belongs to the private archival history and does not resolve in the sanitized public repository.
 
 Permitted archive claims are:
 
-- the CMM implementation passed its stated synthetic and numerical cross-checks;
-- the size-menu mechanism is different from fixed curated bundling;
-- the attempted monetary anchor failed its sign tests;
-- the real score-derived partial sums were much more skewed than the synthetic controls; and
+- the CMM implementation passed its stated synthetic and numerical cross-checks
+- the size-menu mechanism is different from fixed curated bundling
+- the attempted monetary anchor failed its sign tests
+- the real score-derived partial sums were much more skewed than the synthetic controls
 - the CMM menu achieved 69 to 97 percent of the uncertified empirical menu search on the seven archived item sets.
 
 Prohibited uses are:
 
-- treating the legacy SVD result as the frozen Stage 1 winner;
-- treating the affine normalization as a dollar calibration;
-- treating differential evolution as a certified optimum;
-- consuming a CMM output in the live SBA pipeline;
-- transferring a CMM or SBR theorem to SBA; or
+- treating the legacy SVD result as the frozen Stage 1 winner
+- treating the affine normalization as a dollar calibration
+- treating differential evolution as a certified optimum
+- consuming a CMM output in the live SBA pipeline
+- transferring a CMM or SBR theorem to SBA
 - presenting an archived objective as Steam revenue.
 
 ## Appendix B. Frozen Stage 1 identities

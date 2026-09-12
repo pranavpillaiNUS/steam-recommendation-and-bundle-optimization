@@ -33,7 +33,7 @@ Notes:
   87,565 user-bundle interactions from a richer graph, but this project does not possess those
   labels. `users_own_all` is a newly constructed upper-bound ownership-compatibility proxy, not a
   recovered purchase label and not a reproduction of the paper's graph.
-- Bundle prices are strings like "$73.86"; bundle_discount is a string like "10%".
+- Bundle prices are strings like "$73.86", and bundle_discount is a string like "10%".
 - In bundle_data, each item's price field is `discounted_price` (the game's standalone store
   price), not a bundle-specific price.
 - `bundle_price` equals the sum of item `discounted_price` exactly for all 615 bundles.
@@ -59,7 +59,7 @@ Notes:
 
 | field | type | meaning |
 |-------|------|---------|
-| user_id | str | Display alias; not a stable account key |
+| user_id | str | Display alias, not a stable account key |
 | steam_id | str | Stable numeric Steam account key used by live Stage 1 |
 | items_count | int | Number of games the user owns |
 | items[].item_id | str | Steam appid |
@@ -97,7 +97,7 @@ Built in 01_bundle_pricing_eda.
 | genre | Comma-separated genres (present on ~90% of items) |
 | item_url | Store link |
 
-### user_items_df.csv (one row per user-game pair; legacy descriptive artifact)
+### user_items_df.csv (one row per user-game pair, legacy descriptive artifact)
 Built in 02_user_item_interactions using the original display-alias/keep-first rule. About 5.1M
 rows, 70,912 users, and 10,978 games. Live Stage 1 does not use this identity contract: it uses
 numeric `steam_id` and fieldwise-maximum duplicate consolidation in
@@ -144,8 +144,8 @@ users_own_all when bundles share games. A cost-based attribution proxy, not purc
 |--------|---------|
 | bundle_id, bundle_name, n_items, final_price, component_price_sum, implied_discount_rate | From bundle_df |
 | panel_coverage | Merged from bundle_demand_proxy |
-| candidate_ownership_count | Users who own every item in the bundle; equals nb03 users_own_all (the upper-bound compatibility count) |
-| mincost_attributed_count | Credit after resolving overlap by min-cost reconstruction; fractional when optimal reconstructions tie |
+| candidate_ownership_count | Users who own every item in the bundle, equal to nb03 users_own_all (the upper-bound compatibility count) |
+| mincost_attributed_count | Credit after resolving overlap by min-cost reconstruction, fractional when optimal reconstructions tie |
 | attribution_rate_given_candidate | mincost_attributed_count / candidate_ownership_count |
 | candidate_users_with_overlap | Candidate users who sit in an overlap component of size >= 2 (the genuinely contested ones) |
 | contested_candidate_share | candidate_users_with_overlap / candidate_ownership_count |
@@ -153,7 +153,7 @@ users_own_all when bundles share games. A cost-based attribution proxy, not purc
 | soft_mincost_attributed_tau_0_5, _tau_1, _tau_2 | Soft-logit robustness at temperatures 0.5, 1, 2 dollars (sensitivity check, not behavioural) |
 
 Key caveats: cost-based attribution under one price snapshot, not identification of
-purchases; trusted on full-coverage bundles only; zero-discount bundles get their credit
+purchases. It is trusted on full-coverage bundles only, and zero-discount bundles get their credit
 split with the all-solo path. See assumptions_and_limitations.md (items 13-21).
 
 ### 05_descriptive_regressions.csv (one row per coefficient and specification)
@@ -206,7 +206,7 @@ Built reproducibly from `bundle_data.json` and `steam_games.json` by
 `src/mechanism_audit.py`. It records static evidence about whether bundle components are also
 listed or priced separately in the snapshot. The companion
 `bundle_mechanism_audit_manifest.json` records input, code, existing-artifact, canonical-order,
-and identification-boundary hashes; the preserved CSV is verified cell-for-cell by bundle ID
+and identification-boundary hashes. The preserved CSV is verified cell-for-cell by bundle ID
 without being reordered.
 
 | column | meaning |
@@ -218,7 +218,7 @@ without being reordered.
 | n_distinct_publishers | Distinct normalized publishers among catalogue-matched components |
 | publisher_coherent, developer_coherent | Whether matched nonmissing entities are coherent under the declared audit rule |
 | n_missing_item_id | Components without a usable item identifier |
-| mechanism_class | `B_SBA_like` or `E_unclear`; no row contains affirmative SBR evidence |
+| mechanism_class | `B_SBA_like` or `E_unclear`, and no row contains affirmative SBR evidence |
 | ownership_adjusted, indivisible | `not_observable` because the snapshot lacks these fields |
 | confidence | Static-evidence confidence label |
 | evidence | Concise row-level explanation of the classification |
@@ -249,7 +249,7 @@ and is not a live pseudo-utility contract or an input to the fixed-bundle optimi
 
 Key caveat: the dollar scale is not identified from price because price is confounded with quality
 and exposure. The archived transformation is an assumption that failed its intended identification
-test; no live result may call its output willingness to pay, calibration, or actual revenue. See
+test. No live result may call its output willingness to pay, calibration, or actual revenue. See
 assumptions_and_limitations.md.
 
 ### bundle_size_pricing.csv (archived, one row per item set, 7 rows)
@@ -268,10 +268,10 @@ identified monetary unit and supplies no input to the live SBA pipeline.
 | cmm_model | CMM model value of its own optimal menu (what the two-moment model expects) |
 | cmm_realised | Realized profit of the CMM menu on the panel |
 | single_size_realised, single_best_size | Best one-size-only policy (Corollary 1): realized profit and the size |
-| de_realised | Realized objective of the best empirical differential-evolution menu found; not a certificate |
+| de_realised | Realized objective of the best empirical differential-evolution menu found, not a certificate |
 | separate | Separate-selling benchmark (each game priced independently) |
 | pure | Pure-bundling benchmark (one price for the grand bundle) |
-| obs_price_realised | Grand bundle at the observed Steam price (scale-dependent sensitivity; NaN for CURATED) |
+| obs_price_realised | Grand bundle at the observed Steam price (scale-dependent sensitivity, NaN for CURATED) |
 | bsp | Best realized size-price policy found (max of the four feasible policies) |
 | bsp_over_separate, pure_over_separate | The headline scale-invariant ratios |
 | cmm_real_over_de | CMM menu realized over the best empirical menu found in that archived run |
@@ -300,7 +300,7 @@ Cycle directory: `outputs/modeling/cycles/s1-v2-20260814/`.
 | `stage1_production_manifest.json` | Three production refits, assessment fold-in diagnostics, and protected hashes |
 | `pseudo_utility_scenarios_manifest.json` | Frozen transformation parameters and Gate 2 status |
 | `stage1_evidence_manifest.json` | Top-level public evidence graph and validation/production run-log inventory |
-| `stage1_*leaderboard.csv`, `stage1_*segments.csv` | Aggregate public ranking results; no user rows or identifiers |
+| `stage1_*leaderboard.csv`, `stage1_*segments.csv` | Aggregate public ranking results, no user rows or identifiers |
 | `validation_runs/*.json`, `production_runs/*.json` | Per-run aggregate logs with protected artifact references |
 
 The public directory contains no user map, held-out coordinate, per-user metric row, dense score

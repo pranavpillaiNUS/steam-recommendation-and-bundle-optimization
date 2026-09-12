@@ -47,7 +47,7 @@ configuration (`regularization=0.05`, `alpha=20`) passed the predeclared admissi
 For ALS versus popularity, the paired mean NDCG@20 difference is 0.070739. The frozen 95 percent
 percentile user-bootstrap interval is [0.062947, 0.078603], and the three seed-specific differences
 range from 0.069517 to 0.072019. This interval is conditional on the fixed snapshot, evaluation
-users, trained seeds, and protocol; it is not population-level or training-seed uncertainty.
+users, trained seeds, and protocol. It is not population-level or training-seed uncertainty.
 
 The negative genre result is an implementation- and protocol-specific predictive ablation. It does
 not show that genre is generally unhelpful or causally reduces preference.
@@ -57,9 +57,9 @@ not show that genre is generally unhelpful or causally reduces preference.
 - Training positives and the other held-out positive are masked for each target.
 - Every target is ranked against the complete 8,902-item warm catalogue.
 - Exact score ties receive expected Recall, NDCG, rank, coverage, and concentration contributions.
-- Configuration selection uses validation only; the design test is opened after the admission
+- Configuration selection uses validation only. The design test is opened after the admission
   manifest is frozen.
-- Three fixed seeds are averaged for stochastic families; paired inference resamples users, not
+- Three fixed seeds are averaged for stochastic families. Paired inference resamples users, not
   user-seed rows.
 - Production restores design holdouts, refits the admitted model, and folds in assessment users
   while keeping shared item parameters fixed.

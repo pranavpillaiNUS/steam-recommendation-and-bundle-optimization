@@ -8,7 +8,9 @@
 Leakage-controlled implicit-feedback recommendation followed by fixed-bundle optimization on a
 historical Steam dataset.
 
-NUS Undergraduate Research Opportunities Programme project supervised by Dr Li Xiaobo.
+NUS Undergraduate Research Opportunities Programme project supervised by Dr Li Xiaobo. I work on it
+with Dr Li rather than as an open-source project, but the repository is written so that anyone who
+wants to check the work can follow it.
 
 **Project status:** Stage 1 is complete under cycle `s1-v2-20260814`. Stage 2 implementation is
 paused through November 2026 while I study the optimization literature and prepare its protocol.
@@ -91,14 +93,14 @@ card](notes/stage1_model_card.md) defines the supported claims and evaluation po
 
 The Stage 1 evaluation was designed around a few strict choices:
 
-- canonicalize users with numeric Steam IDs and consolidate duplicates with fieldwise maxima;
-- partition users before tuning and keep assessment users outside model selection;
-- rank every target against the complete 8,902-item warm catalogue;
-- mask training positives and each user's other held-out positive;
-- compute exact expected metrics at score ties;
-- select configurations using validation only;
-- average stochastic families over three fixed seeds; and
-- refit the admitted model on restored design data before folding in assessment users.
+- canonicalize users with numeric Steam IDs and consolidate duplicates with fieldwise maxima
+- partition users before tuning and keep assessment users outside model selection
+- rank every target against the complete 8,902-item warm catalogue
+- mask training positives and each user's other held-out positive
+- compute exact expected metrics at score ties
+- select configurations using validation only
+- average stochastic families over three fixed seeds
+- refit the admitted model on restored design data before folding in assessment users
 
 These choices produce a held-out ownership-ranking result. They do not turn ownership into a
 rating, purchase occasion, or willingness-to-pay observation.
@@ -163,7 +165,7 @@ The repository distinguishes evidence verification from full model retraining.
 | Completed private run | `python -m src.stage1_pipeline` | Exact raw and protected artifacts from the completed local run |
 
 The public verifier requires every publishable evidence file and permits absence only for paths
-explicitly classified as raw or protected. It verifies the published evidence graph; it does not
+explicitly classified as raw or protected. It verifies the published evidence graph. It does not
 claim to retrain the selected model from a clean clone.
 
 Full retraining requires an authorized copy of the exact source archive plus ignored user-level
@@ -178,6 +180,7 @@ Useful evidence entry points:
 - [Post-freeze release audit](notes/stage1_release_audit.md)
 - [Assumptions and limitations](notes/assumptions_and_limitations.md)
 - [Research log](notes/research_log.md)
+- [Repository conventions](notes/repository_conventions.md)
 
 ## Repository structure
 
@@ -193,7 +196,7 @@ planning.md    project plan, decision gates, and completion record
 ```
 
 The notebooks document the route from data inspection to the current formulation. Notebooks 06
-and 10 retain an earlier menu-size pricing route as an archived benchmark; they are not the live
+and 10 retain an earlier menu-size pricing route as an archived benchmark. They are not the live
 Stage 2 mechanism.
 
 ## Roadmap
@@ -221,11 +224,11 @@ ownership-only ALS reconstructed held-out warm-item ownership better than the te
 
 The project does not currently estimate:
 
-- future purchases;
-- causal effects of genres, prices, or discounts;
-- willingness to pay or utility in dollars;
-- performance on Steam's current global population; or
-- realized seller revenue.
+- future purchases
+- causal effects of genres, prices, or discounts
+- willingness to pay or utility in dollars
+- performance on Steam's current global population
+- realized seller revenue
 
 The four Stage 1 score transformations are pseudo-utility scenarios, not calibrations. Stage 2 must
 report how decisions change across them rather than selecting a favorable scale after observing
@@ -249,11 +252,16 @@ therefore an upper-bound ownership-compatibility proxy, not a reconstructed purc
 Raw records, reviews, user identifiers, profile URLs, protected split coordinates, per-user
 metrics, and fitted user parameters are not tracked.
 
-## Contributing
+## Authorship and use
 
-Reproducibility reports and narrowly scoped corrections are welcome through GitHub issues. See
-[CONTRIBUTING.md](CONTRIBUTING.md) before proposing a change. Frozen Stage 1 artifacts are immutable;
-scientific changes must begin a new cycle rather than silently altering recorded evidence.
+The code, notes, and analysis here are my own work, done under Dr Li's supervision at NUS. The
+project is scoped to that supervision, so I am not taking outside contributions or pull requests.
+If you are reading this to assess the work, the research log and the model card record why each
+choice was made, and I am happy to talk through any of it.
+
+Frozen Stage 1 artifacts are immutable. A scientific change starts a new cycle rather than quietly
+altering recorded evidence. [notes/repository_conventions.md](notes/repository_conventions.md)
+records the rules I hold myself to.
 
 ## Citation
 

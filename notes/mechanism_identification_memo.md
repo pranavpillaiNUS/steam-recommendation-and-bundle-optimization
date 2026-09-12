@@ -48,9 +48,9 @@ the 32,132-game catalogue and the per-item fields in `bundle_data.json`.
 
 Supporting reconciliation:
 
-- all 615 bundles display a standalone price for every recorded component;
-- 475 bundles have every component directly confirmed in the individual catalogue;
-- 437 of 615 are single-publisher overall; and
+- all 615 bundles display a standalone price for every recorded component
+- 475 bundles have every component directly confirmed in the individual catalogue
+- 437 of 615 are single-publisher overall
 - 562 of 615 contain at most 12 components.
 
 This supports only an **SBA-like component-availability description** for the observed snapshot.
@@ -108,13 +108,13 @@ profitable separate sale. These are conditional normalized objectives, not actua
 
 Single Bundle with the Rest (SBR) removes the products in $B$ from separate sale. Empty SBR equals
 component pricing. Grand-bundle SBR equals pure bundling only when $B=N$ is feasible under every
-declared pool constraint; in a capacity-only family this requires $C\ge n$. SBR is retained as a
+declared pool constraint. In a capacity-only family this requires $C\ge n$. SBR is retained as a
 theoretical and empirical benchmark, while SBA is the project's primary empirical model rather
 than an identified claim about Steam's mechanism.
 
 The paper's SBR results remain conditional on their stated assumptions. In particular, the normal
-tractability theorem requires a positive-diagonal-minus-fixed-rank-PSD covariance decomposition;
-the half-purchase result belongs to the normal CP-anchored SBR reformulation; and the hardness,
+tractability theorem requires a positive-diagonal-minus-fixed-rank-PSD covariance decomposition.
+The half-purchase result belongs to the normal CP-anchored SBR reformulation, and the hardness,
 comparative-statics, and approximation results do not transfer to SBA. Low-rank recommender factors
 do not establish the required covariance structure.
 
@@ -137,7 +137,7 @@ do not establish the required covariance structure.
 6. **Economic conventions.** Use additive nonnegative pseudo-utilities, primary zero pseudo-costs,
    declared weak and strict tie conventions, observed-capacity sensitivities, and metadata-coherent
    pools as feasibility proxies. The primary population is synthetic pre-acquisition preference
-   types; any installed-base convention is a separately named sensitivity.
+   types. Any installed-base convention is a separately named sensitivity.
 7. **Required finish line.** Exact fixed-composition pricing, exhaustive certification on measured
    feasible instances, an independently checked scalable heuristic, frozen-policy assessment, and
    robustness are core deliverables.
@@ -152,4 +152,4 @@ do not establish the required covariance structure.
 
 Gate 0 is passed internally when this specification, the live notebook/archive map, the
 mechanism-audit generator, and the prerequisite claim corrections are present and verified. Its
-role is to freeze conventions before Stage 1 tuning; supervisor feedback is nonblocking.
+role is to freeze conventions before Stage 1 tuning. Supervisor feedback is nonblocking.

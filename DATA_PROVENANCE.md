@@ -12,18 +12,25 @@ Steam"](https://doi.org/10.1145/3077136.3080724), SIGIR 2017. Follow the UCSD pa
 citations when using the data.
 
 The [Kaggle dataset API](https://www.kaggle.com/api/v1/datasets/view/pypiahmad/steam-video-game-and-bundle-data)
-reports `Apache 2.0` for mirror version 1, last updated 2023-10-29; I retrieved that metadata on
+reports `Apache 2.0` for mirror version 1, last updated 2023-10-29, and I retrieved that metadata on
 2026-08-15. The upstream UCSD page provides downloads and requests citation but does not state a
 license. The mirror label therefore records the apparent terms of the repackaged archive, but it
 does not by itself establish that the uploader could relicense every upstream component. For that
 reason:
 
-- raw archives and records are not tracked;
+- raw archives and records are not tracked
 - user identifiers, profile URLs, review text, protected split coordinates, per-user metrics, and
-  fitted user parameters are not public artifacts;
+  fitted user parameters are not public artifacts
 - the repository's MIT license covers original project software and documentation but does not
-  grant rights to third-party source data; and
+  grant rights to third-party source data
 - permission to redistribute each tracked derived table and figure should be confirmed with the data
-  provider and project supervisor before the repository is made public.
+  provider and with Dr Li
+
+## What is tracked
+
+Everything tracked here is aggregate evidence. Raw Steam data, user maps, per-user metrics, and
+fitted user parameters are left out on purpose, and the rules in `.gitignore` are what hold that
+line. If you notice something in a tracked file that looks like a raw record, an account
+identifier, or review text, please let me know directly instead of posting it anywhere public.
 
 See `notes/data_dictionary.md` for fields, checksums, transformations, and interpretation limits.

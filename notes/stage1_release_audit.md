@@ -6,7 +6,7 @@ Audit date: 2026-08-14
 
 This repository begins from the sanitized Stage 1 snapshot prepared on 2026-08-15. The privacy,
 author-identity, tracked-file, and clean-history items recorded below were resolved when the clean
-repository was created. Dataset redistribution permission remains open; original project code and
+repository was created. Dataset redistribution permission remains open. Original project code and
 documentation are now licensed under MIT.
 
 The `repository_baseline_commit` values in the frozen configurations refer to the private archival
@@ -55,7 +55,7 @@ evidence would reopen the cycle, so I have recorded those fixes for the next cyc
    seeds, and protocol. It does not cover population shift or optimization randomness across a
    wider training-seed distribution.
 5. The fallback BPR optimizer and frozen schedule are specific to this cycle. "Not admitted" is
-   the supported result; a general claim that BPR or genre fails is not.
+   the supported result. A general claim that BPR or genre fails is not.
 
 ## Quantified legacy identity erratum
 
@@ -73,7 +73,7 @@ hash-bound files.
 
 - Cached Gate 1, production, and Gate 2 runners currently validate their own manifest IDs but do
   not recheck every dependency and current runner hash before returning. The public wrapper is
-  strict; a new scientific cycle should centralize strict dependency verification and add stale
+  strict. A new scientific cycle should centralize strict dependency verification and add stale
   cache/corruption tests.
 - The existing evidence assembler silently skips missing recorded paths. The public wrapper instead
   fails on every missing public path and allows absence only for explicitly classified raw or
@@ -81,7 +81,7 @@ hash-bound files.
 - Pseudo-utility diagnostics scored the first 128 assessment users and published aggregate score
   summaries after production but before the Stage 2 protocol was frozen. No bundle objective or
   policy outcome was accessed, but this is an aggregate assessment peek. Freeze Stage 2 before any
-  further assessment access; future diagnostics should use design users only.
+  further assessment access, and future diagnostics should use design users only.
 - Pseudo-utility score generation allocates a full 5,000 by 8,902 float64 result, about 356 MB,
   despite a bounded-block design statement. Replace it prospectively with exact blockwise/memmap
   scoring or correct the resource contract.
@@ -99,7 +99,7 @@ hash-bound files.
   cycle should publish a small semantic genre input with explicit raw provenance.
 - Fold-in should validate item bounds before returning an `insufficient_history` fallback, and the
   pseudo-utility diagnostic path should bind assessment user IDs and row order before slicing.
-- Model archives need estimator-specific field, dtype, shape, and map-hash validation; the resource
+- Model archives need estimator-specific field, dtype, shape, and map-hash validation, and the resource
   monitor should reject nonpositive polling intervals.
 - Cycle routing remains fragmented between v1 defaults and v2 orchestration. A successor cycle
   should use one explicit cycle context and add a compact synthetic end-to-end test covering stale
@@ -114,7 +114,7 @@ hash-bound files.
 
 The Stage 1 result, privacy review, clean history, tracked publication, software license, and
 clean-clone verification are ready to present. Public visibility still depends on
-data-redistribution confirmation and supervisor approval. The correct status is "Stage 1 complete;
+data-redistribution confirmation and supervisor approval. The correct status is "Stage 1 complete,
 Stage 2 planned." The full project, economic identification problem, and clean-clone retraining
 workflow are not complete.
 
