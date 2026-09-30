@@ -1,18 +1,35 @@
 # UROP technical plan: from the CMM pivot to preference estimation and fixed-bundle design
 
-Last revised: 2026-08-14
+Last revised: 2026-09-30 (prospective review; frozen Stage 1 evidence unchanged)
 
 Current status: Gate 0 and every Stage 1 step S1.0 to S1.12 are complete under the prospective
 `s1-v2-20260814` Steam-ID cycle. Gate 1 and Gate 2 pass. Only implicit ALS was admitted. Production
-refits and fold-in are complete for all three seeds and 12,585 assessment users. The next binding
-step is the outcome-independent candidate-pool registry and notebook 11, followed by Gate 3. No
-Stage 2 objective or bundle outcome was accessed during Stage 1 selection or scenario freezing.
+refits and fold-in are complete for all three seeds and 12,585 assessment users. Current work is
+Stage 1 analysis and improvement under the owner's 2026-09-29 request. Stage 2 remains a blueprint:
+no implementation, candidate-pool experiments, or further assessment access is authorized by that
+request. The previous study pause through November 2026 also remains recorded in the README;
+reaching that date alone does not start Stage 2. After Stage 1 closeout and an explicit request to
+start Stage 2, the first dependency is the outcome-independent candidate-pool registry and notebook
+11, followed by Gate 3. No Stage 2 objective or bundle outcome was accessed during Stage 1 selection
+or scenario freezing.
 
 Post-freeze review note (2026-08-14): the cycle is an internally prospective, hash-bound record,
 not an external preregistration. Scientific inputs and evidence remain unchanged. Wording errata,
 the aggregate assessment-score peek, public/private verification boundaries, runtime-label issue,
 and next-cycle engineering amendments are recorded in `notes/stage1_release_audit.md`. That audit
 controls when a historical prospective paragraph below is stale.
+
+The [Stage 2 execution blueprint](notes/stage2_execution_blueprint.md) records the 2026-09-29 review,
+the executable work order, unresolved decisions, numerical certificate requirements, and outcome
+access rules. Its prospective clarifications supplement Sections 11 to 17. Proposed defaults in
+that note are planning decisions, not a claim that a Stage 2 protocol or experiment has been frozen.
+
+The additive Stage 1 development path is [stage1_successor.py](src/stage1_successor.py), with
+[stage1_runtime.py](src/stage1_runtime.py) for bounded scoring and strict parameter loading and
+[stage1_training.py](src/stage1_training.py) for a prospective minibatch BPR objective. Its
+configuration is `configs/stage1_successor.json`. These development tools do not replace the
+historical admission result or constitute a new production interface. New validation evidence
+must be labeled exploratory because the historical design-test result is already known.
 
 ## 1. What this document is for
 
@@ -986,6 +1003,12 @@ Each downstream scenario must have an ID that binds:
 
 Stage 2 asks for bounded user-by-pool blocks from this interface. It does not read an unversioned notebook variable or the legacy `preference_factors.npz` file.
 
+The transformation domain remains the complete ordered production catalogue. Within-user ranks,
+means, and standard deviations must be computed over that catalogue before selecting pool columns;
+computing them within a pool would change the frozen scenario. Score bounded full-catalogue user
+blocks, apply the frozen transform, and retain only the requested columns. A revised Stage 1 cycle
+must supply a complete, separately verified interface before it can replace the historical input.
+
 ### 11.2 Candidate-pool registry
 
 The candidate-pool registry is shared by notebooks 11 and 12. Pool membership is frozen before looking at matched-control or bundle-design outcomes.
@@ -1033,6 +1056,11 @@ Every important bundle-structure comparison should be repeated at three levels:
 1. Raw behavior: binary co-ownership, Jaccard, lift, popularity-adjusted association, and playtime co-engagement where available.
 2. Identity-only scores: dependence from a model that did not receive genre.
 3. Identity plus genre scores: the same analysis after genre features enter.
+
+For the completed cycle only the raw and admitted identity-only ALS layers are production-ready.
+The genre BPR model failed admission. Mark the third layer unavailable for the core bridge unless
+a later prospective Stage 1 cycle qualifies it; an explicitly labeled archived diagnostic may be
+shown separately. Gate 3 must not require a failed family to become a production utility input.
 
 If a genre pattern appears only in the genre-aware score model, describe it as model-imposed or model-amplified. Agreement with raw behavior and identity-only scores is stronger descriptive evidence.
 
@@ -1254,6 +1282,14 @@ An empirical finite optimum with positive demand occurs at a distinct observed p
 
 The CP routine returns every optimal observed-threshold candidate and an explicit no-sale representative when no sale is optimal. It does not try to enumerate an unbounded interval of zero-demand numerical prices. If at least one positive-demand observed threshold is optimal, the primary representative is the smallest such price. Key SBA results are repeated at the largest optimal observed-threshold candidate when one exists, and at the no-sale representative when it is also optimal. If no positive-demand threshold is optimal, the canonical policy is no sale. Equal CP profit does not imply equal SBA results because the truncated bundle values can change with the anchor.
 
+These alternatives form component-price vectors. The primary sensitivity uses an all-smallest
+vector, an all-largest vector, and a no-sale-preferred vector, leaving components with unique
+optima fixed. These vectors do not exhaust mixed combinations of itemwise ties. On exact pools,
+enumerate the Cartesian product only when it fits a preregistered anchor budget; otherwise record
+the total combination count and apply a fixed, outcome-independent sample. Report the coverage as
+partial and make no worst-case anchor-robustness claim. Keep the complete itemwise optimum sets in
+the registry even when only a subset of anchor vectors is solved.
+
 ### 13.2 Pure bundling
 
 Pure bundling offers the whole pool as one grand bundle and does not offer its components separately.
@@ -1412,6 +1448,14 @@ The following conventions must be fixed in code and configuration before optimiz
 15. For SBR, choose empty SBR, which is CP, when maximum incremental gain is zero. Among equal positive-increment prices, choose the smallest observed raw-sum threshold.
 
 A component-preferred strict bundle tie uses `w_u(B) > b`. In a continuous price domain its best value may be an unattained left limit. An executable sensitivity therefore needs a preregistered price tick and its own exact candidate and correctness statement. A theoretical supremum is not a frozen policy and cannot enter assessment evaluation.
+
+For a fixed positive tick `delta > 0` and prices `b = k * delta`, `k >= 0`, strict-tie
+fixed-composition SBA candidates are `delta * (ceil(w_u(B) / delta) - 1)` when nonnegative,
+plus no bundle. Use the greatest tick strictly below each threshold, with explicitly verified
+boundary arithmetic. This follows by raising any price with buyers to the largest grid price
+strictly below the smallest buying threshold; its buyer set is preserved and margin increases.
+Freeze the rule for setting `delta` from design-only scenario scale and scale it with utilities
+and costs. The continuous weak-tie proof does not itself certify this grid calculation.
 
 ## 14. Stage 2 theory and proof status
 
@@ -1675,6 +1719,15 @@ Every completed exact instance records:
 
 Only a completed enumeration of the declared feasible family with exact fixed-composition pricing is called a global finite-instance optimum.
 
+Separate algorithmic completeness from numerical certification. Exhaustive float64 evaluation
+proves that the implemented finite search finished; it does not alone certify an exact real-number
+ordering when objectives nearly tie. Register summation order, error bounds, equality policy, and
+the rounding domain in the instance. Preserve the highest computed objective separately from a
+canonical representative chosen within tolerance. Record their difference. Issue a mathematical
+optimum certificate only when exact arithmetic or outward error bounds resolve the optimum;
+otherwise label the result `enumerated_numerical` with the unresolved objective interval. The
+[blueprint](notes/stage2_execution_blueprint.md#numerical-certificates) gives the planned tiers.
+
 Benchmark exact completion across `n`, `C`, and `U` to map the measured certified region. Do not assume or promise a universal 20 to 25 item cutoff. If an instance times out, keep it in the runtime record.
 
 ### 15.6 Scalable heuristic
@@ -1709,6 +1762,12 @@ If the SBR version does not have enough separately certified locked cases or fai
 ### 15.7 Development and locked exact suites
 
 S2.0 first freezes pilot pool IDs and an outcome-independent rule for assigning later pool IDs to the development and locked suites. Pilot pool IDs are excluded from both later suites. S2.4 uses the pilots to measure the approximate exact-search frontier, then applies that frozen rule and hashes the actual development and locked instance IDs before heuristic tuning begins. Pool IDs cannot occur in both suites.
+
+Different pool IDs may contain identical or strongly overlapping items. Group pools by shared
+catalogue entity and preregistered item-overlap rules before assignment, and assign each connected
+group as a unit. Publish overlap diagnostics and the number of independent groups. If this leaves
+too few groups, narrow the validation claim to those specific instances instead of treating many
+scenarios from one catalogue as independent cases.
 
 The exact engine writes locked-instance objectives, compositions, and certificates to sealed artifacts. The heuristic may know the registered inputs, but it cannot load those sealed results. A locked instance remains in the registry if exact search times out. It is not dropped because it is inconvenient.
 
@@ -1818,6 +1877,11 @@ Before opening locked exact-suite gaps, headline bundle outcomes, or assessment 
 - development selection rule
 - runtime and objective-evaluation budgets
 - the registered headline and sensitivity grid.
+
+Also freeze the design-user optimization sample and its sampling rule; the assessment access
+ledger; scenario/seed summary weights; uncertainty estimand; the complete CP anchor-vector policy;
+pool-group assignment; numerical certificate tiers; treatment of infeasible observed compositions;
+and a failure policy for each resource budget. See the execution blueprint for proposed defaults.
 
 Create content-derived instance IDs linking all of these choices. The primary exposition scenario must be chosen for a reason independent of which scenario gives the largest objective improvement.
 
@@ -2019,6 +2083,20 @@ Report:
 Composition instability with negligible regret means that several designs are nearly equivalent. Instability with material regret means that the recommendation is fragile.
 
 Prediction and decision quality are different. Compare each qualified model's NDCG and Recall with its downstream composition, regret, assessment performance, and stability. A ranking winner need not be a decision winner.
+
+Only ALS was admitted in the historical cycle, so the current input cannot support a cross-family
+claim that ranking quality predicts decision quality. A later Stage 1 cycle must qualify and freeze
+additional families prospectively before that comparison exists. Do not admit a model because its
+Stage 2 result is favorable.
+
+Within each pool and transformation, show all three seed results and summarize normalized gains
+using equal seed weights. Across transformations report the full range, signs, and compositions;
+do not average raw objectives or prices with incompatible units. A seed average over separately
+selected policies describes an algorithm across fits, not one deployable common policy. For a
+conditional interval on that average, resample the same assessment user indices jointly across
+seeds, keeping all fitted models and policies fixed. Three training seeds are not three independent
+user panels and do not identify broad training-seed uncertainty. Cross-pool summaries must declare
+weights and preserve shared-user pairing; overlapping pools cannot be summed into portfolio revenue.
 
 For a dependence experiment, preserve empirical item marginals while independently permuting item columns or using a separately declared copula. Use several permutations and a null distribution. Independence does not imply that bundling gain must be zero, and a permutation exercise is not causal evidence.
 
@@ -2513,18 +2591,29 @@ The final report appendix should contain full proofs, the theorem registry, addi
 - Notebook 12 or 13.
 - Frozen-policy assessment.
 
-### 24.3 Immediate sequence
+### 24.3 Immediate sequence: Stage 1 first
 
-1. Freeze the outcome-independent candidate-pool registry.
-2. Build notebook 11's descriptive dependence and matched-control bridge from the admitted ALS score
-   interfaces without changing Stage 1.
-3. Close Gate 3 and preregister Stage 2 instance, policy, tie, cost, and evaluation rules.
-4. Implement and independently test the CP-anchored SBA mechanisms and exact certificates.
-5. Validate any heuristic on a locked exact-solvable suite before larger-pool use.
+1. Audit the completed Stage 1 evidence, implementation, resource behavior, and research claims.
+2. Implement and verify Stage 1 engineering improvements without overwriting historical evidence.
+3. Record any scientific model or selection changes in a new prospective cycle. The already opened
+   historical design-test set cannot become an untouched test merely by assigning a new cycle ID.
+4. Close out Stage 1 with an explicit account of measured changes, unmeasured proposals, resource
+   limits, and the model interface eligible for future Stage 2 use.
+5. Maintain the Stage 2 blueprint and its decision register. Do not run Stage 2 during this work.
 
-Stage 1 is now read-only evidence. Any new recommender family, feature block, transformation, or
-selection rule requires a new prospective cycle and cannot replace the completed result after seeing
-Stage 2 outcomes.
+The historical Stage 1 evidence remains read-only. The owner's 2026-09-29 request reopens prospective
+Stage 1 improvement, superseding the earlier blanket statement that model expansion was closed.
+It does not authorize retrospective replacement of the completed result or assessment-driven
+selection. No Stage 2 outcome may select a Stage 1 model, feature block, or transformation.
+
+### 24.4 Future Stage 2 sequence, after a request to begin
+
+1. Bind a complete Stage 1 release and freeze the outcome-independent candidate-pool registry.
+2. Build notebook 11's descriptive bridge using design users and close Gate 3.
+3. Freeze the Stage 2 protocol and all remaining decisions listed in the execution blueprint.
+4. Implement independent menu oracles, exact price scans, proofs, and composition certificates.
+5. Measure the exact region and validate each heuristic mechanism on locked catalogue groups.
+6. Freeze every benchmark policy, assess it once, and complete the registered robustness report.
 
 ## 25. Review checkpoints and evidence package
 
@@ -2552,7 +2641,8 @@ The final evidence package should include:
 The remaining work follows the gates: candidate pools and notebook 11, exact Stage 2 code and proofs,
 locked heuristic validation, frozen assessment and robustness, then final reproduction and writing.
 Once the submission deadline and review dates are known, each block needs a start date, internal stop
-date, and cut decision. Stage 1 model expansion is closed.
+date, and cut decision. The current owner-requested priority is Stage 1 improvement; Stage 2 work
+remains documentation only until explicitly started.
 
 ## Appendix A. Archived CMM record
 
