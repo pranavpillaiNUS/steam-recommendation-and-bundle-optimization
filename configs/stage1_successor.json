@@ -1,0 +1,46 @@
+{
+  "schema_version": 1,
+  "status": "exploratory_development",
+  "source_cycle": "s1-v2-20260814",
+  "assessment_access": false,
+  "resource_budget": {
+    "maximum_job_wall_seconds": 2700,
+    "maximum_process_tree_rss_bytes": 8589934592,
+    "poll_interval_seconds": 0.25,
+    "maximum_saved_model_bytes": 268435456
+  },
+  "interpretation": "Explicit single-job development recipes, not a frozen model search or a new confirmed result. The historical design test has been observed. Compare seeds and budgets before selection; do not promote a one-seed development result.",
+  "scoring": {
+    "user_block_size": 128,
+    "item_block_size": 4096,
+    "maximum_score_block_bytes": 67108864
+  },
+  "jobs": {
+    "popularity": {"family": "popularity"},
+    "als_reference": {
+      "family": "implicit_als",
+      "training_seed": 104729,
+      "parameters": {"factors": 64, "regularization": 0.05, "alpha_o": 20.0, "alpha_p": 0.0, "tau": 0.0, "iterations": 12, "num_threads": 4}
+    },
+    "als_convergence": {
+      "family": "implicit_als",
+      "training_seed": 104729,
+      "parameters": {"factors": 64, "regularization": 0.05, "alpha_o": 20.0, "alpha_p": 0.0, "tau": 0.0, "iterations": 30, "num_threads": 4}
+    },
+    "als_capacity": {
+      "family": "implicit_als",
+      "training_seed": 104729,
+      "parameters": {"factors": 128, "regularization": 0.05, "alpha_o": 20.0, "alpha_p": 0.0, "tau": 0.0, "iterations": 30, "num_threads": 4}
+    },
+    "bpr_minibatch": {
+      "family": "feature_sum_bpr_identity",
+      "training_seed": 104729,
+      "parameters": {"factors": 64, "regularization": 0.001, "learning_rate": 0.05, "epochs": 12, "samples_per_epoch": 1000000, "batch_size": 4096, "diagnostic_sample_size": 4096}
+    },
+    "bpr_minibatch_genre": {
+      "family": "feature_sum_bpr_identity_genre",
+      "training_seed": 104729,
+      "parameters": {"factors": 64, "regularization": 0.001, "learning_rate": 0.05, "epochs": 12, "samples_per_epoch": 1000000, "batch_size": 4096, "diagnostic_sample_size": 4096}
+    }
+  }
+}
