@@ -10,6 +10,7 @@ from __future__ import annotations
 
 import argparse
 from dataclasses import dataclass
+import hashlib
 import importlib.metadata
 import json
 import os
@@ -190,6 +191,34 @@ def design_input_inventory(root: Path) -> dict[str, Mapping[str, Any]]:
     return result
 
 
+def record_protected_access(context: CycleContext, job_name: str,
+                            inventory: Mapping[str, Mapping[str, Any]]) -> dict[str, Any]:
+    """Append one ledger line BEFORE protected inputs are loaded; lines are never rewritten.
+
+    Preflight integrity hashing precedes this line without parsing the files for modeling.
+    """
+    from datetime import datetime, timezone
+    entry = {
+        "schema_version": 1, "cycle_id": context.cycle_id, "source_cycle": FROZEN_CYCLE,
+        "job": job_name, "recorded_at_utc": datetime.now(timezone.utc).isoformat(timespec="seconds"),
+        "purpose": "exploratory_design_validation",
+        "inputs": {name: {"path": entry["path"], "sha256": entry["sha256"], "access": entry.get("access", "")}
+                   for name, entry in sorted(inventory.items())},
+        "event": "before_design_input_load",
+        "assessment_analytical_access": False,
+        "design_test_outcomes_scored": False,
+        "other_holdout_mask_access": "opaque_api",
+        "preflight_integrity_hashing": "may_include_other_present_frozen_private_artifacts",
+    }
+    ledger = context.directory / "access_ledger.jsonl"
+    ledger.parent.mkdir(parents=True, exist_ok=True)
+    with ledger.open("ab") as handle:
+        handle.write(canonical_json_bytes(entry).rstrip(b"\n") + b"\n")
+        handle.flush()
+        os.fsync(handle.fileno())
+    return entry
+
+
 def preflight(root: Path = PROJECT_ROOT) -> dict[str, Any]:
     from src.stage1_public_verify import verify_public_stage1
     public = verify_public_stage1(root, cycle_id=FROZEN_CYCLE)
@@ -211,10 +240,48 @@ def preflight(root: Path = PROJECT_ROOT) -> dict[str, Any]:
     }
 
 
-def _environment() -> dict[str, str]:
-    return {"python": sys.version.split()[0], **{
-        name: importlib.metadata.version(name)
-        for name in ("numpy", "scipy", "pandas", "implicit", "threadpoolctl")}}
+ENVIRONMENT_PACKAGES = ("numpy", "scipy", "pandas", "scikit-learn", "implicit",
+                        "threadpoolctl", "psutil", "pytest")
+
+
+def _installed_distributions() -> list[str]:
+    """Explicit environment export: every installed distribution as name==version."""
+    return sorted(f"{(dist.metadata['Name'] or '').lower()}=={dist.version}"
+                  for dist in importlib.metadata.distributions())
+
+
+def _environment(distributions: list[str] | None = None) -> dict[str, Any]:
+    """Software identity bound into the cache specification (planning section 20.3)."""
+    import platform
+
+    def version(name: str) -> str | None:
+        try:
+            return importlib.metadata.version(name)
+        except importlib.metadata.PackageNotFoundError:
+            return None
+
+    export = _installed_distributions() if distributions is None else distributions
+    return {"python": sys.version.split()[0], "operating_system": platform.platform(),
+            **{name: version(name) for name in ENVIRONMENT_PACKAGES},
+            "installed_distribution_count": len(export),
+            "installed_distributions_sha256": hashlib.sha256("\n".join(export).encode("utf-8")).hexdigest()}
+
+
+def _runtime_environment() -> dict[str, Any]:
+    """Hardware and BLAS details recorded with each result, never local library paths."""
+    import platform
+    import numpy  # noqa: F401  (load the BLAS libraries before inspecting them)
+    import psutil
+    import scipy.linalg  # noqa: F401
+    from threadpoolctl import threadpool_info
+    fields = ("user_api", "internal_api", "prefix", "version", "threading_layer",
+              "architecture", "num_threads")
+    blas = sorted(({key: info.get(key) for key in fields} for info in threadpool_info()
+                   if info.get("user_api") == "blas"), key=lambda entry: json.dumps(entry, sort_keys=True))
+    return {"machine": platform.machine(), "processor": platform.processor(),
+            "logical_cpus": os.cpu_count(), "physical_cpus": psutil.cpu_count(logical=False),
+            "memory_bytes": psutil.virtual_memory().total, "blas_libraries": blas,
+            "blas_threads_during_fit_and_ranking": 1}
 
 
 def _code_dependencies(root: Path) -> dict[str, Path]:
@@ -368,8 +435,9 @@ def execute_job(context: CycleContext, name: str, job: Mapping[str, Any],
             or maximum_saved_model_bytes <= 0):
         raise ValueError("maximum_saved_model_bytes must be a positive integer")
     store = VerifiedRunStore(context, name)
+    environment_export = _installed_distributions()
     specification = {"job": dict(job), "scoring": dict(scoring), "scenarios": scenarios,
-                     "data_identity": _data_identity(data), "environment": _environment(),
+                     "data_identity": _data_identity(data), "environment": _environment(environment_export),
                      "metric_ks": [10, 20], "assessment_analytical_access": False,
                      "maximum_saved_model_bytes": maximum_saved_model_bytes,
                      "required_outputs": ["parameters", "validation_metrics", "training_diagnostics"]
@@ -460,12 +528,16 @@ def execute_job(context: CycleContext, name: str, job: Mapping[str, Any],
         current_dependencies = {key: _entry(context.root, path) for key, path in dependencies.items()}
         if initial_dependencies != current_dependencies:
             raise ValueError("a dependency changed during execution; result was not completed")
+        if _environment() != specification["environment"]:
+            raise ValueError("software environment changed during execution; result was not completed")
         summary = {"family": family, "training_seed": seed, **result.aggregate,
                    "timing_seconds": {"fit": fit_seconds, "serialization": serialization_seconds,
                        "ranking": ranking_seconds, "scenario_diagnostics": scenario_seconds,
                        "total": time.perf_counter() - started},
                    "resource_contract": {**result.resource_contract,
                        "additional_opaque_mask_limit_bytes": getattr(data.get("other_holdout_mask"), "maximum_mask_bytes", 0)},
+                   "runtime_environment": _runtime_environment(),
+                   "environment_export": environment_export,
                    "assessment_or_bundle_outcomes_used": False}
         completed = store.save(specification=specification, dependencies=dependencies,
                                outputs=outputs, summary=summary)
@@ -542,6 +614,7 @@ def run_development_job(root: Path, cycle_id: str, config_path: str, job_name: s
     report = preflight(root)
     if report["missing_design_inputs"]:
         raise FileNotFoundError(report["next_action"])
+    record_protected_access(context, job_name, design_input_inventory(root))
     data, dependencies = load_design_data(root)
     dependencies.update(_code_dependencies(root))
     dependencies["development_config"] = config_file

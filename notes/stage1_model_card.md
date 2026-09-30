@@ -72,6 +72,11 @@ scenarios, not calibrations. A monotone transformation can preserve rankings whi
 sums and the eventual design, so Stage 2 must report stability across the scenario grid rather than
 select a favorable transformation after seeing outcomes.
 
+After production, aggregate score summaries were computed for the first 128 assessment users. No
+bundle objective or policy outcome was accessed, but the assessment panel is not untouched. The
+[release audit](stage1_release_audit.md) records this peek, and any Stage 2 access record must
+carry it forward.
+
 ## Public verification and local reproduction
 
 From a privacy-safe public clone:
@@ -100,8 +105,16 @@ must therefore not be described as independent model recomputation.
 - Mathematical appendix: `notes/stage1_v2_mathematical_appendix.md`
 - Post-freeze audit and amendments: `notes/stage1_release_audit.md`
 
-## Next step
+## Stage 1 closeout and next step
 
-Stage 2 has not begun. Before further assessment access, freeze and commit the candidate-pool
-registry, instance suite, pseudo-costs, tie convention, policy set, search budgets, and assessment
-protocol. Only complete policies frozen on design users may then be evaluated on assessment users.
+The [Stage 1 closeout](stage1_closeout.md) of 2026-09-30 follows a
+[scientific audit](stage1_scientific_audit.md) and an additive improvement round. That round
+implemented and tested successor tooling on synthetic data. It did not fit a new Steam model, so the
+result above stands unchanged. The ALS release described here remains the only interface eligible
+for Stage 2 until a successor release completes its own selection, production, and scenario
+evidence.
+
+Stage 2 has not begun and starts only after an explicit request. Before further assessment access,
+freeze and commit the candidate-pool registry, instance suite, pseudo-costs, tie convention, policy
+set, search budgets, and assessment protocol. Only complete policies frozen on design users may then
+be evaluated on assessment users.

@@ -10,7 +10,7 @@ to strengthen the optimization and evaluation process, then run a separately ide
 experiment when the exact private inputs are available.
 
 This audit reads the public source, configurations, run logs, manifests, and aggregate tables.
-The numeric summaries below are arithmetic aggregations of the published rows; they are not new
+The numeric summaries below are arithmetic aggregations of the published rows. They are not new
 fits or a recomputation from user records. The current workspace lacks the exact raw and protected
 artifacts needed for a Steam retraining run. New code has numerical and synthetic verification,
 but **no improved Steam ranking score is claimed**. The frozen evidence and its admission decision
@@ -33,14 +33,14 @@ other holdout. Results average the three frozen training seeds where applicable.
 | Ownership-only ALS | **0.206089** | **0.419600** | **19.63%** | **54.33%** |
 
 Source: [design-test leaderboard](../outputs/modeling/cycles/s1-v2-20260814/stage1_design_test_leaderboard.csv).
-Coverage is the expected fraction of catalogue items included across this evaluation panel;
-concentration is the fraction of recommendation exposure assigned to the 89 most popular training
-items. Neither measure estimates sales, relevance outside observed ownership, or consumer welfare.
+Coverage is the expected fraction of catalogue items included across this evaluation panel.
+Concentration is the fraction of recommendation exposure assigned to the 90 most popular training
+items, the top 1 percent of the 8,902 warm items rounded up. Neither measure estimates sales, relevance outside observed ownership, or consumer welfare.
 
 ALS gains 0.070739 NDCG@20 and 0.167200 Recall@20 over popularity. The recorded paired user
 bootstrap interval for the NDCG difference is [0.062947, 0.078603]. It is conditional on the
 snapshot, panel, fitted seeds, and protocol. Seed-specific differences range from 0.069517 to
-0.072019. These are useful, distinct descriptions of uncertainty; neither covers future users,
+0.072019. These are useful, distinct descriptions of uncertainty. Neither covers future users,
 future games, a temporal shift, or arbitrary retraining randomness.
 
 The BPR model has higher Recall@20 than popularity but slightly lower NDCG@20. That means the
@@ -89,7 +89,7 @@ Source: [design-test segments](../outputs/modeling/cycles/s1-v2-20260814/stage1_
 These descriptive differences have no published segment confidence intervals. The final row
 does not prove that ALS is worse for all heavy users. It is a reason to examine validation-defined
 activity effects and a preregistered popularity/ALS mixture in future work, with tuning confined
-to design validation. The highest activity group is hard for both models; saying popularity
+to design validation. The highest activity group is hard for both models. Saying popularity
 predicts these users well in absolute terms would overstate the observed NDCG of 0.0576.
 
 The item support result is an even larger limitation:
@@ -110,13 +110,13 @@ decision, not a correction to the frozen result.
 
 ALS also improves both played and unplayed target groups: mean NDCG is 0.195304 versus 0.131060
 for played targets, and 0.230253 versus 0.144962 for unplayed targets. Playtime confidence losing
-the validation comparison is consistent with an ownership reconstruction objective; it does not
+the validation comparison is consistent with an ownership reconstruction objective. It does not
 show that playtime is irrelevant to engagement. Those are different targets and need separate
 evaluations.
 
 Genre is absent for 1,676 of 8,902 warm items (18.83%), and 1,051 of 5,000 test targets (21.02%)
 have zero content rows. The feature vocabulary also includes software categories and “Free to
-Play”; it is not a clean taxonomy of game tastes. A missing row supplies no content information
+Play”. It is not a clean taxonomy of game tastes. A missing row supplies no content information
 and should not be treated as evidence that genre predicts dislike. Keep coverage and vocabulary
 audits in any content experiment. See the
 [feature coverage table](../outputs/modeling/cycles/s1-v2-20260814/stage1_feature_coverage.csv).
@@ -133,7 +133,7 @@ is not evidence that continuing in that direction must help.
 The best validation mean NDCG@20 is 0.202810. Keeping 64 factors and alpha 20 while changing
 regularization from 0.05 to 0.2 yields 0.202768, a difference of only 0.000043. The evidence is
 much stronger for ownership confidence and 64 versus 32 factors than for the precise winning
-regularization. The best 32-factor ownership model scores 0.193754; the best 64-factor capped
+regularization. The best 32-factor ownership model scores 0.193754. The best 64-factor capped
 playtime and log-playtime models score 0.188492 and 0.186165. All are validation results, not
 new test comparisons. See the
 [validation leaderboard](../outputs/modeling/cycles/s1-v2-20260814/stage1_validation_leaderboard.csv).
@@ -152,25 +152,25 @@ one update per triple or per minibatch. The mathematics and recorded implementat
 this finding does not invalidate the archived result. It substantially limits a general
 ALS-versus-BPR conclusion. Rendle and colleagues' original
 [BPR paper](https://arxiv.org/abs/1205.2618) describes stochastic gradient training with sampled
-triples; the frozen fallback uses a materially different update schedule.
+triples. The frozen fallback uses a materially different update schedule.
 
 For the selected BPR seed 104729, the sampled loss before the last two updates is approximately
 182,320 then 175,935. The batches differ, and there is no fixed probe or validation learning
 curve establishing convergence. A plateau has not been demonstrated. At initialization, the
-item-bias gradient norm is about 18,223 while the user and item-factor norms are about 60;
-coordinate AdaGrad changes the effect of those magnitudes, so these numbers alone do not prove
+item-bias gradient norm is about 18,223 while the user and item-factor norms are about 60.
+Coordinate AdaGrad changes the effect of those magnitudes, so these numbers alone do not prove
 a causal explanation for the popularity-heavy rankings.
 
 The successor implementation in [stage1_training.py](../src/stage1_training.py) now provides
 deterministic minibatch AdaGrad with an update after every batch, updates only touched user/item
 rows, and logs update counts, training triple hashes, and a fixed training probe. Positives are
-sampled uniformly from training edges; negatives reject training positives only. Held-out labels
+sampled uniformly from training edges. Negatives reject training positives only. Held-out labels
 must not be supplied to improve the negative sampler. The independent probe uses a separate RNG
 namespace and cannot change optimization triples.
 
 Its objective is explicit: mean sampled logistic loss plus mean squared norms of the sampled
 user, positive item, negative item, and both item biases, plus a global genre-factor penalty when
-content is active. It differs from the frozen sum-loss/global-L2 equation; old regularization
+content is active. It differs from the frozen sum-loss/global-L2 equation. Old regularization
 values must be retuned. No numeric comparison should silently treat these penalty conventions as
 equivalent. The public entry point `minibatch_loss_and_gradients` makes this equation inspectable.
 
@@ -195,7 +195,7 @@ regularization. Do not add unverified modern tags to a historical experiment wit
 their acquisition time and possible information leakage.
 
 The existing pseudo-cold popularity comparator uses support from before cohort removal. It is
-an oracle-like reference; a new item would not have that signal. Ranking occurs within a selected
+an oracle-like reference. A new item would not have that signal. Ranking occurs within a selected
 300-item genre-covered cohort, not the complete real new-item candidate problem. Retain the
 diagnostic label. A successor content experiment should compare against a uniform tied ranking
 and a model using only information genuinely available after removal, and report item coverage
@@ -211,14 +211,14 @@ not evidence of superiority on this Steam snapshot.
 
 At 8,902 items a single dense float64 item-by-item array occupies 633,964,832 bytes, about 605 MiB.
 A solve can require several such arrays plus workspaces. EASE therefore needs a declared memory
-and time gate; it should not be added by assuming the Gram matrix is the whole memory cost.
+and time gate. It should not be added by assuming the Gram matrix is the whole memory cost.
 Stronger simple baselines, a fair BPR optimizer, and a better ALS search have clearer immediate
 value than starting an unbounded neural-model search.
 
 ## Evaluation and statistical improvements
 
 The evaluation estimates reconstruction of randomly held-out ownership within this historical
-snapshot. Absence is an unobserved interaction, not an observed dislike; ownership may result
+snapshot. Absence is an unobserved interaction, not an observed dislike. Ownership may result
 from gifts, bundles, promotions, and unequal exposure. Purchase timing is not recovered by a
 random split. Temporal deployment claims require defensible event times or another dataset.
 
@@ -226,7 +226,7 @@ The capacity-aware split protects item training support and assigns test before 
 Thus the held-out targets are conditioned on warm support and capacity constraints. Report the
 result for that estimand and retain the split audit. In a successor, inspect validation/test
 support and activity composition on design data to quantify this selection. A leave-one-out
-metric also captures only one target per user; a separately specified multi-positive design
+metric also captures only one target per user. A separately specified multi-positive design
 evaluation can test sensitivity without replacing the published metric after seeing results.
 
 The bootstrap used for validation admission is computed after choosing the best configuration
@@ -234,13 +234,13 @@ on those validation users. It is an operational admission screen, not a selectio
 confidence statement. The one-time design test provides a more appropriate performance report
 for the frozen selected policy. For a successor, define the primary paired comparison and an
 absolute improvement threshold before running selection. Report user uncertainty separately
-from seed variability; three seeds do not estimate a broad seed distribution precisely.
+from seed variability. Three seeds do not estimate a broad seed distribution precisely.
 
 Use validation-selected finalists with all predeclared seeds, report every failed or timed-out
 run, and avoid choosing a lucky seed. Reserve broader seed replication or an extra data split
 for a declared final comparison. Keep secondary segments descriptive unless a multiplicity-aware
 or hierarchical inferential plan is specified in advance. An ordinary user bootstrap need not
-pretend to represent the stratified sampling design; a future population-directed interval
+pretend to represent the stratified sampling design. A future population-directed interval
 should preserve the activity strata and declare its target weights.
 
 The current three-seed mean of ranking metrics is not the metric of a score-averaging ensemble.
@@ -256,12 +256,12 @@ freeze and evaluate, not a free consequence of averaging seed-level metrics.
    and the already opened v2 results.
 2. Require the exact authorized raw and protected inputs before any Steam fit. Verify schema,
    IDs, row/column maps, masks, and train-only feature provenance. Report missing artifacts
-   clearly; do not manufacture replacement data or label a synthetic fit as Steam evidence.
+   clearly. Do not manufacture replacement data or label a synthetic fit as Steam evidence.
 3. Run the numerical and synthetic pipeline checks, reject stale/corrupt caches, and benchmark
    resource use on a declared design-only sample. The 88 frozen validation runs sum to about
    8,554 seconds, but that historical number is not a future runtime guarantee.
 4. Reproduce the existing ALS configuration on the permitted development inputs as an anchor.
-   Search bounded ALS factor/alpha/regularization/iteration settings; use declared staged
+   Search bounded ALS factor/alpha/regularization/iteration settings. Use declared staged
    screening and finalist seed replication. Keep ownership-only confidence as the anchor.
 5. Evaluate the new BPR optimization across a bounded batch-size/learning-rate/regularization/
    update-budget grid, with fixed probe curves and full-catalogue validation. Log total updates
@@ -269,13 +269,13 @@ freeze and evaluate, not a free consequence of averaging seed-level metrics.
    benchmark separately. Add simple neighborhood and optional resource-gated linear baselines.
 6. Select only on design validation. Report core ranking, support/activity segments, coverage,
    concentration, seed variability, runtime, peak memory, and archive size. A change must earn
-   its additional cost or solve a declared robustness gap; a negligible validation difference
+   its additional cost or solve a declared robustness gap. A negligible validation difference
    is not compelling evidence of improvement.
 7. Treat the old design test as historical evidence. It is already opened and cannot become a
    fresh confirmation after this audit guides the next model. Reusing its results for debugging
    or comparison must be labelled exploratory. A new hash namespace or a reshuffle of the same
    snapshot does not erase earlier access. Strong new confirmation requires genuinely unseen
-   data; any newly sealed design subset must disclose its previous training and inspection
+   data. Any newly sealed design subset must disclose its previous training and inspection
    exposure and support only the appropriate internal robustness claim.
 8. Keep Stage 2 assessment users out of Stage 1 optimization. The prior aggregate diagnostics on
    the first 128 assessment users are a documented peek, not an unused assessment set. Do not
@@ -289,18 +289,20 @@ freeze and evaluate, not a free consequence of averaging seed-level metrics.
 
 | Priority | Work | Completion evidence |
 | --- | --- | --- |
-| P0 | Preserve evidence and outcome access boundaries | Frozen verifier passes; new work has separate source/output identity; no further assessment access |
+| P0 | Preserve evidence and outcome access boundaries | Frozen verifier passes, new work has separate source/output identity, no further assessment access |
 | P0 | Make new runs fail clearly on absent/corrupt inputs | Readable preflight, strict dependency/hash checks, corruption tests |
-| P1 | Repair practical BPR optimization | Minibatch implementation with equation checks and train diagnostics; full Steam validation still required |
+| P1 | Repair practical BPR optimization | Minibatch implementation with equation checks and train diagnostics, full Steam validation still required |
 | P1 | Expand ALS search and stopping choices within a budget | Prospective grid/checkpoints, validation ledger, finalist seed comparisons |
 | P1 | Measure weak segments and simple alternatives | Training-support/activity definitions, counts, simple baseline comparison, coverage and concentration |
-| P1 | Make runtime and memory claims enforceable | Separate fit/rank/serialization/total timings; peak memory and bounded score blocks |
+| P1 | Make runtime and memory claims enforceable | Separate fit/rank/serialization/total timings, peak memory and bounded score blocks |
 | P2 | Strengthen content and cold diagnostics | Shared-parameter ablation plus tuned benchmark, valid post-removal comparators, metadata provenance |
 | P2 | Strengthen generalization evidence | Declared evaluation target and genuinely unseen data or explicitly limited internal replication |
 
 Stage 1 can be improved now at the level of implementation, diagnostics, reproducibility, and
 prospective experiment design. Claiming a better recommender requires the missing private data,
 the actual validation experiment, and a defensible evidence label. The existing ALS result is
-the current measured winner until that work produces new evidence. Stage 2 remains a blueprint;
-its execution and economic interpretation are governed by
+the current measured winner until that work produces new evidence. The
+[Stage 1 closeout](stage1_closeout.md) records which of these items were implemented, deferred, or
+left as proposals. Stage 2 remains a blueprint.
+Its execution and economic interpretation are governed by
 [planning.md](../planning.md) and the [execution blueprint](stage2_execution_blueprint.md).

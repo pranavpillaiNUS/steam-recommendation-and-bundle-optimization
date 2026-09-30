@@ -3,7 +3,7 @@
 Reviewed: 2026-09-29. Status: **planning only; implementation has not begun**.
 Execution links reconciled: 2026-09-30.
 
-The owner requested completion and improvement of Stage 1 before starting Stage 2. This document
+Stage 1 completion and improvement precede Stage 2. This document
 turns Sections 11 to 17 of [planning.md](../planning.md) into an execution contract to freeze later.
 No Stage 2 inputs, policies, solver results, or assessment outcomes were generated for this review.
 The earlier study pause through November 2026 remains a calendar note; a later request to begin is

@@ -12,9 +12,11 @@ NUS Undergraduate Research Opportunities Programme project supervised by Dr Li X
 with Dr Li rather than as an open-source project, but the repository is written so that anyone who
 wants to check the work can follow it.
 
-**Project status:** Stage 1 is complete under cycle `s1-v2-20260814`. Stage 2 implementation is
-paused through November 2026 while I study the optimization literature and prepare its protocol.
-The Stage 1 evidence remains frozen and independently checkable during this period.
+**Project status:** Stage 1 is complete under cycle `s1-v2-20260814`, and a follow-up audit and
+improvement round was closed out on 2026-09-30. That round added tested tooling for future Stage 1
+experiments but produced no new Steam result, so the frozen evidence below is unchanged. Stage 2
+exists only as a planning blueprint. Implementation is paused through November 2026 while I study
+the optimization literature, and it starts only on an explicit decision to begin.
 
 [Result](#stage-1-result) | [Method](#method) | [Quick start](#quick-start) |
 [Evidence](#evidence-and-reproducibility) | [Roadmap](#roadmap) |
@@ -77,7 +79,8 @@ bootstrap interval is [0.062947, 0.078603].
 The panels are, in order: the one-time design-test score for each family, the predeclared admission
 rule applied to the paired difference against popularity, and where the ALS gain actually comes
 from. The third panel is the honest one. The advantage is largest for users with small libraries and
-falls to nothing for the heaviest users, who popularity already predicts well.
+shrinks to about zero, slightly negative, for users with at least 200 training games. Both models
+score poorly for that group, with popularity NDCG@20 of 0.058.
 
 This image is a presentation rendering produced by `python -m src.stage1_headline_figure`, which
 reads the frozen tables at run time. It is deliberately outside the hash-bound evidence graph. The
@@ -149,10 +152,12 @@ python -m pip install -r requirements-frozen.txt
 python -m pip check
 python -m pytest -q --strict-config --strict-markers -p no:cacheprovider
 python -m src.stage1_public_verify
+python -m src.stage1_successor preflight
 ```
 
-A public clone currently runs 208 tests and skips three checks that require intentionally excluded
-private artifacts.
+A public clone collects 329 tests, runs 326, and skips three checks that require intentionally
+excluded private artifacts. The preflight command exits with code 2 and a readable report listing
+the private design inputs that a public clone does not have.
 
 ## Evidence and reproducibility
 
@@ -162,6 +167,7 @@ The repository distinguishes evidence verification from full model retraining.
 | --- | --- | --- |
 | Public evidence | `python -m src.stage1_public_verify` | Hashes, manifest IDs, cycles, inventories, and cross-manifest links |
 | Unit and contract tests | `python -m pytest ...` | Numerical behavior and implementation contracts |
+| Successor readiness | `python -m src.stage1_successor preflight` | Whether the private design inputs for new Stage 1 experiments are present and hash-matching |
 | Completed private run | `python -m src.stage1_pipeline` | Exact raw and protected artifacts from the completed local run |
 
 The public verifier requires every publishable evidence file and permits absence only for paths
@@ -178,6 +184,10 @@ Useful evidence entry points:
 - [Mathematical appendix](notes/stage1_v2_mathematical_appendix.md)
 - [Frozen evidence summary](outputs/modeling/cycles/s1-v2-20260814/stage1_evidence_summary.md)
 - [Post-freeze release audit](notes/stage1_release_audit.md)
+- [Stage 1 scientific audit](notes/stage1_scientific_audit.md)
+- [Stage 1 closeout](notes/stage1_closeout.md)
+- [Successor Stage 1 runtime and runner](notes/stage1_runtime.md)
+- [Stage 2 execution blueprint](notes/stage2_execution_blueprint.md), planning only
 - [Assumptions and limitations](notes/assumptions_and_limitations.md)
 - [Research log](notes/research_log.md)
 - [Repository conventions](notes/repository_conventions.md)
@@ -207,6 +217,9 @@ Stage 2 mechanism.
 - [x] Popularity, ALS, identity BPR, and identity + genre BPR comparison
 - [x] Predeclared admission decision and production refit
 - [x] Four frozen pseudo-utility scenarios
+- [x] Stage 1 scientific audit, successor tooling, and closeout
+- [x] Stage 2 execution blueprint
+- [ ] Run successor Stage 1 experiments once the private design inputs are available
 - [ ] Study fixed-bundle pricing, approximation, and certification methods through November 2026
 - [ ] Freeze Stage 2 candidate pools, costs, capacities, tie rules, and search budgets
 - [ ] Implement exact fixed-composition pricing

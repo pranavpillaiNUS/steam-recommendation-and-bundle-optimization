@@ -1,17 +1,19 @@
 # UROP technical plan: from the CMM pivot to preference estimation and fixed-bundle design
 
-Last revised: 2026-09-30 (prospective review; frozen Stage 1 evidence unchanged)
+Last revised: 2026-09-30 (Stage 1 closeout, frozen Stage 1 evidence unchanged)
 
 Current status: Gate 0 and every Stage 1 step S1.0 to S1.12 are complete under the prospective
 `s1-v2-20260814` Steam-ID cycle. Gate 1 and Gate 2 pass. Only implicit ALS was admitted. Production
-refits and fold-in are complete for all three seeds and 12,585 assessment users. Current work is
-Stage 1 analysis and improvement under the owner's 2026-09-29 request. Stage 2 remains a blueprint:
-no implementation, candidate-pool experiments, or further assessment access is authorized by that
-request. The previous study pause through November 2026 also remains recorded in the README;
-reaching that date alone does not start Stage 2. After Stage 1 closeout and an explicit request to
-start Stage 2, the first dependency is the outcome-independent candidate-pool registry and notebook
-11, followed by Gate 3. No Stage 2 objective or bundle outcome was accessed during Stage 1 selection
-or scenario freezing.
+refits and fold-in are complete for all three seeds and 12,585 assessment users. The Stage 1
+improvement round begun on 2026-09-29 is closed out in
+[notes/stage1_closeout.md](notes/stage1_closeout.md). It added tested successor tooling but no new
+Steam result, so the v2 ALS release remains the only interface eligible for Stage 2. Stage 2 remains
+a blueprint. No implementation, candidate-pool experiment, or further assessment access has been
+authorized. The previous study pause through November 2026 also remains recorded in the README, and
+reaching that date alone does not start Stage 2. After an explicit request to start Stage 2, the
+first dependency is the outcome-independent candidate-pool registry and notebook 11, followed by
+Gate 3. No Stage 2 objective or bundle outcome was accessed during Stage 1 selection or scenario
+freezing.
 
 Post-freeze review note (2026-08-14): the cycle is an internally prospective, hash-bound record,
 not an external preregistration. Scientific inputs and evidence remain unchanged. Wording errata,
@@ -24,12 +26,16 @@ the executable work order, unresolved decisions, numerical certificate requireme
 access rules. Its prospective clarifications supplement Sections 11 to 17. Proposed defaults in
 that note are planning decisions, not a claim that a Stage 2 protocol or experiment has been frozen.
 
-The additive Stage 1 development path is [stage1_successor.py](src/stage1_successor.py), with
-[stage1_runtime.py](src/stage1_runtime.py) for bounded scoring and strict parameter loading and
-[stage1_training.py](src/stage1_training.py) for a prospective minibatch BPR objective. Its
-configuration is `configs/stage1_successor.json`. These development tools do not replace the
-historical admission result or constitute a new production interface. New validation evidence
-must be labeled exploratory because the historical design-test result is already known.
+The [Stage 1 scientific audit](notes/stage1_scientific_audit.md) of 2026-09-30 reviews the completed
+evidence and sets the improvement priorities. The additive Stage 1 development path is
+[stage1_successor.py](src/stage1_successor.py), with [stage1_runtime.py](src/stage1_runtime.py) for
+bounded scoring and strict parameter loading, [stage1_training.py](src/stage1_training.py) for a
+prospective minibatch BPR objective, and [stage1_execution.py](src/stage1_execution.py) for
+wall-time and memory supervision. Its configuration is `configs/stage1_successor.json`, its
+development cycle is `s1-dev-20260929`, and [notes/stage1_runtime.md](notes/stage1_runtime.md)
+documents its commands and outputs. These development tools do not replace the historical admission
+result or constitute a new production interface. New validation evidence must be labeled
+exploratory because the historical design-test result is already known.
 
 ## 1. What this document is for
 
@@ -344,6 +350,8 @@ Completed descriptive data work, notebooks 00 to 05
   -> S1.10 production refits and assessment fold-in, complete
   -> S1.11 pseudo-utility scenarios and Gate 2, complete
   -> S1.12 Stage 1 evidence package, complete
+  -> Stage 1 audit, additive improvement, and closeout, complete
+  -> explicit request to start Stage 2
   -> candidate-pool registry and notebook 11
   -> Gate 3 descriptive bridge
   -> S2.0 Stage 2 preregistration
@@ -644,7 +652,8 @@ The estimator manifest correctly records `real_model_fit: false`.
 
 Sections 10.1--10.8 preserve the prospective execution specification used for the completed cycle.
 They are historical requirements, not a current to-do list. Section 10.9 records the realized v2
-completion. Stage 2 is the remaining live work.
+completion. The later audit, improvement round, and closeout are recorded in Section 24.3. Stage 2
+is the remaining live work and waits for an explicit request to begin.
 
 ### 10.1 S1.5: backend and fold-in feasibility spike
 
@@ -976,10 +985,13 @@ identified WTP or money.
 
 S1.12 verifies 264 artifact references, writes the model card/evidence summary, aggregate and segment
 tables, seed contrasts, runtime/resource evidence, a ranking figure, and the mathematical appendix.
-The complete repository suite passed with 204 tests at the freeze. The published repository collects
-211, of which a public clone runs 208 and skips 3 that need the ignored private artifacts. The
-difference is the verifier tests added by the publication snapshot, not a change to any Stage 1
-result. `python -m src.stage1_pipeline` re-verifies the entire dependency graph idempotently and
+The complete repository suite passed with 204 tests at the freeze. At publication on 2026-08-15 the
+repository collected 211, of which a public clone ran 208 and skipped 3 that need the ignored
+private artifacts. The difference is the verifier tests added by the publication snapshot, not a
+change to any Stage 1 result. At the 2026-09-30 closeout the suite collected 328: 325 passed and the
+same 3 skipped. The 2026-10-01 final review added an environment-change regression, bringing the
+suite to 329 collected, 326 passed, and 3 skipped. These tests cover the additive successor tooling
+and change no Stage 1 result. `python -m src.stage1_pipeline` re-verifies the entire dependency graph idempotently and
 returns `status: complete` when the raw and protected artifacts are present.
 
 ## 11. The bridge between Stage 1 and Stage 2
@@ -2253,8 +2265,12 @@ including a public one with no raw or protected data:
 ```powershell
 python -m src.stage1_public_verify
 python -m src.stage1_estimator_spec --check-only
+python -m src.stage1_successor preflight
 python -m pytest -q
 ```
+
+`preflight` exits with code 2 and a readable JSON report when the private design inputs are absent.
+That is the expected result in a public clone.
 
 These additionally require the ignored raw archive under `data/raw` and the protected artifacts
 under `outputs/modeling/protected`, so they only run on a machine that holds the completed private
@@ -2269,9 +2285,12 @@ python -m src.mechanism_audit --check-only --compare-to outputs/tables/bundle_me
 python -m src.stage1_pipeline
 ```
 
-Without that private state they currently abort with an uncaught `FileNotFoundError` rather than a
-readable message. Giving them a clean "requires the private raw or protected artifacts" exit is a
-recorded next-cycle engineering fix, not a change to any frozen result.
+Without that private state they abort with a traceback rather than a readable message. The
+protocol, interaction, split, and feature check-only commands raise `FileNotFoundError` for the
+untracked `outputs/tables/user_items_df.csv`, and the mechanism audit raises it for
+`data/raw/bundle_data.json`. `src.stage1_pipeline` raises `FileExistsError` because the
+tracked source manifest is present without its protected output. These runners are bound to the
+frozen cycle and stay unchanged. The successor `preflight` command above is the readable check.
 
 These verify the current frozen research artifacts without intentionally rewriting them. Normal Python or pytest cache files may still be created by the environment, so this is not a claim of literal filesystem read-only execution.
 
@@ -2397,10 +2416,9 @@ These are reasons to report a scenario grid and decision stability rather than o
 - Reproducibility depends on exact upstream raw-data hashes.
 - Direct dependency versions are frozen, but the transitive environment, OS, hardware, and BLAS
   stack are not fully locked.
-- The ranking runner is complete, but the full v2 public evidence set remains untracked until the
-  release commit is deliberately assembled.
-- Public verification is now strict. Several protected-stage cached runners still need stronger
-  dependency revalidation in a prospective cycle.
+- Public verification is now strict. The frozen protected-stage cached runners still lack full
+  dependency revalidation. Successor runs revalidate every dependency through `VerifiedRunStore`,
+  and any future successor selection or production runner must use it too.
 - Archived and descriptive notebooks retain historical execution states. Their role and known
   identity erratum must remain explicit.
 
@@ -2579,10 +2597,16 @@ The final report appendix should contain full proofs, the theorem registry, addi
 - S1.10 three-seed production refits and assessment fold-in.
 - S1.11 four pseudo-utility scenarios and Gate 2.
 - S1.12 evidence package, 264-reference integrity verification, and 204-test suite.
+- Stage 1 scientific audit of the completed evidence, 2026-09-30.
+- Additive Stage 1 successor tooling: bounded runtime, minibatch BPR trainer, process supervisor,
+  development runner with readable preflight, access ledger, and environment capture.
+- Stage 1 closeout, 2026-09-30.
 - P1 to P8 in the Stage 2 theory note.
+- Stage 2 execution blueprint, planning only.
 
 ### 24.2 Not completed
 
+- Successor Stage 1 experiments on Steam data, which need the private design inputs.
 - Candidate-pool registry.
 - Notebook 11.
 - Live Stage 2 implementation.
@@ -2591,17 +2615,25 @@ The final report appendix should contain full proofs, the theorem registry, addi
 - Notebook 12 or 13.
 - Frozen-policy assessment.
 
-### 24.3 Immediate sequence: Stage 1 first
+### 24.3 Stage 1 improvement sequence, closed out 2026-09-30
 
 1. Audit the completed Stage 1 evidence, implementation, resource behavior, and research claims.
+   Complete in [notes/stage1_scientific_audit.md](notes/stage1_scientific_audit.md).
 2. Implement and verify Stage 1 engineering improvements without overwriting historical evidence.
+   Complete for the additive successor tooling, with synthetic and numerical verification only.
 3. Record any scientific model or selection changes in a new prospective cycle. The already opened
    historical design-test set cannot become an untouched test merely by assigning a new cycle ID.
+   No change was adopted. The development cycle `s1-dev-20260929` holds only exploratory proposals.
 4. Close out Stage 1 with an explicit account of measured changes, unmeasured proposals, resource
-   limits, and the model interface eligible for future Stage 2 use.
+   limits, and the model interface eligible for future Stage 2 use. Complete in
+   [notes/stage1_closeout.md](notes/stage1_closeout.md).
 5. Maintain the Stage 2 blueprint and its decision register. Do not run Stage 2 during this work.
+   The blueprint is maintained and Stage 2 has not started.
 
-The historical Stage 1 evidence remains read-only. The owner's 2026-09-29 request reopens prospective
+Successor experiments on Steam data wait for the exact private design inputs and a prospective,
+hash-bound selection configuration. The closeout lists what that configuration must declare.
+
+The historical Stage 1 evidence remains read-only. The 2026-09-29 review reopens prospective
 Stage 1 improvement, superseding the earlier blanket statement that model expansion was closed.
 It does not authorize retrospective replacement of the completed result or assessment-driven
 selection. No Stage 2 outcome may select a Stage 1 model, feature block, or transformation.
@@ -2638,11 +2670,12 @@ The final evidence package should include:
 - a one-page claim-to-evidence index
 - a short contribution note stating exactly what I derived, implemented, tested, and wrote.
 
-The remaining work follows the gates: candidate pools and notebook 11, exact Stage 2 code and proofs,
-locked heuristic validation, frozen assessment and robustness, then final reproduction and writing.
-Once the submission deadline and review dates are known, each block needs a start date, internal stop
-date, and cut decision. The current owner-requested priority is Stage 1 improvement; Stage 2 work
-remains documentation only until explicitly started.
+Stage 1, including the 2026-09-30 improvement closeout, is complete. After an explicit request to
+start Stage 2, the remaining work follows the gates: candidate pools and notebook 11, exact Stage 2
+code and proofs, locked heuristic validation, frozen assessment and robustness, then final
+reproduction and writing. Once the submission deadline and review dates are known, each block needs
+a start date, internal stop date, and cut decision. Until that request, Stage 2 work remains
+documentation only.
 
 ## Appendix A. Archived CMM record
 

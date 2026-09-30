@@ -110,6 +110,13 @@ hash-bound files.
   cycle should detect the missing private inputs and exit with a readable message pointing at the
   public verifier instead of a traceback.
 
+Addendum, 2026-09-30: the [Stage 1 closeout](stage1_closeout.md#engineering-amendments) maps each
+amendment above to its successor status. The last bullet needs one correction. The five
+check-only commands do raise `FileNotFoundError`, but in a public clone `src.stage1_pipeline` stops
+earlier with `FileExistsError: partial source publication already exists`, because the tracked
+source manifest is present without its protected output.
+`python -m src.stage1_successor preflight` is now the readable public-clone check.
+
 ## Release decision
 
 The Stage 1 result, privacy review, clean history, tracked publication, software license, and

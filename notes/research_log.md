@@ -955,7 +955,6 @@ What I changed:
    alone. Both are hash-bound, the first into the frozen estimator specification manifest and the
    second into the Stage 1 evidence manifest, so a wording edit would reopen the cycle. The
    estimator specification test caught this when I first edited the file.
-6. Deleted the empty `.agents` directory from the working tree.
 
 Repository note: this pass is applied to the published repository
 `steam-recommendation-and-bundle-optimization`, which is the live one. The older
@@ -971,3 +970,71 @@ Checks:
 
 Still open: the redistribution terms for the tracked derived tables. That one needs Dr Li's
 decision before the repository's visibility is settled.
+
+## 2026-09-30 - Stage 1 audit, successor tooling, and closeout
+
+Goal: finish the Stage 1 improvement round begun on 2026-09-29 before any Stage 2 work. That meant auditing
+the completed evidence, fixing the recorded engineering amendments without touching the frozen
+cycle, and closing out with a plain account of what was and was not measured.
+
+What I changed:
+
+1. Wrote `notes/stage1_scientific_audit.md`. It keeps the v2 result and sets the improvement
+   priorities. The main findings are that the ALS winner sits on the edge of a narrow grid, that the
+   frozen BPR fallback took one AdaGrad update per epoch, and that almost all of the ALS gain comes
+   from items with at least 500 training owners.
+2. Added the successor tooling as new modules only, because the frozen modules are hash-bound:
+   `stage1_runtime.py` for two-axis bounded scoring, exact memory-mapped quantiles, strict parameter
+   archives, and checked fold-in bounds, `stage1_training.py` for minibatch BPR with one update per
+   batch, `stage1_execution.py` for wall-time and sampled memory supervision, and
+   `stage1_successor.py` for a design-only runner with a readable preflight, dependency-checked
+   caches, an access ledger, and environment capture.
+3. Wrote `notes/stage2_execution_blueprint.md` as planning only and revised `planning.md` to put
+   Stage 1 first.
+4. Wrote `notes/stage1_closeout.md`. It maps every release-audit amendment to its status, lists the
+   unmeasured proposals, separates resource ceilings from measurements, and names the v2 ALS release
+   as the only interface eligible for Stage 2.
+5. Brought the README, model card, runtime note, and planning status into line with the closeout.
+   The model card now discloses the 128-user aggregate assessment peek. The README figure text no
+   longer says popularity predicts the heaviest users well, since both models score poorly there.
+   The audit's top 1 percent item count is corrected from 89 to 90.
+
+Checks:
+
+- 328 tests collected: 325 pass and 3 skip because they need the ignored private artifacts. The
+  only warning is the usual SciPy warning from the archived pricing test.
+- `python -m src.stage1_public_verify` returns `status: ok` with the unchanged evidence manifest ID
+  `9c0d5b48059cfbecad0d0c9fd2da8a025dc57942104dd181e308d338b07b6650`. No frozen manifest,
+  configuration, table, run log, or figure hash changed.
+- `python -m src.stage1_successor preflight` exits with code 2 and lists the ten missing private
+  design inputs. No protected input was read and no Steam model was fitted.
+- GitHub Actions passed on Ubuntu for the successor commits.
+
+Interpretation for Dr Li: Stage 1 is now closed out, but the claim is the same as on 2026-08-14.
+The new tooling makes future Stage 1 experiments safer and easier to check. Until those experiments
+run on the private inputs under a declared selection configuration, it is not evidence of a better
+recommender.
+
+Next session:
+- Stage 2 stays a blueprint until I explicitly decide to start it. The candidate-pool registry and
+  notebook 11 come first when it does.
+- If the private inputs are restored first, declare the successor search and selection
+  configuration before any Steam validation run.
+
+## 2026-10-01 - Closeout verification
+
+The closeout review checked the historical numbers and interface eligibility, and
+the runner's access and environment records. The historical counts, metrics, seeds, and manifest
+IDs matched the frozen public artifacts. The implementation review found two issues:
+
+- The access ledger's blanket no-access flag obscured opaque other-holdout masking and possible
+  preflight integrity reads. It now records those separately from assessment analysis and
+  design-test scoring, as an intended load rather than a claim that every read succeeded.
+- The final environment export could be sampled after an installed-package change. The runner
+  now captures one list for its initial hash and final export and rejects a detected software
+  environment change before completing a run. A regression test simulates this failure.
+
+Final checks: 329 collected, 326 passed, 3 skipped. The frozen public verifier still returns
+`status: ok` with evidence ID `9c0d5b48059cfbecad0d0c9fd2da8a025dc57942104dd181e308d338b07b6650`.
+The Stage 2 blueprint and deferred private-data proposals were left unchanged. No new Steam model
+was fitted, and the historical v2 ALS release remains the eligible Stage 2 interface.
