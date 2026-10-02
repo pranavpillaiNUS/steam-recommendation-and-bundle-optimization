@@ -2,6 +2,9 @@
 
 Frozen: 2026-07-17
 
+Presentation updated: 2026-10-02. I changed the equation delimiters for Markdown previews without
+changing the frozen mechanism or identification decisions.
+
 Status: internal Gate 0 specification. This document supersedes the 2026-07-14 four-decision
 memo as the active project contract. Later changes require a dated, versioned amendment made
 before inspecting the affected validation or optimization outcomes.
@@ -25,9 +28,9 @@ cardinal utility, purchase probability, or a monetary unit.
 
 Stage 2 therefore uses explicit nonnegative pseudo-utility scenarios
 
-$$
+```math
 v_{ui}^{m}=T_m(s_{ui})\ge 0.
-$$
+```
 
 Each $T_m$ is a frozen modeling choice, not an economic calibration. Prices, costs, and objectives
 are reported in the corresponding normalized scenario units. A common positive rescaling has a
@@ -68,15 +71,15 @@ $B$ and normalized bundle price $b$ while every component remains separately ava
 
 For user $u$, define
 
-$$
+```math
 w_u(B)=\sum_{i\in B}\min\{v_{ui},p_i^{CP}\}.
-$$
+```
 
 Under the primary bundle-preferred weak-tie convention, the user chooses the bundle exactly when
 
-$$
+```math
 w_u(B)\ge b.
-$$
+```
 
 This is the finite-panel specialization of the truncated choice condition in *Partition and
 Prosper*, equations (13)--(14), with component prices fixed as in its SBA equation (17). It is not
@@ -84,14 +87,14 @@ the SBR rule $\sum_{i\in B}v_{ui}\ge b$.
 
 Let
 
-$$
+```math
 A_u(B)=\sum_{i\in B}(p_i^{CP}-c_i)
 \mathbf 1\{v_{ui}\ge p_i^{CP}\}.
-$$
+```
 
 The empirical objective is
 
-$$
+```math
 \widehat\Pi_{SBA}(B,b)
 =
 \widehat\Pi_{CP}
@@ -99,7 +102,7 @@ $$
 \frac{1}{U}\sum_u
 \mathbf 1\{w_u(B)\ge b\}
 \left[b-\sum_{i\in B}c_i-A_u(B)\right].
-$$
+```
 
 The displaced component-margin term $A_u(B)$ is essential: a bundle sale can cannibalize a
 profitable separate sale. These are conditional normalized objectives, not actual Steam revenue.

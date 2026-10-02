@@ -14,16 +14,16 @@ money, willingness to pay, a purchase probability, or an interpersonally compara
 
 For binary ownership $o_{ui}$, lifetime playtime $t_{ui}$, and observed-edge confidence
 
-$$
+```math
 c_{ui}=1+\alpha_o+\alpha_p\min\{\log(1+t_{ui}),\tau\},
-$$
+```
 
 the estimator minimizes
 
-$$
+```math
 \sum_{u,i}c_{ui}(o_{ui}-x_u^\top q_i)^2
 +\lambda\left(\lVert X\rVert_F^2+\lVert Q\rVert_F^2\right).
-$$
+```
 
 Unobserved cells have $o_{ui}=0$ and confidence one. The score is $s_{ui}=x_u^\top q_i$.
 The production backend is `implicit==0.7.2` with its native exact least-squares solver, float32
@@ -32,9 +32,9 @@ seeds. Joint factorization is nonconvex. Exactness applies only to each fixed-bl
 
 With item factors fixed, a new user is folded in by the unique ridge solution
 
-$$
+```math
 x_u=(Q^\top C_uQ+\lambda I)^{-1}Q^\top C_uo_u.
-$$
+```
 
 The implementation solves the linear system and does not construct an explicit matrix inverse.
 
@@ -42,18 +42,18 @@ The implementation solves the linear system and does not construct an explicit m
 
 The pairwise score is
 
-$$
+```math
 s_{ui}=b_i+x_u^\top(\eta_i+\rho F_iG).
-$$
+```
 
 Identity-only sets $\rho=0$ and allocates no active genre parameter block. Identity plus genre
 sets $\rho=1$. This is the only controlled change. For sampled triples $(u,i,j)$, the summed
 objective is
 
-$$
+```math
 \sum_{(u,i,j)}\log\left(1+\exp\{-(s_{ui}-s_{uj})\}\right)
 +\lambda\lVert\theta\rVert_2^2.
-$$
+```
 
 The norm contains every active user, identity, genre, and item-bias parameter. The cycle-namespaced
 PCG64 stream samples a training edge uniformly with replacement and then a warm item uniformly,
@@ -68,11 +68,11 @@ start from identical shared parameters and consume identical triples.
 
 With item and genre parameters frozen, pairwise fold-in minimizes only over $x_u$:
 
-$$
+```math
 \sum_{(i,j)\in T_u}
 \log\left(1+\exp\{-x_u^\top(q_i-q_j)-(b_i-b_j)\}\right)
 +\lambda\lVert x_u\rVert_2^2.
-$$
+```
 
 $T_u$ uses each permitted warm positive once, in ascending item order, and one deterministic
 cycle-and-user-namespaced negative per positive. Negatives are drawn from the full warm catalogue
@@ -84,15 +84,15 @@ iterations. Empty or full-catalogue histories receive a reported zero-vector fal
 
 For user block $U$ and item block $I$, ALS scores are
 
-$$
+```math
 S_{U,I}=X_UQ_I^\top.
-$$
+```
 
 Pairwise scores are
 
-$$
+```math
 S_{U,I}=X_U(\mathrm{Eta}_I+\rho F_IG)^\top+b_I,
-$$
+```
 
 with the item-bias row broadcast across users. The centered score block has rank at most the
 latent dimension. All evaluation uses bounded blocks. No full user-by-catalogue score matrix is
@@ -102,19 +102,19 @@ One held-out ownership target is ranked against the complete frozen eligible cat
 specified positive masks are applied. If $g$ eligible scores are strictly above the target and its
 exact score-tied block has size $e$, then
 
-$$
-\mathbb{E}[\mathrm{Recall}@K]=\frac{\min\{\max(K-g,0),e\}}{e}
-$$
+```math
+\mathbb{E}[\mathrm{Recall}\mathord{@}K]=\frac{\min\{\max(K-g,0),e\}}{e}
+```
 
 and
 
-$$
-\mathbb{E}[\mathrm{NDCG}@K]
+```math
+\mathbb{E}[\mathrm{NDCG}\mathord{@}K]
 =\frac{1}{e}\sum_{r=g+1}^{\min(g+e,K)}\frac{1}{\log_2(r+1)}.
-$$
+```
 
 An empty sum is zero. No numerical tolerance merges distinct score levels. Expected coverage and
-concentration use the same fractional inclusion probability at a tied top-$K$ boundary.
+concentration use the same fractional inclusion probability at a tied top $K$ boundary.
 
 ## Pseudo-utility boundary
 

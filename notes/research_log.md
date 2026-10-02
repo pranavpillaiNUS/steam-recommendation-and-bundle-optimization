@@ -1068,3 +1068,30 @@ Checks:
   `9c0d5b48059cfbecad0d0c9fd2da8a025dc57942104dd181e308d338b07b6650`.
 
 No scientific result changed and no Steam model was fitted.
+
+## 2026-10-02 - GitHub mathematical preview correction
+
+The earlier preview check validated the original LaTeX directly with KaTeX. It did not check
+GitHub's preceding Markdown conversion. I reproduced a failure through GitHub's Markdown API:
+paired optimal-value asterisks became underscores, causing a double-subscript error. The broader
+check also found display equations interpreted as Markdown headings, inline formulas affected
+by emphasis or punctuation, and metric notation interpreted as a username mention.
+
+I changed display equations to fenced `math` blocks, protected inline braces and spacing with
+named commands, and moved fragile or long inline expressions into display blocks. Mathematical
+variables in the Stage 2 pricing prose now use mathematical notation rather than code formatting.
+I also added `notes/preference_model_specification_readable.md` and linked it from the README and
+model card. Both hash-bound originals remain unchanged. These are presentation corrections only.
+
+Checks:
+
+- GitHub's Markdown API preserves all 707 mathematical expressions in the nine public Markdown
+  documents with mathematics, using reading copies for the frozen contracts. Every resulting
+  expression passes the KaTeX syntax check.
+- The bundled VS Code mathematics plugin renders 829 expressions in 31 Markdown documents and
+  notebooks without a mathematical error.
+- The full test suite reports 326 passed and 3 skipped, with the usual archived SciPy warning.
+- The public verifier returns `status: ok` with the unchanged evidence ID
+  `9c0d5b48059cfbecad0d0c9fd2da8a025dc57942104dd181e308d338b07b6650`.
+- Installed dependencies are consistent, documentation links resolve, and `git diff --check`
+  is clean. No scientific result, fitted parameter, or notebook code changed.

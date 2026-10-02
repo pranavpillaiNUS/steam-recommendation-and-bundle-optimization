@@ -134,9 +134,9 @@ item, have additive quasi-linear utility, no budget limit, and the declared tie 
 | CP | Every item separately | Not applicable | $\sum_i(p_i-c_i)\Pr(v_i\ge p_i)$ |
 | PB | Whole pool as one bundle | $\sum_i v_{ui}$ | $(b-c(N))\Pr(\sum_i v_i\ge b)$ |
 | SBR | Bundle plus separate items outside it | $\sum_{i\in B}v_{ui}$ | Bundle margin plus CP margin outside $B$ |
-| SBA | Bundle plus every separate item | $w_u(B)=\sum_{i\in B}\min(v_{ui},p_i)$ | CP margin plus mean of $\mathbf{1}\{w_u(B)\ge b\}[b-c(B)-A_u(B)]$ |
+| SBA | Bundle plus every separate item | $w_u(B)=\sum_{i\in B}\min(v_{ui},p_i)$ | CP margin plus mean of $\mathbf{1}\lbrace w_u(B)\ge b\rbrace [b-c(B)-A_u(B)]$ |
 
-Here `A_u(B)` is the CP margin that user `u` would contribute on bundle items through separate
+Here $A_u(B)$ is the CP margin that user $u$ would contribute on bundle items through separate
 purchases. It must be subtracted when that user switches to the bundle. Products outside the pool
 cancel only under the additive, no-budget, common-menu assumptions; complementarity, budgets, or
 ownership-adjusted prices would require a new choice model.
@@ -144,11 +144,11 @@ ownership-adjusted prices would require a new choice model.
 CP scans distinct observed item values at or above cost plus an explicit no-sale policy. PB and
 fixed-composition SBR scan distinct total values plus no sale. Fixed-composition SBA scans distinct
 truncated totals plus no bundle. Sort complete equality blocks, then update buyer count and
-displaced margin. The SBA gain at threshold `t` is
+displaced margin. The SBA gain at threshold $t$ is
 
-$$
+```math
 \Delta_B(t)=\frac{n_B(t)\,[t-c(B)]-\sum_{u:w_u(B)\ge t}A_u(B)}{U},
-$$
+```
 
 where $n_B(t)$ is the number of buyers at threshold $t$ and $U$ is the panel size.
 
@@ -159,17 +159,17 @@ finite-price argument; it does not depend on normal valuations or an imported SB
 
 The no-sale policy must remain structural on assessment users. A numerical price just above the
 design maximum is not equivalent: an assessment user could exceed it. For a CP no-sale anchor use
-`Q_ui = v_ui` and `R_ui = 0` directly. Do not calculate infinity times zero. All-zero instances
+$Q_{ui}=v_{ui}$ and $R_{ui}=0$ directly. Do not calculate infinity times zero. All-zero instances
 must return the declared baseline and leave zero-denominator ratios undefined.
 
 Component equality means buy; primary bundle equality means take the bundle. Return no bundle on
 zero incremental gain. For positive-gain ties, use the smallest price, then smallest composition,
 then canonical item order. Keep exact ties separate from numerical near-ties and report both.
 
-For the strict bundle-tie sensitivity, specify a price lattice `b = k * delta`. Candidate prices
+For the strict bundle-tie sensitivity, specify a price lattice $b=k\delta$. Candidate prices
 are the greatest nonnegative tick strictly below each threshold, plus no bundle. Handle thresholds
 exactly on a tick with verified arithmetic; ordinary floating-point division followed blindly by
-`ceil` can select the wrong tick. Register `delta` as a fixed fraction of a positive design-only
+`ceil` can select the wrong tick. Register $\delta$ as a fixed fraction of a positive design-only
 scenario scale, with an all-zero fallback. Scale the tick whenever values and costs scale. A
 continuous strict-tie supremum is not an executable policy.
 
@@ -200,7 +200,12 @@ two primary matched-control statistics before their differences are inspected. U
 for matching diagnostics and the bridge.
 
 Primary costs remain zero. A proposed positive-cost sensitivity is
-`c_i = 0.1 * median_positive_design_value_i`, with zero when an item has no positive values.
+
+```math
+c_i=0.1\thinspace\operatorname{median}_{u:v_{ui}>0}v_{ui},
+```
+
+with zero when an item has no positive values.
 Compute the scale separately for each scenario and seed using its fixed design panel. Record the
 formula and resulting costs before optimization. These are assumed scenario costs, not observed
 seller expenses. This rule respects common positive scaling; holding dollar costs fixed across
@@ -220,17 +225,17 @@ equal-weight mean-regret consensus baseline. All use the same feasible family $\
 For scenario $s$, let $P_s(B)$ be design margin after exact scenario-specific repricing of
 composition $B$, including the structural option not to offer the bundle. Define
 
-$$
+```math
 P_s^*=\max_{B\in\mathcal F}P_s(B),\qquad
 S_s=\max\{|P_{\mathrm{CP},s}|,|P_s^*|\}.
-$$
+```
 
 For $S_s>0$, the composition regret and minimax rule are
 
-$$
+```math
 R_s(B)=\frac{P_s^*-P_s(B)}{S_s},\qquad
 B_R\in\arg\min_{B\in\mathcal F}\max_{s\in\mathcal S}R_s(B).
-$$
+```
 
 I will freeze the finite scenario set $\mathcal S$, scale formula, nominal scenario, and canonical
 ties before final outcomes. If $S_s=0$, all exact candidate margins are zero under the no-bundle

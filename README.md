@@ -187,6 +187,7 @@ Useful evidence entry points:
 - [Stage 1 model card](notes/stage1_model_card.md)
 - [Mathematical appendix, rendered reading version](notes/stage1_v2_mathematical_appendix_readable.md)
 - [Frozen mathematical appendix](notes/stage1_v2_mathematical_appendix.md), preserved for hash verification
+- [Estimator specification, rendered reading version](notes/preference_model_specification_readable.md)
 - [Frozen evidence summary](outputs/modeling/cycles/s1-v2-20260814/stage1_evidence_summary.md)
 - [Post-freeze release audit](notes/stage1_release_audit.md)
 - [Stage 1 scientific audit](notes/stage1_scientific_audit.md)

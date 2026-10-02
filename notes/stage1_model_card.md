@@ -105,6 +105,8 @@ must therefore not be described as independent model recomputation.
 - Mathematical appendix: `notes/stage1_v2_mathematical_appendix.md`
 - [Rendered mathematical appendix](stage1_v2_mathematical_appendix_readable.md), for GitHub and
   VS Code preview. The original above stays unchanged for evidence verification.
+- [Rendered historical estimator specification](preference_model_specification_readable.md),
+  preserving the hash-bound original contract.
 - Post-freeze audit and amendments: `notes/stage1_release_audit.md`
 
 ## Stage 1 closeout and next step

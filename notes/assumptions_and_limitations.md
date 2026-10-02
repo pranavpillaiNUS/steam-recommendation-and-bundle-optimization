@@ -239,7 +239,7 @@ The caveats that follow are retained. Read them with this map:
     the implicit-feedback data and ranking evaluation validate only the ordinal ordering the scores
     induce, not a cardinal utility, so the numerical cardinalization is model-dependent (loss,
     regularization, specification). Since a strictly increasing map preserves rankings but not sums
-    ($\sum_i T(s_i)$ is not generally $T(\sum_i s_i)$), the choice of cardinalization $T$ that maps
+    because $\sum_i T(s_i)\ne T(\sum_i s_i)$ in general, the choice of cardinalization $T$ that maps
     scores to pseudo-utilities changes which bundles clear which prices and therefore the optimal
     design. The optimization is run in explicitly normalized pseudo-utility units as a
     within-model counterfactual (never as identified dollars or revenue), and the bundle choices are
@@ -268,7 +268,7 @@ The caveats that follow are retained. Read them with this map:
     objective is conditional on the Layer 1 model, pseudo-utility transform $T$, additive choice
     assumptions, costs, and tie convention. Under CP-anchored SBA, a user takes bundle $B$ at price
     $b$ under the primary weak-tie rule when
-    $\sum_{i\in B}\min\{v_{ui},p_i^{CP}\}\ge b$. The objective must also subtract the component
+    $\sum_{i\in B}\min\lbrace v_{ui},p_i^{CP}\rbrace \ge b$. The objective must also subtract the component
     margin displaced for that buyer. The raw-sum rule $\sum_{i\in B}v_{ui}\ge b$ belongs to SBR,
     not SBA. For a fixed composition, scanning complete threshold blocks gives an exact price.
     Exhaustively enumerating the entire declared finite feasible family and pricing every composition

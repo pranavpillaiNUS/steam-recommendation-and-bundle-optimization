@@ -25,8 +25,12 @@ I write research decisions and work records in the first person. Technical defin
 impersonal. I keep `planning.md` local and ignored. The public Stage 2 blueprint records the
 research direction, dependencies, and completion criteria without relying on that local file.
 
-I use `$...$` for inline mathematics and `$$` on separate lines for display equations. Backticks
-are for code, field names, commands, and file paths. Ordinary code fences do not render equations.
+I use `$...$` for inline mathematics and fenced `math` blocks for display equations. GitHub and
+VS Code render those blocks while protecting their LaTeX from Markdown emphasis and headings.
+For inline set braces and spacing I use named commands such as `\lbrace`, `\rbrace`, and
+`\thinspace`, and I write starred superscripts as `^{\star}`. I check the Markdown-rendered
+formulas as well as the original LaTeX. Backticks are for code, field names, commands, and file
+paths. Ordinary code fences do not render equations.
 For a hash-bound historical document, I keep the original bytes and link a separately named
 reading version rather than changing the evidence record for a presentation fix.
 
