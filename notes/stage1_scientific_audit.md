@@ -15,7 +15,7 @@ fits or a recomputation from user records. The current workspace lacks the exact
 artifacts needed for a Steam retraining run. New code has numerical and synthetic verification,
 but **no improved Steam ranking score is claimed**. The frozen evidence and its admission decision
 remain the historical result. See the [model card](stage1_model_card.md),
-[release audit](stage1_release_audit.md), and [mathematical appendix](stage1_v2_mathematical_appendix.md).
+[release audit](stage1_release_audit.md), and [mathematical appendix](stage1_v2_mathematical_appendix_readable.md).
 
 ## What the completed experiment establishes
 
@@ -305,4 +305,4 @@ the current measured winner until that work produces new evidence. The
 [Stage 1 closeout](stage1_closeout.md) records which of these items were implemented, deferred, or
 left as proposals. Stage 2 remains a blueprint.
 Its execution and economic interpretation are governed by
-[planning.md](../planning.md) and the [execution blueprint](stage2_execution_blueprint.md).
+my local working plan and the [execution blueprint](stage2_execution_blueprint.md).

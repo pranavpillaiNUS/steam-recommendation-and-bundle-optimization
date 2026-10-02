@@ -103,6 +103,8 @@ must therefore not be described as independent model recomputation.
 - Segment results: `outputs/modeling/cycles/s1-v2-20260814/stage1_design_test_segments.csv`
 - Admission decision: `outputs/modeling/cycles/s1-v2-20260814/stage1_validation_admission_manifest.json`
 - Mathematical appendix: `notes/stage1_v2_mathematical_appendix.md`
+- [Rendered mathematical appendix](stage1_v2_mathematical_appendix_readable.md), for GitHub and
+  VS Code preview. The original above stays unchanged for evidence verification.
 - Post-freeze audit and amendments: `notes/stage1_release_audit.md`
 
 ## Stage 1 closeout and next step
@@ -114,7 +116,7 @@ result above stands unchanged. The ALS release described here remains the only i
 for Stage 2 until a successor release completes its own selection, production, and scenario
 evidence.
 
-Stage 2 has not begun and starts only after an explicit request. Before further assessment access,
-freeze and commit the candidate-pool registry, instance suite, pseudo-costs, tie convention, policy
+I have not begun Stage 2. Before further assessment access, I will freeze and commit the
+candidate-pool registry, instance suite, pseudo-costs, tie convention, policy
 set, search budgets, and assessment protocol. Only complete policies frozen on design users may then
 be evaluated on assessment users.

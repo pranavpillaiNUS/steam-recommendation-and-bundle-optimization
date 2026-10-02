@@ -5,7 +5,7 @@ Closeout date: 2026-09-30. Historical cycle: `s1-v2-20260814`. Development cycle
 
 Final review and verification updated: 2026-10-01.
 
-This note completes step 4 of the Stage 1 sequence in [planning.md](../planning.md#243-stage-1-improvement-sequence-closed-out-2026-09-30).
+I wrote this note to close out the Stage 1 improvement sequence in my local working plan.
 It gives an explicit account of what the 2026-09-29 improvement round measured, what it only
 implemented or proposed, the resource limits that apply, and the one model interface that a future
 Stage 2 may use. Stage 2 has not started and this note does not start it.
@@ -174,5 +174,5 @@ These do not block the closeout:
 - restore the private design inputs, then run the successor experiments above under a declared
   selection configuration.
 
-Stage 2 remains a blueprint. It starts only after an explicit request, with the candidate-pool
-registry and notebook 11 as its first dependency.
+Stage 2 remains a blueprint. When I begin it, I will first complete the research-gap review and
+uncertainty/synthetic protocol, then the candidate-pool registry and focused notebook 11 bridge.

@@ -27,10 +27,12 @@ the optimization literature, and it starts only on an explicit decision to begin
 This project connects two questions that are often treated separately:
 
 1. Can implicit-feedback models recover held-out Steam ownership better than popularity?
-2. Given the resulting preference scores, which fixed bundle should a seller offer?
+2. When are bundle decisions derived from those rankings reliable, and can accounting for utility
+   uncertainty reduce decision losses?
 
 Stage 1 answers the recommendation question and freezes four explicit score transformations for
-Stage 2. Stage 2 will formulate and solve the bundle-design problem. I keep the stages separate
+Stage 2. I plan a finite-scenario minimax-regret composition selector, known-value synthetic
+evaluation, and a Steam scenario-conditioned case study. I keep the stages separate
 because a ranking score is not automatically a monetary valuation.
 
 ```mermaid
@@ -41,7 +43,9 @@ flowchart LR
     D --> E[Full-catalogue ranking]
     E --> F[ALS selected]
     F --> G[Four pseudo-utility scenarios]
-    G -. Stage 2 .-> H[Fixed-bundle optimization]
+    G -. Stage 2 .-> H[Uncertainty-aware bundle design]
+    H -. evaluation .-> I[Known-value synthetic regret]
+    H -. case study .-> J[Steam decision stability]
 ```
 
 ### At a glance
@@ -181,7 +185,8 @@ publishing personal identifiers or per-user model artifacts.
 Useful evidence entry points:
 
 - [Stage 1 model card](notes/stage1_model_card.md)
-- [Mathematical appendix](notes/stage1_v2_mathematical_appendix.md)
+- [Mathematical appendix, rendered reading version](notes/stage1_v2_mathematical_appendix_readable.md)
+- [Frozen mathematical appendix](notes/stage1_v2_mathematical_appendix.md), preserved for hash verification
 - [Frozen evidence summary](outputs/modeling/cycles/s1-v2-20260814/stage1_evidence_summary.md)
 - [Post-freeze release audit](notes/stage1_release_audit.md)
 - [Stage 1 scientific audit](notes/stage1_scientific_audit.md)
@@ -202,7 +207,6 @@ notes/         model card, assumptions, mathematics, and research log
 outputs/       aggregate tables, figures, manifests, and run logs
 src/           estimators, ranking, artifact generation, and verification
 tests/         numerical, integrity, and cross-platform tests
-planning.md    project plan, decision gates, and completion record
 ```
 
 The notebooks document the route from data inspection to the current formulation. Notebooks 06
@@ -222,12 +226,16 @@ Stage 2 mechanism.
 - [ ] Run successor Stage 1 experiments once the private design inputs are available
 - [ ] Study fixed-bundle pricing, approximation, and certification methods through November 2026
 - [ ] Freeze Stage 2 candidate pools, costs, capacities, tie rules, and search budgets
+- [ ] Complete the research-gap review and freeze uncertainty and synthetic-evaluation protocols
 - [ ] Implement exact fixed-composition pricing
 - [ ] Certify small composition-search instances
 - [ ] Compare scalable search against exact solutions on locked instances
+- [ ] Implement nominal, consensus, and minimax-regret composition selection
+- [ ] Evaluate complete frozen menus against known synthetic values, including misspecification
 - [ ] Evaluate complete frozen policies on assessment users without reoptimization
 
-The binding order and decision gates are documented in [planning.md](planning.md). No further
+I keep `planning.md` as an ignored local working plan. The public research direction, execution
+order, and decision gates are documented in the [Stage 2 blueprint](notes/stage2_execution_blueprint.md). No further
 assessment access or bundle-policy evaluation is planned during the study pause.
 
 ## Scope and limitations

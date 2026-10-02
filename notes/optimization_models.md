@@ -5,7 +5,7 @@ Last revised: 2026-07-17
 Status: governing mathematical specification for the post-meeting pivot. The empirical results
 described here have not yet been run unless another project artifact explicitly says otherwise.
 Gate 0 is an internal specification freeze and is complete as of 2026-07-17. Work proceeds under
-this specification unless the project owner records a prospective, versioned amendment. Supervisor
+this specification unless I record a prospective, versioned amendment. Supervisor
 feedback is nonblocking.
 
 ## 1. Role of this note and result provenance
@@ -1037,7 +1037,7 @@ with the same objective.
 *(CMM2 $\Rightarrow$ CMM1, the completion.)* Take a CMM2 optimal $\mathbf{x}=(x_1,\dots,x_m)$.
 A Schur complement on the trailing $1$ of the CMM2 block gives
 $\bigl(\begin{smallmatrix}\boldsymbol{\Sigma}&\hat{\mathbf{Y}}^\top\\\hat{\mathbf{Y}}&\mathbf{S}(\mathbf{x})\end{smallmatrix}\bigr)\succeq0$,
-where $\hat{\mathbf{Y}}=\mathbf{Y}-\mathbf{x}\boldsymbol{\alpha}^\top$ and we used
+where $\hat{\mathbf{Y}}=\mathbf{Y}-\mathbf{x}\boldsymbol{\alpha}^\top$, using
 $\boldsymbol{\Pi}=\boldsymbol{\Sigma}+\boldsymbol{\alpha}\boldsymbol{\alpha}^\top$. The matching
 CMM1 Schur complement is the *partial* matrix (the entries marked $?$ are the unspecified
 cross-moments between $\boldsymbol{\Sigma}$ and the outside option, $x_0=1-\mathbf{e}^\top\mathbf{x}$):
@@ -1080,7 +1080,7 @@ where $\hat{\mathbf{Y}}=\mathbf{Y}-\mathbf{x}\boldsymbol{\alpha}^\top$ so that
 $\operatorname{tr}(\mathbf{Y})=\boldsymbol{\alpha}^\top\mathbf{x}+\operatorname{tr}(\hat{\mathbf{Y}})$,
 which is where the linear term $\boldsymbol{\alpha}^\top\mathbf{x}$ comes from. $\mathbf{S}(\mathbf{x})$
 is diagonally dominant, hence PSD, so the inner problem is a genuine SDP. With
-$\boldsymbol{\Sigma}\succ0$ we have $\operatorname{range}(\mathbf{S}(\mathbf{x}))\subseteq\operatorname{range}(\boldsymbol{\Sigma})$,
+$\boldsymbol{\Sigma}\succ0$, it follows that $\operatorname{range}(\mathbf{S}(\mathbf{x}))\subseteq\operatorname{range}(\boldsymbol{\Sigma})$,
 and the trace-maximizing coupling has the closed form (Dowson and Landau 1982; Olkin and
 Pukelsheim 1982; Shapiro 1985)
 
@@ -1135,7 +1135,7 @@ $$
   $$\mathbf{p} = \boldsymbol{\omega} + \nabla f(\mathbf{q}).$$
 
 - **Lemma 2.** The map $H:\mathbf{p}\mapsto\mathbf{q}$ is a bijection from $\mathbb{R}^m$ onto
-  $\operatorname{int}(\Delta_m)$. So we may treat the choice probabilities $\mathbf{q}$ as the
+  $\operatorname{int}(\Delta_m)$. The choice probabilities $\mathbf{q}$ can therefore serve as the
   decision variable and recover prices afterwards.
 
   *Proof.* Strong concavity of $f$ on $\Delta_m$ together with Lemma 1 gives a unique interior

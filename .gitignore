@@ -59,11 +59,11 @@ data/interim/
 data/processed/
 data/cache/
 
-# planning.md is intentionally tracked as the governing completion plan
+# local working plan
+/planning.md
 
 # os and editor
 .DS_Store
 Thumbs.db
 .vscode/
 .idea/
-

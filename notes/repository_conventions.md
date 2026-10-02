@@ -19,6 +19,17 @@ for me and for Dr Li, not an invitation for outside changes.
    change there fails the test suite and reopens the cycle, so they stay as they are until a
    new cycle starts.
 
+## Documentation and local planning
+
+I write research decisions and work records in the first person. Technical definitions can remain
+impersonal. I keep `planning.md` local and ignored. The public Stage 2 blueprint records the
+research direction, dependencies, and completion criteria without relying on that local file.
+
+I use `$...$` for inline mathematics and `$$` on separate lines for display equations. Backticks
+are for code, field names, commands, and file paths. Ordinary code fences do not render equations.
+For a hash-bound historical document, I keep the original bytes and link a separately named
+reading version rather than changing the evidence record for a presentation fix.
+
 ## Checks before committing
 
 ```text

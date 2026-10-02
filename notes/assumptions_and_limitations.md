@@ -17,13 +17,13 @@ Things to keep honest about when writing this up.
    - 70 have zero coverage,
    - the rest are partial.
    For any bundle missing even one item from the panel, users_own_all is mechanically biased
-   toward zero. We only trust users_own_all on full-coverage bundles.
+   toward zero. I only trust users_own_all on full-coverage bundles.
 
 3. **Australian panel.** The ownership data is a panel of Australian users, not a random
    global sample. Tastes, prices, and ownership rates may not generalise.
 
 4. **Snapshot prices.** bundle_price, bundle_final_price, and discount are a single snapshot.
-   Steam discounts change constantly. We do not see the price history or the discount the
+   Steam discounts change constantly. I do not observe the price history or the discount the
    user actually faced when they bought.
 
 5. **bundle_price is sum of parts by construction.** bundle_price equals the sum of item

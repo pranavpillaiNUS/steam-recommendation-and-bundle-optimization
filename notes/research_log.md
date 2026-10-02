@@ -310,7 +310,7 @@ Next session:
 ## 2026-07-11 - Met Dr. Li at NUS, went through progress for notebooks 03 to 09
 
 Goal: present the temperature-weighted soft-attribution sensitivity, the minimum-cost demand proxy,
-and the preliminary ranking work. We discussed Recall@K and AUC for ranking held-out games among
+and the preliminary ranking work. Dr Li and I discussed Recall@K and AUC for ranking held-out games among
 the training catalogue. Dr Li highlighted that the cross-moment model applies to a specific menu in
 which customers can choose any bundle of a posted size. The Steam snapshot instead contains fixed
 compositions. The meeting therefore established a mechanism mismatch: I had focused on CMM's
@@ -492,7 +492,7 @@ Stopping point: Gate 0 and prerequisite actions 1--4 in the binding sequence are
 untouched item is S1.0. No frozen split, Stage 1 configuration, new Stage 1 fit, or Stage 1 result was
 created in this pass.
 
-## Where we are at
+## Current position
 
 I started by inspecting the Steam data rather than assuming a research question. I cleaned the
 bundle data into a table with bundle id, size, component prices, final prices, and discounts,
@@ -928,7 +928,7 @@ Checks:
 Before release:
 
 - confirm the redistribution terms for the derived tables and figures
-- choose the code license with the project owner and supervisor
+- choose the code license with Dr Li
 - publish from a sanitized Git history
 - review and add the currently untracked v2 files
 - set the final Git author name and email before committing.
@@ -1038,3 +1038,33 @@ Final checks: 329 collected, 326 passed, 3 skipped. The frozen public verifier s
 `status: ok` with evidence ID `9c0d5b48059cfbecad0d0c9fd2da8a025dc57942104dd181e308d338b07b6650`.
 The Stage 2 blueprint and deferred private-data proposals were left unchanged. No new Steam model
 was fitted, and the historical v2 ALS release remains the eligible Stage 2 interface.
+
+## 2026-10-02 - Documentation voice, mathematical presentation, and local planning
+
+I revised the notes and notebook introductions to describe my research decisions in my own voice.
+I also made `notes/stage2_execution_blueprint.md` the standalone public plan for the stronger paper
+direction adopted on 2026-10-01: decision reliability under uncertain preferences, a finite-scenario
+minimax-regret composition selector, exact small-instance checks, and synthetic acquisition
+experiments with known values. Stage 2 remains planning only.
+
+My detailed working plan, `planning.md`, now stays local. I added it to `.gitignore`, removed it
+from the Git index, and replaced public links to it with links to the execution blueprint. The
+local file remains available.
+
+I added `notes/stage1_v2_mathematical_appendix_readable.md` with the frozen equations typeset for
+Markdown previews. The original appendix and estimator specification remain unchanged because
+their byte hashes are part of the frozen evidence. The README, model card, and scientific audit
+now link to the readable appendix. I also corrected mathematical presentation in the Stage 2
+blueprint and recorded the documentation conventions.
+
+Checks:
+
+- All 776 mathematical expressions in 31 documents passed the bundled VS Code KaTeX renderer.
+  A rendered sample of the appendix and Stage 2 formulas displayed correctly.
+- Relative documentation links resolve, and no public Markdown link points to the ignored plan.
+- Notebook code, outputs, execution counts, cell order, and metadata are unchanged.
+- The full test suite reports 326 passed and 3 skipped, with the usual archived SciPy warning.
+- The public verifier returns `status: ok` with the unchanged evidence ID
+  `9c0d5b48059cfbecad0d0c9fd2da8a025dc57942104dd181e308d338b07b6650`.
+
+No scientific result changed and no Steam model was fitted.

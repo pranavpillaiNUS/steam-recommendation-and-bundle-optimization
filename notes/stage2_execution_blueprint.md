@@ -1,30 +1,38 @@
 # Stage 2 execution blueprint and design review
 
-Reviewed: 2026-09-29. Status: **planning only; implementation has not begun**.
-Execution links reconciled: 2026-09-30.
+Updated: 2026-10-02. Status: **planning only; I have not begun implementation**.
 
-Stage 1 completion and improvement precede Stage 2. This document
-turns Sections 11 to 17 of [planning.md](../planning.md) into an execution contract to freeze later.
-No Stage 2 inputs, policies, solver results, or assessment outcomes were generated for this review.
-The earlier study pause through November 2026 remains a calendar note; a later request to begin is
-still needed. Proposed defaults below are explicit recommendations, not an already frozen protocol.
+I use this blueprint as the public Stage 2 research and execution plan. My detailed working plan,
+`planning.md`, stays local and is ignored by Git. On 2026-10-01 I revised the research direction
+toward decision reliability under uncertain preferences. Finite-scenario minimax-regret
+composition selection and known-value synthetic evaluation are now core work. Broad mechanism
+and matched-control comparisons are supporting analyses.
 
-The historical mechanism specification and [theory note](optimization_models.md) are retained.
-P1 to P8 have project proofs there. P9, the implementation tests, numerical certificates, and a
-complete reproduced SBR paper proof remain future deliverables. The new clarifications below do not
-change historical Stage 1 metrics, fitted parameters, transformations, or admission decisions.
+I completed the Stage 1 audit and closeout before planning this revision. I have not generated
+Stage 2 inputs, policies, solver results, or assessment outcomes. I am continuing the study pause
+through November 2026 and will decide separately when to begin implementation. Proposed defaults
+below remain unfrozen until I record the prospective protocol.
+
+I retain the mechanism specification and [theory note](optimization_models.md). P1 to P8 have
+project proofs there. P9, implementation tests, numerical certificates, the uncertainty-aware
+selector, and the known-value study remain future work. Reproducing an additional SBR paper proof
+is supporting work after the core. This revision changes no historical Stage 1 metric, fitted
+parameter, transformation, admission decision, or evidence ID.
 
 ## What Stage 2 can establish
 
-The question is: under declared additive pseudo-utilities, which feasible fixed bundle and posted
-price improve normalized seller margin when components remain available at fixed component prices?
-The primary mechanism is CP-anchored Single Bundle with All, abbreviated SBA. The answer is
-conditional on the model, transformation, user panel, pool, costs, constraints, and tie convention.
+My main question is: when are bundle decisions derived from implicit preference rankings reliable,
+and can composition selection that accounts for uncertain cardinalization reduce decision losses?
+I use CP-anchored Single Bundle with All, abbreviated SBA, with separately available components.
+Within each scenario, the optimization answer remains conditional on the model, transformation,
+user panel, pool, costs, constraints, and tie convention.
 
-The current design has several strengths: it includes the no-bundle alternative, subtracts
-displaced component margin, uses exact empirical price thresholds, distinguishes complete search
-from heuristics, and evaluates design-selected policies on separate users. These choices make a
-useful operations research study possible even without purchase records.
+I retain the no-bundle alternative, displaced-component-margin accounting, exact empirical price
+thresholds, numerical certificates, and frozen-policy evaluation. I separate preference-estimation
+error, cardinal-model ambiguity, and optimization error. Steam supplies a scenario-conditioned
+case study. Synthetic acquisition environments supply known values for independent economic
+evaluation. The working title is **Beyond the Ranking: Robust Bundle Design under Preference
+Uncertainty**. The final title and claims depend on the results.
 
 The main empirical limitation remains identification. A held-out user is represented by scores
 inferred from permitted ownership history, and those scores become the outcome used to evaluate a
@@ -36,6 +44,28 @@ Use synthetic pre-acquisition preference types as the primary interpretation. Do
 existing library as a purchase occasion or literally ask owners to repurchase it. A future
 installed-base experiment must mask owned items, refit all design-side prices and policies, and
 state its treatment of owned DLC and base games. It remains a separate modeled sensitivity.
+
+## Research-gap review
+
+I will first prepare a related-work matrix covering mechanism, observation model, uncertainty
+family, decision variables, evaluation truth, guarantee, and the precise contribution I propose.
+My starting references are [Partition and Prosper](https://pubsonline.informs.org/doi/10.1287/opre.2022.0465),
+[Smart Predict, then Optimize](https://arxiv.org/abs/1710.08005),
+[Decision-Focused Learning: Through the Lens of Learning to Rank](https://proceedings.mlr.press/v162/mandi22a.html),
+[Robust Assortment Optimization from Observational Data](https://arxiv.org/abs/2602.10696),
+and the adjacent [reward-model overoptimization study](https://proceedings.mlr.press/v202/gao23h.html).
+I will also search specifically for robust mixed bundling and cardinal-ambiguity/minimax-regret
+composition selection, reading the relevant full versions before importing results.
+
+Generic minimax regret, a rank-preserving counterexample, and combining ALS with a bundle optimizer
+are not sufficient novelty. I will investigate a bundle-specific stability condition, regret
+bound, or computational improvement and state what is actually established. If no substantive gap
+survives review, I will revise the contribution prospectively or report a rigorous methodological
+UROP study without claiming a novel robust method.
+
+My uncertainty family must be bounded and justified. Four transformations and three seeds do not
+form a calibrated confidence set for true values. Robustness is conditional on the declared
+family. I will retain failures outside that family and negative or negligible method improvements.
 
 ## Review findings and required decisions
 
@@ -101,10 +131,10 @@ item, have additive quasi-linear utility, no budget limit, and the declared tie 
 
 | Mechanism | Available menu | Weak-tie bundle threshold | Design objective |
 | --- | --- | --- | --- |
-| CP | Every item separately | Not applicable | Sum of itemwise margins `(p_i-c_i) Pr(v_i >= p_i)` |
-| PB | Whole pool as one bundle | `sum_i v_ui` | `(b-c(N)) Pr(sum_i v_ui >= b)` |
-| SBR | Bundle plus separate items outside it | `sum_(i in B) v_ui` | Bundle margin plus CP margin outside `B` |
-| SBA | Bundle plus every separate item | `w_u(B) = sum_(i in B) min(v_ui,p_i)` | CP margin plus `mean[1(w_u >= b) (b-c(B)-A_u(B))]` |
+| CP | Every item separately | Not applicable | $\sum_i(p_i-c_i)\Pr(v_i\ge p_i)$ |
+| PB | Whole pool as one bundle | $\sum_i v_{ui}$ | $(b-c(N))\Pr(\sum_i v_i\ge b)$ |
+| SBR | Bundle plus separate items outside it | $\sum_{i\in B}v_{ui}$ | Bundle margin plus CP margin outside $B$ |
+| SBA | Bundle plus every separate item | $w_u(B)=\sum_{i\in B}\min(v_{ui},p_i)$ | CP margin plus mean of $\mathbf{1}\{w_u(B)\ge b\}[b-c(B)-A_u(B)]$ |
 
 Here `A_u(B)` is the CP margin that user `u` would contribute on bundle items through separate
 purchases. It must be subtracted when that user switches to the bundle. Products outside the pool
@@ -116,9 +146,11 @@ fixed-composition SBR scan distinct total values plus no sale. Fixed-composition
 truncated totals plus no bundle. Sort complete equality blocks, then update buyer count and
 displaced margin. The SBA gain at threshold `t` is
 
-```text
-(buyer_count * (t - bundle_cost) - displaced_margin_of_buyers) / user_count.
-```
+$$
+\Delta_B(t)=\frac{n_B(t)\,[t-c(B)]-\sum_{u:w_u(B)\ge t}A_u(B)}{U},
+$$
+
+where $n_B(t)$ is the number of buyers at threshold $t$ and $U$ is the panel size.
 
 Between thresholds, the buyer set is constant and this expression increases with price whenever
 there is a buyer. Raising a price to its smallest buying threshold therefore suffices under weak
@@ -181,20 +213,114 @@ Mixed itemwise combinations can matter. Count their Cartesian product; exhaust i
 registered anchor budget, otherwise apply an outcome-independent sample and state that coverage is
 partial. Extreme vectors alone do not certify worst-case robustness over all anchors.
 
+## Core method: uncertainty-aware composition selection
+
+I will compare nominal SBA with a finite-scenario minimax-regret composition selector and an
+equal-weight mean-regret consensus baseline. All use the same feasible family $\mathcal F$.
+For scenario $s$, let $P_s(B)$ be design margin after exact scenario-specific repricing of
+composition $B$, including the structural option not to offer the bundle. Define
+
+$$
+P_s^*=\max_{B\in\mathcal F}P_s(B),\qquad
+S_s=\max\{|P_{\mathrm{CP},s}|,|P_s^*|\}.
+$$
+
+For $S_s>0$, the composition regret and minimax rule are
+
+$$
+R_s(B)=\frac{P_s^*-P_s(B)}{S_s},\qquad
+B_R\in\arg\min_{B\in\mathcal F}\max_{s\in\mathcal S}R_s(B).
+$$
+
+I will freeze the finite scenario set $\mathcal S$, scale formula, nominal scenario, and canonical
+ties before final outcomes. If $S_s=0$, all exact candidate margins are zero under the no-bundle
+option. I will retain zero raw gaps, omit the undefined ratio, and return no bundle if every
+scenario has zero reference margin. I will not use an arbitrary epsilon to hide division by zero.
+
+For Steam, I will run the four transformations jointly within each ALS seed and repeat for all
+three seeds. I will report seed variation separately. This selects a shared composition with
+scenario-specific prices or no-bundle decisions. It does not produce one identified monetary
+menu, and I will not average prices or transfer their raw numerical values across transformations.
+The nominal scenario will be selected for an outcome-independent reason. Design gains cannot
+demonstrate safety because scenario-specific repricing already includes the no-bundle option.
+
+Small instances will receive complete composition/regret enumeration and numerical certificates.
+For larger instances, I will freeze a reference bank of nominal, consensus, and search incumbents
+before final search. Best-found references yield signed reference gaps, not regret against an
+unknown global optimum. I will keep those references and scales fixed and retain negative gaps.
+On locked exact cases, I will hash heuristic outputs before opening exact references, then measure
+their gap against the exact minimax optimum. Reference-bank error and search error stay separate.
+
+One reusable add/drop/swap search will be compared with greedy and random search under equal
+budgets of full scenario-objective evaluations. I will also record price-scan counts, wall time,
+and memory. Nominal and minimax objectives have separate locked gates. Any abstention extension
+needs its own predeclared threshold and design-validation slice, and must be frozen before final
+assessment. Otherwise no bundle remains an ordinary feasible candidate.
+
+I plan `src/robust_bundle_design.py` and an independent tiny scenario oracle in its tests. Required
+checks include one-scenario reduction, zero-reference handling, scale invariance, complete scenario
+vectors, deterministic ties, fixed best-found references, and honest certificate labels.
+
+## Core evaluation: known-value acquisition environments
+
+I will build a compact synthetic acquisition study in `src/synthetic_acquisition.py`, with an
+independent choice oracle and notebook 14. Its generator will record known nonnegative values,
+historical offered prices, exposure, purchases, and non-purchases. The core learner receives only
+registered ownership observations and permitted item features. Hidden evaluation values are not
+training labels. Additional price/choice supervision is a separately registered variant.
+
+I will register one additive quasi-linear reference environment and bounded changes in exposure
+bias, acquisition-price/quality confounding, sparsity, noise, and dependence. A small locked
+misspecification suite will include true value mappings outside the assumed scenario family.
+Complementarity or budgets, if studied, need an independent true-choice evaluator and explicit
+misspecification labels. I will not silently apply the additive SBA reduction to them.
+
+Generated users and random streams will be separated into fitting, design selection, design
+validation, and final evaluation. Development and locked environment groups stay distinct.
+Final-user representations may use only a permitted historical/fold-in view excluding evaluation
+outcomes. I will define a synthetic pre-acquisition occasion rather than literal repurchase of an
+existing library. Installed-base experiments need owned-item masking and separate frozen rules.
+Information-boundary tests will reject hidden truth in selection/calibration APIs and keep
+acquisition and evaluation random streams separate.
+
+For the primary economic test, I will declare one nominal proxy and a common value unit before
+outcomes. Any score-to-unit mapping uses an explicit prior or registered observable design
+supervision. It cannot use hidden truth reserved for evaluation. One component-price vector is
+selected from nominal design proxies and held fixed across tested methods. Nominal, consensus,
+and minimax compositions are priced on those same nominal design proxies. I will freeze complete
+menus before opening final true values. There is no final-truth repricing for the tested methods.
+
+The privileged evaluation oracle may inspect final true values solely to find the best feasible
+SBA policy with the same fixed component anchors, costs, capacity, and tie rules. Exact finite-panel
+oracle regret is nonnegative on that panel. A best-found oracle yields a signed reference gap.
+An oracle fitted on design truth and evaluated on final users is a different diagnostic and can
+have negative signed differences. Oracle outputs cannot feed back into the tested methods.
+
+Core baselines are frozen CP/no bundle, nominal SBA, consensus, minimax, and the privileged exact
+true-value oracle. My primary synthetic contrast is minimax versus nominal true oracle regret.
+I will report average and registered tail regret across independent environment replicates,
+true margin and demand, average-performance tradeoffs, and proxy-versus-truth results along a
+frozen search-budget ladder. Policies share users, values, and acquisition streams for paired
+comparisons. Training seeds are nested replicates, not independent user panels.
+
+I will publish out-of-family failures, excessive conservatism, and negligible improvements over
+consensus. The central synthetic result must regenerate without Steam's private data. Synthetic
+validity remains conditional on the generator and does not establish real Steam revenue.
+
 ## Execution packages and acceptance gates
 
-Each package begins only after a future request to start Stage 2. Estimated effort is deliberately
-not a completion promise: runtime pilots determine the search frontier.
+I will begin these packages when I start Stage 2. Runtime pilots will determine the search
+frontier. The package list is a work plan, not a claim of completed implementation.
 
 | Package | Work and proposed code boundary | Acceptance evidence | If it fails |
 | --- | --- | --- | --- |
-| S2.0 inputs and protocol | Final Stage 1 binding; `candidate_pools.py`; protected user maps; pool groups; core grid; costs; ties; budgets; access ledger | Content-derived protocol and instance identities preceding affected outcomes | Resolve missing metadata or inputs; retain exclusions |
-| Bridge/Gate 3 | Notebook 11, matched controls, design-only raw and score dependence | Balance, coverage, registered statistics, descriptive wording | Mark unmatched cases; narrow bridge claims |
-| S2.1–S2.3 semantics | `bundle_design.py` pure CP/PB/SBR/SBA APIs and an independently written tiny menu oracle | Direct/reduced choice and objective agreement; P1–P9 tests; no-sale and strict-grid edge cases | Correct semantics before real-pool optimization |
-| S2.4 exact search | Reference enumeration, counts, numerics, checkpoint identities | Per-instance completeness and numerical certificate tier; all timeouts retained | Reduce declared scope, never silently subsample the same instance |
-| S2.5 scalable search | Multistart add/drop/swap with exact repricing; baseline searches | Frozen settings and outputs before locked exact results; separate SBA/SBR gap reports | Headline exact pools only; larger results exploratory |
-| S2.6 policies | Design-select CP, PB, SBR, SBA and feasible observed-composition prices | Complete policy hashes including costs, component anchors, prices and tie rules | No assessment access for incomplete policies |
-| S2.7 assessment | Apply all frozen policies; paired resampling; registered robustness | Full grid and exclusions, negative outcomes retained, no reoptimization | Report loss or fragility; no assessment-selected replacement |
+| S2.0 research and protocol | Gap review; complete Stage 1 binding; uncertainty family; synthetic information/split contract; pools; budgets; access ledger | Contribution target and content-derived identities preceding affected outcomes | Revise the target prospectively; retain exclusions |
+| Bridge/Gate 3 | Focused notebook 11 metadata, compatibility, coverage, and design-only raw/ALS checks | Outcome-independent pools, registered statistics, and complete research contract | Narrow the case study; broader matching remains supporting work |
+| S2.1–S2.3 semantics | `bundle_design.py` CP/SBA APIs and independent menu/generator oracles | Direct/reduced choice and objective agreement; P1–P9; no-sale and tie cases | Correct semantics before headline optimization |
+| S2.4 exact search | Nominal/minimax reference enumeration and true-value evaluation oracle | Counts and numerical tiers for each finite instance; timeouts retained | Reduce certified scope without silent subsampling |
+| S2.5 selection and search | `robust_bundle_design.py`; nominal, consensus, minimax; one reusable search; equal-budget baselines | Independent scenario oracle and separate locked nominal/minimax gaps | Exact-only claims or exploratory large-pool outputs |
+| S2.6 policies | Scenario-design reprices for Steam and common-unit complete menus for synthetic tests | Complete hashes including costs, anchors, prices, and ties before final access | No final evaluation of incomplete policies |
+| S2.7 independent evaluation | `synthetic_acquisition.py`; locked true-value regret; Steam assessment; paired inference | Registered tradeoffs, out-of-family failures, negative results, and no reselection | Report loss, conservatism, or fragility |
 | S2.8 release | Tables, trace/certificate ledgers, claim index, synthetic reproduction | Clean regeneration and public evidence checks | Publish limitations and unfinished gates honestly |
 
 Before S2.0 closes, assign exact pilot pools and freeze an outcome-independent rule for later
@@ -212,8 +338,10 @@ number of scenario instances. Many variants of one pool do not supply independen
 The heuristic includes no bundle and starts of size at least two because singleton gains can be
 zero while a pair helps. Compare it against an equal objective-evaluation budget random search and
 a simple greedy baseline; also report wall time and memory. Use separate locked gates for SBA and
-SBR. The provisional median 5% and 95th-percentile 20% incremental-gain-loss thresholds in
-planning.md must be finalized before locked results, with all-zero and negligible-gain rules.
+SBR if that supporting comparison is implemented. For nominal SBA, provisional median 5% and
+95th-percentile 20% incremental-gain-loss thresholds must be finalized on development cases before
+locked results, with zero and negligible-gain handling. The minimax search has its own gate using
+the absolute normalized regret-objective gap, never division by a near-zero optimal regret.
 No theoretical approximation guarantee follows from passing this empirical gate.
 
 ## Numerical certificates
@@ -252,9 +380,9 @@ new Stage 1 release admits another family. Choose the exposition transformation 
 reason; global robust softplus is a proposed presentation default because it uses one global
 mapping, but all four results remain equally visible and none is an identified monetary scale.
 
-Run nearby capacities, alternative anchors, strict ties, and positive costs as one-axis
-sensitivities around every primary scenario. Use a small preregistered factorial on representative
-exact pools to check interactions. Freeze all cell IDs in advance and retain failed/infeasible
+The core includes nominal, consensus, and minimax selectors. Run nearby capacities, alternative
+anchors, strict ties, and positive costs on a bounded registered set of representative exact pools.
+Use a small factorial only where it answers a declared question. Freeze all cell IDs and retain failed/infeasible
 rows. Independent cost or tie choices must not be selected after observing which increases gain.
 Do not promise that a smaller panel's exact optimum certifies a larger panel's instance.
 
@@ -279,8 +407,9 @@ pool weights and the same shared-user resampling; overlapping pools are separate
 and cannot be added into portfolio revenue. State whether a summary describes registered pools
 or a wider catalogue population; the present design supports the former.
 
-Choose at most two primary assessment contrasts before access. The primary is SBA minus CP within
-each registered scenario. Label the full robustness grid descriptive or register simultaneous
+Choose at most two primary Steam assessment contrasts before access: minimax versus nominal, and
+SBA versus frozen CP within each scenario. Synthetic true-regret inference has its separate
+environment-replicate contract. Label the full robustness grid descriptive or register simultaneous
 inference if making a multiple-scenario significance claim. Do not count a favorable subset of
 transformations as confirmation. Negative assessment differences remain valid outcomes.
 
@@ -293,19 +422,25 @@ instability with material regret means the modeled recommendation depends strong
 
 ## Final decision register and stopping rule
 
-The future protocol still needs concrete values for: primary pools and capacities; grouping and
+My future protocol still needs concrete values for: the contribution target and uncertainty family;
+synthetic generator and learner information; user/environment splits and replicate counts; common
+units and nominal mapping; primary contrasts and tail summary; search-effort ladder; primary pools
+and capacities; grouping and
 suite-assignment rules; exact time and memory budgets; heuristic start/restart/evaluation budgets;
 anchor-combination budget; strict-tie tick scale; numerical error resolution; bootstrap replicates
 and seed; primary contrasts; and final core/sensitivity cell IDs. Freeze these using metadata,
 synthetic checks, or allowed development evidence as appropriate, before their protected outcomes.
-An incomplete field means S2.0 is not yet complete.
+An incomplete field means I have not completed S2.0.
 
-Stop expansion once the reference semantics pass, the exact frontier and failures are recorded,
-each claimed heuristic has a locked validation result, all registered policies are frozen and
-assessed, and required robustness and reproduction are complete. A failed heuristic gate narrows
-scope. A negative SBA assessment result is publishable. No new model or transformation is selected
-to rescue it. Advanced solvers, joint component pricing, complementarity, robust optimization,
-installed-base demand, and monetary calibration remain later work.
+I will stop expansion once the reference semantics pass, nominal/minimax exact frontiers and
+failures are recorded, each claimed heuristic has a locked result, selectors are independently
+checked, complete menus have locked known-value evaluation, Steam policies are frozen and
+assessed, and required robustness and public reproduction are complete. A failed heuristic gate narrows
+scope. A negative assessment or true-regret result is publishable. I will not select a new model
+or transformation to rescue it. Advanced solvers, joint component pricing, complementarity,
+continuous distributionally robust monetary pricing, installed-base demand, and actual monetary
+calibration remain later work. If private Steam inputs stay unavailable, I can complete the public
+synthetic study but will label the Stage 2 Steam case study unfinished.
 
 ## Primary source and attribution boundary
 

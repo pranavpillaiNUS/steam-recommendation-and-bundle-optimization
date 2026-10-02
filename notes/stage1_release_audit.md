@@ -35,8 +35,7 @@ evidence would reopen the cycle, so I have recorded those fixes for the next cyc
 
 - Kaggle API metadata labels mirror version 1 as `Apache 2.0`, but the upstream page states no
   license and the mirror uploader's authority over every component has not been established.
-  Confirm permission for tracked derived data with the project owner and supervisor before public
-  release.
+  I need to confirm permission for tracked derived data with Dr Li before public release.
 - Confirm that the project and supervisor attribution may be public.
 
 ## Scientific wording amendments
